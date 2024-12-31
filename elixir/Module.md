@@ -667,7 +667,6 @@ This function is generated for all modules. It's similar to `module_info/1` but
 includes some additional Elixir-specific information, such as struct and macro
 information. For documentation, see `c:Module.__info__/1`.
 
-
 ## Types
 
 ### def_kind()
@@ -720,7 +719,6 @@ takes one of the following items:
 
 - `:struct` - (since v1.14.0) if the module defines a struct and if so each field in order
 
-
 ## Functions
 
 ### attributes_in(module)
@@ -746,7 +744,6 @@ This function can only be used on modules that have not yet been compiled.
       #=> true
     end
 
-
 ### concat(list)
 
 ```elixir
@@ -765,7 +762,6 @@ It handles binaries and atoms.
     iex> Module.concat([Foo, "Bar"])
     Foo.Bar
 
-
 ### concat(left, right)
 
 ```elixir
@@ -783,7 +779,6 @@ It handles binaries and atoms.
     
     iex> Module.concat(Foo, "Bar")
     Foo.Bar
-
 
 ### create(module, quoted, opts)
 
@@ -833,7 +828,6 @@ allows you to control the environment variables used
 when defining the module, while `Kernel.defmodule/2`
 automatically uses the environment it is invoked at.
 
-
 ### defines?(module, tuple)
 
 ```elixir
@@ -861,7 +855,6 @@ has been provided. You can check the overridable status by calling
       Module.defines?(__MODULE__, {:version, 0}) #=> true
     end
 
-
 ### defines?(module, tuple, def_kind)
 
 ```elixir
@@ -885,7 +878,6 @@ public functions and macros respectively in compiled modules.
       Module.defines?(__MODULE__, {:version, 0}, :def) #=> true
     end
 
-
 ### defines_type?(module, definition)
 *(since 1.7.0)* 
 ```elixir
@@ -895,7 +887,6 @@ public functions and macros respectively in compiled modules.
 Checks if the current module defines the given type (private, opaque or not).
 
 This function is only available for modules being compiled.
-
 
 ### definitions_in(module)
 
@@ -920,7 +911,6 @@ compiled modules.
       Module.definitions_in(__MODULE__) #=> [{:version, 0}, {:test, 1}]
     end
 
-
 ### definitions_in(module, kind)
 
 ```elixir
@@ -941,7 +931,6 @@ compiled modules.
       Module.definitions_in(__MODULE__, :def)  #=> [{:version, 0}]
       Module.definitions_in(__MODULE__, :defp) #=> []
     end
-
 
 ### delete_attribute(module, key)
 
@@ -965,7 +954,6 @@ but the attribute will still accumulate.
       Module.delete_attribute(__MODULE__, :custom_threshold_for_lib)
     end
 
-
 ### delete_definition(module, arg)
 *(since 1.12.0)* 
 ```elixir
@@ -976,7 +964,6 @@ Deletes a definition from a module.
 
 It returns `true` if the definition exists and it was removed,
 otherwise it returns `false`.
-
 
 ### eval_quoted(module_or_env, quoted, binding \\ [], opts \\ [])
 
@@ -1025,7 +1012,6 @@ compiled modules.
       Module.get_attribute(__MODULE__, :value) #=> [1]
     end
 
-
 ### get_definition(module, arg, options \\ [])
 *(since 1.12.0)* 
 ```elixir
@@ -1058,7 +1044,6 @@ it is versioned and it may change at any time. Therefore,
 - `:skip_clauses` (since v1.14.0) - returns `[]` instead
   of returning the clauses. This is useful when there is
   only an interest in fetching the kind and the metadata
-
 
 ### get_last_attribute(module, key, default \\ nil)
 *(since 1.15.0)* 
@@ -1093,7 +1078,6 @@ compiled modules.
       Module.get_last_attribute(__MODULE__, :acc) #=> 2
     end
 
-
 ### has_attribute?(module, key)
 *(since 1.10.0)* 
 ```elixir
@@ -1125,7 +1109,6 @@ This function can only be used on modules that have not yet been compiled.
       Module.has_attribute?(__MODULE__, :value) #=> false
     end
 
-
 ### make_overridable(module, tuples)
 
 ```elixir
@@ -1144,7 +1127,6 @@ no longer be listed under `definitions_in/1` or return true
 when given to `defines?/2` until another implementation is
 given.
 
-
 ### open?(module)
 
 ```elixir
@@ -1155,7 +1137,6 @@ Checks if a module is open.
 
 A module is "open" if it is currently being defined and its attributes and
 functions can be modified.
-
 
 ### overridable?(module, tuple)
 
@@ -1169,7 +1150,6 @@ at some point.
 Note `overridable?/2` returns `true` even if the definition was
 already overridden. You can use `defines?/2` to see if a definition
 exists or one is pending.
-
 
 ### overridables_in(module)
 *(since 1.13.0)* 
@@ -1196,7 +1176,6 @@ This function can only be used on modules that have not yet been compiled.
       [bar: 0, foo: 0] = Module.overridables_in(__MODULE__) |> Enum.sort()
     end
 
-
 ### put_attribute(module, key, value)
 
 ```elixir
@@ -1210,7 +1189,6 @@ Puts a module attribute with `key` and `value` in the given `module`.
     defmodule MyModule do
       Module.put_attribute(__MODULE__, :custom_threshold_for_lib, 10)
     end
-
 
 ### register_attribute(module, attribute, options)
 
@@ -1248,7 +1226,6 @@ set to accumulate or persist, the behaviour cannot be reverted.
       @custom_threshold_for_lib #=> [20, 10]
     end
 
-
 ### reserved_attributes()
 *(since 1.12.0)* 
 ```elixir
@@ -1268,7 +1245,6 @@ information on each attribute.
     iex> Map.has_key?(map, :doc)
     true
 
-
 ### safe_concat(list)
 
 ```elixir
@@ -1285,7 +1261,6 @@ It handles binaries and atoms.
 
     iex> Module.safe_concat([List, Chars])
     List.Chars
-
 
 ### safe_concat(left, right)
 
@@ -1304,7 +1279,6 @@ It handles binaries and atoms.
     iex> Module.safe_concat(List, Chars)
     List.Chars
 
-
 ### spec_to_callback(module, definition)
 *(since 1.7.0)* 
 ```elixir
@@ -1316,7 +1290,6 @@ Copies the given spec as a callback.
 Returns `true` if there is such a spec and it was copied as a callback.
 If the function associated to the spec has documentation defined prior to
 invoking this function, the docs are copied too.
-
 
 ### split(module)
 
@@ -1338,7 +1311,6 @@ modules (for example, `split(:lists)` raises an error).
     ["Very", "Long", "Module", "Name", "And", "Even", "Longer"]
     iex> Module.split("Elixir.String.Chars")
     ["String", "Chars"]
-
 
 
 

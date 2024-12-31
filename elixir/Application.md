@@ -263,9 +263,9 @@ no-op, except for some system tracing.
 
 Stopping an application with a callback module has three steps:
 
-1.  If present, invoke the optional callback `c:prep_stop/1`.
-2.  Terminate the top-level supervisor.
-3.  Invoke the required callback `c:stop/1`.
+1. If present, invoke the optional callback `c:prep_stop/1`.
+2. Terminate the top-level supervisor.
+3. Invoke the required callback `c:stop/1`.
 
 The arguments passed to the callbacks are related to the state optionally
 returned by `c:start/2`, and are documented in the section about the callback
@@ -308,7 +308,6 @@ For further details on applications please check the documentation of the
 [Applications](https://www.erlang.org/doc/design_principles/applications.html)
 section of the [OTP Design Principles User's
 Guide](https://www.erlang.org/doc/design_principles/users_guide.html).
-
 
 ## Types
 
@@ -374,7 +373,6 @@ be affected.
 Note also that the `:transient` type is of little practical use, since when a
 supervision tree terminates, the reason is set to `:shutdown`, not `:normal`.
 
-
 ### start_type()
 
 ```elixir
@@ -415,7 +413,6 @@ has changed.
 application environment. `new` is a keyword list with all new keys
 and their values. `removed` is a list with all removed keys.
 
-
 ### prep_stop(state)
 *(optional)* 
 ```elixir
@@ -427,7 +424,6 @@ Called before stopping the application.
 This function is called before the top-level supervisor is terminated. It
 receives the state returned by `c:start/2`, if it did, or `[]` otherwise.
 The return value is later passed to `c:stop/1`.
-
 
 ### start(start_type, start_args)
 
@@ -469,7 +465,6 @@ the documentation for the `c:stop/1` callback for more information).
 `use Application` provides no default implementation for the `start/2`
 callback.
 
-
 ### start_phase(phase, start_type, phase_args)
 *(optional)* 
 ```elixir
@@ -483,7 +478,6 @@ This function is called after `start/2` finishes but before
 `Application.start/2` returns. It will be called once for every start phase
 defined in the application's (and any included applications') specification,
 in the order they are listed in.
-
 
 ### stop(state)
 
@@ -504,7 +498,6 @@ value instead.
 
 `use Application` defines a default implementation of this function which does
 nothing and just returns `:ok`.
-
 
 ## Functions
 
@@ -537,7 +530,6 @@ to be the app version and it is removed for the lookup purposes:
 For more information on code paths, check the `Code` module in
 Elixir and also Erlang's [`:code` module](\`:code\`).
 
-
 ### app_dir(app, path)
 
 ```elixir
@@ -560,7 +552,6 @@ will be used as the path inside `app_dir/1`.
     
     Application.app_dir(:foo, ["my", "nested", "path"])
     #=> "foo/my/nested/path"
-
 
 ### compile_env(app, key_or_path, default \\ nil)
 *(since 1.10.0)* *(macro)* 
@@ -609,7 +600,6 @@ default value is used:
 Giving a path is useful to let Elixir know that only certain paths
 in a large configuration are compile time dependent.
 
-
 ### compile_env(env, app, key_or_path, default)
 *(since 1.14.0)* 
 ```elixir
@@ -626,7 +616,6 @@ It expects a `Macro.Env` as first argument, where the `Macro.Env` is
 typically the `__CALLER__` in a macro. It raises if `Macro.Env` comes
 from a function.
 
-
 ### compile_env!(app, key_or_path)
 *(since 1.10.0)* *(macro)* 
 ```elixir
@@ -637,7 +626,6 @@ Reads the application environment at compilation time or raises.
 
 This is the same as `compile_env/3` but it raises an
 `ArgumentError` if the configuration is not available.
-
 
 ### compile_env!(env, app, key_or_path)
 *(since 1.14.0)* 
@@ -656,7 +644,6 @@ It expects a `Macro.Env` as first argument, where the `Macro.Env` is
 typically the `__CALLER__` in a macro. It raises if `Macro.Env` comes
 from a function.
 
-
 ### delete_env(app, key, opts \\ [])
 
 ```elixir
@@ -666,7 +653,6 @@ from a function.
 Deletes the `key` from the given `app` environment.
 
 It receives the same options as `put_env/4`. Returns `:ok`.
-
 
 ### ensure_all_started(app_or_apps, type_or_opts \\ [])
 
@@ -694,7 +680,6 @@ The second argument is either the `t:restart_type/1` (for consistency with
   (`:serial`, default) or concurrently (`:concurrent`). This option requires
   Erlang/OTP 26+.
 
-
 ### ensure_loaded(app)
 *(since 1.10.0)* 
 ```elixir
@@ -706,7 +691,6 @@ Ensures the given `app` is loaded.
 Same as `load/1` but returns `:ok` if the application was already
 loaded.
 
-
 ### ensure_started(app, type \\ :temporary)
 
 ```elixir
@@ -717,7 +701,6 @@ Ensures the given `app` is started with `t:restart_type/0`.
 
 Same as `start/2` but returns `:ok` if the application was already
 started.
-
 
 ### fetch_env(app, key)
 
@@ -741,7 +724,6 @@ If the configuration parameter does not exist, the function returns `:error`.
 > application environment is effectively a global storage. For more information,
 > read our [library guidelines](library-guidelines.md).
 
-
 ### fetch_env!(app, key)
 
 ```elixir
@@ -764,7 +746,6 @@ If the configuration parameter does not exist, raises `ArgumentError`.
 > application environment is effectively a global storage. For more information,
 > read our [library guidelines](library-guidelines.md).
 
-
 ### format_error(reason)
 
 ```elixir
@@ -775,7 +756,6 @@ Formats the error reason returned by `start/2`,
 `ensure_started/2`, `stop/1`, `load/1` and `unload/1`,
 returns a string.
 
-
 ### get_all_env(app)
 
 ```elixir
@@ -783,7 +763,6 @@ returns a string.
 ```
 
 Returns all key-value pairs for `app`.
-
 
 ### get_application(module)
 
@@ -796,7 +775,6 @@ Gets the application for the given module.
 The application is located by analyzing the spec
 of all loaded applications. Returns `nil` if
 the module is not listed in any application spec.
-
 
 ### get_env(app, key, default \\ nil)
 
@@ -851,7 +829,6 @@ module to traverse it, for example:
     config = Application.get_env(:my_app, Databases.RepoOne)
     config[:ip]
 
-
 ### load(app)
 
 ```elixir
@@ -866,7 +843,6 @@ All `:included_applications` will also be loaded.
 Loading the application does not start it nor load its modules, but
 it does load its environment.
 
-
 ### loaded_applications()
 
 ```elixir
@@ -874,7 +850,6 @@ it does load its environment.
 ```
 
 Returns a list with information about the applications which have been loaded.
-
 
 ### put_all_env(config, opts \\ [])
 *(since 1.9.0)* 
@@ -908,7 +883,6 @@ This function receives the same options as `put_env/4`. Returns `:ok`.
       ]
     )
 
-
 ### put_env(app, key, value, opts \\ [])
 
 ```elixir
@@ -936,7 +910,6 @@ The `:persistent` option can be set to `true` when there is a need to guarantee
 parameters set with this function will not be overridden by the ones defined
 in the application resource file on load. This means persistent values will
 stick after the application is loaded and also on application reload.
-
 
 ### spec(app)
 
@@ -967,7 +940,6 @@ specification](https://www.erlang.org/doc/man/app).
 Note the environment is not returned as it can be accessed via
 `fetch_env/2`. Returns `nil` if the application is not loaded.
 
-
 ### spec(app, key)
 
 ```elixir
@@ -979,7 +951,6 @@ Returns the value for `key` in `app`'s specification.
 See `spec/1` for the supported keys. If the given
 specification parameter does not exist, this function
 will raise. Returns `nil` if the application is not loaded.
-
 
 ### start(app, type \\ :temporary)
 
@@ -1000,7 +971,6 @@ returned, where `app` is the name of the missing application.
 In case you want to automatically load **and start** all of `app`'s dependencies,
 see `ensure_all_started/2`.
 
-
 ### started_applications(timeout \\ 5000)
 
 ```elixir
@@ -1010,7 +980,6 @@ see `ensure_all_started/2`.
 ```
 
 Returns a list with information about the applications which are currently running.
-
 
 ### stop(app)
 
@@ -1022,7 +991,6 @@ Stops the given `app`.
 
 When stopped, the application is still loaded.
 
-
 ### unload(app)
 
 ```elixir
@@ -1033,7 +1001,6 @@ Unloads the given `app`.
 
 It will also unload all `:included_applications`.
 Note that the function does not purge the application modules.
-
 
 
 

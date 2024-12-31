@@ -14,7 +14,6 @@ Instead of `MyModule.__behaviour__(:callbacks)`,
 `MyModule.behaviour_info(:callbacks)` can be used. `behaviour_info/1`
 is documented in `Module`.
 
-
 ## Functions
 
 ### defcallback(spec)
@@ -23,13 +22,11 @@ is documented in `Module`.
 This macro is deprecated. Use the @callback module attribute instead.
 Defines a function callback according to the given type specification.
 
-
 ### defmacrocallback(spec)
 *(macro)* 
 
 This macro is deprecated. Use the @macrocallback module attribute instead.
 Defines a macro callback according to the given type specification.
-
 
 
 

@@ -197,7 +197,6 @@ You may invoke:
       args: ["/path/to/program", "a", "b", "c"]
     )
 
-
 ## Types
 
 ### name()
@@ -226,7 +225,6 @@ For more information, see `:erlang.port_close/1`.
 
 Inlined by the compiler.
 
-
 ### command(port, data, options \\ [])
 
 ```elixir
@@ -239,7 +237,6 @@ For more information, see `:erlang.port_command/3`.
 
 Inlined by the compiler.
 
-
 ### connect(port, pid)
 
 ```elixir
@@ -251,7 +248,6 @@ Associates the `port` identifier with a `pid`.
 For more information, see `:erlang.port_connect/2`.
 
 Inlined by the compiler.
-
 
 ### demonitor(monitor_ref, options \\ [])
 *(since 1.6.0)* 
@@ -269,7 +265,6 @@ See `:erlang.demonitor/2` for more information.
 
 Inlined by the compiler.
 
-
 ### info(port)
 
 ```elixir
@@ -279,7 +274,6 @@ Inlined by the compiler.
 Returns information about the `port` (or `nil` if the port is closed).
 
 For more information, see `:erlang.port_info/1`.
-
 
 ### info(port, spec)
 
@@ -292,7 +286,6 @@ the `port` (or `nil` if the port is closed).
 
 For more information, see `:erlang.port_info/2`.
 
-
 ### list()
 
 ```elixir
@@ -302,7 +295,6 @@ For more information, see `:erlang.port_info/2`.
 Returns a list of all ports in the current node.
 
 Inlined by the compiler.
-
 
 ### monitor(port)
 *(since 1.6.0)* 
@@ -328,7 +320,6 @@ See `:erlang.monitor/2` for more information.
 
 Inlined by the compiler.
 
-
 ### open(name, options)
 
 ```elixir
@@ -352,7 +343,6 @@ for the supported `name` values, summarized below:
 For more information and the list of options, see `:erlang.open_port/2`.
 
 Inlined by the compiler.
-
 
 
 

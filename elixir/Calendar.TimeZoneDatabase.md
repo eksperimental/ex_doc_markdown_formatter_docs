@@ -6,7 +6,6 @@ This module defines a behaviour for providing time zone data.
 IANA provides time zone data that includes data about different
 UTC offsets and standard offsets for time zones.
 
-
 ## Types
 
 ### time_zone_period()
@@ -28,7 +27,6 @@ where summer time/daylight saving time is in effect and lasts from spring to aut
 In autumn, the `std_offset` changes along with the `zone_abbr` so a different
 period is needed during winter.
 
-
 ### time_zone_period_limit()
 
 ```elixir
@@ -47,7 +45,6 @@ period for time zones without DST or plans to change. However, for the purpose
 of this behaviour, they are only used for gaps in wall time where the needed
 period limits are at a certain time.
 
-
 ## Callbacks
 
 ### time_zone_period_from_utc_iso_days(iso_days, time_zone)
@@ -62,7 +59,6 @@ Time zone period for a point in time in UTC for a specific time zone.
 
 Takes a time zone name and a point in time for UTC and returns a
 `time_zone_period` for that point in time.
-
 
 ### time_zone_periods_from_wall_datetime(naive_datetime, time_zone)
 *(since 1.8.0)* 
@@ -92,7 +88,6 @@ just after the gap and a datetime (wall time) for when the period begins just af
 
 If there is only a single possible period for the provided `datetime`, then return a tuple
 with `:ok` and the `time_zone_period`.
-
 
 
 

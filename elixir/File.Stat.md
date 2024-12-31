@@ -50,7 +50,6 @@ The time type returned in `atime`, `mtime`, and `ctime` is dependent on the
 time type set in options. `{:time, type}` where type can be `:local`,
 `:universal`, or `:posix`. Default is `:universal`.
 
-
 ## Types
 
 ### t()
@@ -85,7 +84,6 @@ time type set in options. `{:time, type}` where type can be `:local`,
 
 Converts a `:file_info` record into a `File.Stat`.
 
-
 ### to_record(stat)
 
 ```elixir
@@ -93,7 +91,6 @@ Converts a `:file_info` record into a `File.Stat`.
 ```
 
 Converts a `File.Stat` struct to a `:file_info` record.
-
 
 
 

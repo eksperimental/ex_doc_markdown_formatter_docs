@@ -17,7 +17,6 @@ For example, the `t:month/0` type is specified as an integer
 instead of `1..12`. This is because different calendars may
 have a different number of days per month.
 
-
 ## Types
 
 ### calendar()
@@ -27,7 +26,6 @@ have a different number of days per month.
 ```
 
 A calendar implementation.
-
 
 ### date()
 
@@ -42,7 +40,6 @@ A calendar implementation.
 ```
 
 Any map or struct that contains the date fields.
-
 
 ### datetime()
 
@@ -66,7 +63,6 @@ Any map or struct that contains the date fields.
 
 Any map or struct that contains the datetime fields.
 
-
 ### day()
 
 ```elixir
@@ -88,7 +84,6 @@ It represents time as a fraction of a day (starting from midnight).
 `parts_in_day` specifies how much of the day is already passed,
 while `parts_per_day` signifies how many parts are there in a day.
 
-
 ### day_of_era()
 
 ```elixir
@@ -96,7 +91,6 @@ while `parts_per_day` signifies how many parts are there in a day.
 ```
 
 A tuple representing the `day` and the `era`.
-
 
 ### day_of_week()
 
@@ -134,7 +128,6 @@ This is the number of days including the fractional part that has passed of
 the last day since `0000-01-01+00:00T00:00.000000` in ISO 8601 notation (also
 known as *midnight 1 January BC 1* of the proleptic Gregorian calendar).
 
-
 ### microsecond()
 
 ```elixir
@@ -146,7 +139,6 @@ Microseconds with stored precision.
 The precision represents the number of digits that must be used when
 representing the microseconds to external format. If the precision is `0`,
 it means microseconds must be skipped.
-
 
 ### minute()
 
@@ -182,7 +174,6 @@ it means microseconds must be skipped.
 
 Any map or struct that contains the naive datetime fields.
 
-
 ### second()
 
 ```elixir
@@ -201,7 +192,6 @@ The time zone standard offset in ISO seconds (typically not zero in summer times
 
 It must be added to `t:utc_offset/0` to get the total offset from UTC used for "wall time".
 
-
 ### time()
 
 ```elixir
@@ -216,7 +206,6 @@ It must be added to `t:utc_offset/0` to get the total offset from UTC used for "
 
 Any map or struct that contains the time fields.
 
-
 ### time_zone()
 
 ```elixir
@@ -224,7 +213,6 @@ Any map or struct that contains the time fields.
 ```
 
 The time zone ID according to the IANA tz database (for example, `Europe/Zurich`).
-
 
 ### time_zone_database()
 
@@ -251,7 +239,6 @@ or by calling `Calendar.put_time_zone_database/1`.
 See `Calendar.TimeZoneDatabase` for more information on custom
 time zone databases.
 
-
 ### utc_offset()
 
 ```elixir
@@ -261,7 +248,6 @@ time zone databases.
 The time zone UTC offset in ISO seconds for standard time.
 
 See also `t:std_offset/0`.
-
 
 ### week()
 
@@ -287,7 +273,6 @@ See also `t:std_offset/0`.
 
 The time zone abbreviation (for example, `CET` or `CEST` or `BST`).
 
-
 ## Callbacks
 
 ### date_to_string(year, month, day)
@@ -297,7 +282,6 @@ The time zone abbreviation (for example, `CET` or `CEST` or `BST`).
 ```
 
 Converts the date into a string according to the calendar.
-
 
 ### datetime_to_string(
   year,
@@ -331,7 +315,6 @@ Converts the date into a string according to the calendar.
 
 Converts the datetime (with time zone) into a string according to the calendar.
 
-
 ### day_of_era(year, month, day)
 
 ```elixir
@@ -339,7 +322,6 @@ Converts the datetime (with time zone) into a string according to the calendar.
 ```
 
 Calculates the day and era from the given `year`, `month`, and `day`.
-
 
 ### day_of_week(year, month, day, starting_on)
 
@@ -355,7 +337,6 @@ Calculates the day of the week from the given `year`, `month`, and `day`.
 calendars must support at least the `:default` value. They may
 also support other values representing their days of the week.
 
-
 ### day_of_year(year, month, day)
 
 ```elixir
@@ -363,7 +344,6 @@ also support other values representing their days of the week.
 ```
 
 Calculates the day of the year from the given `year`, `month`, and `day`.
-
 
 ### day_rollover_relative_to_midnight_utc()
 
@@ -390,7 +370,6 @@ This day fraction should be in its most simplified form possible, to make compar
 - If in your calendar a new day starts at noon, return `{1, 2}`.
 - If in your calendar a new day starts at sunset, return `{3, 4}`.
 
-
 ### days_in_month(year, month)
 
 ```elixir
@@ -398,7 +377,6 @@ This day fraction should be in its most simplified form possible, to make compar
 ```
 
 Returns how many days there are in the given month of the given year.
-
 
 ### iso_days_to_beginning_of_day(iso_days)
 *(since 1.15.0)* 
@@ -408,7 +386,6 @@ Returns how many days there are in the given month of the given year.
 
 Converts the given `t:iso_days/0` to the first moment of the day.
 
-
 ### iso_days_to_end_of_day(iso_days)
 *(since 1.15.0)* 
 ```elixir
@@ -416,7 +393,6 @@ Converts the given `t:iso_days/0` to the first moment of the day.
 ```
 
 Converts the given `t:iso_days/0` to the last moment of the day.
-
 
 ### leap_year?(year)
 
@@ -430,7 +406,6 @@ A leap year is a year of a longer length than normal. The exact meaning
 is up to the calendar. A calendar must return `false` if it does not support
 the concept of leap years.
 
-
 ### months_in_year(year)
 
 ```elixir
@@ -438,7 +413,6 @@ the concept of leap years.
 ```
 
 Returns how many months there are in the given year.
-
 
 ### naive_datetime_from_iso_days(iso_days)
 
@@ -448,7 +422,6 @@ Returns how many months there are in the given year.
 ```
 
 Converts `t:iso_days/0` to the calendar's datetime format.
-
 
 ### naive_datetime_to_iso_days(year, month, day, hour, minute, second, microsecond)
 
@@ -467,7 +440,6 @@ Converts `t:iso_days/0` to the calendar's datetime format.
 
 Converts the datetime (without time zone) into the `t:iso_days/0` format.
 
-
 ### naive_datetime_to_string(year, month, day, hour, minute, second, microsecond)
 
 ```elixir
@@ -485,7 +457,6 @@ Converts the datetime (without time zone) into the `t:iso_days/0` format.
 
 Converts the naive datetime (without time zone) into a string according to the calendar.
 
-
 ### parse_date(t)
 *(since 1.10.0)* 
 ```elixir
@@ -494,7 +465,6 @@ Converts the naive datetime (without time zone) into a string according to the c
 
 Parses the string representation for a date returned by `c:date_to_string/3`
 into a date tuple.
-
 
 ### parse_naive_datetime(t)
 *(since 1.10.0)* 
@@ -509,7 +479,6 @@ Parses the string representation for a naive datetime returned by
 
 The given string may contain a timezone offset but it is ignored.
 
-
 ### parse_time(t)
 *(since 1.10.0)* 
 ```elixir
@@ -519,7 +488,6 @@ The given string may contain a timezone offset but it is ignored.
 
 Parses the string representation for a time returned by `c:time_to_string/4`
 into a time tuple.
-
 
 ### parse_utc_datetime(t)
 *(since 1.10.0)* 
@@ -536,7 +504,6 @@ Parses the string representation for a datetime returned by
 The returned datetime must be in UTC. The original `utc_offset`
 it was written in must be returned in the result.
 
-
 ### quarter_of_year(year, month, day)
 
 ```elixir
@@ -545,7 +512,6 @@ it was written in must be returned in the result.
 
 Calculates the quarter of the year from the given `year`, `month`, and `day`.
 
-
 ### shift_date(year, month, day, t)
 *(since 1.17.0)* 
 ```elixir
@@ -553,7 +519,6 @@ Calculates the quarter of the year from the given `year`, `month`, and `day`.
 ```
 
 Shifts date by given duration according to its calendar.
-
 
 ### shift_naive_datetime(year, month, day, hour, minute, second, microsecond, t)
 *(since 1.17.0)* 
@@ -572,7 +537,6 @@ Shifts date by given duration according to its calendar.
 
 Shifts naive datetime by given duration according to its calendar.
 
-
 ### shift_time(hour, minute, second, microsecond, t)
 *(since 1.17.0)* 
 ```elixir
@@ -581,7 +545,6 @@ Shifts naive datetime by given duration according to its calendar.
 ```
 
 Shifts time by given duration according to its calendar.
-
 
 ### time_from_day_fraction(day_fraction)
 
@@ -592,7 +555,6 @@ Shifts time by given duration according to its calendar.
 
 Converts `t:day_fraction/0` to the calendar's time format.
 
-
 ### time_to_day_fraction(hour, minute, second, microsecond)
 
 ```elixir
@@ -602,7 +564,6 @@ Converts `t:day_fraction/0` to the calendar's time format.
 
 Converts the given time to the `t:day_fraction/0` format.
 
-
 ### time_to_string(hour, minute, second, microsecond)
 
 ```elixir
@@ -610,7 +571,6 @@ Converts the given time to the `t:day_fraction/0` format.
 ```
 
 Converts the time into a string according to the calendar.
-
 
 ### valid_date?(year, month, day)
 
@@ -620,7 +580,6 @@ Converts the time into a string according to the calendar.
 
 Should return `true` if the given date describes a proper date in the calendar.
 
-
 ### valid_time?(hour, minute, second, microsecond)
 
 ```elixir
@@ -629,7 +588,6 @@ Should return `true` if the given date describes a proper date in the calendar.
 
 Should return `true` if the given time describes a proper time in the calendar.
 
-
 ### year_of_era(year, month, day)
 
 ```elixir
@@ -637,7 +595,6 @@ Should return `true` if the given time describes a proper time in the calendar.
 ```
 
 Calculates the year and era from the given `year`.
-
 
 ## Functions
 
@@ -654,7 +611,6 @@ If two calendars are not compatible, we can only convert datetimes and times
 between them. If they are compatible, this means that we can also convert
 dates as well as naive datetimes between them.
 
-
 ### get_time_zone_database()
 *(since 1.8.0)* 
 ```elixir
@@ -663,7 +619,6 @@ dates as well as naive datetimes between them.
 
 Gets the current time zone database.
 
-
 ### put_time_zone_database(database)
 *(since 1.8.0)* 
 ```elixir
@@ -671,7 +626,6 @@ Gets the current time zone database.
 ```
 
 Sets the current time zone database.
-
 
 ### strftime(date_or_time_or_datetime, string_format, user_options \\ [])
 *(since 1.11.0)* 
@@ -828,7 +782,6 @@ With user options:
     ...>)
     "серпень"
 
-
 ### truncate(microsecond_tuple, atom)
 *(since 1.6.0)* 
 ```elixir
@@ -837,7 +790,6 @@ With user options:
 
 Returns a microsecond tuple truncated to a given precision (`:microsecond`,
 `:millisecond`, or `:second`).
-
 
 
 

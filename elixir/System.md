@@ -63,7 +63,6 @@ times, see the [chapter on time and time
 correction](https://www.erlang.org/doc/apps/erts/time_correction.html)
 in the Erlang docs.
 
-
 ## Types
 
 ### signal()
@@ -101,7 +100,6 @@ represents the "parts per second": the time will be returned in `1 / parts_per_s
 is equivalent to using `1000` as the time unit (as the time will be returned
 in 1/1000 seconds - milliseconds).
 
-
 ## Functions
 
 ### argv()
@@ -114,7 +112,6 @@ Lists command line arguments.
 
 Returns the list of command line arguments passed to the program.
 
-
 ### argv(args)
 
 ```elixir
@@ -125,7 +122,6 @@ Modifies command line arguments.
 
 Changes the list of command line arguments. Use it with caution,
 as it destroys any previous argv information.
-
 
 ### at_exit(fun)
 
@@ -148,7 +144,6 @@ The function must receive the exit status code as an argument.
 
 If the VM terminates programmatically, via `System.stop/1`, `System.halt/1`,
 or exit signals, the `at_exit/1` callbacks are not guaranteed to be executed.
-
 
 ### build_info()
 
@@ -191,7 +186,6 @@ the Elixir version and `otp_release/0` to retrieve the Erlang/OTP release.
       revision: "772a00a0c",
       version: "1.9.0-dev"
     }
-
 
 ### cmd(command, args, opts \\ [])
 
@@ -325,7 +319,6 @@ detailed below:
 If you desire to execute a trusted command inside a shell, with pipes,
 redirecting and so on, please check `shell/2`.
 
-
 ### compiled_endianness()
 
 ```elixir
@@ -333,7 +326,6 @@ redirecting and so on, please check `shell/2`.
 ```
 
 Returns the endianness the system was compiled with.
-
 
 ### convert_time_unit(time, from_unit, to_unit)
 
@@ -358,7 +350,6 @@ To determine how many seconds the `:native` unit represents in your current
 runtime, you can call this function to convert 1 second to the `:native`
 time unit: `System.convert_time_unit(1, :second, :native)`.
 
-
 ### cwd()
 
 ```elixir
@@ -370,7 +361,6 @@ Current working directory.
 Returns the current working directory or `nil` if one
 is not available.
 
-
 ### cwd!()
 
 ```elixir
@@ -380,7 +370,6 @@ This function is deprecated. Use File.cwd!/0 instead.
 Current working directory, exception on error.
 
 Returns the current working directory or raises `RuntimeError`.
-
 
 ### delete_env(varname)
 
@@ -392,7 +381,6 @@ Deletes an environment variable.
 
 Removes the variable `varname` from the environment.
 
-
 ### endianness()
 
 ```elixir
@@ -400,7 +388,6 @@ Removes the variable `varname` from the environment.
 ```
 
 Returns the endianness.
-
 
 ### fetch_env(varname)
 *(since 1.9.0)* 
@@ -421,7 +408,6 @@ where `value` is a string. If `varname` is not set, `:error` is returned.
     iex> System.fetch_env("NOT_SET")
     :error
 
-
 ### fetch_env!(varname)
 *(since 1.9.0)* 
 ```elixir
@@ -441,7 +427,6 @@ not set.
     iex> System.fetch_env!("NOT_SET")
     ** (System.EnvError) could not fetch environment variable "NOT_SET" because it is not set
 
-
 ### find_executable(program)
 
 ```elixir
@@ -456,7 +441,6 @@ operating systems. It also considers the proper executable
 extension for each operating system, so for Windows it will try to
 lookup files with `.com`, `.cmd` or similar extensions.
 
-
 ### get_env()
 
 ```elixir
@@ -467,7 +451,6 @@ Returns all system environment variables.
 
 The returned value is a map containing name-value pairs.
 Variable names and their values are strings.
-
 
 ### get_env(varname, default \\ nil)
 *(since 1.9.0)* 
@@ -494,7 +477,6 @@ is not set, returns the string specified in `default` or
     iex> System.get_env("NOT_SET", "4001")
     "4001"
 
-
 ### get_pid()
 
 ```elixir
@@ -507,7 +489,6 @@ Returns the process identifier of the current Erlang emulator
 in the format most commonly used by the operating system environment.
 
 For more information, see `:os.getpid/0`.
-
 
 ### halt(status \\ 0)
 
@@ -543,7 +524,6 @@ For more information, see `:erlang.halt/1`.
     System.halt(1)
     System.halt(:abort)
 
-
 ### monotonic_time()
 
 ```elixir
@@ -558,7 +538,6 @@ sequential calls of the function may return the same value.
 
 Inlined by the compiler.
 
-
 ### monotonic_time(unit)
 
 ```elixir
@@ -570,7 +549,6 @@ Returns the current monotonic time in the given time unit.
 This time is monotonically increasing and starts in an unspecified
 point in time.
 
-
 ### no_halt()
 *(since 1.9.0)* 
 ```elixir
@@ -579,7 +557,6 @@ point in time.
 
 Checks if the system will halt or not at the end of ARGV processing.
 
-
 ### no_halt(boolean)
 *(since 1.9.0)* 
 ```elixir
@@ -587,7 +564,6 @@ Checks if the system will halt or not at the end of ARGV processing.
 ```
 
 Marks if the system should halt or not at the end of ARGV processing.
-
 
 ### os_time()
 *(since 1.3.0)* 
@@ -604,7 +580,6 @@ with no limitation and is not monotonic.
 
 Inlined by the compiler.
 
-
 ### os_time(unit)
 *(since 1.3.0)* 
 ```elixir
@@ -616,7 +591,6 @@ Returns the current operating system (OS) time in the given time `unit`.
 This time may be adjusted forwards or backwards in time
 with no limitation and is not monotonic.
 
-
 ### otp_release()
 *(since 1.3.0)* 
 ```elixir
@@ -624,7 +598,6 @@ with no limitation and is not monotonic.
 ```
 
 Returns the Erlang/OTP release number.
-
 
 ### pid()
 *(since 1.9.0)* 
@@ -643,7 +616,6 @@ call is used.
 
     System.pid()
 
-
 ### put_env(enum)
 
 ```elixir
@@ -660,7 +632,6 @@ the given keys.
 Overall, this is a convenience wrapper around `put_env/2` and
 `delete_env/2` with support for different key and value formats.
 
-
 ### put_env(varname, value)
 
 ```elixir
@@ -670,7 +641,6 @@ Overall, this is a convenience wrapper around `put_env/2` and
 Sets an environment variable value.
 
 Sets a new `value` for the environment variable `varname`.
-
 
 ### restart()
 *(since 1.9.0)* 
@@ -687,7 +657,6 @@ are closed before the system starts all applications once again.
 
     System.restart()
 
-
 ### schedulers()
 *(since 1.3.0)* 
 ```elixir
@@ -696,7 +665,6 @@ are closed before the system starts all applications once again.
 
 Returns the number of schedulers in the VM.
 
-
 ### schedulers_online()
 *(since 1.3.0)* 
 ```elixir
@@ -704,7 +672,6 @@ Returns the number of schedulers in the VM.
 ```
 
 Returns the number of schedulers online in the VM.
-
 
 ### shell(command, opts \\ [])
 *(since 1.12.0)* 
@@ -747,7 +714,6 @@ It also accepts the following exclusive options:
   on Unix systems, forcing any command that waits on stdin to
   immediately terminate. Defaults to false.
 
-
 ### stacktrace()
 
 
@@ -755,7 +721,6 @@ This function is deprecated. Use __STACKTRACE__ instead.
 Deprecated mechanism to retrieve the last exception stacktrace.
 
 It always return an empty list.
-
 
 ### stop(status \\ 0)
 *(since 1.5.0)* 
@@ -787,7 +752,6 @@ current process until the system effectively shuts down, you can invoke
     System.stop(0)
     System.stop(1)
 
-
 ### system_time()
 
 ```elixir
@@ -802,7 +766,6 @@ them. This time is not monotonic.
 
 Inlined by the compiler.
 
-
 ### system_time(unit)
 
 ```elixir
@@ -814,7 +777,6 @@ Returns the current system time in the given time unit.
 It is the VM view of the `os_time/0`. They may not match in
 case of time warps although the VM works towards aligning
 them. This time is not monotonic.
-
 
 ### time_offset()
 
@@ -831,7 +793,6 @@ See `time_offset/1` for more information.
 
 Inlined by the compiler.
 
-
 ### time_offset(unit)
 
 ```elixir
@@ -846,7 +807,6 @@ offset, added to an Erlang monotonic time (for instance, one obtained with
 `monotonic_time/1`), gives the Erlang system time that corresponds
 to that monotonic time.
 
-
 ### tmp_dir()
 
 ```elixir
@@ -858,14 +818,13 @@ Writable temporary directory.
 Returns a writable temporary directory.
 Searches for directories in the following order:
 
-1.  the directory named by the TMPDIR environment variable
-2.  the directory named by the TEMP environment variable
-3.  the directory named by the TMP environment variable
-4.  `C:\TMP` on Windows or `/tmp` on Unix-like operating systems
-5.  as a last resort, the current working directory
+1. the directory named by the TMPDIR environment variable
+2. the directory named by the TEMP environment variable
+3. the directory named by the TMP environment variable
+4. `C:\TMP` on Windows or `/tmp` on Unix-like operating systems
+5. as a last resort, the current working directory
 
 Returns `nil` if none of the above are writable.
-
 
 ### tmp_dir!()
 
@@ -877,7 +836,6 @@ Writable temporary directory, exception on error.
 
 Same as `tmp_dir/0` but raises `RuntimeError`
 instead of returning `nil` if no temp dir is set.
-
 
 ### trap_signal(signal, id \\ make_ref(), fun)
 *(since 1.12.0)* 
@@ -946,7 +904,6 @@ and it reverts it back to `:default` once all traps are removed
 handled). If you or a library call `:os.set_signal/2` directly,
 it may disable Elixir traps (or Elixir may override your configuration).
 
-
 ### unique_integer(modifiers \\ [])
 
 ```elixir
@@ -975,7 +932,6 @@ will be ignored.
 
 Inlined by the compiler.
 
-
 ### untrap_signal(signal, id)
 *(since 1.12.0)* 
 ```elixir
@@ -983,7 +939,6 @@ Inlined by the compiler.
 ```
 
 Removes a previously registered `signal` with `id`.
-
 
 ### user_home()
 
@@ -994,7 +949,6 @@ Removes a previously registered `signal` with `id`.
 User home directory.
 
 Returns the user home directory (platform independent).
-
 
 ### user_home!()
 
@@ -1007,7 +961,6 @@ User home directory, exception on error.
 Same as `user_home/0` but raises `RuntimeError`
 instead of returning `nil` if no user home is set.
 
-
 ### version()
 
 ```elixir
@@ -1017,7 +970,6 @@ instead of returning `nil` if no user home is set.
 Elixir version information.
 
 Returns Elixir's version as binary.
-
 
 
 

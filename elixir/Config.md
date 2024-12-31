@@ -94,7 +94,6 @@ For runtime configuration, you can use the `config/runtime.exs` file.
 It is executed right before applications start in both Mix and releases
 (assembled with `mix release`).
 
-
 ## Functions
 
 ### config(root_key, opts)
@@ -124,7 +123,6 @@ below
 will have a final configuration for `:logger` of:
 
     [level: :info, backends: [:console], truncate: 1024]
-
 
 ### config(root_key, key, opts)
 *(since 1.9.0)* 
@@ -163,7 +161,6 @@ key in the `:ecto` application of:
     #=>   metadata: [read_only: true, replica: true]
     #=> ]
 
-
 ### config_env()
 *(since 1.11.0)* *(macro)* 
 
@@ -179,7 +176,6 @@ This is most often used to execute conditional code:
       config :my_app, :debug, false
     end
 
-
 ### config_target()
 *(since 1.11.0)* *(macro)* 
 
@@ -191,7 +187,6 @@ This is most often used to execute conditional code:
     if config_target() == :host do
       config :my_app, :debug, false
     end
-
 
 ### import_config(file)
 *(since 1.9.0)* *(macro)* 
@@ -214,7 +209,6 @@ Note, however, some configuration files, such as `config/runtime.exs`
 does not support imports, as they are meant to be copied across
 systems.
 
-
 ### read_config(root_key)
 *(since 1.18.0)* 
 
@@ -236,7 +230,6 @@ If the `root_key` was not configured, it returns `nil`.
     
     # In config/dev.exs
     config :another_app, foo: read_config(:my_app)[:foo] || raise "missing parent configuration"
-
 
 
 

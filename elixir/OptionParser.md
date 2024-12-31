@@ -26,7 +26,6 @@ This module also provides low-level functions, such as `next/2`,
 for parsing switches manually, as well as `split/1` and `to_argv/1`
 for parsing from and converting switches to strings.
 
-
 ## Types
 
 ### argv()
@@ -95,7 +94,6 @@ may return:
   (returned in strict mode when the switch is unknown or on nonexistent atoms)
 
 - `{:error, rest}` - there are no switches at the head of the given `argv`
-
 
 ### parse(argv, opts \\ [])
 
@@ -311,7 +309,6 @@ but that can be changed via the `:return_separator` option:
     iex> OptionParser.parse(["script.exs", "--no-halt", "--", "foo"], return_separator: true, switches: [halt: :boolean])
     {[{:halt, false}], ["script.exs", "--", "foo"], []}
 
-
 ### parse!(argv, opts \\ [])
 
 ```elixir
@@ -348,7 +345,6 @@ If there are no errors, returns a `{parsed, rest}` tuple where:
     -l : Expected type integer, got "xyz"
     -f : Expected type integer, got "bar"
 
-
 ### parse_head(argv, opts \\ [])
 
 ```elixir
@@ -373,7 +369,6 @@ See `parse/2` for more information.
     ...>   switches: [source: :string, verbose: :boolean, unlock: :boolean]
     ...> )
     {[verbose: true, source: "lib"], ["test/enum_test.exs", "--unlock"], []}
-
 
 ### parse_head!(argv, opts \\ [])
 
@@ -412,7 +407,6 @@ If there are no errors, returns a `{parsed, rest}` tuple where:
     --verbose : Missing argument of type integer
     --source : Expected type integer, got "lib"
 
-
 ### split(string)
 
 ```elixir
@@ -431,7 +425,6 @@ way to many shells.
     
     iex> OptionParser.split("foo \"bar baz\"")
     ["foo", "bar baz"]
-
 
 ### to_argv(enum, options \\ [])
 
@@ -464,7 +457,6 @@ types:
     ["--number", "2"]
     iex> OptionParser.to_argv([number: 2], switches: [number: :count])
     ["--number", "--number"]
-
 
 
 

@@ -23,7 +23,6 @@ Additionally, it documents two special forms, `__block__/1` and
 developer but they appear in quoted contents since they are essential
 in Elixir's constructs.
 
-
 ## Functions
 
 ### %struct{}
@@ -96,7 +95,6 @@ its name:
 
     %_{} = user
 
-
 ### %{}
 *(macro)* 
 
@@ -116,7 +114,6 @@ simplicity:
     ...>   %{"a" => :b, c: :d}
     ...> end
     {:%{}, [], [{"a", :b}, {:c, :d}]}
-
 
 ### &amp;expr
 *(macro)* 
@@ -204,7 +201,6 @@ least one placeholder must be present, i.e. it must contain at least
     
     # Block expression, fails to compile.
     &(&1; &2)
-
 
 ### left . right
 *(macro)* 
@@ -328,7 +324,6 @@ one needs to rely on `Module.concat/2`:
     {{:., [], [{:__aliases__, [alias: false], [:Module]}, :concat]}, [],
      [{:__aliases__, [alias: false], [:String]}, Sample]}
 
-
 ### __aliases__(args)
 *(macro)* 
 
@@ -356,13 +351,12 @@ in the list is an atom.
 
 On the other hand, aliases hold some properties:
 
-1.  The head element of aliases can be any term that must expand to
-    an atom at compilation time.
+1. The head element of aliases can be any term that must expand to
+   an atom at compilation time.
 
-2.  The tail elements of aliases are guaranteed to always be atoms.
+2. The tail elements of aliases are guaranteed to always be atoms.
 
-3.  When the head element of aliases is the atom `:Elixir`, no expansion happens.
-
+3. When the head element of aliases is the atom `:Elixir`, no expansion happens.
 
 ### __block__(args)
 *(macro)* 
@@ -381,7 +375,6 @@ and should not be invoked directly:
     ...> end
     {:__block__, [], [1, 2, 3]}
 
-
 ### __CALLER__
 *(macro)* 
 
@@ -390,7 +383,6 @@ Returns the current calling environment as a `Macro.Env` struct.
 
 In the environment you can access the filename, line numbers,
 set up aliases, the function and others.
-
 
 ### __cursor__(args)
 *(macro)* 
@@ -402,7 +394,6 @@ This is the special form used whenever we need to represent
 the cursor position in Elixir's AST. See `Code.Fragment` for
 more information.
 
-
 ### __DIR__
 *(macro)* 
 
@@ -411,7 +402,6 @@ Returns the absolute path of the directory of the current file as a binary.
 
 Although the directory can be accessed as `Path.dirname(__ENV__.file)`,
 this macro is a convenient shortcut.
-
 
 ### __ENV__
 *(macro)* 
@@ -422,7 +412,6 @@ Returns the current environment information as a `Macro.Env` struct.
 In the environment you can access the current filename,
 line numbers, set up aliases, the current function and others.
 
-
 ### __MODULE__
 *(macro)* 
 
@@ -431,7 +420,6 @@ Returns the current module name as an atom or `nil` otherwise.
 
 Although the module can be accessed in the `__ENV__/0`, this macro
 is a convenient shortcut.
-
 
 ### __STACKTRACE__
 *(since 1.7.0)* *(macro)* 
@@ -444,7 +432,6 @@ expressions.
 
 To retrieve the stacktrace of the current process, use
 `Process.info(self(), :current_stacktrace)` instead.
-
 
 ### left :: right
 *(macro)* 
@@ -467,7 +454,6 @@ of a given bit segment:
 Read the documentation on the [Typespecs page](typespecs.md) and
 `<<>>/1` for more information on typespecs and
 bitstrings respectively.
-
 
 ### &lt;&lt;args&gt;&gt;
 *(macro)* 
@@ -690,13 +676,11 @@ To learn more about specific optimizations and performance considerations,
 check out the
 ["Constructing and matching binaries" chapter of the Erlang's Efficiency Guide](https://www.erlang.org/doc/efficiency_guide/binaryhandling.html).
 
-
 ### left = right
 *(macro)* 
 
 
 Match operator. Matches the value on the right against the pattern on the left.
-
 
 ### alias(module, opts)
 *(macro)* 
@@ -758,7 +742,6 @@ was not explicitly defined.
 
 Both warning behaviors could be changed by explicitly
 setting the `:warn` option to `true` or `false`.
-
 
 ### case(condition, clauses)
 *(macro)* 
@@ -856,7 +839,6 @@ clause, it's possible to match against multiple values by using guards:
         "three has been matched"
     end
 
-
 ### cond(clauses)
 *(macro)* 
 
@@ -892,7 +874,6 @@ For this reason, it may be necessary to add a final always-truthy condition
 If your `cond` has two clauses, and the last one falls back to
 `true`, you may consider using `if/2` instead.
 
-
 ### fn(clauses)
 *(macro)* 
 
@@ -916,7 +897,6 @@ should expect the same number of arguments:
     ...> end
     iex> negate.(false)
     true
-
 
 ### for(args)
 *(macro)* 
@@ -1076,7 +1056,6 @@ expression on the right side must return the new accumulator value. Once there a
 elements, the final accumulated value is returned. If there are no elements
 at all, then the initial accumulator value is returned.
 
-
 ### import(module, opts)
 *(macro)* 
 
@@ -1180,7 +1159,6 @@ If two modules `A` and `B` are imported and they both contain
 a `foo` function with an arity of `1`, an error is only emitted
 if an ambiguous call to `foo/1` is actually made; that is, the
 errors are emitted lazily, not eagerly.
-
 
 ### quote(opts, block)
 *(macro)* 
@@ -1706,7 +1684,6 @@ desired variables into the tree:
 In fact, the `:bind_quoted` option is recommended every time
 one desires to inject a value into the quote.
 
-
 ### receive(args)
 *(macro)* 
 
@@ -1764,7 +1741,6 @@ one of the allowed values:
 The `receive/1` special form handles variables exactly as the `case/2`
 special macro. For more information, check the docs for `case/2`.
 
-
 ### require(module, opts)
 *(macro)* 
 
@@ -1792,7 +1768,6 @@ An attempt to call a macro that was not loaded will raise an error.
 `require/2` also accepts `:as` as an option so it automatically sets
 up an alias. Please check `alias/2` for more information.
 
-
 ### super(args)
 *(macro)* 
 
@@ -1800,7 +1775,6 @@ up an alias. Please check `alias/2` for more information.
 Calls the overridden function when overriding it with `Kernel.defoverridable/1`.
 
 See `Kernel.defoverridable/1` for more information and documentation.
-
 
 ### try(args)
 *(macro)* 
@@ -2111,7 +2085,6 @@ is to return the variables defined inside `try`:
         _, _ -> :failed
       end
 
-
 ### unquote(expr)
 *(macro)* 
 
@@ -2166,7 +2139,6 @@ such as a map, you need to call `Macro.escape/1` before:
 If you forget to escape it, Elixir will raise an error
 when compiling the code.
 
-
 ### unquote_splicing(expr)
 *(macro)* 
 
@@ -2182,7 +2154,6 @@ Similar to `unquote/1`.
     ...>   sum(1, unquote_splicing(values), 5)
     ...> end
     {:sum, [], [1, 2, 3, 4, 5]}
-
 
 ### with(args)
 *(macro)* 
@@ -2362,7 +2333,6 @@ of errors, like this:
 Note how the code above is better organized and clearer once we
 make sure each `<-` in `with` returns a normalized format.
 
-
 ### ^var
 *(macro)* 
 
@@ -2395,7 +2365,6 @@ following example will match:
     iex> x
     1
 
-
 ### {args}
 *(macro)* 
 
@@ -2422,7 +2391,6 @@ the `:{}` special form.
     ...>   {1, 2, 3}
     ...> end
     {:{}, [], [1, 2, 3]}
-
 
 
 

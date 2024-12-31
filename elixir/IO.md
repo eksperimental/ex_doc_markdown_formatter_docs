@@ -119,7 +119,6 @@ If we use chardata instead, it will work as expected:
     iex> IO.chardata_to_string(["The symbol for pi is: ", ?π])
     "The symbol for pi is: π"
 
-
 ## Types
 
 ### chardata()
@@ -184,7 +183,6 @@ It returns:
 Note: do not use this function on IO devices in Unicode mode
 as it will return the wrong result.
 
-
 ### binstream()
 *(since 1.12.0)* 
 ```elixir
@@ -196,7 +194,6 @@ Returns a raw, line-based `IO.Stream` on `:stdio`. The operation is Unicode unsa
 This is equivalent to:
 
     IO.binstream(:stdio, :line)
-
 
 ### binstream(device \\ :stdio, line_or_bytes)
 
@@ -227,7 +224,6 @@ it will return the wrong result.
 `binstream/0` has been introduced in Elixir v1.12.0,
 while `binstream/2` has been available since v1.0.0.
 
-
 ### binwrite(device \\ :stdio, iodata)
 
 ```elixir
@@ -249,7 +245,6 @@ Unicode mode as it will write the wrong data. In particular,
 the standard IO device is set to Unicode by default, so writing
 to stdio with this function will likely result in the wrong data
 being sent down the wire.
-
 
 ### chardata_to_string(chardata)
 
@@ -276,7 +271,6 @@ If a string is given, it returns the string itself.
     iex> IO.chardata_to_string("string")
     "string"
 
-
 ### getn(prompt, count \\ 1)
 
 ```elixir
@@ -293,7 +287,6 @@ the number of Unicode code points to be retrieved.
 Otherwise, `count` is the number of raw bytes to be retrieved.
 
 See `IO.getn/3` for a description of return values.
-
 
 ### getn(device, prompt, count)
 
@@ -317,7 +310,6 @@ It returns:
 - `{:error, reason}` - other (rare) error condition;
   for instance, `{:error, :estale}` if reading from an
   NFS volume
-
 
 ### gets(device \\ :stdio, prompt)
 
@@ -345,7 +337,6 @@ Trivia: `gets` is shorthand for `get string`.
 To display "What is your name?" as a prompt and await user input:
 
     IO.gets("What is your name?\n")
-
 
 ### inspect(item, opts \\ [])
 
@@ -404,7 +395,6 @@ Prints:
     before: [1, 2, 3]
     after: [2, 4, 6]
 
-
 ### inspect(device, item, opts)
 
 ```elixir
@@ -414,7 +404,6 @@ Prints:
 Inspects `item` according to the given options using the IO `device`.
 
 See `inspect/2` for a full list of options.
-
 
 ### iodata_length(iodata)
 
@@ -433,7 +422,6 @@ Inlined by the compiler.
 
     iex> IO.iodata_length([1, 2 | <<3, 4>>])
     4
-
 
 ### iodata_to_binary(iodata)
 
@@ -468,7 +456,6 @@ Inlined by the compiler.
     iex> IO.iodata_to_binary(bin)
     <<1, 2, 3>>
 
-
 ### puts(device \\ :stdio, item)
 
 ```elixir
@@ -490,7 +477,6 @@ Trivia: `puts` is shorthand for `put string`.
     
     IO.puts(:stderr, "error")
     #=> error
-
 
 ### read(device \\ :stdio, line_or_chars)
 
@@ -524,7 +510,6 @@ It returns:
   for instance, `{:error, :estale}` if reading from an
   NFS volume
 
-
 ### stream()
 *(since 1.12.0)* 
 ```elixir
@@ -536,7 +521,6 @@ Returns a line-based `IO.Stream` on `:stdio`.
 This is equivalent to:
 
     IO.stream(:stdio, :line)
-
 
 ### stream(device \\ :stdio, line_or_codepoints)
 
@@ -580,7 +564,6 @@ redundant new line characters (`"\n"`):
     |> Enum.take_while(&(&1 != "\n"))
     |> Enum.map(&String.replace(&1, "\n", ""))
 
-
 ### warn(message)
 
 ```elixir
@@ -601,7 +584,6 @@ one expression (or an atom such as `:ok`) follows the `IO.warn/1` call.
     IO.warn("variable bar is unused")
     #=> warning: variable bar is unused
     #=>   (iex) evaluator.ex:108: IEx.Evaluator.eval/4
-
 
 ### warn(message, stacktrace_info)
 
@@ -640,7 +622,6 @@ It returns `:ok` if it succeeds.
     #=> warning: variable bar is unused
     #=>   my_app.ex:4: MyApp.main/1
 
-
 ### write(device \\ :stdio, chardata)
 
 ```elixir
@@ -658,7 +639,6 @@ By default, the `device` is the standard output.
     
     IO.write(:stderr, "error")
     #=> error
-
 
 
 

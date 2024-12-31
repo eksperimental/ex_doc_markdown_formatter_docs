@@ -128,7 +128,6 @@ characters with `ascii_printable?/2`.
 
 Improper lists are never deemed as charlists.
 
-
 ## Functions
 
 ### ascii_printable?(list, limit \\ :infinity)
@@ -177,7 +176,6 @@ Improper lists are not printable, even if made only of ASCII characters:
     iex> List.ascii_printable?(~c"abc" ++ ?d)
     false
 
-
 ### delete(list, element)
 
 ```elixir
@@ -205,7 +203,6 @@ the first occurrence is removed.
     iex> List.delete([], :b)
     []
 
-
 ### delete_at(list, index)
 
 ```elixir
@@ -227,7 +224,6 @@ If `index` is out of bounds, the original `list` is returned.
     
     iex> List.delete_at([1, 2, 3], -1)
     [1, 2]
-
 
 ### duplicate(elem, n)
 
@@ -256,7 +252,6 @@ If `n` is `0`, an empty list is returned.
     iex> List.duplicate([1, 2], 3)
     [[1, 2], [1, 2], [1, 2]]
 
-
 ### ends_with?(list, suffix)
 *(since 1.18.0)* 
 ```elixir
@@ -283,7 +278,6 @@ If `suffix` is an empty list, it returns `true`.
     iex> List.ends_with?([], [:alpha])
     false
 
-
 ### first(list, default \\ nil)
 
 ```elixir
@@ -309,7 +303,6 @@ Returns the first element in `list` or `default` if `list` is empty.
     iex> List.first([1, 2, 3])
     1
 
-
 ### flatten(list)
 
 ```elixir
@@ -327,7 +320,6 @@ Empty list elements are discarded.
     
     iex> List.flatten([[], [[], []]])
     []
-
 
 ### flatten(list, tail)
 
@@ -351,7 +343,6 @@ but not the ones from `tail`.
     iex> List.flatten([1, [], 2], [3, [], 4])
     [1, 2, 3, [], 4]
 
-
 ### foldl(list, acc, fun)
 
 ```elixir
@@ -372,7 +363,6 @@ a function. Requires an accumulator, which can be any value.
     iex> List.foldl([1, 2, 3], {0, 0}, fn x, {a1, a2} -> {a1 + x, a2 - x} end)
     {6, -6}
 
-
 ### foldr(list, acc, fun)
 
 ```elixir
@@ -390,7 +380,6 @@ a function. Requires an accumulator, which can be any value.
     iex> List.foldr([1, 2, 3, 4], %{sum: 0, product: 1}, fn x, %{sum: a1, product: a2} -> %{sum: a1 + x, product: a2 * x} end)
     %{product: 24, sum: 10}
 
-
 ### improper?(list)
 *(since 1.8.0)* 
 ```elixir
@@ -406,7 +395,6 @@ Returns `true` if `list` is an improper list. Otherwise returns `false`.
     
     iex> List.improper?([1, 2, 3])
     false
-
 
 ### insert_at(list, index, value)
 
@@ -433,7 +421,6 @@ indicate an offset from the end of the `list`.
     iex> List.insert_at([1, 2, 3], -10, 0)
     [0, 1, 2, 3]
 
-
 ### keydelete(list, key, position)
 
 ```elixir
@@ -459,7 +446,6 @@ This function works for any list of tuples:
 
     iex> List.keydelete([{22, "SSH"}, {80, "HTTP"}], 80, 0)
     [{22, "SSH"}]
-
 
 ### keyfind(list, key, position, default \\ nil)
 
@@ -489,7 +475,6 @@ This function works for any list of tuples:
     iex> List.keyfind([{22, "SSH"}, {80, "HTTP"}], 22, 0)
     {22, "SSH"}
 
-
 ### keyfind!(list, key, position)
 *(since 1.13.0)* 
 ```elixir
@@ -518,7 +503,6 @@ This function works for any list of tuples:
     iex> List.keyfind!([{22, "SSH"}, {80, "HTTP"}], 22, 0)
     {22, "SSH"}
 
-
 ### keymember?(list, key, position)
 
 ```elixir
@@ -545,7 +529,6 @@ This function works for any list of tuples:
     iex> List.keymember?([{22, "SSH"}, {80, "HTTP"}], 22, 0)
     true
 
-
 ### keyreplace(list, key, position, new_tuple)
 
 ```elixir
@@ -567,7 +550,6 @@ This function works for any list of tuples:
 
     iex> List.keyreplace([{22, "SSH"}, {80, "HTTP"}], 22, 0, {22, "Secure Shell"})
     [{22, "Secure Shell"}, {80, "HTTP"}]
-
 
 ### keysort(list, position, sorter \\ :asc)
 *(since 1.14.0)* 
@@ -631,7 +613,6 @@ do:
       {"Lovelace", ~D[1815-12-10]}
     ]
 
-
 ### keystore(list, key, position, new_tuple)
 
 ```elixir
@@ -655,7 +636,6 @@ This function works for any list of tuples:
 
     iex> List.keystore([{22, "SSH"}], 80, 0, {80, "HTTP"})
     [{22, "SSH"}, {80, "HTTP"}]
-
 
 ### keytake(list, key, position)
 
@@ -685,7 +665,6 @@ This function works for any list of tuples:
     iex> List.keytake([{22, "SSH"}, {80, "HTTP"}], 80, 0)
     {{80, "HTTP"}, [{22, "SSH"}]}
 
-
 ### last(list, default \\ nil)
 
 ```elixir
@@ -710,7 +689,6 @@ Returns the last element in `list` or `default` if `list` is empty.
     
     iex> List.last([1, 2, 3])
     3
-
 
 ### myers_difference(list1, list2)
 *(since 1.4.0)* 
@@ -737,7 +715,6 @@ See `myers_difference/3` if you want to handle nesting in the diff scripts.
     iex> List.myers_difference([1, 4, 2, 3], [1, 2, 3, 4])
     [eq: [1], del: [4], eq: [2, 3], ins: [4]]
 
-
 ### myers_difference(list1, list2, diff_script)
 *(since 1.8.0)* 
 ```elixir
@@ -756,7 +733,6 @@ such script. The returned inner edit script will be under the `:diff` key.
 
     iex> List.myers_difference(["a", "db", "c"], ["a", "bc"], &String.myers_difference/2)
     [eq: ["a"], diff: [del: "d", eq: "b", ins: "c"], del: ["c"]]
-
 
 ### pop_at(list, index, default \\ nil)
 *(since 1.4.0)* 
@@ -779,7 +755,6 @@ If `index` is out of bounds, the original `list` is returned.
     {10, [1, 2, 3]}
     iex> List.pop_at([1, 2, 3], -1)
     {3, [1, 2]}
-
 
 ### replace_at(list, index, value)
 
@@ -805,7 +780,6 @@ If `index` is out of bounds, the original `list` is returned.
     
     iex> List.replace_at([1, 2, 3], -10, 0)
     [1, 2, 3]
-
 
 ### starts_with?(list, prefix)
 *(since 1.5.0)* 
@@ -833,7 +807,6 @@ If `prefix` is an empty list, it returns `true`.
     iex> List.starts_with?([], [:alpha])
     false
 
-
 ### to_atom(charlist)
 
 ```elixir
@@ -854,7 +827,6 @@ Inlined by the compiler.
     
     iex> List.to_atom(~c"🌢 Elixir")
     :"🌢 Elixir"
-
 
 ### to_charlist(list)
 *(since 1.8.0)* 
@@ -879,7 +851,6 @@ the [`:binary` module](\`:binary\`).
     
     iex> List.to_charlist([0x0064, "ee", [~c"p"]])
     ~c"deep"
-
 
 ### to_existing_atom(charlist)
 
@@ -913,7 +884,6 @@ Inlined by the compiler.
     iex> List.to_existing_atom(~c"🌢 Elixir")
     :"🌢 Elixir"
 
-
 ### to_float(charlist)
 
 ```elixir
@@ -929,7 +899,6 @@ Inlined by the compiler.
     iex> List.to_float(~c"2.2017764e+0")
     2.2017764
 
-
 ### to_integer(charlist)
 
 ```elixir
@@ -944,7 +913,6 @@ Inlined by the compiler.
 
     iex> List.to_integer(~c"123")
     123
-
 
 ### to_integer(charlist, base)
 
@@ -965,7 +933,6 @@ The base needs to be between `2` and `36`.
 
     iex> List.to_integer(~c"3FF", 16)
     1023
-
 
 ### to_string(list)
 
@@ -1001,7 +968,6 @@ the [`:binary` module](\`:binary\`).
     iex> List.to_string([])
     ""
 
-
 ### to_tuple(list)
 
 ```elixir
@@ -1016,7 +982,6 @@ Inlined by the compiler.
 
     iex> List.to_tuple([:share, [:elixir, 163]])
     {:share, [:elixir, 163]}
-
 
 ### update_at(list, index, fun)
 
@@ -1043,7 +1008,6 @@ If `index` is out of bounds, the original `list` is returned.
     iex> List.update_at([1, 2, 3], -10, &(&1 + 10))
     [1, 2, 3]
 
-
 ### wrap(term)
 
 ```elixir
@@ -1065,7 +1029,6 @@ If `term` is `nil`, it returns an empty list.
     
     iex> List.wrap(nil)
     []
-
 
 ### zip(list_of_lists)
 

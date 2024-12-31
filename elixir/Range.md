@@ -156,7 +156,6 @@ size of the range. The implementation of the `Enumerable`
 protocol uses logic based solely on the endpoints and does
 not materialize the whole list of integers.
 
-
 ## Types
 
 ### limit()
@@ -237,7 +236,6 @@ Steps are also considered when computing the ranges to be disjoint:
     iex> Range.disjoint?(27..11//-3, 30..0//-7)
     true
 
-
 ### new(first, last)
 
 ```elixir
@@ -259,7 +257,6 @@ explicitly list the step with `new/3`.
     iex> Range.new(-100, 100)
     -100..100
 
-
 ### new(first, last, step)
 *(since 1.12.0)* 
 ```elixir
@@ -272,7 +269,6 @@ Creates a new range with `step`.
 
     iex> Range.new(-100, 100, 2)
     -100..100//2
-
 
 ### shift(arg, steps_to_shift)
 *(since 1.14.0)* 
@@ -293,7 +289,6 @@ Shifts a range by the given number of steps.
     4..14//2
     iex> Range.shift(10..0//-2, 2)
     6..-4//-2
-
 
 ### size(range)
 *(since 1.12.0)* 
@@ -322,7 +317,6 @@ Returns the size of `range`.
     4
     iex> Range.size(10..1//1)
     0
-
 
 ### split(range, split)
 *(since 1.15.0)* 
@@ -413,7 +407,6 @@ Given `split(input)` returns `{left, right}`, we have:
     assert input.step == right.step
     assert Range.size(input) == Range.size(left) + Range.size(right)
 
-
 ### to_list(arg1)
 *(since 1.15.0)* 
 ```elixir
@@ -428,7 +421,6 @@ Converts a range to a list.
     [0, 1, 2, 3, 4, 5]
     iex> Range.to_list(-3..0)
     [-3, -2, -1, 0]
-
 
 
 

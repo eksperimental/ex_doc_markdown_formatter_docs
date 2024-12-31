@@ -285,7 +285,6 @@ capturing the function:
 Those functions will be explicitly marked in their docs as
 "inlined by the compiler".
 
-
 ## Guards
 
 ### left * right
@@ -306,7 +305,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 * 2
     2
 
-
 ### +value
 
 ```elixir
@@ -322,7 +320,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> +1
     1
-
 
 ### left + right
 
@@ -342,7 +339,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 + 2
     3
 
-
 ### -value
 
 ```elixir
@@ -361,7 +357,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> -2
     -2
 
-
 ### left - right
 
 ```elixir
@@ -379,7 +374,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> 1 - 2
     -1
-
 
 ### left / right
 
@@ -410,7 +404,6 @@ Allowed in guard tests. Inlined by the compiler.
     7 / 0
     ** (ArithmeticError) bad argument in arithmetic expression
 
-
 ### left != right
 
 ```elixir
@@ -439,7 +432,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 != 1.0
     false
 
-
 ### left !== right
 
 ```elixir
@@ -466,7 +458,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 !== 1.0
     true
 
-
 ### left &lt; right
 
 ```elixir
@@ -489,7 +480,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 < 2
     true
 
-
 ### left &lt;= right
 
 ```elixir
@@ -511,7 +501,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> 1 <= 2
     true
-
 
 ### left == right
 
@@ -538,7 +527,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> 1 == 1.0
     true
-
 
 ### left === right
 
@@ -570,7 +558,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 === 1.0
     false
 
-
 ### left &gt; right
 
 ```elixir
@@ -592,7 +579,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> 1 > 2
     false
-
 
 ### left &gt;= right
 
@@ -616,7 +602,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> 1 >= 2
     false
 
-
 ### abs(number)
 
 ```elixir
@@ -634,7 +619,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> abs(-3)
     3
-
 
 ### left and right
 *(macro)* 
@@ -659,7 +643,6 @@ Allowed in guard tests.
     
     iex> "yay!" and true
     ** (BadBooleanError) expected a boolean on left-side of "and", got: "yay!"
-
 
 ### binary_part(binary, start, size)
 
@@ -690,7 +673,6 @@ An `ArgumentError` is raised when the `size` is outside of the binary:
     binary_part("Hello", 0, 10)
     ** (ArgumentError) argument error
 
-
 ### bit_size(bitstring)
 
 ```elixir
@@ -708,7 +690,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> bit_size(<<1, 2, 3>>)
     24
-
 
 ### byte_size(bitstring)
 
@@ -731,7 +712,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> byte_size(<<1, 2, 3>>)
     3
-
 
 ### ceil(number)
 *(since 1.8.0)* 
@@ -756,7 +736,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> ceil(-10.1)
     -10
-
 
 ### div(dividend, divisor)
 
@@ -791,7 +770,6 @@ Allowed in guard tests. Inlined by the compiler.
     div(100, 0)
     ** (ArithmeticError) bad argument in arithmetic expression
 
-
 ### elem(tuple, index)
 
 ```elixir
@@ -816,7 +794,6 @@ Allowed in guard tests. Inlined by the compiler.
     elem({:foo, :bar}, 2)
     ** (ArgumentError) argument error
 
-
 ### floor(number)
 *(since 1.8.0)* 
 ```elixir
@@ -840,7 +817,6 @@ Allowed in guard tests. Inlined by the compiler.
     
     iex> floor(-9.7)
     -10
-
 
 ### hd(list)
 
@@ -868,7 +844,6 @@ Giving it an empty list raises:
 
     hd([])
     ** (ArgumentError) argument error
-
 
 ### left in right
 *(macro)* 
@@ -935,7 +910,6 @@ This is the same AST as `not(left in right)`.
 Additionally, `Macro.to_string/2` and `Code.format_string!/2`
 will translate all occurrences of this AST to `left not in right`.
 
-
 ### is_atom(term)
 
 ```elixir
@@ -964,7 +938,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_atom("string")
     false
 
-
 ### is_binary(term)
 
 ```elixir
@@ -984,7 +957,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_binary(<<1::3>>)
     false
 
-
 ### is_bitstring(term)
 
 ```elixir
@@ -1001,7 +973,6 @@ Allowed in guard tests. Inlined by the compiler.
     true
     iex> is_bitstring(<<1::3>>)
     true
-
 
 ### is_boolean(term)
 
@@ -1025,7 +996,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_boolean(:test)
     false
 
-
 ### is_exception(term)
 *(since 1.11.0)* *(macro)* 
 
@@ -1041,7 +1011,6 @@ Allowed in guard tests.
     
     iex> is_exception(%{})
     false
-
 
 ### is_exception(term, name)
 *(since 1.11.0)* *(macro)* 
@@ -1059,7 +1028,6 @@ Allowed in guard tests.
     iex> is_exception(%RuntimeError{}, Macro.Env)
     false
 
-
 ### is_float(term)
 
 ```elixir
@@ -1069,7 +1037,6 @@ Allowed in guard tests.
 Returns `true` if `term` is a floating-point number, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### is_function(term)
 
@@ -1089,7 +1056,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_function("not a function")
     false
 
-
 ### is_function(term, arity)
 
 ```elixir
@@ -1108,7 +1074,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_function(fn x -> x * 2 end, 2)
     false
 
-
 ### is_integer(term)
 
 ```elixir
@@ -1119,7 +1084,6 @@ Returns `true` if `term` is an integer, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
 
-
 ### is_list(term)
 
 ```elixir
@@ -1129,7 +1093,6 @@ Allowed in guard tests. Inlined by the compiler.
 Returns `true` if `term` is a list with zero or more elements, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### is_map(term)
 
@@ -1157,7 +1120,6 @@ Allowed in guard tests. Inlined by the compiler.
 >     iex> is_non_struct_map(1..10)
 >     false
 
-
 ### is_map_key(map, key)
 *(since 1.10.0)* 
 ```elixir
@@ -1178,7 +1140,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> is_map_key(%{a: "foo", b: "bar"}, :c)
     false
 
-
 ### is_nil(term)
 *(macro)* 
 
@@ -1194,7 +1155,6 @@ Allowed in guard clauses.
     
     iex> is_nil(nil)
     true
-
 
 ### is_non_struct_map(term)
 *(since 1.17.0)* *(macro)* 
@@ -1216,7 +1176,6 @@ Allowed in guard tests.
     iex> is_non_struct_map(nil)
     false
 
-
 ### is_number(term)
 
 ```elixir
@@ -1228,7 +1187,6 @@ otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
 
-
 ### is_pid(term)
 
 ```elixir
@@ -1238,7 +1196,6 @@ Allowed in guard tests. Inlined by the compiler.
 Returns `true` if `term` is a PID (process identifier), otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### is_port(term)
 
@@ -1250,7 +1207,6 @@ Returns `true` if `term` is a port identifier, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
 
-
 ### is_reference(term)
 
 ```elixir
@@ -1260,7 +1216,6 @@ Allowed in guard tests. Inlined by the compiler.
 Returns `true` if `term` is a reference, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### is_struct(term)
 *(since 1.10.0)* *(macro)* 
@@ -1277,7 +1232,6 @@ Allowed in guard tests.
     
     iex> is_struct(%{})
     false
-
 
 ### is_struct(term, name)
 *(since 1.11.0)* *(macro)* 
@@ -1299,7 +1253,6 @@ Allowed in guard tests.
     iex> is_struct(URI.parse("/"), Macro.Env)
     false
 
-
 ### is_tuple(term)
 
 ```elixir
@@ -1309,7 +1262,6 @@ Allowed in guard tests.
 Returns `true` if `term` is a tuple, otherwise returns `false`.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### length(list)
 
@@ -1325,7 +1277,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> length([1, 2, 3, 4, 5, 6, 7, 8, 9])
     9
-
 
 ### map_size(map)
 
@@ -1346,7 +1297,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> map_size(%{a: "foo", b: "bar"})
     2
 
-
 ### node()
 
 ```elixir
@@ -1357,7 +1307,6 @@ Returns an atom representing the name of the local node.
 If the node is not alive, `:nonode@nohost` is returned instead.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### node(arg)
 
@@ -1370,7 +1319,6 @@ The argument can be a PID, a reference, or a port.
 If the local node is not alive, `:nonode@nohost` is returned.
 
 Allowed in guard tests. Inlined by the compiler.
-
 
 ### not value
 
@@ -1389,7 +1337,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> not false
     true
-
 
 ### left or right
 *(macro)* 
@@ -1416,7 +1363,6 @@ Allowed in guard tests.
     iex> 42 or false
     ** (BadBooleanError) expected a boolean on left-side of "or", got: 42
 
-
 ### rem(dividend, divisor)
 
 ```elixir
@@ -1439,7 +1385,6 @@ Allowed in guard tests. Inlined by the compiler.
     1
     iex> rem(6, -4)
     2
-
 
 ### round(number)
 
@@ -1473,7 +1418,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> round(-2.5)
     -3
 
-
 ### self()
 
 ```elixir
@@ -1483,7 +1427,6 @@ Allowed in guard tests. Inlined by the compiler.
 Returns the PID (process identifier) of the calling process.
 
 Allowed in guard clauses. Inlined by the compiler.
-
 
 ### tl(list)
 
@@ -1520,7 +1463,6 @@ Giving it an empty list raises:
     tl([])
     ** (ArgumentError) argument error
 
-
 ### trunc(number)
 
 ```elixir
@@ -1542,7 +1484,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> trunc(-5)
     -5
 
-
 ### tuple_size(tuple)
 
 ```elixir
@@ -1559,7 +1500,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> tuple_size({:a, :b, :c})
     3
-
 
 ## Functions
 
@@ -1593,7 +1533,6 @@ Not allowed in guard clauses.
 Note that, unlike `and/2`, this operator accepts any expression
 as the first argument, not only booleans.
 
-
 ### base ** exponent
 *(since 1.13.0)* 
 ```elixir
@@ -1621,7 +1560,6 @@ will also be an integer. Otherwise it returns a float.
     4.0
     iex> 2 ** 2.0
     4.0
-
 
 ### left ++ right
 
@@ -1675,7 +1613,6 @@ As it is equivalent to:
     iex> [1, 2, 3] -- ([1] ++ [2])
     [3]
 
-
 ### left -- right
 
 ```elixir
@@ -1709,7 +1646,6 @@ As it is equivalent to:
     iex> [1, 2, 3] -- ([2] -- [3])
     [1, 3]
 
-
 ### ..
 *(since 1.14.0)* *(macro)* 
 
@@ -1731,7 +1667,6 @@ See `..///3` and the `Range` module for more information.
     
     iex> String.slice("Hello world!", ..)
     "Hello world!"
-
 
 ### first..last
 *(macro)* 
@@ -1759,7 +1694,6 @@ See the `Range` module for more information.
     iex> Enum.to_list(1..3)
     [1, 2, 3]
 
-
 ### first..last//step
 *(since 1.12.0)* *(macro)* 
 
@@ -1786,7 +1720,6 @@ See the `Range` module for more information.
     iex> Enum.to_list(1..0//1)
     []
 
-
 ### !value
 *(macro)* 
 
@@ -1805,7 +1738,6 @@ Not allowed in guard clauses.
     
     iex> !List.first([])
     true
-
 
 ### left &lt;&gt; right
 *(macro)* 
@@ -1828,7 +1760,6 @@ long as the left argument is a literal binary:
     "bar"
 
 `x <> "bar" = "foobar"` would result in an `ArgumentError` exception.
-
 
 ### left =~ right
 
@@ -1867,7 +1798,6 @@ If `right` is a string, returns `true` if `left` contains `right`.
     true
 
 For more information about regular expressions, please check the `Regex` module.
-
 
 ### @expr
 *(macro)* 
@@ -1954,7 +1884,6 @@ reference the module attribute once in a private function:
     def example1, do: files()[:example1]
     def example2, do: files()[:example2]
 
-
 ### alias!(alias)
 *(macro)* 
 
@@ -1964,7 +1893,6 @@ be hygienized. This means the alias will be expanded when
 the macro is expanded.
 
 Check `quote/2` for more information.
-
 
 ### apply(fun, args)
 
@@ -1985,7 +1913,6 @@ Inlined by the compiler.
 
     iex> apply(fn x -> x * 2 end, [2])
     4
-
 
 ### apply(module, function_name, args)
 
@@ -2012,7 +1939,6 @@ Inlined by the compiler.
 
     iex> apply(Enum, :reverse, [[1, 2, 3]])
     [3, 2, 1]
-
 
 ### binary_slice(binary, range)
 *(since 1.14.0)* 
@@ -2077,7 +2003,6 @@ the last position of the range, it returns an empty string:
     iex> binary_slice("a", 1..1500)
     ""
 
-
 ### binary_slice(binary, start, size)
 *(since 1.14.0)* 
 
@@ -2122,7 +2047,6 @@ an empty binary is returned:
     iex> binary_slice("elixir", 10, 10)
     ""
 
-
 ### binding(context \\ nil)
 *(macro)* 
 
@@ -2150,7 +2074,6 @@ current context is returned.
     1
     iex> binding(:foo)
     [x: 1]
-
 
 ### dbg(code \\ quote do
   binding()
@@ -2227,9 +2150,9 @@ key of the `:elixir` application. The debug function must be a
 `{module, function, args}` tuple. The `function` function in `module` will be
 invoked with three arguments *prepended* to `args`:
 
-1.  The AST of `code`
-2.  The AST of `options`
-3.  The `Macro.Env` environment of where `dbg/2` is invoked
+1. The AST of `code`
+2. The AST of `options`
+3. The `Macro.Env` environment of where `dbg/2` is invoked
 
 The debug function is invoked at compile time and it must also return an AST.
 The AST is expected to ultimately return the result of evaluating the debugged
@@ -2257,7 +2180,6 @@ By default, the debug function we use is `Macro.dbg/3`. It just prints
 information about the code to standard output and returns the value
 returned by evaluating `code`. `options` are used to control how terms
 are inspected. They are the same options accepted by `inspect/2`.
-
 
 ### def(call, expr \\ nil)
 *(macro)* 
@@ -2375,7 +2297,6 @@ does (known as "implicit try"). For example, the following two functions are equ
       e in ArgumentError -> {:error, e.message}
     end
 
-
 ### defdelegate(funs, opts)
 *(macro)* 
 
@@ -2413,7 +2334,6 @@ Check `def/2` for rules on naming and default arguments.
     
     MyList.other_reverse([1, 2, 3])
     #=> [3, 2, 1]
-
 
 ### defexception(fields)
 *(macro)* 
@@ -2470,7 +2390,6 @@ In many cases it is more convenient to pass the expected value to
 The example above shows the preferred strategy for customizing
 exception messages.
 
-
 ### defguard(guard)
 *(since 1.6.0)* *(macro)* 
 ```elixir
@@ -2514,7 +2433,6 @@ around boolean-returning guards.
       end
     end
 
-
 ### defguardp(guard)
 *(since 1.6.0)* *(macro)* 
 ```elixir
@@ -2535,7 +2453,6 @@ around boolean-returning guards.
 Similar to `defmacrop/2`, `defguardp/1` must be defined before its use
 in the current module.
 
-
 ### defimpl(name, opts, do_block \\ [])
 *(macro)* 
 
@@ -2543,7 +2460,6 @@ in the current module.
 Defines an implementation for the given protocol.
 
 See the `Protocol` module for more information.
-
 
 ### defmacro(call, expr \\ nil)
 *(macro)* 
@@ -2571,7 +2487,6 @@ Check `def/2` for rules on naming and default arguments.
       IO.puts("It works")
     end
 
-
 ### defmacrop(call, expr \\ nil)
 *(macro)* 
 
@@ -2585,7 +2500,6 @@ Private macros must be defined before its usage.
 
 Check `defmacro/2` for more information, and check `def/2` for rules on
 naming and default arguments.
-
 
 ### defmodule(alias, do_block)
 *(macro)* 
@@ -2685,7 +2599,6 @@ them will result in a compilation error:
 Elixir reserves the following module names: `Elixir`, `Any`, `BitString`,
 `PID`, and `Reference`.
 
-
 ### defoverridable(keywords_or_behaviour)
 *(macro)* 
 
@@ -2778,7 +2691,6 @@ callbacks in the behaviour as overridable:
       end
     end
 
-
 ### defp(call, expr \\ nil)
 *(macro)* 
 
@@ -2807,7 +2719,6 @@ Check `def/2` for more information.
     Foo.sum(1, 2)
     ** (UndefinedFunctionError) undefined function Foo.sum/2
 
-
 ### defprotocol(name, do_block)
 *(macro)* 
 
@@ -2815,7 +2726,6 @@ Check `def/2` for more information.
 Defines a protocol.
 
 See the `Protocol` module for more information.
-
 
 ### defstruct(fields)
 *(macro)* 
@@ -2953,7 +2863,6 @@ matching them or directly accessing their fields should not be allowed) should
 use the `@opaque` attribute. Structs whose internal structure is public should
 use `@type`.
 
-
 ### destructure(left, right)
 *(macro)* 
 
@@ -2988,7 +2897,6 @@ on the left-hand side of a match:
 The example above will only work if `x` matches the first value in the right
 list. Otherwise, it will raise a `MatchError` (like the `=` operator would
 do).
-
 
 ### exit(reason)
 
@@ -3056,7 +2964,6 @@ shut down.
 Any other exit reason will cause the operating system process to exit with
 status `1` and linked Erlang processes to crash.
 
-
 ### function_exported?(module, function, arity)
 
 ```elixir
@@ -3082,7 +2989,6 @@ Inlined by the compiler.
     
     iex> function_exported?(List, :to_string, 1)
     true
-
 
 ### get_and_update_in(path, fun)
 *(macro)* 
@@ -3138,7 +3044,6 @@ Here are some invalid ones:
     
     # Does not access any key or field
     users
-
 
 ### get_and_update_in(data, keys, fun)
 
@@ -3223,7 +3128,6 @@ The `Access` module ships with many convenience accessor functions,
 like the `all` anonymous function defined above. See `Access.all/0`,
 `Access.key/2`, and others as examples.
 
-
 ### get_in(path)
 *(macro)* 
 
@@ -3258,7 +3162,6 @@ expressions, please check `get_and_update_in/2` docs.
     27
     iex> get_in(users["unknown"].age)
     nil
-
 
 ### get_in(data, keys)
 
@@ -3347,7 +3250,6 @@ fields at once or provide custom return values:
       %{} -> nil
     end
 
-
 ### if(condition, clauses)
 *(macro)* 
 
@@ -3396,7 +3298,6 @@ translate to:
 
 If you find yourself nesting conditionals inside conditionals,
 consider using `cond/1`.
-
 
 ### inspect(term, opts \\ [])
 
@@ -3461,7 +3362,6 @@ from structs, so they don't show up in logs, inspects and similar.
 See the "Deriving" section of the documentation of the `Inspect`
 protocol for more information.
 
-
 ### macro_exported?(module, macro, arity)
 
 ```elixir
@@ -3486,7 +3386,6 @@ function always returns `false`.
     iex> macro_exported?(:erlang, :abs, 1)
     false
 
-
 ### make_ref()
 
 ```elixir
@@ -3504,7 +3403,6 @@ Inlined by the compiler.
 
     make_ref()
     #=> #Reference<0.0.0.135>
-
 
 ### match?(pattern, expr)
 *(macro)* 
@@ -3588,7 +3486,6 @@ throws an exception:
     ^attrs = %{x: 1, y: 2}
     #=> (MatchError) no match of right hand side value: %{x: 1, y: 2}
 
-
 ### max(first, second)
 
 ```elixir
@@ -3614,7 +3511,6 @@ Inlined by the compiler.
     iex> max("a", "b")
     "b"
 
-
 ### min(first, second)
 
 ```elixir
@@ -3639,7 +3535,6 @@ Inlined by the compiler.
     1
     iex> min("foo", "bar")
     "bar"
-
 
 ### pop_in(path)
 *(macro)* 
@@ -3673,7 +3568,6 @@ expressions, please check `get_and_update_in/2` docs.
 In case any entry returns `nil`, its key will be removed
 and the deletion will be considered a success.
 
-
 ### pop_in(data, keys)
 
 ```elixir
@@ -3702,7 +3596,6 @@ and the deletion will be considered a success.
     iex> pop_in(users, ["jane", :age])
     {nil, %{"john" => %{age: 27}, "meg" => %{age: 23}}}
 
-
 ### put_elem(tuple, index, value)
 
 ```elixir
@@ -3718,7 +3611,6 @@ Inlined by the compiler.
     iex> tuple = {:foo, :bar, 3}
     iex> put_elem(tuple, 0, :baz)
     {:baz, :bar, 3}
-
 
 ### put_in(path, value)
 *(macro)* 
@@ -3754,7 +3646,6 @@ expressions, please check `get_and_update_in/2` docs.
     iex> put_in(users["john"].age, 28)
     %{"john" => %{age: 28}, "meg" => %{age: 23}}
 
-
 ### put_in(data, keys, value)
 
 ```elixir
@@ -3779,7 +3670,6 @@ If any of the intermediate values are nil, it will raise:
     iex> users = %{"john" => %{age: 27}, "meg" => %{age: 23}}
     iex> put_in(users, ["jane", :age], "oops")
     ** (ArgumentError) could not put/update key :age on a nil value
-
 
 ### raise(message)
 *(macro)* 
@@ -3810,7 +3700,6 @@ exception.
         raise x
     end
 
-
 ### raise(exception, attributes)
 *(macro)* 
 
@@ -3829,7 +3718,6 @@ For more information, see `defexception/1`.
 
     iex> raise(ArgumentError, "Sample")
     ** (ArgumentError) Sample
-
 
 ### reraise(message, stacktrace)
 *(macro)* 
@@ -3851,7 +3739,6 @@ to retrieve the current stacktrace.
         reraise exception, __STACKTRACE__
     end
 
-
 ### reraise(exception, attributes, stacktrace)
 *(macro)* 
 
@@ -3869,7 +3756,6 @@ Raises an exception preserving a previous stacktrace.
       exception ->
         reraise WrapperError, [exception: exception], __STACKTRACE__
     end
-
 
 ### send(dest, message)
 
@@ -3892,7 +3778,6 @@ Inlined by the compiler.
 
     iex> send(self(), :hello)
     :hello
-
 
 ### sigil_C(term, modifiers)
 *(macro)* 
@@ -3923,7 +3808,6 @@ interfacing with older Erlang libraries that do not accept binaries as arguments
     
     iex> ~C(foo\n)
     ~c"foo\\n"
-
 
 ### sigil_c(term, modifiers)
 *(macro)* 
@@ -3965,7 +3849,6 @@ ASCII range:
 
 See `Inspect.Opts` for more information.
 
-
 ### sigil_D(date_string, modifiers)
 *(macro)* 
 
@@ -3996,7 +3879,6 @@ More information on dates can be found in the `Date` module.
 
     iex> ~D[2015-01-13]
     ~D[2015-01-13]
-
 
 ### sigil_N(naive_datetime_string, modifiers)
 *(macro)* 
@@ -4035,7 +3917,6 @@ More information on naive date times can be found in the
     iex> ~N[2015-01-13T13:00:07.001]
     ~N[2015-01-13 13:00:07.001]
 
-
 ### sigil_r(term, modifiers)
 *(macro)* 
 
@@ -4059,7 +3940,6 @@ While the `~r` sigil allows parens and brackets to be used as delimiters,
 it is preferred to use `"` or `/` to avoid escaping conflicts with reserved
 regex characters.
 
-
 ### sigil_S(term, modifiers)
 *(macro)* 
 
@@ -4077,7 +3957,6 @@ characters.
     "f\#{o}o"
     iex> ~S(\o/)
     "\\o/"
-
 
 ### sigil_s(term, modifiers)
 *(macro)* 
@@ -4098,7 +3977,6 @@ and replacing interpolations.
     
     iex> ~s(f\#{:o}o)
     "f\#{:o}o"
-
 
 ### sigil_T(time_string, modifiers)
 *(macro)* 
@@ -4134,7 +4012,6 @@ More information on times can be found in the `Time` module.
     ~T[13:00:07]
     iex> ~T[13:00:07.001]
     ~T[13:00:07.001]
-
 
 ### sigil_U(datetime_string, modifiers)
 *(since 1.9.0)* *(macro)* 
@@ -4175,7 +4052,6 @@ More information on date times can be found in the `DateTime` module.
     iex> ~U[2015-01-13T13:00:07.001+00:00]
     ~U[2015-01-13 13:00:07.001Z]
 
-
 ### sigil_W(term, modifiers)
 *(macro)* 
 
@@ -4195,7 +4071,6 @@ and without escape characters.
 
     iex> ~W(foo #{bar} baz)
     ["foo", "\#{bar}", "baz"]
-
 
 ### sigil_w(term, modifiers)
 *(macro)* 
@@ -4229,7 +4104,6 @@ interpolation happens for each word.
     iex> ~w(foo bar baz)c
     [~c"foo", ~c"bar", ~c"baz"]
 
-
 ### spawn(fun)
 
 ```elixir
@@ -4258,7 +4132,6 @@ Inlined by the compiler.
       {^child, 3} -> IO.puts("Received 3 back")
     end
 
-
 ### spawn(module, fun, args)
 
 ```elixir
@@ -4280,7 +4153,6 @@ Inlined by the compiler.
 #### Examples
 
     spawn(SomeModule, :function, [1, 2, 3])
-
 
 ### spawn_link(fun)
 
@@ -4311,7 +4183,6 @@ Inlined by the compiler.
       {^child, 3} -> IO.puts("Received 3 back")
     end
 
-
 ### spawn_link(module, fun, args)
 
 ```elixir
@@ -4334,7 +4205,6 @@ Inlined by the compiler.
 #### Examples
 
     spawn_link(SomeModule, :function, [1, 2, 3])
-
 
 ### spawn_monitor(fun)
 
@@ -4361,7 +4231,6 @@ Inlined by the compiler.
     current = self()
     spawn_monitor(fn -> send(current, {self(), 1 + 2}) end)
 
-
 ### spawn_monitor(module, fun, args)
 
 ```elixir
@@ -4383,7 +4252,6 @@ Inlined by the compiler.
 #### Examples
 
     spawn_monitor(SomeModule, :function, [1, 2, 3])
-
 
 ### struct(struct, fields \\ [])
 
@@ -4430,7 +4298,6 @@ the appropriate `:__struct__` field into the map may not be enough and
     struct(User, %{"name" => "meg"})
     #=> %User{name: "john"}
 
-
 ### struct!(struct, fields \\ [])
 
 ```elixir
@@ -4451,7 +4318,6 @@ of structs. This means that:
 - when updating a struct, as in `struct!(%SomeStruct{}, key: :value)`,
   it is equivalent to `%SomeStruct{struct | key: :value}` and therefore this
   function will check if every given key-value belongs to the struct.
-
 
 ### tap(value, fun)
 *(since 1.12.0)* *(macro)* 
@@ -4476,7 +4342,6 @@ You could write:
     |> tap(&IO.inspect(&1.a))
     |> Map.update!(:a, & &1 * 2)
 
-
 ### then(value, fun)
 *(since 1.12.0)* *(macro)* 
 
@@ -4498,7 +4363,6 @@ to pipe a value to a function outside of its first argument.
     iex> 1 |> then(fn x -> Enum.drop(["a", "b", "c"], x) end)
     ["b", "c"]
 
-
 ### throw(term)
 
 ```elixir
@@ -4514,7 +4378,6 @@ harder to read. Furthermore, all thrown values must be caught by
 
 Inlined by the compiler.
 
-
 ### to_charlist(term)
 *(macro)* 
 
@@ -4525,7 +4388,6 @@ Converts the given term to a charlist according to the `List.Chars` protocol.
 
     iex> to_charlist(:foo)
     ~c"foo"
-
 
 ### to_string(term)
 *(macro)* 
@@ -4540,7 +4402,6 @@ This is the function invoked when there is string interpolation.
 
     iex> to_string(:foo)
     "foo"
-
 
 ### to_timeout(duration)
 *(since 1.17.0)* 
@@ -4606,7 +4467,6 @@ With a timeout:
     iex> to_timeout(:infinity)
     :infinity
 
-
 ### unless(condition, clauses)
 *(macro)* 
 
@@ -4633,7 +4493,6 @@ See also `if/2`.
     ...>   "Math is broken"
     ...> end
     "Math still works"
-
 
 ### update_in(path, fun)
 *(macro)* 
@@ -4669,7 +4528,6 @@ expressions, please check `get_and_update_in/2` docs.
     iex> update_in(users["john"].age, &(&1 + 1))
     %{"john" => %{age: 28}, "meg" => %{age: 23}}
 
-
 ### update_in(data, keys, fun)
 
 ```elixir
@@ -4701,7 +4559,6 @@ If any of the intermediate values are nil, it will raise:
     iex> users = %{"john" => %{age: 27}, "meg" => %{age: 23}}
     iex> update_in(users, ["jane", :age], & &1 + 1)
     ** (ArgumentError) could not put/update key :age on a nil value
-
 
 ### use(module, opts \\ [])
 *(macro)* 
@@ -4832,7 +4689,6 @@ above is:
     > function, so your module can be used as a child
     > in a supervision tree.
 
-
 ### var!(var, context \\ nil)
 *(macro)* 
 
@@ -4849,7 +4705,6 @@ should not be hygienized. See `quote/2` for more information.
     1
     iex> Kernel.var!(example)
     1
-
 
 ### left |&gt; right
 *(macro)* 
@@ -4922,7 +4777,6 @@ above. By replacing `some_fun` by its value, we get:
 
     "Hello" |> then(&Regex.replace(~r/l/, &1, "L"))
 
-
 ### left || right
 *(macro)* 
 
@@ -4951,7 +4805,6 @@ Not allowed in guard clauses.
 
 Note that, unlike `or/2`, this operator accepts any expression
 as the first argument, not only booleans.
-
 
 
 

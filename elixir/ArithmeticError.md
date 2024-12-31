@@ -10,6 +10,5 @@ For example, this exception is raised if you divide by `0`:
 
 
 
-
 ---
 Built using [ExDoc](https://github.com/elixir-lang/ex_doc "ExDoc") (v0.36.1) for the [Elixir programming language](href="https://elixir-lang.org" "Elixir").

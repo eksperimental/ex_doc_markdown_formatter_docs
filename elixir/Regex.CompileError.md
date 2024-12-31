@@ -5,6 +5,5 @@ An exception raised when a regular expression could not be compiled.
 
 
 
-
 ---
 Built using [ExDoc](https://github.com/elixir-lang/ex_doc "ExDoc") (v0.36.1) for the [Elixir programming language](href="https://elixir-lang.org" "Elixir").

@@ -13,7 +13,6 @@ The following fields are public:
 
 The remaining fields are private and should not be accessed.
 
-
 ## Types
 
 ### t()

@@ -195,7 +195,6 @@ Below is an example tracer that prints all remote function invocations:
       end
     end
 
-
 ## Types
 
 ### binding()
@@ -208,7 +207,6 @@ A list with all variables and their values.
 
 The binding keys are usually atoms, but they may be a tuple for variables
 defined in a different context.
-
 
 ### diagnostic(severity)
 
@@ -242,7 +240,6 @@ the error to. For example, a file `lib/foo.ex` may embed `.eex`
 templates from `lib/foo/bar.eex`. A syntax error on the EEx template
 will point to file `lib/foo/bar.eex` but the source is `lib/foo.ex`.
 
-
 ### line()
 
 ```elixir
@@ -250,7 +247,6 @@ will point to file `lib/foo/bar.eex` but the source is `lib/foo.ex`.
 ```
 
 The line. 0 indicates no line.
-
 
 ### position()
 
@@ -263,7 +259,6 @@ The position of the diagnostic.
 Can be either a line number or a `{line, column}`.
 Line and columns numbers are one-based.
 A position of `0` represents unknown.
-
 
 ## Functions
 
@@ -297,7 +292,6 @@ the path was successfully added.
   the first time it is traversed in order to reduce file system
   operations. It requires Erlang/OTP 26, otherwise it is a no-op.
 
-
 ### append_paths(paths, opts \\ [])
 *(since 1.15.0)* 
 ```elixir
@@ -326,7 +320,6 @@ if you need more control.
   it is traversed in order to reduce file system operations.
   It requires Erlang/OTP 26, otherwise it is a no-op.
 
-
 ### available_compiler_options()
 
 ```elixir
@@ -342,7 +335,6 @@ For a description of all options, see `put_compiler_option/2`.
     Code.available_compiler_options()
     #=> [:docs, :debug_info, ...]
 
-
 ### can_await_module_compilation?()
 *(since 1.11.0)* 
 ```elixir
@@ -356,7 +348,6 @@ used by Mix and `elixirc`, calling a module that has not yet been
 compiled will block the caller until the module becomes available.
 Executing Elixir scripts, such as passing a filename to `elixir`,
 does not await.
-
 
 ### compile_file(file, relative_to \\ nil)
 *(since 1.7.0)* 
@@ -377,7 +368,6 @@ modules defined in it, see `eval_file/2`.
 
 For compiling many files concurrently, see `Kernel.ParallelCompiler.compile/2`.
 
-
 ### compile_quoted(quoted, file \\ &quot;nofile&quot;)
 
 ```elixir
@@ -390,7 +380,6 @@ Returns a list of tuples where the first element is the module name and
 the second one is its bytecode (as a binary). A `file` can be
 given as second argument which will be used for reporting warnings
 and errors.
-
 
 ### compile_string(string, file \\ &quot;nofile&quot;)
 
@@ -411,7 +400,6 @@ compromise the machine (for example by executing system commands).
 Don't use `compile_string/2` with untrusted input (such as strings coming
 from the network).
 
-
 ### compiler_options()
 
 ```elixir
@@ -427,7 +415,6 @@ For a description of all options, see `put_compiler_option/2`.
 
     Code.compiler_options()
     #=> %{debug_info: true, docs: true, ...}
-
 
 ### compiler_options(opts)
 
@@ -450,7 +437,6 @@ Returns a map with previous values.
 
     Code.compiler_options(infer_signatures: false)
     #=> %{infer_signatures: true}
-
 
 ### delete_path(path)
 
@@ -475,7 +461,6 @@ path does not exist, this function returns `false`.
     Code.delete_path("/does_not_exist")
     #=> false
 
-
 ### delete_paths(paths)
 *(since 1.15.0)* 
 ```elixir
@@ -489,7 +474,6 @@ module code. The list of files is managed per Erlang VM node.
 
 The path is expanded with `Path.expand/1` before being deleted. If the
 path does not exist, this function returns `false`.
-
 
 ### ensure_all_loaded(modules)
 *(since 1.15.0)* 
@@ -514,7 +498,6 @@ where `errors` is a list of tuples made of the module and the reason it failed t
     iex> Code.ensure_all_loaded([Atom, DoesNotExist])
     {:error, [{DoesNotExist, :nofile}]}
 
-
 ### ensure_all_loaded!(modules)
 *(since 1.15.0)* 
 ```elixir
@@ -522,7 +505,6 @@ where `errors` is a list of tuples made of the module and the reason it failed t
 ```
 
 Same as `ensure_all_loaded/1` but raises if any of the modules cannot be loaded.
-
 
 ### ensure_compiled(module)
 
@@ -555,7 +537,6 @@ Therefore, if you can only continue if the module is available, use
 
 See the module documentation for more information on code loading.
 
-
 ### ensure_compiled!(module)
 *(since 1.12.0)* 
 ```elixir
@@ -578,7 +559,6 @@ if the other is compiled. This returns a specific unavailable error code,
 where we cannot successfully verify a module is available or not.
 
 See the module documentation for more information on code loading.
-
 
 ### ensure_loaded(module)
 
@@ -606,7 +586,6 @@ See the module documentation for more information on code loading.
     iex> Code.ensure_loaded(DoesNotExist)
     {:error, :nofile}
 
-
 ### ensure_loaded!(module)
 *(since 1.12.0)* 
 ```elixir
@@ -614,7 +593,6 @@ See the module documentation for more information on code loading.
 ```
 
 Same as `ensure_loaded/1` but raises if the module cannot be loaded.
-
 
 ### ensure_loaded?(module)
 
@@ -632,7 +610,6 @@ otherwise.
 
     iex> Code.ensure_loaded?(String)
     true
-
 
 ### env_for_eval(env_or_opts)
 *(since 1.14.0)* 
@@ -661,7 +638,6 @@ If an env is not given, the options can be:
 
 - `:module` - the module to run the environment on
 
-
 ### eval_file(file, relative_to \\ nil)
 
 ```elixir
@@ -675,7 +651,6 @@ Accepts `relative_to` as an argument to tell where the file is located.
 While `require_file/2` and `compile_file/2` return the loaded modules and their
 bytecode, `eval_file/2` simply evaluates the file contents and returns the
 evaluation result and its binding (exactly the same return value as `eval_string/3`).
-
 
 ### eval_quoted(quoted, binding \\ [], env_or_opts \\ [])
 
@@ -712,7 +687,6 @@ all options will be automatically extracted from the current environment:
     iex> Enum.sort(binding)
     [a: 1, b: 2]
 
-
 ### eval_quoted_with_env(quoted, binding, env, opts \\ [])
 *(since 1.14.0)* 
 ```elixir
@@ -735,7 +709,6 @@ must pass the environment that was returned by this function.
   variables used by modules are always pruned, even if later used
   by the modules. You can submit to the `:on_module` tracer event
   and access the variables used by the module from its environment.
-
 
 ### eval_string(string, binding \\ [], opts \\ [])
 
@@ -799,7 +772,6 @@ will be automatically carried over:
     iex> Enum.sort(binding)
     [a: 1, b: 2]
 
-
 ### fetch_docs(module_or_path)
 *(since 1.7.0)* 
 ```elixir
@@ -844,7 +816,6 @@ the chunk is not available.
     iex> Code.fetch_docs(ModuleNotGood)
     {:error, :module_not_found}
 
-
 ### format_file!(file, opts \\ [])
 *(since 1.6.0)* 
 ```elixir
@@ -858,7 +829,6 @@ Formats a file.
 
 See `format_string!/2` for more information on code formatting and
 available options.
-
 
 ### format_string!(string, opts \\ [])
 *(since 1.6.0)* 
@@ -1073,9 +1043,9 @@ listed below:
 
 - Newlines inside blocks are kept as in the input except for:
   
-  1)  expressions that take multiple lines will always have an empty
-      line before and after and 2) empty lines are always squeezed
-      together into a single empty line
+  1) expressions that take multiple lines will always have an empty
+     line before and after and 2) empty lines are always squeezed
+     together into a single empty line
 
 - The choice between `:do` keyword and `do`-`end` blocks is left
   to the user
@@ -1126,10 +1096,10 @@ formatter. To avoid that, just squash everything into a single line.
 Elixir has two syntaxes for function calls. With parens and no parens.
 By default, Elixir will add parens to all calls except for:
 
-1.  calls that have `do`-`end` blocks
-2.  local calls without parens where the name and arity of the local
-    call is also listed under `:locals_without_parens` (except for
-    calls with arity 0, where the compiler always require parens)
+1. calls that have `do`-`end` blocks
+2. local calls without parens where the name and arity of the local
+   call is also listed under `:locals_without_parens` (except for
+   calls with arity 0, where the compiler always require parens)
 
 The choice of parens and no parens also affects indentation. When a
 function call with parens doesn't fit on the same line, the formatter
@@ -1234,7 +1204,6 @@ re-defining functions from the `Kernel`. In such cases, migrations cannot
 be applied blindly and some extra changes might be needed in order to
 address the deprecation warnings.
 
-
 ### get_compiler_option(key)
 *(since 1.10.0)* 
 ```elixir
@@ -1249,7 +1218,6 @@ For a description of all options, see `put_compiler_option/2`.
 
     Code.get_compiler_option(:debug_info)
     #=> true
-
 
 ### loaded?(module)
 *(since 1.15.0)* 
@@ -1269,7 +1237,6 @@ This function doesn't attempt to load the module. For such behavior,
     
     iex> Code.loaded?(NotYetLoaded)
     false
-
 
 ### prepend_path(path, opts \\ [])
 
@@ -1301,7 +1268,6 @@ the path was successfully added.
   the first time it is traversed in order to reduce file system
   operations. It requires Erlang/OTP 26, otherwise it is a no-op.
 
-
 ### prepend_paths(paths, opts \\ [])
 *(since 1.15.0)* 
 ```elixir
@@ -1330,7 +1296,6 @@ if you need more control.
   it is traversed in order to reduce file system operations.
   It requires Erlang/OTP 26, otherwise it is a no-op.
 
-
 ### print_diagnostic(diagnostic, opts \\ [])
 *(since 1.15.0)* 
 ```elixir
@@ -1350,7 +1315,6 @@ or by `Code.with_diagnostics/2`.
 - `:snippet` - whether to read the code snippet in the diagnostic location.
   As it may impact performance, it is not recommended to be used in runtime.
   Defaults to `true`.
-
 
 ### purge_compiler_modules()
 *(since 1.7.0)* 
@@ -1374,7 +1338,6 @@ This function is only meant to be called if you have a long running node
 that is constantly evaluating code.
 
 It returns `{:ok, number_of_modules_purged}`.
-
 
 ### put_compiler_option(key, value)
 *(since 1.10.0)* 
@@ -1460,7 +1423,6 @@ It always returns `:ok`. Raises an error for invalid options.
     Code.put_compiler_option(:debug_info, true)
     #=> :ok
 
-
 ### quoted_to_algebra(quoted, opts \\ [])
 *(since 1.13.0)* 
 ```elixir
@@ -1525,7 +1487,6 @@ important to preserve user choices and comments placing.
 - `:syntax_colors` - a keyword list of colors the output is colorized.
   See `Inspect.Opts` for more information.
 
-
 ### require_file(file, relative_to \\ nil)
 
 ```elixir
@@ -1562,7 +1523,6 @@ If the file has been required, it returns `nil`:
     Code.require_file("eex_test.exs", "../eex/test")
     #=> nil
 
-
 ### required_files()
 *(since 1.7.0)* 
 ```elixir
@@ -1576,7 +1536,6 @@ Lists all required files.
     Code.require_file("../eex/test/eex_test.exs")
     List.first(Code.required_files()) =~ "eex_test.exs"
     #=> true
-
 
 ### string_to_quoted(string, opts \\ [])
 
@@ -1679,7 +1638,6 @@ the AST. It won't be invoked for the following atoms:
 - atoms used to represent single-letter sigils like `:sigil_X`
   (but multi-letter sigils like `:sigil_XYZ` are encoded).
 
-
 ### string_to_quoted!(string, opts \\ [])
 
 ```elixir
@@ -1698,7 +1656,6 @@ in case a token is missing (usually because the expression is incomplete),
 `SyntaxError` otherwise.
 
 Check `string_to_quoted/2` for options information.
-
 
 ### string_to_quoted_with_comments(string, opts \\ [])
 *(since 1.13.0)* 
@@ -1750,7 +1707,6 @@ Check `string_to_quoted/2` for options information.
       %{line: 1, column: 6, previous_eol_count: 0, next_eol_count: 0, text: "# :bar"}
     ]}
 
-
 ### string_to_quoted_with_comments!(string, opts \\ [])
 *(since 1.13.0)* 
 ```elixir
@@ -1767,7 +1723,6 @@ otherwise. The exception is a `TokenMissingError` in case a token is missing
 (usually because the expression is incomplete), `SyntaxError` otherwise.
 
 Check `string_to_quoted/2` for options information.
-
 
 ### unrequire_files(files)
 *(since 1.7.0)* 
@@ -1794,7 +1749,6 @@ The list of files is managed per Erlang VM node.
     # Note that modules are still available
     function_exported?(EExTest.Compiled, :before_compile, 0)
     #=> true
-
 
 ### with_diagnostics(opts \\ [], fun)
 *(since 1.15.0)* 
@@ -1833,7 +1787,6 @@ note they already capture and return diagnostics.
 >           err -> {:error, err}
 >         end
 >       end)
-
 
 
 

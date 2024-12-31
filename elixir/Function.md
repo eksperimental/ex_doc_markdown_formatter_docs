@@ -57,7 +57,6 @@ has an `apply/2` function that invokes a function with a dynamic number of
 arguments, as well as `is_function/1` and `is_function/2`, to check
 respectively if a given value is a function or a function of a given arity.
 
-
 ## Types
 
 ### information()
@@ -95,7 +94,6 @@ Inlined by the compiler.
     iex> Function.capture(String, :length, 1)
     &String.length/1
 
-
 ### identity(value)
 *(since 1.10.0)* 
 ```elixir
@@ -118,7 +116,6 @@ to transformation functions.
     
     iex> Enum.map([1, 2, 3, 4], &Function.identity/1)
     [1, 2, 3, 4]
-
 
 ### info(fun)
 *(since 1.7.0)* 
@@ -179,7 +176,6 @@ Inlined by the compiler.
     iex> Keyword.get(info, :name)
     :length
 
-
 ### info(fun, item)
 *(since 1.7.0)* 
 ```elixir
@@ -217,7 +213,6 @@ Inlined by the compiler.
     {:name, :length}
     iex> Function.info(fun, :pid)
     {:pid, :undefined}
-
 
 
 

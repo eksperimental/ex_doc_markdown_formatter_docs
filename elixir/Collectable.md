@@ -66,7 +66,6 @@ So now we can call `Enum.into/2`:
     iex> Enum.into([1, 2, 3], MapSet.new())
     MapSet.new([1, 2, 3])
 
-
 ## Types
 
 ### command()
@@ -84,7 +83,6 @@ So now we can call `Enum.into/2`:
 ```
 
 All the types that implement this protocol.
-
 
 ## Functions
 
@@ -112,7 +110,6 @@ can return any value as it won't be used.
 
 For examples on how to use the `Collectable` protocol and `into/1` see the
 module documentation.
-
 
 
 

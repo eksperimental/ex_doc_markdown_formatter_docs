@@ -79,7 +79,6 @@ The following fields are available:
   own line. If you don't want to limit the number of items to a particular
   number, use `:infinity`. Defaults to `80`.
 
-
 ## Types
 
 ### color_key()
@@ -122,7 +121,6 @@ The following fields are available:
 
 Returns the default inspect function.
 
-
 ### default_inspect_fun(fun)
 *(since 1.13.0)* 
 ```elixir
@@ -158,7 +156,6 @@ The default is `Inspect.inspect/2`.
         previous_fun.(value, opts)
     end)
 
-
 ### new(opts)
 *(since 1.13.0)* 
 ```elixir
@@ -166,7 +163,6 @@ The default is `Inspect.inspect/2`.
 ```
 
 Builds an `Inspect.Opts` struct.
-
 
 
 

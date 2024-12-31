@@ -11,7 +11,6 @@ Some functions that work on integers are found in `Kernel`:
 - `Kernel.min/2`
 - `Kernel.rem/2`
 
-
 ## Guards
 
 ### is_even(integer)
@@ -39,7 +38,6 @@ Allowed in guard clauses.
     iex> Integer.is_even(0)
     true
 
-
 ### is_odd(integer)
 *(macro)* 
 
@@ -65,7 +63,6 @@ Allowed in guard clauses.
     iex> Integer.is_odd(0)
     false
 
-
 ## Functions
 
 ### digits(integer, base \\ 10)
@@ -89,7 +86,6 @@ digits. This one must be an integer \>= 2.
     
     iex> Integer.digits(-170, 2)
     [-1, 0, -1, 0, -1, 0, -1, 0]
-
 
 ### extended_gcd(a, b)
 *(since 1.12.0)* 
@@ -127,7 +123,6 @@ By convention, `extended_gcd(0, 0)` returns `{0, 0, 0}`.
     iex> Integer.extended_gcd(0, 0)
     {0, 0, 0}
 
-
 ### floor_div(dividend, divisor)
 *(since 1.4.0)* 
 ```elixir
@@ -153,7 +148,6 @@ use `Kernel.div/2` instead.
     -2
     iex> Integer.floor_div(-99, 2)
     -50
-
 
 ### gcd(integer1, integer2)
 *(since 1.5.0)* 
@@ -188,7 +182,6 @@ By convention, `gcd(0, 0)` returns `0`.
     iex> Integer.gcd(0, 0)
     0
 
-
 ### mod(dividend, divisor)
 *(since 1.4.0)* 
 ```elixir
@@ -209,7 +202,6 @@ integer, or when the `divisor` is `0`.
     1
     iex> Integer.mod(6, -4)
     -2
-
 
 ### parse(binary, base \\ 10)
 
@@ -256,7 +248,6 @@ If you want to convert a string-formatted integer directly to an integer,
     iex> Integer.parse("a2", 38)
     ** (ArgumentError) invalid base 38
 
-
 ### pow(base, exponent)
 *(since 1.12.0)* 
 ```elixir
@@ -297,7 +288,6 @@ exponents as well as floats.
     iex> Integer.pow(2, -2)
     ** (ArithmeticError) bad argument in arithmetic expression
 
-
 ### to_charlist(integer, base \\ 10)
 
 ```elixir
@@ -334,7 +324,6 @@ Inlined by the compiler.
     
     iex> Integer.to_charlist(882_681_651, 36)
     ~c"ELIXIR"
-
 
 ### to_string(integer, base \\ 10)
 
@@ -373,7 +362,6 @@ Inlined by the compiler.
     iex> Integer.to_string(882_681_651, 36)
     "ELIXIR"
 
-
 ### undigits(digits, base \\ 10)
 
 ```elixir
@@ -395,7 +383,6 @@ Base has to be an integer greater than or equal to `2`.
     
     iex> Integer.undigits([])
     0
-
 
 
 

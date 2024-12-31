@@ -37,17 +37,17 @@ to the caller with the result.
 
 There are two important things to consider when using `async`:
 
-1.  If you are using async tasks, you **must await** a reply
-    as they are *always* sent. If you are not expecting a reply,
-    consider using `Task.start_link/1` as detailed below.
+1. If you are using async tasks, you **must await** a reply
+   as they are *always* sent. If you are not expecting a reply,
+   consider using `Task.start_link/1` as detailed below.
 
-2.  Async tasks link the caller and the spawned process. This
-    means that, if the caller crashes, the task will crash
-    too and vice-versa. This is on purpose: if the process
-    meant to receive the result no longer exists, there is
-    no purpose in completing the computation. If this is not
-    desired, you will want to use supervised tasks, described
-    in a subsequent section.
+2. Async tasks link the caller and the spawned process. This
+   means that, if the caller crashes, the task will crash
+   too and vice-versa. This is on purpose: if the process
+   meant to receive the result no longer exists, there is
+   no purpose in completing the computation. If this is not
+   desired, you will want to use supervised tasks, described
+   in a subsequent section.
 
 ## Tasks are processes
 
@@ -257,7 +257,6 @@ called by `pid1`.
 If a task crashes, the callers field is included as part of the log message
 metadata under the `:callers` key.
 
-
 ## Types
 
 ### async_stream_option()
@@ -273,7 +272,6 @@ metadata under the `:callers` key.
 
 Options given to `async_stream` functions.
 
-
 ### ref()
 
 ```elixir
@@ -281,7 +279,6 @@ Options given to `async_stream` functions.
 ```
 
 The task opaque reference.
-
 
 ### t()
 
@@ -292,7 +289,6 @@ The task opaque reference.
 The Task type.
 
 See [`%Task{}`](\`__struct__/0\`) for information about each field of the structure.
-
 
 ## Functions
 
@@ -313,7 +309,6 @@ It contains these fields:
   specifically assigned for the task
 
 - `:ref` - an opaque term used as the task monitor reference
-
 
 ### async(fun)
 
@@ -392,7 +387,6 @@ its `:mfa` metadata field, which is used internally to apply
 the anonymous function. Use `async/3` if you want another function
 to be used as metadata.
 
-
 ### async(module, function_name, args)
 
 ```elixir
@@ -405,7 +399,6 @@ Similar to `async/1` except the function to be started is
 specified by the given `module`, `function_name`, and `args`.
 The `module`, `function_name`, and its arity are stored as
 a tuple in the `:mfa` field for reflection purposes.
-
 
 ### async_stream(enumerable, fun, options \\ [])
 *(since 1.4.0)* 
@@ -434,7 +427,6 @@ Count the code points in each string asynchronously, then add the counts togethe
     47
 
 See `async_stream/5` for discussion, options, and more examples.
-
 
 ### async_stream(enumerable, module, function_name, args, options \\ [])
 *(since 1.4.0)* 
@@ -575,7 +567,6 @@ You can also set the number of elements to take to be a multiple of
 `:max_concurrency`. For instance, setting `max_concurrency: 5` in the
 example above.
 
-
 ### await(task, timeout \\ 5000)
 
 ```elixir
@@ -683,7 +674,6 @@ above and the GenServer in your supervision tree:
     
     Supervisor.start_link(children, strategy: :one_for_one)
 
-
 ### await_many(tasks, timeout \\ 5000)
 *(since 1.11.0)* 
 ```elixir
@@ -728,7 +718,6 @@ such as `GenServer`. See `await/2` for more information.
     iex> Task.await_many(tasks)
     [2, 5]
 
-
 ### child_spec(arg)
 *(since 1.5.0)* 
 ```elixir
@@ -742,7 +731,6 @@ of the spec.
 
 For more information, see the `Supervisor` module,
 the `Supervisor.child_spec/2` function and the `t:Supervisor.child_spec/0` type.
-
 
 ### completed(result)
 *(since 1.13.0)* 
@@ -780,7 +768,6 @@ result directly.  You should generally only require this variant when working
 with mixed asynchrony, when a group of inputs will be handled partially
 synchronously and partially asynchronously.
 
-
 ### ignore(task)
 *(since 1.13.0)* 
 ```elixir
@@ -798,7 +785,6 @@ Returns `{:ok, reply}` if the reply is received before ignoring the task,
 Important: avoid using [`Task.async/1,3`](\`async/1\`) and then immediately ignoring
 the task. If you want to start tasks you don't care about their
 results, use `Task.Supervisor.start_child/2` instead.
-
 
 ### shutdown(task, shutdown \\ 5000)
 
@@ -833,7 +819,6 @@ If a task's monitor has already been demonitored or received and there is not
 a response waiting in the message queue this function will return
 `{:exit, :noproc}` as the result or exit reason can not be determined.
 
-
 ### start(fun)
 
 ```elixir
@@ -853,7 +838,6 @@ if the task was not completed. For this reason, we recommend
 to use `Task.Supervisor.start_child/2` instead, which allows
 you to control the shutdown time via the `:shutdown` option.
 
-
 ### start(module, function_name, args)
 
 ```elixir
@@ -871,7 +855,6 @@ if the task was not completed. For this reason, we recommend
 to use `Task.Supervisor.start_child/2` instead, which allows
 you to control the shutdown time via the `:shutdown` option.
 
-
 ### start_link(fun)
 
 ```elixir
@@ -884,7 +867,6 @@ Starts a task as part of a supervision tree with the given `fun`.
 
 This is used to start a statically supervised task under a supervision tree.
 
-
 ### start_link(module, function, args)
 
 ```elixir
@@ -895,7 +877,6 @@ Starts a task as part of a supervision tree with the given
 `module`, `function`, and `args`.
 
 This is used to start a statically supervised task under a supervision tree.
-
 
 ### yield(task, timeout \\ 5000)
 
@@ -953,7 +934,6 @@ you can chain this together with `ignore/1`, like so:
 That ensures that if the task completes after the `timeout` but before `shutdown/1`
 has been called, you will still get the result, since `shutdown/1` is designed to
 handle this case and return the result.
-
 
 ### yield_many(tasks, opts \\ [])
 
@@ -1048,7 +1028,6 @@ to this:
     awaited on, yielded on, ignored, or shut down later.
   - `:ignore` - the results of the task will be ignored.
   - `:kill_task` - the task that timed out is killed.
-
 
 
 

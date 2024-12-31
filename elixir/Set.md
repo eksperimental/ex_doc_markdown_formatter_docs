@@ -6,7 +6,6 @@ Generic API for sets.
 
 This module is deprecated, use the `MapSet` module instead.
 
-
 ## Types
 
 ### t()

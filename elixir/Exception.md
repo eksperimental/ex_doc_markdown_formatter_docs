@@ -19,7 +19,6 @@ in order to better suit Elixir's tool chain. In other words,
 by using the functions in this module it is guaranteed you will
 format exceptions as in the current Elixir version being used.
 
-
 ## Types
 
 ### arity_or_args()
@@ -37,7 +36,6 @@ format exceptions as in the current Elixir version being used.
 ```
 
 The kind handled by formatting functions
-
 
 ### location()
 
@@ -85,7 +83,6 @@ The kind handled by formatting functions
 
 The exception type
 
-
 ## Callbacks
 
 ### blame(t, stacktrace)
@@ -99,7 +96,6 @@ Called from `Exception.blame/3` to augment the exception struct.
 Can be used to collect additional information about the exception
 or do some additional expensive computation.
 
-
 ### exception(term)
 
 ```elixir
@@ -110,7 +106,6 @@ Receives the arguments given to `raise/2` and returns the exception struct.
 
 The default implementation accepts either a set of keyword arguments
 that is merged into the struct or a string to be used as the exception's message.
-
 
 ### message(t)
 
@@ -123,7 +118,6 @@ Receives the exception struct and must return its message.
 Many exceptions have a message field which by default is accessed
 by this function. However, if an exception does not have a message field,
 this function must be explicitly implemented.
-
 
 ## Functions
 
@@ -143,7 +137,6 @@ so on.
 
 If the exception module implements the optional `c:blame/2`
 callback, it will be invoked to perform the computation.
-
 
 ### blame_mfa(module, function, args)
 *(since 1.5.0)* 
@@ -165,7 +158,6 @@ is wrapped in a tuple with blame metadata.
 This function returns either `{:ok, definition, clauses}` or `:error`.
 Where `definition` is `:def`, `:defp`, `:defmacro` or `:defmacrop`.
 
-
 ### format(kind, payload, stacktrace \\ [])
 
 ```elixir
@@ -179,7 +171,6 @@ to generate the final format.
 
 If `kind` is `{:EXIT, pid}`, it does not generate a stacktrace,
 as such exits are retrieved as messages without stacktraces.
-
 
 ### format_banner(kind, exception, stacktrace \\ [])
 
@@ -196,7 +187,6 @@ The third argument is the stacktrace which is used to enrich
 a normalized error with more information. It is only used when
 the kind is an error.
 
-
 ### format_exit(reason)
 
 ```elixir
@@ -209,7 +199,6 @@ Often there are errors/exceptions inside exits. Exits are often
 wrapped by the caller and provide stacktraces too. This function
 formats exits in a way to nicely show the exit reason, caller
 and stacktrace.
-
 
 ### format_fa(fun, arity)
 
@@ -224,7 +213,6 @@ shown in stacktraces. The arity may also be a list of arguments.
 
     Exception.format_fa(fn -> nil end, 1)
     #=> "#Function<...>/1"
-
 
 ### format_file_line(file, line, suffix \\ &quot;&quot;)
 
@@ -247,7 +235,6 @@ If any of the values are `nil`, they are omitted.
     
     iex> Exception.format_file_line(nil, nil)
     ""
-
 
 ### format_file_line_column(file, line, column, suffix \\ &quot;&quot;)
 
@@ -281,7 +268,6 @@ If any of the values are `nil`, they are omitted.
     iex> Exception.format_file_line_column(nil, nil, nil)
     ""
 
-
 ### format_mfa(module, fun, arity)
 
 ```elixir
@@ -307,7 +293,6 @@ Anonymous functions are reported as -func/arity-anonfn-count-,
 where func is the name of the enclosing function. Convert to
 "anonymous fn in func/arity"
 
-
 ### format_stacktrace(trace \\ nil)
 
 ```elixir
@@ -319,7 +304,6 @@ Formats the stacktrace.
 A stacktrace must be given as an argument. If not, the stacktrace
 is retrieved from `Process.info/2`.
 
-
 ### format_stacktrace_entry(entry)
 
 ```elixir
@@ -328,7 +312,6 @@ is retrieved from `Process.info/2`.
 
 Receives a stacktrace entry and formats it into a string.
 
-
 ### message(exception)
 
 ```elixir
@@ -336,7 +319,6 @@ Receives a stacktrace entry and formats it into a string.
 ```
 
 Gets the message for an `exception`.
-
 
 ### normalize(kind, payload, stacktrace \\ [])
 
@@ -355,7 +337,6 @@ for others.
 The third argument is the stacktrace which is used to enrich
 a normalized error with more information. It is only used when
 the kind is an error.
-
 
 
 

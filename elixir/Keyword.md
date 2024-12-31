@@ -96,7 +96,6 @@ arguments in Elixir syntax, this property is also available to them:
     iex> %{1 => 2, foo: :bar}
     %{1 => 2, :foo => :bar}
 
-
 ## Types
 
 ### default()
@@ -162,7 +161,6 @@ duplicate keys.
     iex> Keyword.delete([b: 2], :a)
     [b: 2]
 
-
 ### delete_first(keywords, key)
 
 ```elixir
@@ -179,7 +177,6 @@ If the `key` does not exist, it returns the keyword list unchanged.
     [b: 2, a: 3]
     iex> Keyword.delete_first([b: 2], :a)
     [b: 2]
-
 
 ### drop(keywords, keys)
 
@@ -199,7 +196,6 @@ Removes duplicate keys from the new keyword list.
     [a: 1, c: 3]
     iex> Keyword.drop([a: 1, b: 2, b: 3, c: 3, a: 5], [:b, :d])
     [a: 1, c: 3, a: 5]
-
 
 ### equal?(left, right)
 
@@ -227,7 +223,6 @@ which means integers are not equivalent to floats:
     iex> Keyword.equal?([a: 1.0], [a: 1])
     false
 
-
 ### fetch(keywords, key)
 
 ```elixir
@@ -244,7 +239,6 @@ If the `key` does not exist, it returns `:error`.
     {:ok, 1}
     iex> Keyword.fetch([a: 1], :b)
     :error
-
 
 ### fetch!(keywords, key)
 
@@ -263,7 +257,6 @@ If the `key` does not exist, it raises a `KeyError`.
     iex> Keyword.fetch!([a: 1], :b)
     ** (KeyError) key :b not found in: [a: 1]
 
-
 ### filter(keywords, fun)
 *(since 1.13.0)* 
 ```elixir
@@ -281,7 +274,6 @@ returns a truthy value.
     iex> Keyword.filter([one: 1, two: 2, three: 3], fn {_key, val} -> rem(val, 2) == 1 end)
     [one: 1, three: 3]
 
-
 ### from_keys(keys, value)
 *(since 1.14.0)* 
 ```elixir
@@ -296,7 +288,6 @@ Builds a keyword from the given `keys` and the fixed `value`.
     [foo: :atom, bar: :atom, baz: :atom]
     iex> Keyword.from_keys([], :atom)
     []
-
 
 ### get(keywords, key, default \\ nil)
 
@@ -329,7 +320,6 @@ With duplicate keys:
     1
     iex> Keyword.get([a: 1, a: 2], :b, 3)
     3
-
 
 ### get_and_update(keywords, key, fun)
 
@@ -375,7 +365,6 @@ Returns a tuple that contains the current value returned by
     iex> Keyword.get_and_update([a: 1], :b, fn _ -> :pop end)
     {nil, [a: 1]}
 
-
 ### get_and_update!(keywords, key, fun)
 
 ```elixir
@@ -412,7 +401,6 @@ Returns a tuple that contains the current value returned by
     ...> end)
     {1, []}
 
-
 ### get_lazy(keywords, key, fun)
 
 ```elixir
@@ -441,7 +429,6 @@ Use `get_values/2` to retrieve all entries.
     iex> Keyword.get_lazy(keyword, :b, fun)
     13
 
-
 ### get_values(keywords, key)
 
 ```elixir
@@ -459,7 +446,6 @@ Gets all values under a specific `key`.
     iex> Keyword.get_values([a: 1, a: 2], :a)
     [1, 2]
 
-
 ### has_key?(keywords, key)
 
 ```elixir
@@ -474,7 +460,6 @@ Returns whether a given `key` exists in the given `keywords`.
     true
     iex> Keyword.has_key?([a: 1], :b)
     false
-
 
 ### intersect(keyword1, keyword2, fun \\ fn _key, _v1, v2 -&gt; v2 end)
 *(since 1.17.0)* 
@@ -498,7 +483,6 @@ The keys are returned in the order found in `keyword1`.
     ...> end)
     [b: 4]
 
-
 ### keys(keywords)
 
 ```elixir
@@ -519,7 +503,6 @@ Keeps duplicate keys in the resulting list of keys.
     
     iex> Keyword.keys([{:a, 1}, {"b", 2}, {:c, 3}])
     ** (ArgumentError) expected a keyword list, but an entry in the list is not a two-element tuple with an atom as its first element, got: {"b", 2}
-
 
 ### keyword?(term)
 
@@ -546,7 +529,6 @@ When `term` is a list it is traversed to the end.
     iex> Keyword.keyword?(%{})
     false
 
-
 ### merge(keywords1, keywords2)
 
 ```elixir
@@ -570,7 +552,6 @@ There are no guarantees about the order of the keys in the returned keyword.
     
     iex> Keyword.merge([a: 1], [2, 3])
     ** (ArgumentError) expected a keyword list as the second argument, got: [2, 3]
-
 
 ### merge(keywords1, keywords2, fun)
 
@@ -610,7 +591,6 @@ There are no guarantees about the order of the keys in the returned keyword.
     ...> end)
     ** (ArgumentError) expected a keyword list as the second argument, got: [:a, :b]
 
-
 ### new()
 
 ```elixir
@@ -623,7 +603,6 @@ Returns an empty keyword list, i.e. an empty list.
 
     iex> Keyword.new()
     []
-
 
 ### new(pairs)
 
@@ -645,7 +624,6 @@ guarantees the keys are unique.
     iex> Keyword.new([{:a, 1}, {:a, 2}, {:a, 3}])
     [a: 3]
 
-
 ### new(pairs, transform)
 
 ```elixir
@@ -662,7 +640,6 @@ Unlike `Enum.into(enumerable, [], fun)`,
 
     iex> Keyword.new([:a, :b], fn x -> {x, x} end)
     [a: :a, b: :b]
-
 
 ### pop(keywords, key, default \\ nil)
 
@@ -690,7 +667,6 @@ instead, which will remove only the first entry.
     iex> Keyword.pop([a: 1, a: 2], :a)
     {1, []}
 
-
 ### pop!(keywords, key)
 *(since 1.10.0)* 
 ```elixir
@@ -712,7 +688,6 @@ given `keywords`.
     iex> Keyword.pop!([a: 1], :b)
     ** (KeyError) key :b not found in: [a: 1]
 
-
 ### pop_first(keywords, key, default \\ nil)
 
 ```elixir
@@ -733,7 +708,6 @@ Keeps duplicate keys in the resulting keyword list.
     {3, [a: 1]}
     iex> Keyword.pop_first([a: 1, a: 2], :a)
     {1, [a: 2]}
-
 
 ### pop_lazy(keywords, key, fun)
 
@@ -760,7 +734,6 @@ Removes all duplicate keys. See `pop_first/3` for removing only the first entry.
     iex> Keyword.pop_lazy(keyword, :b, fun)
     {13, [a: 1]}
 
-
 ### pop_values(keywords, key)
 *(since 1.10.0)* 
 ```elixir
@@ -785,7 +758,6 @@ instead, which will remove only the first entry.
     iex> Keyword.pop_values([a: 1, a: 2], :a)
     {[1, 2], []}
 
-
 ### put(keywords, key, value)
 
 ```elixir
@@ -806,7 +778,6 @@ and removes all duplicate entries.
     iex> Keyword.put([a: 1, b: 2, a: 4], :a, 3)
     [a: 3, b: 2]
 
-
 ### put_new(keywords, key, value)
 
 ```elixir
@@ -821,7 +792,6 @@ Puts the given `value` under `key`, unless the entry `key` already exists.
     [b: 2, a: 1]
     iex> Keyword.put_new([a: 1, b: 2], :a, 3)
     [a: 1, b: 2]
-
 
 ### put_new_lazy(keywords, key, fun)
 
@@ -847,7 +817,6 @@ generally difficult to set up and tear down again.
     iex> Keyword.put_new_lazy(keyword, :b, fun)
     [b: 13, a: 1]
 
-
 ### reject(keywords, fun)
 *(since 1.13.0)* 
 ```elixir
@@ -863,7 +832,6 @@ See also `filter/2`.
 
     iex> Keyword.reject([one: 1, two: 2, three: 3], fn {_key, val} -> rem(val, 2) == 1 end)
     [two: 2]
-
 
 ### replace(keywords, key, value)
 *(since 1.11.0)* 
@@ -884,7 +852,6 @@ it removes later occurrences.
     iex> Keyword.replace([a: 1], :b, 2)
     [a: 1]
 
-
 ### replace!(keywords, key, value)
 *(since 1.5.0)* 
 ```elixir
@@ -904,7 +871,6 @@ If `key` is not present in `keywords`, it raises a `KeyError`.
     
     iex> Keyword.replace!([a: 1], :b, 2)
     ** (KeyError) key :b not found in: [a: 1]
-
 
 ### replace_lazy(keywords, key, fun)
 *(since 1.14.0)* 
@@ -931,7 +897,6 @@ If `key` does not exist, the original keyword list is returned unchanged.
     iex> Keyword.replace_lazy([a: 1, b: 2], :c, fn v -> v * 4 end)
     [a: 1, b: 2]
 
-
 ### split(keywords, keys)
 
 ```elixir
@@ -953,7 +918,6 @@ Entries with duplicate keys end up in the same keyword list.
     {[a: 1, c: 3], [b: 2]}
     iex> Keyword.split([a: 1, b: 2, c: 3, a: 4], [:a, :c, :e])
     {[a: 1, c: 3, a: 4], [b: 2]}
-
 
 ### split_with(keywords, fun)
 *(since 1.15.0)* 
@@ -984,7 +948,6 @@ a falsy value (`false` or `nil`).
     iex> Keyword.split_with([], fn {_k, v} -> rem(v, 2) == 0 end)
     {[], []}
 
-
 ### take(keywords, keys)
 
 ```elixir
@@ -1003,7 +966,6 @@ Preserves duplicate keys in the new keyword list.
     iex> Keyword.take([a: 1, b: 2, c: 3, a: 5], [:a, :c, :e])
     [a: 1, c: 3, a: 5]
 
-
 ### to_list(keywords)
 
 ```elixir
@@ -1016,7 +978,6 @@ Returns the keyword list itself.
 
     iex> Keyword.to_list(a: 1)
     [a: 1]
-
 
 ### update(keywords, key, default, fun)
 
@@ -1043,7 +1004,6 @@ Removes all duplicate keys and only updates the first one.
     iex> Keyword.update([a: 1], :b, 11, fn existing_value -> existing_value * 2 end)
     [a: 1, b: 11]
 
-
 ### update!(keywords, key, fun)
 
 ```elixir
@@ -1065,7 +1025,6 @@ Removes all duplicate keys and only updates the first one.
     
     iex> Keyword.update!([a: 1], :b, &(&1 * 2))
     ** (KeyError) key :b not found in: [a: 1]
-
 
 ### validate(keyword, values)
 *(since 1.13.0)* 
@@ -1118,7 +1077,6 @@ Passing the same key multiple times also errors:
     iex> Keyword.validate([one: 1, two: 2, one: 1], [:one, :two])
     {:error, [:one]}
 
-
 ### validate!(keyword, values)
 *(since 1.13.0)* 
 ```elixir
@@ -1155,7 +1113,6 @@ Passing the same key multiple times also errors:
     iex> Keyword.validate!([one: 1, two: 2, one: 1], [:one, :two])
     ** (ArgumentError) duplicate keys [:one] in [one: 1, two: 2, one: 1]
 
-
 ### values(keywords)
 
 ```elixir
@@ -1172,7 +1129,6 @@ Keeps values from duplicate keys in the resulting list of values.
     [1, 2]
     iex> Keyword.values(a: 1, b: 2, a: 3)
     [1, 2, 3]
-
 
 
 

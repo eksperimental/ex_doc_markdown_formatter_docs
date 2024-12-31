@@ -128,7 +128,6 @@ zones.
     DateTime.shift_zone!(utc, "Europe/Paris")
     #=> #DateTime<2023-06-26 15:30:00+02:00 CEST Europe/Paris>
 
-
 ## Types
 
 ### t()
@@ -222,7 +221,6 @@ This operation merges the precision of the naive date time with the given unit:
 
 To shift a datetime by a `Duration` and according to its underlying calendar, use `DateTime.shift/3`.
 
-
 ### after?(datetime1, datetime2)
 *(since 1.15.0)* 
 ```elixir
@@ -240,7 +238,6 @@ Returns `true` if the first datetime is strictly later than the second.
     iex> DateTime.after?(~U[2021-01-01 11:00:00Z], ~U[2022-02-02 11:00:00Z])
     false
 
-
 ### before?(datetime1, datetime2)
 *(since 1.15.0)* 
 ```elixir
@@ -257,7 +254,6 @@ Returns `true` if the first datetime is strictly earlier than the second.
     false
     iex> DateTime.before?(~U[2022-02-02 11:00:00Z], ~U[2021-01-01 11:00:00Z])
     false
-
 
 ### compare(datetime1, datetime2)
 *(since 1.4.0)* 
@@ -284,7 +280,6 @@ account when comparison is done.
     ...>                 utc_offset: 3600, std_offset: 0, time_zone: "Europe/Warsaw"}
     iex> DateTime.compare(dt1, dt2)
     :gt
-
 
 ### convert(datetime, calendar)
 *(since 1.5.0)* 
@@ -314,7 +309,6 @@ year:
                     time_zone: "America/Manaus", utc_offset: -14400, year: 12000,
                     zone_abbr: "AMT"}}
 
-
 ### convert!(datetime, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -340,7 +334,6 @@ year:
               microsecond: {0, 0}, minute: 0, month: 2, second: 7, std_offset: 0,
               time_zone: "America/Manaus", utc_offset: -14400, year: 12000,
               zone_abbr: "AMT"}
-
 
 ### diff(datetime1, datetime2, unit \\ :second)
 *(since 1.5.0)* 
@@ -382,7 +375,6 @@ This function also considers timezone offsets:
     iex> DateTime.diff(dt2, dt1, :hour)
     -5
 
-
 ### from_gregorian_seconds(seconds, arg \\ {0, 0}, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
 ```elixir
@@ -403,7 +395,6 @@ The returned `DateTime` will have `UTC` timezone, if you want other timezone, pl
     ~U[2020-05-01 00:26:31.005Z]
     iex> DateTime.from_gregorian_seconds(-1)
     ~U[-0001-12-31 23:59:59Z]
-
 
 ### from_iso8601(string, format_or_calendar \\ Calendar.ISO)
 *(since 1.4.0)* 
@@ -462,7 +453,6 @@ Note leap seconds are not supported by the built-in Calendar.ISO.
     iex> DateTime.from_iso8601("2015-01-23T23:50:07.123-00:00")
     {:error, :invalid_format}
 
-
 ### from_iso8601(string, calendar, format)
 
 ```elixir
@@ -483,7 +473,6 @@ See `from_iso8601/2` for more information.
     iex> {:ok, datetime, 9000} = DateTime.from_iso8601("20150123T235007.123+0230", Calendar.ISO, :basic)
     iex> datetime
     ~U[2015-01-23 21:20:07.123Z]
-
 
 ### from_naive(naive_datetime, time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.4.0)* 
@@ -562,7 +551,6 @@ If instead you want a `DateTime` for the same point time in a different time zon
 `DateTime.shift_zone/3` function which would convert 2018-08-24 10:00:00 in Copenhagen
 to 2018-08-24 08:00:00 in UTC.
 
-
 ### from_naive!(naive_datetime, time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.4.0)* 
 ```elixir
@@ -588,7 +576,6 @@ section in the module documentation.
     
     iex> DateTime.from_naive!(~N[2018-05-24 13:26:08.003], "Europe/Copenhagen", FakeTimeZoneDatabase)
     #DateTime<2018-05-24 13:26:08.003+02:00 CEST Europe/Copenhagen>
-
 
 ### from_unix(integer, unit \\ :second, calendar \\ Calendar.ISO)
 
@@ -637,7 +624,6 @@ Negative Unix times are supported up to -377705116800 seconds:
     
     iex> {:error, :invalid_unix_time} = DateTime.from_unix(-377_705_116_801)
 
-
 ### from_unix!(integer, unit \\ :second, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -667,7 +653,6 @@ will be returned in UTC.
     
     iex> DateTime.from_unix!(143_256_036_886_856, 1024)
     ~U[6403-03-17 07:05:22.320312Z]
-
 
 ### new(date, time, time_zone \\ &quot;Etc/UTC&quot;, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.11.0)* 
@@ -723,7 +708,6 @@ date and time in a certain time zone.
     iex> datetime
     #DateTime<2018-07-28 12:30:00+02:00 CEST Europe/Copenhagen>
 
-
 ### new!(date, time, time_zone \\ &quot;Etc/UTC&quot;, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.11.0)* 
 ```elixir
@@ -763,7 +747,6 @@ date and time in a certain time zone.
     iex> datetime
     #DateTime<2018-07-28 12:30:00+02:00 CEST Europe/Copenhagen>
 
-
 ### now(time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.8.0)* 
 ```elixir
@@ -791,7 +774,6 @@ See the "Time zone database" section in the module docs.
     iex> DateTime.now("bad timezone", FakeTimeZoneDatabase)
     {:error, :time_zone_not_found}
 
-
 ### now!(time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.10.0)* 
 ```elixir
@@ -813,7 +795,6 @@ See `now/2` for more information.
     
     iex> DateTime.now!("bad timezone", FakeTimeZoneDatabase)
     ** (ArgumentError) cannot get current datetime in "bad timezone" time zone, reason: :time_zone_not_found
-
 
 ### shift(datetime, duration, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.17.0)* 
@@ -879,7 +860,6 @@ When shifting by month, days are rounded down to the nearest valid date.
     iex> DateTime.shift(~U[2015-01-31 00:00:00Z], month: 1)
     ~U[2015-02-28 00:00:00Z]
 
-
 ### shift_zone(datetime, time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.8.0)* 
 ```elixir
@@ -908,7 +888,6 @@ See the "Time zone database" section in the module docs.
     iex> DateTime.shift_zone(~U[2018-07-16 10:00:00Z], "bad timezone", FakeTimeZoneDatabase)
     {:error, :time_zone_not_found}
 
-
 ### shift_zone!(datetime, time_zone, time_zone_database \\ Calendar.get_time_zone_database())
 *(since 1.10.0)* 
 ```elixir
@@ -926,7 +905,6 @@ See `shift_zone/3` for more information.
     
     iex> DateTime.shift_zone!(~U[2018-07-16 10:00:00Z], "bad timezone", FakeTimeZoneDatabase)
     ** (ArgumentError) cannot shift ~U[2018-07-16 10:00:00Z] to "bad timezone" time zone, reason: :time_zone_not_found
-
 
 ### to_date(datetime)
 
@@ -946,7 +924,6 @@ data will be lost during the conversion.
     ...>                utc_offset: 3600, std_offset: 0, time_zone: "Europe/Warsaw"}
     iex> DateTime.to_date(dt)
     ~D[2000-02-29]
-
 
 ### to_gregorian_seconds(datetime)
 *(since 1.11.0)* 
@@ -975,7 +952,6 @@ Converts a `DateTime` struct to a number of gregorian seconds and microseconds.
     ...>                utc_offset: 3600, std_offset: 0, time_zone: "Europe/Warsaw"}
     iex> DateTime.to_gregorian_seconds(dt)
     {63_755_511_991, 5000}
-
 
 ### to_iso8601(datetime, format \\ :extended, offset \\ nil)
 
@@ -1045,7 +1021,6 @@ format.
     iex> {:ok, dt, offset} = DateTime.from_iso8601("2000-03-01T03:00:07Z")
     iex> "2000-03-01T03:00:07Z" = DateTime.to_iso8601(dt, :extended, offset)
 
-
 ### to_naive(datetime)
 
 ```elixir
@@ -1064,7 +1039,6 @@ any time zone related data will be lost during the conversion.
     ...>                utc_offset: 3600, std_offset: 0, time_zone: "Europe/Warsaw"}
     iex> DateTime.to_naive(dt)
     ~N[2000-02-29 23:00:07.0]
-
 
 ### to_string(datetime)
 
@@ -1100,7 +1074,6 @@ Converts the given `datetime` to a string according to its calendar.
     iex> DateTime.to_string(dt)
     "-0100-12-19 03:20:31+01:00 CET Europe/Stockholm"
 
-
 ### to_time(datetime)
 
 ```elixir
@@ -1119,7 +1092,6 @@ data will be lost during the conversion.
     ...>                utc_offset: 3600, std_offset: 0, time_zone: "Europe/Warsaw"}
     iex> DateTime.to_time(dt)
     ~T[23:00:07.0]
-
 
 ### to_unix(datetime, unit \\ :second)
 
@@ -1151,7 +1123,6 @@ according to `System.convert_time_unit/3`.
     ...>                utc_offset: 0, year: 1418, zone_abbr: "UTC"}
     iex> DateTime.to_unix(flamel)
     -17412508655
-
 
 ### truncate(datetime, precision)
 *(since 1.6.0)* 
@@ -1185,7 +1156,6 @@ the given precision.
     iex> DateTime.truncate(dt3, :second)
     #DateTime<2017-11-07 11:45:18+01:00 CET Europe/Paris>
 
-
 ### utc_now(calendar_or_time_unit \\ Calendar.ISO)
 
 ```elixir
@@ -1215,7 +1185,6 @@ which results on a default resolution of microseconds.
     iex> datetime.microsecond
     {0, 0}
 
-
 ### utc_now(time_unit, calendar)
 *(since 1.15.0)* 
 ```elixir
@@ -1238,7 +1207,6 @@ use `System.os_time/1` instead.
     iex> datetime = DateTime.utc_now(:second, Calendar.ISO)
     iex> datetime.microsecond
     {0, 0}
-
 
 
 

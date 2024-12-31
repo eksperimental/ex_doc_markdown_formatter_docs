@@ -44,7 +44,6 @@ from the old tuple with pattern matching, and then create a new tuple:
     {:ok, atom} = tuple
     result = {:ok, atom, %{}}
 
-
 ## Functions
 
 ### delete_at(tuple, index)
@@ -67,7 +66,6 @@ Inlined by the compiler.
     iex> Tuple.delete_at(tuple, 0)
     {:bar, :baz}
 
-
 ### duplicate(data, size)
 
 ```elixir
@@ -85,7 +83,6 @@ Inlined by the compiler.
 
     iex> Tuple.duplicate(:hello, 3)
     {:hello, :hello, :hello}
-
 
 ### insert_at(tuple, index, value)
 
@@ -109,7 +106,6 @@ Inlined by the compiler.
     iex> Tuple.insert_at(tuple, 2, :bong)
     {:bar, :baz, :bong}
 
-
 ### product(tuple)
 *(since 1.12.0)* 
 ```elixir
@@ -126,7 +122,6 @@ Computes a product of tuple elements.
     255.0
     iex> Tuple.product({})
     1
-
 
 ### sum(tuple)
 *(since 1.12.0)* 
@@ -145,7 +140,6 @@ Computes a sum of tuple elements.
     iex> Tuple.sum({})
     0
 
-
 ### to_list(tuple)
 
 ```elixir
@@ -163,7 +157,6 @@ Inlined by the compiler.
     iex> tuple = {:foo, :bar, :baz}
     iex> Tuple.to_list(tuple)
     [:foo, :bar, :baz]
-
 
 
 

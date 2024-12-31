@@ -22,21 +22,21 @@ to understand them, let's imagine we have the following `User` struct:
 
 Our choices are:
 
-1.  Print the struct using Elixir's struct syntax, for example:
-    `%User{address: "Earth", id: 13, name: "Jane"}`. This is the
-    default representation and best choice if all struct fields
-    are public.
+1. Print the struct using Elixir's struct syntax, for example:
+   `%User{address: "Earth", id: 13, name: "Jane"}`. This is the
+   default representation and best choice if all struct fields
+   are public.
 
-2.  Print using the `#User<...>` notation, for example: `#User<id: 13, name: "Jane", ...>`.
-    This notation does not emit valid Elixir code and is typically
-    used when the struct has private fields (for example, you may want
-    to hide the field `:address` to redact person identifiable information).
+2. Print using the `#User<...>` notation, for example: `#User<id: 13, name: "Jane", ...>`.
+   This notation does not emit valid Elixir code and is typically
+   used when the struct has private fields (for example, you may want
+   to hide the field `:address` to redact person identifiable information).
 
-3.  Print the struct using the expression syntax, for example:
-    `User.new(13, "Jane", "Earth")`. This assumes there is a `User.new/3`
-    function. This option is mostly used as an alternative to option 2
-    for representing custom data structures, such as `MapSet`, `Date.Range`,
-    and others.
+3. Print the struct using the expression syntax, for example:
+   `User.new(13, "Jane", "Earth")`. This assumes there is a `User.new/3`
+   function. This option is mostly used as an alternative to option 2
+   for representing custom data structures, such as `MapSet`, `Date.Range`,
+   and others.
 
 You can implement the Inspect protocol for your own structs while
 adhering to the conventions above. Option 1 is the default representation
@@ -130,7 +130,6 @@ Here are some tips:
   
       Inspect.MapSet.inspect(MapSet.new(), %Inspect.Opts{})
 
-
 ## Types
 
 ### t()
@@ -140,7 +139,6 @@ Here are some tips:
 ```
 
 All the types that implement this protocol.
-
 
 ## Functions
 
@@ -156,7 +154,6 @@ This function shouldn't be invoked directly, unless when implementing
 a custom `inspect_fun` to be given to `Inspect.Opts`. Everywhere else,
 `Inspect.Algebra.to_doc/2` should be preferred as it handles structs
 and exceptions.
-
 
 
 

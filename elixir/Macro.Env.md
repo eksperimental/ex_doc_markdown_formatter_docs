@@ -49,7 +49,6 @@ must not be accessed directly:
 - `tracers`
 - `versioned_vars`
 
-
 ## Types
 
 ### context()
@@ -172,7 +171,6 @@ If it is not possible to infer one, an error is returned:
      "alias cannot be inferred automatically for module: :an_atom, " <>
        "please use the :as option. Implicit aliasing is only supported with Elixir modules"}
 
-
 ### define_import(env, meta, module, opts \\ [])
 *(since 1.17.0)* 
 ```elixir
@@ -232,7 +230,6 @@ It accepts the same options as `Kernel.SpecialForm.import/2`:
     iex> Macro.Env.lookup_import(env, {:some, 2})
     [{:macro, SomeModule}]
 
-
 ### define_require(env, meta, module, opts \\ [])
 *(since 1.17.0)* 
 
@@ -268,7 +265,6 @@ If the `:as` option is given, it will also define an alias:
     iex> {:ok, env} = Macro.Env.define_require(env, [line: 10], Foo.Bar, as: Baz)
     iex> Macro.Env.expand_alias(env, [], [:Baz])
     {:alias, Foo.Bar}
-
 
 ### expand_alias(env, meta, list, opts \\ [])
 *(since 1.17.0)* 
@@ -309,7 +305,6 @@ If there is no alias or the alias starts with `Elixir.`
     iex> Macro.Env.expand_alias(__ENV__, [], [:AnotherList])
     :error
 
-
 ### expand_import(env, meta, name, arity, opts \\ [])
 *(since 1.17.0)* 
 ```elixir
@@ -348,7 +343,6 @@ Otherwise returns `{:error, reason}`.
   Disabling tracer inside macros or regular code expansion is extremely
   discouraged as it blocks the compiler from accurately tracking dependencies
 
-
 ### expand_require(env, meta, module, name, arity, opts \\ [])
 *(since 1.17.0)* 
 ```elixir
@@ -380,7 +374,6 @@ Otherwise returns `:error`.
   Disabling tracer inside macros or regular code expansion is extremely
   discouraged as it blocks the compiler from accurately tracking dependencies
 
-
 ### has_var?(env, var)
 *(since 1.7.0)* 
 ```elixir
@@ -399,7 +392,6 @@ Checks if a variable belongs to the environment.
     iex> Macro.Env.has_var?(__ENV__, {:unknown, nil})
     false
 
-
 ### in_guard?(env)
 
 ```elixir
@@ -408,7 +400,6 @@ Checks if a variable belongs to the environment.
 
 Returns whether the compilation environment is currently
 inside a guard.
-
 
 ### in_match?(env)
 
@@ -419,7 +410,6 @@ inside a guard.
 Returns whether the compilation environment is currently
 inside a match clause.
 
-
 ### location(env)
 
 ```elixir
@@ -428,7 +418,6 @@ inside a match clause.
 
 Returns a keyword list containing the file and line
 information as keys.
-
 
 ### lookup_alias_as(env, atom)
 *(since 1.15.0)* 
@@ -452,7 +441,6 @@ Returns the names of any aliases for the given module or atom.
     [Elixir.Bar, Elixir.Baz]
     iex> Macro.Env.lookup_alias_as(__ENV__, Unknown)
     []
-
 
 ### lookup_import(env, name_arity)
 *(since 1.13.0)* 
@@ -489,7 +477,6 @@ are in no particular order and the order is not guaranteed.
     iex> Macro.Env.lookup_import(__ENV__, {:def, 1})
     [{:macro, Kernel}]
 
-
 ### prepend_tracer(env, tracer)
 *(since 1.13.0)* 
 ```elixir
@@ -502,7 +489,6 @@ Prepend a tracer to the list of tracers in the environment.
 
     Macro.Env.prepend_tracer(__ENV__, MyCustomTracer)
 
-
 ### prune_compile_info(env)
 *(since 1.14.0)* 
 ```elixir
@@ -514,7 +500,6 @@ Prunes compile information from the environment.
 This happens when the environment is captured at compilation
 time, for example, in the module body, and then used to
 evaluate code after the module has been defined.
-
 
 ### required?(env, module)
 *(since 1.13.0)* 
@@ -535,7 +520,6 @@ Returns `true` if the given module has been required.
     iex> Macro.Env.required?(__ENV__, Kernel)
     true
 
-
 ### stacktrace(env)
 
 ```elixir
@@ -543,7 +527,6 @@ Returns `true` if the given module has been required.
 ```
 
 Returns the environment stacktrace.
-
 
 ### to_guard(env)
 *(since 1.17.0)* 
@@ -553,7 +536,6 @@ Returns the environment stacktrace.
 
 Returns an environment in the guard context.
 
-
 ### to_match(env)
 
 ```elixir
@@ -561,7 +543,6 @@ Returns an environment in the guard context.
 ```
 
 Returns an environment in the match context.
-
 
 ### vars(env)
 *(since 1.7.0)* 
@@ -575,7 +556,6 @@ Each variable is identified by a tuple of two elements,
 where the first element is the variable name as an atom
 and the second element is its context, which may be an
 atom or an integer.
-
 
 
 

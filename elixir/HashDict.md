@@ -6,7 +6,6 @@ Tuple-based HashDict implementation.
 
 This module is deprecated. Use the `Map` module instead.
 
-
 ## Types
 
 ### t()
@@ -92,7 +91,6 @@ This function is deprecated. Use maps and the Map module instead.
 ```
 This function is deprecated. Use maps and the Map module instead.
 Creates a new empty dict.
-
 
 ### pop(dict, key, default \\ nil)
 

@@ -67,7 +67,6 @@ be rendered flat. See `break/1` and `flex_break/1` for more information.
 This implementation also adds `force_unfit/1` and `next_break_fits/2` which
 give more control over the document fitting.
 
-
 ## Guards
 
 ### is_doc(doc)
@@ -130,7 +129,6 @@ reach a line limit. Once we do, it is replaced by a newline:
     iex> Inspect.Algebra.format(doc, 10)
     ["aaaaaaaaaaaaaaaaaaaa", "\n", "b"]
 
-
 ### collapse_lines(max)
 *(since 1.6.0)* 
 ```elixir
@@ -140,7 +138,6 @@ reach a line limit. Once we do, it is replaced by a newline:
 Collapse any new lines and whitespace following this
 node, emitting up to `max` new lines.
 
-
 ### color(doc, color)
 *(since 1.18.0)* 
 ```elixir
@@ -148,7 +145,6 @@ node, emitting up to `max` new lines.
 ```
 
 Colors a document with the given color (preceding the document itself).
-
 
 ### color(doc, key, opts)
 
@@ -164,7 +160,6 @@ This function is deprecated. Use color_doc/3 instead.
 
 Colors a document if the `color_key` has a color in the options.
 
-
 ### concat(docs)
 
 ```elixir
@@ -179,7 +174,6 @@ Concatenates a list of documents returning a new document.
     iex> Inspect.Algebra.format(doc, 80)
     ["a", "b", "c"]
 
-
 ### concat(doc1, doc2)
 
 ```elixir
@@ -193,7 +187,6 @@ Concatenates two document entities returning a new document.
     iex> doc = Inspect.Algebra.concat("hello", "world")
     iex> Inspect.Algebra.format(doc, 80)
     ["hello", "world"]
-
 
 ### container_doc(left, collection, right, inspect_opts, fun, opts \\ [])
 *(since 1.6.0)* 
@@ -248,7 +241,6 @@ function stops processing and outputs `"..."` instead.
     iex> Inspect.Algebra.format(doc, 20) |> IO.iodata_to_binary()
     "[1! 2! 3! ...]"
 
-
 ### empty()
 
 ```elixir
@@ -261,7 +253,6 @@ Returns a document entity used to represent nothingness.
 
     iex> Inspect.Algebra.empty()
     :doc_nil
-
 
 ### flex_break(string \\ &quot; &quot;)
 *(since 1.6.0)* 
@@ -296,7 +287,6 @@ since each break needs to be re-evaluated.
 This function is used by `container_doc/6` and friends to the
 maximum number of entries on the same line.
 
-
 ### flex_glue(doc1, break_string \\ &quot; &quot;, doc2)
 *(since 1.6.0)* 
 ```elixir
@@ -308,7 +298,6 @@ Glues two documents (`doc1` and `doc2`) inserting a
 
 This function is used by `container_doc/6` and friends
 to the maximum number of entries on the same line.
-
 
 ### fold(docs, folder_fun)
 *(since 1.18.0)* 
@@ -332,7 +321,6 @@ accumulator and uses the last element of `docs` as the initial accumulator.
     iex> Inspect.Algebra.format(docs, 80)
     ["A", "!", "B", "!", "C"]
 
-
 ### fold_doc(docs, folder_fun)
 
 
@@ -346,7 +334,6 @@ This function is deprecated. Use fold/2 instead.
 ```
 
 Forces the current group to be unfit.
-
 
 ### format(doc, width)
 
@@ -371,7 +358,6 @@ The document starts flat (without breaks) until a group is found.
     iex> doc |> Inspect.Algebra.format(10) |> IO.iodata_to_binary()
     "hello\nworld"
 
-
 ### glue(doc1, break_string \\ &quot; &quot;, doc2)
 
 ```elixir
@@ -392,7 +378,6 @@ For more information on how the break is inserted, see `break/1`.
     iex> doc = Inspect.Algebra.glue("hello", "\t", "world")
     iex> Inspect.Algebra.format(doc, 80)
     ["hello", "\t", "world"]
-
 
 ### group(doc, mode \\ :self)
 
@@ -433,7 +418,6 @@ automatically breaks if the parent group has broken too.
     iex> Inspect.Algebra.format(doc, 6)
     ["Hello,", "\n", "A", "\n", "B"]
 
-
 ### line()
 *(since 1.6.0)* 
 ```elixir
@@ -457,7 +441,6 @@ A group with linebreaks will fit if all lines in the group fit.
     iex> Inspect.Algebra.format(doc, 80)
     ["Hughes", "\n", "Wadler"]
 
-
 ### line(doc1, doc2)
 
 ```elixir
@@ -473,7 +456,6 @@ See `line/0`.
     iex> doc = Inspect.Algebra.line("Hughes", "Wadler")
     iex> Inspect.Algebra.format(doc, 80)
     ["Hughes", "\n", "Wadler"]
-
 
 ### nest(doc, level, mode \\ :always)
 
@@ -499,7 +481,6 @@ that has been broken.
     iex> doc = Inspect.Algebra.group(doc)
     iex> Inspect.Algebra.format(doc, 5)
     ["hello", "\n     ", "world"]
-
 
 ### next_break_fits(doc, mode \\ :enabled)
 *(since 1.6.0)* 
@@ -546,7 +527,6 @@ map in `next_break_fits/1` so the code is formatted as:
       ...
     })
 
-
 ### no_limit(doc)
 *(since 1.14.0)* 
 ```elixir
@@ -564,7 +544,6 @@ Disable any rendering limit while rendering the given document.
     iex> Inspect.Algebra.format(doc, 10)
     ["hello", " ", "world"]
 
-
 ### space(doc1, doc2)
 
 ```elixir
@@ -578,7 +557,6 @@ Inserts a mandatory single space between two documents.
     iex> doc = Inspect.Algebra.space("Hughes", "Wadler")
     iex> Inspect.Algebra.format(doc, 5)
     ["Hughes", " ", "Wadler"]
-
 
 ### string(string)
 *(since 1.6.0)* 
@@ -612,7 +590,6 @@ used, instead of byte size, correctly fitting:
     iex> Inspect.Algebra.format(doc, 9)
     ["olá", " ", "mundo"]
 
-
 ### to_doc(term, opts)
 
 ```elixir
@@ -621,7 +598,6 @@ used, instead of byte size, correctly fitting:
 
 Converts an Elixir term to an algebra document
 according to the `Inspect` protocol.
-
 
 
 

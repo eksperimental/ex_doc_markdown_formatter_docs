@@ -21,7 +21,6 @@ All bitwise functions can be used in guards:
 
 All functions in this module are inlined by the compiler.
 
-
 ## Guards
 
 ### left &amp;&amp;&amp; right
@@ -40,7 +39,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> 9 &&& 3
     1
-
 
 ### left &lt;&lt;&lt; right
 
@@ -68,7 +66,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> -1 <<< -2
     -1
 
-
 ### left &gt;&gt;&gt; right
 
 ```elixir
@@ -95,7 +92,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> -1 >>> -2
     -4
 
-
 ### band(left, right)
 
 ```elixir
@@ -110,7 +106,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> band(9, 3)
     1
-
 
 ### bnot(expr)
 
@@ -130,7 +125,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> bnot(2) &&& 3
     1
 
-
 ### bor(left, right)
 
 ```elixir
@@ -145,7 +139,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> bor(9, 3)
     11
-
 
 ### bsl(left, right)
 
@@ -171,7 +164,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> bsl(-1, -2)
     -1
 
-
 ### bsr(left, right)
 
 ```elixir
@@ -196,7 +188,6 @@ Allowed in guard tests. Inlined by the compiler.
     iex> bsr(-1, -2)
     -4
 
-
 ### bxor(left, right)
 
 ```elixir
@@ -211,7 +202,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> bxor(9, 3)
     10
-
 
 ### left ||| right
 
@@ -229,7 +219,6 @@ Allowed in guard tests. Inlined by the compiler.
 
     iex> 9 ||| 3
     11
-
 
 
 

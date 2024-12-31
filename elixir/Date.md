@@ -58,7 +58,6 @@ is an interest in computing the number of days from the Unix epoch
 Those functions are optimized to deal with common epochs, such
 as the Unix Epoch above or the Gregorian Epoch (0000-01-01).
 
-
 ## Types
 
 ### t()
@@ -100,7 +99,6 @@ To shift a date by a `Duration` and according to its underlying calendar, use `D
     iex> Date.add(~D[-0010-01-01], -2)
     ~D[-0011-12-30]
 
-
 ### after?(date1, date2)
 *(since 1.15.0)* 
 ```elixir
@@ -117,7 +115,6 @@ Returns `true` if the first date is strictly later than the second.
     false
     iex> Date.after?(~D[2021-01-01], ~D[2022-02-02])
     false
-
 
 ### before?(date1, date2)
 *(since 1.15.0)* 
@@ -136,7 +133,6 @@ Returns `true` if the first date is strictly earlier than the second.
     iex> Date.before?(~D[2022-02-02], ~D[2021-01-01])
     false
 
-
 ### beginning_of_month(date)
 *(since 1.11.0)* 
 ```elixir
@@ -153,7 +149,6 @@ Calculates a date that is the first day of the month for the given `date`.
     ~D[2000-01-01]
     iex> Date.beginning_of_month(~N[2000-01-31 01:23:45])
     ~D[2000-01-01]
-
 
 ### beginning_of_week(date, starting_on \\ :default)
 *(since 1.11.0)* 
@@ -179,7 +174,6 @@ A weekday rather than `:default` can be given as `starting_on`.
     ~D[2020-07-11]
     iex> Date.beginning_of_week(~N[2020-07-11 01:23:45])
     ~D[2020-07-06]
-
 
 ### compare(date1, date2)
 *(since 1.4.0)* 
@@ -208,7 +202,6 @@ complex calendar types by considering only the date fields:
     iex> Date.compare(~N[2016-04-16 12:34:56], ~N[2016-04-16 01:23:45])
     :eq
 
-
 ### convert(date, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -232,7 +225,6 @@ year:
     iex> Date.convert(~D[2000-01-01], Calendar.Holocene)
     {:ok, %Date{calendar: Calendar.Holocene, year: 12000, month: 1, day: 1}}
 
-
 ### convert!(date, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -250,7 +242,6 @@ year:
 
     iex> Date.convert!(~D[2000-01-01], Calendar.Holocene)
     %Date{calendar: Calendar.Holocene, year: 12000, month: 1, day: 1}
-
 
 ### day_of_era(date)
 *(since 1.8.0)* 
@@ -271,7 +262,6 @@ day within the era and the era number.
     
     iex> Date.day_of_era(~D[0000-12-31])
     {1, 0}
-
 
 ### day_of_week(date, starting_on \\ :default)
 *(since 1.4.0)* 
@@ -311,7 +301,6 @@ built-in ISO calendar. Any other weekday may be given to.
     iex> Date.day_of_week(~D[-0015-10-30], :sunday)
     4
 
-
 ### day_of_year(date)
 *(since 1.8.0)* 
 ```elixir
@@ -334,7 +323,6 @@ calendar (the default), it is an integer from 1 to 366.
     iex> Date.day_of_year(~D[2004-12-31])
     366
 
-
 ### days_in_month(date)
 *(since 1.4.0)* 
 ```elixir
@@ -351,7 +339,6 @@ Returns the number of days in the given `date` month.
     28
     iex> Date.days_in_month(~N[2000-02-20 01:23:45])
     29
-
 
 ### diff(date1, date2)
 *(since 1.5.0)* 
@@ -376,7 +363,6 @@ this way. If two calendars are not compatible, it will raise.
     iex> Date.diff(~D[2000-01-01], ~N[2000-01-03 09:00:00])
     -2
 
-
 ### end_of_month(date)
 *(since 1.11.0)* 
 ```elixir
@@ -393,7 +379,6 @@ Calculates a date that is the last day of the month for the given `date`.
     ~D[2000-01-31]
     iex> Date.end_of_month(~N[2000-01-01 01:23:45])
     ~D[2000-01-31]
-
 
 ### end_of_week(date, starting_on \\ :default)
 *(since 1.11.0)* 
@@ -420,7 +405,6 @@ A weekday rather than `:default` can be given as `starting_on`.
     iex> Date.end_of_week(~N[2020-07-11 01:23:45])
     ~D[2020-07-12]
 
-
 ### from_erl(tuple, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -440,7 +424,6 @@ Attempting to convert dates from other calendars will return an error tuple.
     iex> Date.from_erl({2000, 13, 1})
     {:error, :invalid_date}
 
-
 ### from_erl!(tuple, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -455,7 +438,6 @@ Converts an Erlang date tuple but raises for invalid dates.
     ~D[2000-01-01]
     iex> Date.from_erl!({2000, 13, 1})
     ** (ArgumentError) cannot convert {2000, 13, 1} to date, reason: :invalid_date
-
 
 ### from_gregorian_days(days, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
@@ -473,7 +455,6 @@ Converts a number of gregorian days to a `Date` struct.
     ~D[2000-01-01]
     iex> Date.from_gregorian_days(-1)
     ~D[-0001-12-31]
-
 
 ### from_iso8601(string, calendar \\ Calendar.ISO)
 
@@ -497,7 +478,6 @@ The year parsed by this function is limited to four digits.
     iex> Date.from_iso8601("2015-01-32")
     {:error, :invalid_date}
 
-
 ### from_iso8601!(string, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -515,7 +495,6 @@ Raises if the format is invalid.
     ~D[2015-01-23]
     iex> Date.from_iso8601!("2015:01:23")
     ** (ArgumentError) cannot parse "2015:01:23" as date, reason: :invalid_format
-
 
 ### leap_year?(date)
 *(since 1.4.0)* 
@@ -538,7 +517,6 @@ Returns `true` if the year in the given `date` is a leap year.
     iex> Date.leap_year?(~N[2004-01-01 01:23:45])
     true
 
-
 ### months_in_year(date)
 *(since 1.7.0)* 
 ```elixir
@@ -551,7 +529,6 @@ Returns the number of months in the given `date` year.
 
     iex> Date.months_in_year(~D[1900-01-13])
     12
-
 
 ### new(year, month, day, calendar \\ Calendar.ISO)
 
@@ -579,7 +556,6 @@ entry fits its appropriate range, returns `{:error, reason}` otherwise.
     iex> Date.new(2001, 2, 29)
     {:error, :invalid_date}
 
-
 ### new!(year, month, day, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
 ```elixir
@@ -600,7 +576,6 @@ entry fits its appropriate range, raises if the date is invalid.
     ** (ArgumentError) cannot build date, reason: :invalid_date
     iex> Date.new!(2000, 2, 29)
     ~D[2000-02-29]
-
 
 ### quarter_of_year(date)
 *(since 1.8.0)* 
@@ -623,7 +598,6 @@ calendar (the default), it is an integer from 1 to 4.
     2
     iex> Date.quarter_of_year(~D[-0015-09-30])
     3
-
 
 ### range(first, last)
 *(since 1.5.0)* 
@@ -659,7 +633,6 @@ ranges:
     iex> Enum.take(range, 3)
     [~D[2001-01-01], ~D[2001-01-02], ~D[2001-01-03]]
 
-
 ### range(first, last, step)
 *(since 1.12.0)* 
 ```elixir
@@ -680,7 +653,6 @@ Returns a range of dates with a step.
     true
     iex> Enum.take(range, 3)
     [~D[2001-01-01], ~D[2001-01-03], ~D[2001-01-05]]
-
 
 ### shift(date, duration)
 *(since 1.17.0)* 
@@ -728,7 +700,6 @@ Raises an `ArgumentError` when called with time scale units.
     iex> Date.shift(~D[2015-01-31], month: 1)
     ~D[2015-02-28]
 
-
 ### to_erl(date)
 
 ```elixir
@@ -749,7 +720,6 @@ Attempting to convert dates from other calendars will raise.
     iex> Date.to_erl(~N[2000-01-01 00:00:00])
     {2000, 1, 1}
 
-
 ### to_gregorian_days(date)
 *(since 1.11.0)* 
 ```elixir
@@ -766,7 +736,6 @@ Converts a `date` struct to a number of gregorian days.
     730_485
     iex> Date.to_gregorian_days(~N[2000-01-01 00:00:00])
     730_485
-
 
 ### to_iso8601(date, format \\ :extended)
 
@@ -795,7 +764,6 @@ Attempting to convert dates from other calendars will raise an `ArgumentError`.
     iex> Date.to_iso8601(~N[2000-02-28 00:00:00])
     "2000-02-28"
 
-
 ### to_string(date)
 
 ```elixir
@@ -813,7 +781,6 @@ Converts the given date to a string according to its calendar.
     iex> Date.to_string(~D[-0100-12-15])
     "-0100-12-15"
 
-
 ### utc_today(calendar \\ Calendar.ISO)
 *(since 1.4.0)* 
 ```elixir
@@ -827,7 +794,6 @@ Returns the current date in UTC.
     iex> date = Date.utc_today()
     iex> date.year >= 2016
     true
-
 
 ### year_of_era(date)
 *(since 1.8.0)* 
@@ -849,7 +815,6 @@ year within the era and the era number.
     {1, 0}
     iex> Date.year_of_era(~D[-0001-01-01])
     {2, 0}
-
 
 
 

@@ -72,7 +72,6 @@ Read the `PartitionSupervisor` docs for more information.
 A `Task.Supervisor` is bound to the same name registration rules as a
 `GenServer`. Read more about them in the `GenServer` docs.
 
-
 ## Types
 
 ### async_stream_option()
@@ -84,7 +83,6 @@ A `Task.Supervisor` is bound to the same name registration rules as a
 
 Options given to `async_stream` and `async_stream_nolink` functions.
 
-
 ### option()
 
 ```elixir
@@ -92,7 +90,6 @@ Options given to `async_stream` and `async_stream_nolink` functions.
 ```
 
 Option values used by `start_link`
-
 
 ## Functions
 
@@ -117,7 +114,6 @@ children.
   or an integer indicating the timeout value, defaults to 5000 milliseconds.
   The tasks must trap exits for the timeout to have an effect.
 
-
 ### async(supervisor, module, fun, args, options \\ [])
 
 ```elixir
@@ -139,7 +135,6 @@ children.
 - `:shutdown` - `:brutal_kill` if the tasks must be killed directly on shutdown
   or an integer indicating the timeout value, defaults to 5000 milliseconds.
   The tasks must trap exits for the timeout to have an effect.
-
 
 ### async_nolink(supervisor, fun, options \\ [])
 
@@ -227,7 +222,6 @@ example where a `GenServer` is meant to run a single task and track its status:
       end
     end
 
-
 ### async_nolink(supervisor, module, fun, args, options \\ [])
 
 ```elixir
@@ -248,7 +242,6 @@ Note this function requires the task supervisor to have `:temporary`
 as the `:restart` option (the default), as `async_nolink/5` keeps a
 direct reference to the task which is lost if the task is restarted.
 
-
 ### async_stream(supervisor, enumerable, fun, options \\ [])
 *(since 1.4.0)* 
 ```elixir
@@ -266,7 +259,6 @@ and processed by its own task. The tasks will be spawned under the given
 `supervisor` and linked to the caller process, similarly to `async/3`.
 
 See `async_stream/6` for discussion, options, and examples.
-
 
 ### async_stream(supervisor, enumerable, module, function, args, options \\ [])
 *(since 1.4.0)* 
@@ -339,7 +331,6 @@ Let's build a stream and then enumerate it:
     stream = Task.Supervisor.async_stream(MySupervisor, collection, Mod, :expensive_fun, [])
     Enum.to_list(stream)
 
-
 ### async_stream_nolink(supervisor, enumerable, fun, options \\ [])
 *(since 1.4.0)* 
 ```elixir
@@ -378,10 +369,10 @@ Consider the following example:
 
 If one task raises or times out:
 
-1.  the second clause gets called
-2.  an exception is raised
-3.  the stream halts
-4.  all ongoing tasks will be shut down
+1. the second clause gets called
+2. an exception is raised
+3. the stream halts
+4. all ongoing tasks will be shut down
 
 Here is another example:
 
@@ -393,7 +384,6 @@ This will return the three first tasks to succeed, ignoring timeouts and errors,
 every ongoing task.
 
 Just running the stream with `Stream.run/1` on the other hand would ignore errors and process the whole stream.
-
 
 ### async_stream_nolink(supervisor, enumerable, module, function, args, options \\ [])
 *(since 1.4.0)* 
@@ -419,7 +409,6 @@ will not be linked to the caller process, similarly to `async_nolink/5`.
 
 See `async_stream/6` for discussion, options, and examples.
 
-
 ### children(supervisor)
 
 ```elixir
@@ -431,7 +420,6 @@ Returns all children PIDs except those that are restarting.
 Note that calling this function when supervising a large number
 of children under low memory conditions can cause an out of memory
 exception.
-
 
 ### start_child(supervisor, fun, options \\ [])
 
@@ -463,7 +451,6 @@ interest in its results nor if it completes successfully.
   or an integer indicating the timeout value, defaults to 5000 milliseconds.
   The task must trap exits for the timeout to have an effect.
 
-
 ### start_child(supervisor, module, fun, args, options \\ [])
 
 ```elixir
@@ -475,7 +462,6 @@ Starts a task as a child of the given `supervisor`.
 
 Similar to `start_child/3` except the task is specified
 by the given `module`, `fun` and `args`.
-
 
 ### start_link(options \\ [])
 
@@ -513,7 +499,6 @@ This function could also receive `:restart` and `:shutdown` as options
 but those two options have been deprecated and it is now preferred to
 give them directly to `start_child`.
 
-
 ### terminate_child(supervisor, pid)
 
 ```elixir
@@ -521,7 +506,6 @@ give them directly to `start_child`.
 ```
 
 Terminates the child with the given `pid`.
-
 
 
 

@@ -50,7 +50,6 @@ that they share many properties, including logarithmic time complexity. Erlang
 `:sets` (version 2) are implemented on top of maps, so see the documentation
 for `Map` for more information on its execution time complexity.
 
-
 ## Types
 
 ### internal(value)
@@ -105,7 +104,6 @@ Returns a new set which is a copy of `map_set` but without `value`.
     iex> MapSet.delete(map_set, 2)
     MapSet.new([1, 3])
 
-
 ### difference(map_set1, map_set2)
 
 ```elixir
@@ -118,7 +116,6 @@ Returns a set that is `map_set1` without the members of `map_set2`.
 
     iex> MapSet.difference(MapSet.new([1, 2]), MapSet.new([2, 3, 4]))
     MapSet.new([1])
-
 
 ### disjoint?(map_set1, map_set2)
 
@@ -134,7 +131,6 @@ Checks if `map_set1` and `map_set2` have no members in common.
     true
     iex> MapSet.disjoint?(MapSet.new([1, 2]), MapSet.new([2, 3]))
     false
-
 
 ### equal?(map_set1, map_set2)
 
@@ -156,7 +152,6 @@ which a set with `1` is not equivalent to a set with
     false
     iex> MapSet.equal?(MapSet.new([1]), MapSet.new([1.0]))
     false
-
 
 ### filter(map_set, fun)
 *(since 1.14.0)* 
@@ -185,7 +180,6 @@ a truthy value.
     iex> MapSet.filter(MapSet.new(["a", :b, "c"]), &is_atom/1)
     MapSet.new([:b])
 
-
 ### intersection(map_set1, map_set2)
 
 ```elixir
@@ -202,7 +196,6 @@ Returns a set containing only members that `map_set1` and `map_set2` have in com
     iex> MapSet.intersection(MapSet.new([1, 2]), MapSet.new([3, 4]))
     MapSet.new([])
 
-
 ### member?(map_set, value)
 
 ```elixir
@@ -218,7 +211,6 @@ Checks if `map_set` contains `value`.
     iex> MapSet.member?(MapSet.new([1, 2, 3]), 4)
     false
 
-
 ### new()
 
 ```elixir
@@ -231,7 +223,6 @@ Returns a new set.
 
     iex> MapSet.new()
     MapSet.new([])
-
 
 ### new(enumerable)
 
@@ -248,7 +239,6 @@ Creates a set from an enumerable.
     iex> MapSet.new([3, 3, 3, 2, 2, 1])
     MapSet.new([1, 2, 3])
 
-
 ### new(enumerable, transform)
 
 ```elixir
@@ -261,7 +251,6 @@ Creates a set from an enumerable via the transformation function.
 
     iex> MapSet.new([1, 2, 1], fn x -> 2 * x end)
     MapSet.new([2, 4])
-
 
 ### put(map_set, value)
 
@@ -277,7 +266,6 @@ Inserts `value` into `map_set` if `map_set` doesn't already contain it.
     MapSet.new([1, 2, 3])
     iex> MapSet.put(MapSet.new([1, 2, 3]), 4)
     MapSet.new([1, 2, 3, 4])
-
 
 ### reject(map_set, fun)
 *(since 1.14.0)* 
@@ -298,7 +286,6 @@ See also `filter/2`.
     iex> MapSet.reject(MapSet.new(["a", :b, "c"]), &is_atom/1)
     MapSet.new(["a", "c"])
 
-
 ### size(map_set)
 
 ```elixir
@@ -311,7 +298,6 @@ Returns the number of elements in `map_set`.
 
     iex> MapSet.size(MapSet.new([1, 2, 3]))
     3
-
 
 ### split_with(map_set, fun)
 *(since 1.15.0)* 
@@ -340,7 +326,6 @@ for which applying `fun` returned a falsy value (`false` or `nil`).
     iex> while_false
     MapSet.new([])
 
-
 ### subset?(map_set1, map_set2)
 
 ```elixir
@@ -358,7 +343,6 @@ This function checks if `map_set1` is a subset of `map_set2`.
     iex> MapSet.subset?(MapSet.new([1, 2, 3]), MapSet.new([1, 2]))
     false
 
-
 ### symmetric_difference(map_set1, map_set2)
 *(since 1.14.0)* 
 ```elixir
@@ -373,7 +357,6 @@ Returns a set with elements that are present in only one but not both sets.
     iex> MapSet.symmetric_difference(MapSet.new([1, 2, 3]), MapSet.new([2, 3, 4]))
     MapSet.new([1, 4])
 
-
 ### to_list(map_set)
 
 ```elixir
@@ -387,7 +370,6 @@ Converts `map_set` to a list.
     iex> MapSet.to_list(MapSet.new([1, 2, 3]))
     [1, 2, 3]
 
-
 ### union(map_set1, map_set2)
 
 ```elixir
@@ -400,7 +382,6 @@ Returns a set containing all members of `map_set1` and `map_set2`.
 
     iex> MapSet.union(MapSet.new([1, 2]), MapSet.new([2, 3, 4]))
     MapSet.new([1, 2, 3, 4])
-
 
 
 

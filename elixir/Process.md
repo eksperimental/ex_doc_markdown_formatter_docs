@@ -72,7 +72,6 @@ See also the [Process Aliases
 section](https://www.erlang.org/doc/reference_manual/processes.html#process-aliases)
 of the *Erlang reference manual*.
 
-
 ## Types
 
 ### alias()
@@ -84,7 +83,6 @@ of the *Erlang reference manual*.
 An alias returned by `alias/0` or `alias/1`.
 
 See [the module documentation](#module-aliases) for more information about aliases.
-
 
 ### alias_opt()
 
@@ -108,7 +106,6 @@ A process destination.
 
 A remote or local PID, a local port, a locally registered name, or a tuple in
 the form of `{registered_name, node}` for a registered name at another node.
-
 
 ### process_info_item()
 
@@ -170,7 +167,6 @@ Inlined by the compiler.
 
     alias = Process.alias()
 
-
 ### alias(options)
 *(since 1.15.0)* 
 ```elixir
@@ -187,7 +183,6 @@ Inlined by the compiler.
 #### Examples
 
     alias = Process.alias([:reply])
-
 
 ### alive?(pid)
 
@@ -207,7 +202,6 @@ To check whether a process on any node is alive you can use the [`:erpc`](\`:erp
     :erpc.call(node(pid), Process, :alive?, [pid])
 
 Inlined by the compiler.
-
 
 ### cancel_timer(timer_ref, options \\ [])
 
@@ -246,7 +240,6 @@ Inlined by the compiler.
   cancellation has been performed. If `:async` is `true` and `:info` is
   `false`, no message is sent. Defaults to `true`.
 
-
 ### delete(key)
 
 ```elixir
@@ -265,7 +258,6 @@ or `nil` if `key` was not stored in the process dictionary.
     ["comment", "other comment"]
     iex> Process.delete(:comments)
     nil
-
 
 ### demonitor(monitor_ref, options \\ [])
 
@@ -290,7 +282,6 @@ Inlined by the compiler.
     Process.demonitor(ref)
     #=> true
 
-
 ### exit(pid, reason)
 
 ```elixir
@@ -302,12 +293,12 @@ Sends an exit signal with the given `reason` to `pid`.
 The following behavior applies if `reason` is any term except `:normal`
 or `:kill`:
 
-1.  If `pid` is not trapping exits, `pid` will exit with the given
-    `reason`.
+1. If `pid` is not trapping exits, `pid` will exit with the given
+   `reason`.
 
-2.  If `pid` is trapping exits, the exit signal is transformed into a
-    message `{:EXIT, from, reason}` and delivered to the message queue
-    of `pid`.
+2. If `pid` is trapping exits, the exit signal is transformed into a
+   message `{:EXIT, from, reason}` and delivered to the message queue
+   of `pid`.
 
 If `reason` is the atom `:normal`, `pid` will not exit (unless `pid` is
 the calling process, in which case it will exit with the reason `:normal`).
@@ -324,7 +315,6 @@ Inlined by the compiler.
 
     Process.exit(pid, :kill)
     #=> true
-
 
 ### flag(flag, value)
 
@@ -348,7 +338,6 @@ See `:erlang.process_flag/2` for more information.
 
 Inlined by the compiler.
 
-
 ### flag(pid, flag, value)
 
 ```elixir
@@ -368,7 +357,6 @@ See `:erlang.process_flag/3` for more information.
 
 Inlined by the compiler.
 
-
 ### get()
 
 ```elixir
@@ -378,7 +366,6 @@ Inlined by the compiler.
 Returns all key-value pairs in the process dictionary.
 
 Inlined by the compiler.
-
 
 ### get(key, default \\ nil)
 
@@ -398,7 +385,6 @@ or `default` if `key` is not set.
     nil
     iex> Process.get(:locale, "pt")
     "fr"
-
 
 ### get_keys()
 
@@ -420,7 +406,6 @@ Inlined by the compiler.
     iex> :locale in Process.get_keys()
     true
 
-
 ### get_keys(value)
 
 ```elixir
@@ -430,7 +415,6 @@ Inlined by the compiler.
 Returns all keys in the process dictionary that have the given `value`.
 
 Inlined by the compiler.
-
 
 ### group_leader()
 
@@ -447,7 +431,6 @@ Inlined by the compiler.
     Process.group_leader()
     #=> #PID<0.53.0>
 
-
 ### group_leader(pid, leader)
 
 ```elixir
@@ -460,7 +443,6 @@ Typically, this is used when a process started from a certain shell should
 have a group leader other than `:init`.
 
 Inlined by the compiler.
-
 
 ### hibernate(mod, fun_name, args)
 
@@ -479,7 +461,6 @@ See `:erlang.hibernate/3` for more information.
 
 Inlined by the compiler.
 
-
 ### info(pid)
 
 ```elixir
@@ -493,7 +474,6 @@ Use this only for debugging information.
 
 See `:erlang.process_info/1` for more information.
 
-
 ### info(pid, spec)
 
 ```elixir
@@ -505,7 +485,6 @@ Returns information about the process identified by `pid`,
 or returns `nil` if the process is not alive.
 
 See `:erlang.process_info/2` for more information.
-
 
 ### link(pid_or_port)
 
@@ -534,7 +513,6 @@ See `:erlang.link/1` for more information.
 
 Inlined by the compiler.
 
-
 ### list()
 
 ```elixir
@@ -556,7 +534,6 @@ Inlined by the compiler.
 
     Process.list()
     #=> [#PID<0.0.0>, #PID<0.1.0>, #PID<0.2.0>, #PID<0.3.0>, ...]
-
 
 ### monitor(item)
 
@@ -598,7 +575,6 @@ Inlined by the compiler.
       msg -> msg
     end
     #=> {:DOWN, #Reference<0.906660723.3006791681.40191>, :process, #PID<0.118.0>, :noproc}
-
 
 ### monitor(item, options)
 *(since 1.15.0)* 
@@ -642,7 +618,6 @@ Inlined by the compiler.
     receive do: (msg -> msg)
     #=> {:DOWN, #Reference<0.906660723.3006791681.40191>, :process, #PID<0.118.0>, :noproc}
 
-
 ### put(key, value)
 
 ```elixir
@@ -661,7 +636,6 @@ under `key`, or `nil` in case no value was stored under it.
     nil
     iex> Process.put(:locale, "fr")
     "en"
-
 
 ### read_timer(timer_ref)
 
@@ -682,7 +656,6 @@ Even if the timer had expired and the message was sent, this function does not
 tell you if the timeout message has arrived at its destination yet.
 
 Inlined by the compiler.
-
 
 ### register(pid_or_port, name)
 
@@ -718,7 +691,6 @@ processes nor ports:
     send(:wrong_name, :hello)
     ** (ArgumentError) argument error
 
-
 ### registered()
 
 ```elixir
@@ -734,7 +706,6 @@ Inlined by the compiler.
     Process.register(self(), :test)
     Process.registered()
     #=> [:test, :elixir_config, :inet_db, ...]
-
 
 ### send(dest, msg, options)
 
@@ -766,7 +737,6 @@ Otherwise the message is sent and `:ok` is returned.
 
     iex> Process.send({:name, :node_that_does_not_exist}, :hi, [:noconnect])
     :noconnect
-
 
 ### send_after(dest, msg, time, opts \\ [])
 
@@ -807,7 +777,6 @@ Inlined by the compiler.
 
     timer_ref = Process.send_after(pid, :hi, 1000)
 
-
 ### set_label(label)
 *(since 1.17.0)* 
 ```elixir
@@ -828,7 +797,6 @@ given role, such as `:queue_worker` or `{:live_chat, user_id}`.
     
     Process.set_label({:any, "term"})
     #=> :ok
-
 
 ### sleep(timeout)
 
@@ -914,7 +882,6 @@ Instead **do**:
       30_000 -> :timeout
     end
 
-
 ### spawn(fun, opts)
 
 ```elixir
@@ -940,7 +907,6 @@ Inlined by the compiler.
     Process.spawn(fn -> 1 + 2 end, [:link])
     #=> #PID<0.95.0>
 
-
 ### spawn(mod, fun, args, opts)
 
 ```elixir
@@ -959,7 +925,6 @@ It also accepts extra options, for the list of available options
 check `:erlang.spawn_opt/4`.
 
 Inlined by the compiler.
-
 
 ### unalias(alias)
 *(since 1.15.0)* 
@@ -983,7 +948,6 @@ Inlined by the compiler.
     Process.unalias(alias)
     #=> true
 
-
 ### unlink(pid_or_port)
 
 ```elixir
@@ -1001,7 +965,6 @@ The return value of this function is always `true`.
 See `:erlang.unlink/1` for more information.
 
 Inlined by the compiler.
-
 
 ### unregister(name)
 
@@ -1026,7 +989,6 @@ Inlined by the compiler.
     Process.unregister(:wrong_name)
     ** (ArgumentError) argument error
 
-
 ### whereis(name)
 
 ```elixir
@@ -1045,7 +1007,6 @@ See `:erlang.whereis/1` for more information.
     #=> #PID<0.84.0>
     Process.whereis(:wrong_name)
     #=> nil
-
 
 
 

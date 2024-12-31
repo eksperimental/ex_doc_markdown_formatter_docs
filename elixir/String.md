@@ -261,7 +261,6 @@ be done over and over again. Note though that the compiled
 pattern cannot be stored in a module attribute as the pattern
 is generated at runtime and does not survive compile time.
 
-
 ## Types
 
 ### codepoint()
@@ -272,7 +271,6 @@ is generated at runtime and does not survive compile time.
 
 A single Unicode code point encoded in UTF-8. It may be one or more bytes.
 
-
 ### grapheme()
 
 ```elixir
@@ -280,7 +278,6 @@ A single Unicode code point encoded in UTF-8. It may be one or more bytes.
 ```
 
 Multiple code points that may be perceived as a single character by readers
-
 
 ### pattern()
 
@@ -298,7 +295,6 @@ It must be one of:
 - a list containing non-empty strings
 - a compiled search pattern created by `:binary.compile_pattern/1`
 
-
 ### t()
 
 ```elixir
@@ -310,7 +306,6 @@ A UTF-8 encoded binary.
 The types `String.t()` and `binary()` are equivalent to analysis tools.
 Although, for those reading the documentation, `String.t()` implies
 it is a UTF-8 encoded binary.
-
 
 ## Functions
 
@@ -346,7 +341,6 @@ If `position` is greater than `string` length, then it returns `nil`.
     iex> String.at("elixir", -10)
     nil
 
-
 ### bag_distance(string1, string2)
 *(since 1.8.0)* 
 ```elixir
@@ -378,7 +372,6 @@ Paolo Ciaccia, and Marco Patella.
     0.75
     iex> String.bag_distance("abcd", "abcd")
     1.0
-
 
 ### byte_slice(string, start_bytes, size_bytes)
 *(since 1.17.0)* 
@@ -438,7 +431,6 @@ Truncated codepoints at the beginning are also cleaned up:
 Note that, if you want to work on raw bytes, then you must use `binary_slice/3`
 instead.
 
-
 ### capitalize(string, mode \\ :default)
 
 ```elixir
@@ -469,7 +461,6 @@ see Erlang's `:string.titlecase/1`.
     "Fin"
     iex> String.capitalize("olá")
     "Olá"
-
 
 ### chunk(string, trait)
 
@@ -503,7 +494,6 @@ If the given string is empty, an empty list is returned.
     iex> String.chunk(<<?a, ?b, ?c, 0, 0x0FFFF::utf8>>, :printable)
     ["abc", <<0, 0x0FFFF::utf8>>]
 
-
 ### codepoints(string)
 
 ```elixir
@@ -533,7 +523,6 @@ documentation.
     
     iex> String.codepoints("\u0065\u0301")
     ["e", "́"]
-
 
 ### contains?(string, contents)
 
@@ -597,7 +586,6 @@ accent, then it will return `false`:
     iex> String.contains?(String.normalize("é", :nfc), "e")
     false
 
-
 ### downcase(string, mode \\ :default)
 
 ```elixir
@@ -647,7 +635,6 @@ And `:turkic` properly handles the letter i with the dotless variant:
     iex> String.downcase("Iİ", :turkic)
     "ıi"
 
-
 ### duplicate(subject, n)
 
 ```elixir
@@ -668,7 +655,6 @@ Inlined by the compiler.
     
     iex> String.duplicate("abc", 2)
     "abcabc"
-
 
 ### ends_with?(string, suffix)
 
@@ -695,7 +681,6 @@ An empty suffix will always match:
     true
     iex> String.ends_with?("language", ["", "other"])
     true
-
 
 ### equivalent?(string1, string2)
 
@@ -728,7 +713,6 @@ normalization passes.
     iex> String.equivalent?("nø", "nó")
     false
 
-
 ### first(string)
 
 ```elixir
@@ -748,7 +732,6 @@ Returns the first grapheme from a UTF-8 string,
     
     iex> String.first("")
     nil
-
 
 ### graphemes(string)
 
@@ -774,7 +757,6 @@ For details about code points and graphemes, see the `String` module documentati
     
     iex> String.graphemes("\u0065\u0301")
     ["é"]
-
 
 ### jaro_distance(string1, string2)
 
@@ -804,7 +786,6 @@ name available, if any, based on the `jaro_distance/2` score.
     iex> String.jaro_distance("same", "same")
     1.0
 
-
 ### last(string)
 
 ```elixir
@@ -827,7 +808,6 @@ It traverses the whole string to find its last grapheme.
     iex> String.last("եոգլի")
     "ի"
 
-
 ### length(string)
 
 ```elixir
@@ -843,7 +823,6 @@ Returns the number of Unicode graphemes in a UTF-8 string.
     
     iex> String.length("եոգլի")
     5
-
 
 ### match?(string, regex)
 
@@ -864,7 +843,6 @@ Checks if `string` matches the given regular expression.
 Elixir also provides text-based match operator `=~/2` and function `Regex.match?/2` as
 alternatives to test strings against regular expressions.
 
-
 ### myers_difference(string1, string2)
 *(since 1.3.0)* 
 ```elixir
@@ -881,7 +859,6 @@ Check `List.myers_difference/2` for more information.
     iex> string2 = "fox jumps over the lazy cat"
     iex> String.myers_difference(string1, string2)
     [eq: "fox ", del: "ho", ins: "jum", eq: "ps over the ", del: "dog", ins: "lazy cat"]
-
 
 ### next_codepoint(arg)
 
@@ -929,7 +906,6 @@ an integer, and the pattern won't match invalid UTF-8.
 Binary pattern matching, however, is simpler and more efficient,
 so pick the option that better suits your use case.
 
-
 ### next_grapheme(string)
 
 ```elixir
@@ -950,7 +926,6 @@ the String reached its end.
     iex> String.next_grapheme("")
     nil
 
-
 ### next_grapheme_size(string)
 
 ```elixir
@@ -970,7 +945,6 @@ reached its end.
     
     iex> String.next_grapheme_size("")
     nil
-
 
 ### normalize(string, form)
 
@@ -1026,7 +1000,6 @@ The supported forms are:
     iex> String.normalize("fi", :nfkc)
     "fi"
 
-
 ### pad_leading(string, count, padding \\ [&quot; &quot;])
 
 ```elixir
@@ -1060,7 +1033,6 @@ Raises `ArgumentError` if the given `padding` contains a non-string element.
     
     iex> String.pad_leading("abc", 5, ["1", "23"])
     "123abc"
-
 
 ### pad_trailing(string, count, padding \\ [&quot; &quot;])
 
@@ -1096,7 +1068,6 @@ Raises `ArgumentError` if the given `padding` contains a non-string element.
     iex> String.pad_trailing("abc", 5, ["1", "23"])
     "abc123"
 
-
 ### printable?(string, character_limit \\ :infinity)
 
 ```elixir
@@ -1122,7 +1093,6 @@ function will return `true`.
     
     iex> String.printable?("abc" <> <<0>>, 0)
     true
-
 
 ### replace(subject, pattern, replacement, options \\ [])
 
@@ -1207,7 +1177,6 @@ accent, then it won't be replaced at all:
     iex> String.replace(String.normalize("é", :nfc), "e", "o")
     "é"
 
-
 ### replace_invalid(bytes, replacement \\ &quot;�&quot;)
 *(since 1.16.0)* 
 ```elixir
@@ -1229,7 +1198,6 @@ Returns a new string created by replacing all invalid bytes with `replacement` (
     
     iex> String.replace_invalid("nem rán b" <> <<225, 187>> <> " bề", "ERROR!")
     "nem rán bERROR! bề"
-
 
 ### replace_leading(string, match, replacement)
 
@@ -1260,7 +1228,6 @@ occurrences of `""`.
 
 This function can replace across grapheme boundaries. See `replace/3`
 for more information and examples.
-
 
 ### replace_prefix(string, match, replacement)
 
@@ -1295,7 +1262,6 @@ string (`""`), `replacement` is just prepended to `string`.
 This function can replace across grapheme boundaries. See `replace/3`
 for more information and examples.
 
-
 ### replace_suffix(string, match, replacement)
 
 ```elixir
@@ -1329,7 +1295,6 @@ string (`""`), `replacement` is just appended to `string`.
 This function can replace across grapheme boundaries. See `replace/3`
 for more information and examples.
 
-
 ### replace_trailing(string, match, replacement)
 
 ```elixir
@@ -1359,7 +1324,6 @@ the end of `string`, and it's impossible to replace "multiple" occurrences of
 
 This function can replace across grapheme boundaries. See `replace/3`
 for more information and examples.
-
 
 ### reverse(string)
 
@@ -1395,7 +1359,6 @@ it is considered two graphemes. However, when you reverse
 it once, you have the vowel followed by the accent, which
 becomes one grapheme. Reversing it again will keep it as
 one single grapheme.
-
 
 ### slice(string, range)
 
@@ -1462,7 +1425,6 @@ the last position of the range, it returns an empty string:
     iex> String.slice("a", 1..1500)
     ""
 
-
 ### slice(string, start, length)
 
 ```elixir
@@ -1506,7 +1468,6 @@ string is returned:
     iex> String.slice("elixir", 10, 1500)
     ""
 
-
 ### split(binary)
 
 ```elixir
@@ -1537,7 +1498,6 @@ Removes empty strings, like when using `trim: true` in `String.split/3`.
 
     iex> String.split(" ")
     []
-
 
 ### split(string, pattern, options \\ [])
 
@@ -1647,7 +1607,6 @@ accent, then it will split the string into just one part:
     iex> String.split(String.normalize("é", :nfc), "e")
     ["é"]
 
-
 ### split_at(string, position)
 
 ```elixir
@@ -1683,7 +1642,6 @@ two elements.
     
     iex> String.split_at("abc", -1000)
     {"", "abc"}
-
 
 ### splitter(string, pattern, options \\ [])
 
@@ -1722,7 +1680,6 @@ A compiled pattern can also be given:
     iex> String.splitter("1,2 3,4 5,6 7,8,...,99999", pattern) |> Enum.take(4)
     ["1", "2", "3", "4"]
 
-
 ### starts_with?(string, prefix)
 
 ```elixir
@@ -1758,7 +1715,6 @@ An empty list will never match:
     iex> String.starts_with?("", [])
     false
 
-
 ### to_atom(string)
 
 ```elixir
@@ -1784,7 +1740,6 @@ Inlined by the compiler.
     iex> String.to_atom("my_atom")
     :my_atom
 
-
 ### to_charlist(string)
 
 ```elixir
@@ -1804,7 +1759,6 @@ In case you need to work with bytes, take a look at the
 
     iex> String.to_charlist("foo")
     ~c"foo"
-
 
 ### to_existing_atom(string)
 
@@ -1838,7 +1792,6 @@ Inlined by the compiler.
     iex> String.to_existing_atom("my_atom")
     :my_atom
 
-
 ### to_float(string)
 
 ```elixir
@@ -1867,7 +1820,6 @@ Inlined by the compiler.
     String.to_float(".3")
     ** (ArgumentError) argument error
 
-
 ### to_integer(string)
 
 ```elixir
@@ -1893,7 +1845,6 @@ Passing a string that does not represent an integer leads to an error:
     String.to_integer("invalid data")
     ** (ArgumentError) argument error
 
-
 ### to_integer(string, base)
 
 ```elixir
@@ -1909,7 +1860,6 @@ Inlined by the compiler.
     iex> String.to_integer("3FF", 16)
     1023
 
-
 ### trim(string)
 
 ```elixir
@@ -1923,7 +1873,6 @@ have been removed.
 
     iex> String.trim("\n  abc\n  ")
     "abc"
-
 
 ### trim(string, to_trim)
 
@@ -1939,7 +1888,6 @@ removed.
     iex> String.trim("a  abc  a", "a")
     "  abc  "
 
-
 ### trim_leading(string)
 
 ```elixir
@@ -1953,7 +1901,6 @@ have been removed.
 
     iex> String.trim_leading("\n  abc   ")
     "abc   "
-
 
 ### trim_leading(string, to_trim)
 
@@ -1971,7 +1918,6 @@ Returns a string where all leading `to_trim` characters have been removed.
     iex> String.trim_leading("1 abc", "11")
     "1 abc"
 
-
 ### trim_trailing(string)
 
 ```elixir
@@ -1985,7 +1931,6 @@ has been removed.
 
     iex> String.trim_trailing("   abc\n  ")
     "   abc"
-
 
 ### trim_trailing(string, to_trim)
 
@@ -2002,7 +1947,6 @@ Returns a string where all trailing `to_trim` characters have been removed.
     
     iex> String.trim_trailing("abc 1", "11")
     "abc 1"
-
 
 ### upcase(string, mode \\ :default)
 
@@ -2044,7 +1988,6 @@ And `:turkic` properly handles the letter i with the dotless variant:
     "Iİ"
 
 Also see `downcase/2` and `capitalize/2` for other conversions.
-
 
 ### valid?(string, algorithm \\ :default)
 
@@ -2094,7 +2037,6 @@ expected to improve roughly linearly in string length compared to the
     
     iex> String.valid?(4)
     ** (FunctionClauseError) no function clause matching in String.valid?/2
-
 
 
 

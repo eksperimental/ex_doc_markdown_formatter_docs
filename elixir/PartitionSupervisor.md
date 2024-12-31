@@ -136,7 +136,6 @@ The particular routing may change in the future, and therefore must not
 be relied on. If you want to retrieve a particular PID for a certain key,
 you can use `GenServer.whereis({:via, PartitionSupervisor, {name, key}})`.
 
-
 ## Types
 
 ### name()
@@ -146,7 +145,6 @@ you can use `GenServer.whereis({:via, PartitionSupervisor, {name, key}})`.
 ```
 
 The name of the `PartitionSupervisor`.
-
 
 ## Functions
 
@@ -176,7 +174,6 @@ The map contains the following keys:
 - `:workers` - the count of all workers, whether or not the child process
   is still alive
 
-
 ### partitions(name)
 *(since 1.14.0)* 
 ```elixir
@@ -184,7 +181,6 @@ The map contains the following keys:
 ```
 
 Returns the number of partitions for the partition supervisor.
-
 
 ### resize!(name, partitions)
 *(since 1.18.0)* 
@@ -201,7 +197,6 @@ are kept in the `PartitionSupervisor` itself.
 The final number of partitions cannot be less than zero and
 cannot be more than the number of partitions the supervisor
 started with.
-
 
 ### start_link(opts)
 *(since 1.14.0)* 
@@ -267,7 +262,6 @@ options given to the child:
       [Keyword.put(opts, :partition, partition)]
     end
 
-
 ### stop(supervisor, reason \\ :normal, timeout \\ :infinity)
 *(since 1.14.0)* 
 ```elixir
@@ -282,7 +276,6 @@ reason. If it terminates with another reason, the call exits.
 This function keeps OTP semantics regarding error reporting.
 If the reason is any other than `:normal`, `:shutdown` or
 `{:shutdown, _}`, an error report is logged.
-
 
 ### which_children(name)
 *(since 1.14.0)* 
@@ -305,7 +298,6 @@ This function returns a list of tuples containing:
   specification
 
 - `modules` - as defined in the child specification
-
 
 
 

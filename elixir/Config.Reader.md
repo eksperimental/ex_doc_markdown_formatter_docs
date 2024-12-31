@@ -40,7 +40,6 @@ where the `:path` is a required key:
 Remember Mix already loads `config/runtime.exs` by default.
 For more examples and scenarios, see the `Config.Provider` module.
 
-
 ## Functions
 
 ### eval!(file, contents, opts \\ [])
@@ -52,7 +51,6 @@ For more examples and scenarios, see the `Config.Provider` module.
 Evaluates the configuration `contents` for the given `file`.
 
 Accepts the same options as `read!/2`.
-
 
 ### merge(config1, config2)
 *(since 1.9.0)* 
@@ -78,7 +76,6 @@ lists, it deep merges them.
     iex> Config.Reader.merge([app1: []], [app2: []])
     [app1: [], app2: []]
 
-
 ### read!(file, opts \\ [])
 *(since 1.9.0)* 
 ```elixir
@@ -101,7 +98,6 @@ Reads the configuration file.
 - `:target` - the target the configuration file runs on.
   See `Config.config_target/0` for sample usage
 
-
 ### read_imports!(file, opts \\ [])
 *(since 1.9.0)* 
 ```elixir
@@ -116,7 +112,6 @@ with its imports.
 
 Accepts the same options as `read!/2`. Although note the `:imports`
 option cannot be disabled in `read_imports!/2`.
-
 
 
 

@@ -179,7 +179,6 @@ instruction:
 The agent's state will be added to the given list of arguments (`[%{}]`) as
 the first argument.
 
-
 ## Types
 
 ### agent()
@@ -190,7 +189,6 @@ the first argument.
 
 The agent reference
 
-
 ### name()
 
 ```elixir
@@ -198,7 +196,6 @@ The agent reference
 ```
 
 The agent name
-
 
 ### on_start()
 
@@ -208,7 +205,6 @@ The agent name
 
 Return values of `start*` functions
 
-
 ### state()
 
 ```elixir
@@ -216,7 +212,6 @@ Return values of `start*` functions
 ```
 
 The agent state
-
 
 ## Functions
 
@@ -243,7 +238,6 @@ the node it should live on) exists.
     iex> Agent.get(pid, fn state -> state end)
     43
 
-
 ### cast(agent, module, fun, args)
 
 ```elixir
@@ -264,7 +258,6 @@ argument to the given list of arguments.
     iex> Agent.get(pid, fn state -> state end)
     54
 
-
 ### child_spec(arg)
 *(since 1.5.0)* 
 
@@ -272,7 +265,6 @@ argument to the given list of arguments.
 Returns a specification to start an agent under a supervisor.
 
 See the "Child specification" section in the `Supervisor` module for more detailed information.
-
 
 ### get(agent, fun, timeout \\ 5000)
 
@@ -298,7 +290,6 @@ exits.
     iex> Agent.get(pid, fn state -> state end)
     42
 
-
 ### get(agent, module, fun, args, timeout \\ 5000)
 
 ```elixir
@@ -310,7 +301,6 @@ Gets an agent value via the given function.
 Same as `get/3` but a module, function, and arguments are expected
 instead of an anonymous function. The state is added as first
 argument to the given list of arguments.
-
 
 ### get_and_update(agent, fun, timeout \\ 5000)
 
@@ -340,7 +330,6 @@ exits.
     iex> Agent.get(pid, fn state -> state end)
     43
 
-
 ### get_and_update(agent, module, fun, args, timeout \\ 5000)
 
 ```elixir
@@ -352,7 +341,6 @@ Gets and updates the agent state in one operation via the given function.
 Same as `get_and_update/3` but a module, function, and arguments are expected
 instead of an anonymous function. The state is added as first
 argument to the given list of arguments.
-
 
 ### start(fun, options \\ [])
 
@@ -370,7 +358,6 @@ See `start_link/2` for more information.
     iex> Agent.get(pid, fn state -> state end)
     42
 
-
 ### start(module, fun, args, options \\ [])
 
 ```elixir
@@ -380,7 +367,6 @@ See `start_link/2` for more information.
 Starts an agent without links with the given module, function, and arguments.
 
 See `start_link/4` for more information.
-
 
 ### start_link(fun, options \\ [])
 
@@ -430,7 +416,6 @@ If the given function callback fails, the function returns `{:error, reason}`.
     iex> exception
     %RuntimeError{message: "oops"}
 
-
 ### start_link(module, fun, args, options \\ [])
 
 ```elixir
@@ -442,7 +427,6 @@ Starts an agent linked to the current process.
 Same as `start_link/2` but a module, function, and arguments are expected
 instead of an anonymous function; `fun` in `module` will be called with the
 given arguments `args` to initialize the state.
-
 
 ### stop(agent, reason \\ :normal, timeout \\ :infinity)
 
@@ -465,7 +449,6 @@ If the reason is any other than `:normal`, `:shutdown` or
     iex> {:ok, pid} = Agent.start_link(fn -> 42 end)
     iex> Agent.stop(pid)
     :ok
-
 
 ### update(agent, fun, timeout \\ 5000)
 
@@ -495,7 +478,6 @@ exits.
     iex> Agent.get(pid, fn state -> state end)
     43
 
-
 ### update(agent, module, fun, args, timeout \\ 5000)
 
 ```elixir
@@ -515,7 +497,6 @@ argument to the given list of arguments.
     :ok
     iex> Agent.get(pid, fn state -> state end)
     54
-
 
 
 

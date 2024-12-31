@@ -40,7 +40,6 @@ To learn more about floating-point arithmetic visit:
 - [0.30000000000000004.com](http://0.30000000000000004.com/)
 - [What Every Programmer Should Know About Floating-Point Arithmetic](https://floating-point-gui.de/)
 
-
 ## Types
 
 ### precision_range()
@@ -91,7 +90,6 @@ truncate the result to an integer afterwards.
     iex> Float.ceil(-0.01)
     -0.0
 
-
 ### floor(number, precision \\ 0)
 
 ```elixir
@@ -129,7 +127,6 @@ which explains the behavior above.
     iex> Float.floor(34.259, 2)
     34.25
 
-
 ### max_finite()
 
 ```elixir
@@ -143,7 +140,6 @@ Returns the maximum finite value for a float.
     iex> Float.max_finite()
     1.7976931348623157e308
 
-
 ### min_finite()
 
 ```elixir
@@ -156,7 +152,6 @@ Returns the minimum finite value for a float.
 
     iex> Float.min_finite()
     -1.7976931348623157e308
-
 
 ### parse(binary)
 
@@ -192,7 +187,6 @@ If you want to convert a string-formatted float directly to a float,
     :error
     iex> Float.parse("1.7976931348623159e+308")
     :error
-
 
 ### pow(base, exponent)
 *(since 1.12.0)* 
@@ -233,7 +227,6 @@ exponentiation that returns integers.
     iex> Float.pow(-1.0, 0.5)
     ** (ArithmeticError) bad argument in arithmetic expression
 
-
 ### ratio(float)
 *(since 1.4.0)* 
 ```elixir
@@ -259,7 +252,6 @@ to the original float and with a positive denominator.
     {16, 1}
     iex> Float.ratio(-16.0)
     {-16, 1}
-
 
 ### round(float, precision \\ 0)
 
@@ -309,7 +301,6 @@ Decimal-Binary Conversions" by David M. Gay.
     iex> Float.round(-0.01)
     -0.0
 
-
 ### to_charlist(float)
 
 ```elixir
@@ -338,7 +329,6 @@ Inlined by the compiler.
     iex> Float.to_charlist(7.0)
     ~c"7.0"
 
-
 ### to_string(float)
 
 ```elixir
@@ -366,7 +356,6 @@ Inlined by the compiler.
 
     iex> Float.to_string(7.0)
     "7.0"
-
 
 
 

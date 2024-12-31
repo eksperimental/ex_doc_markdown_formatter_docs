@@ -196,7 +196,6 @@ at the moment `start_child/2` is called, and no longer on the init callback.
 If there are any initial arguments given on initialization, such as `[initial_arg]`,
 it can be given in the `:extra_arguments` flag on `DynamicSupervisor.init/1`.
 
-
 ## Types
 
 ### init_option()
@@ -212,7 +211,6 @@ it can be given in the `:extra_arguments` flag on `DynamicSupervisor.init/1`.
 
 Options given to `start_link/1` and `init/1` functions
 
-
 ### on_start_child()
 
 ```elixir
@@ -225,7 +223,6 @@ Options given to `start_link/1` and `init/1` functions
 
 Return values of `start_child` functions
 
-
 ### strategy()
 
 ```elixir
@@ -233,7 +230,6 @@ Return values of `start_child` functions
 ```
 
 Supported strategies
-
 
 ### sup_flags()
 
@@ -249,7 +245,6 @@ Supported strategies
 
 The supervisor flags returned on init
 
-
 ## Callbacks
 
 ### init(init_arg)
@@ -263,7 +258,6 @@ Callback invoked to start the supervisor and during hot code upgrades.
 Developers typically invoke `DynamicSupervisor.init/1` at the end of
 their init callback to return the proper supervision flags.
 
-
 ## Functions
 
 ### child_spec(options)
@@ -275,7 +269,6 @@ Returns a specification to start a dynamic supervisor under a supervisor.
 It accepts the same options as `start_link/1`.
 
 See `Supervisor` for more information about child specifications.
-
 
 ### count_children(supervisor)
 *(since 1.6.0)* 
@@ -303,7 +296,6 @@ The map contains the following keys:
 - `:workers` - the count of all workers, whether or not the child process
   is still alive
 
-
 ### init(options)
 *(since 1.6.0)* 
 ```elixir
@@ -324,7 +316,6 @@ and it returns a tuple containing the supervisor options.
     def init(_arg) do
       DynamicSupervisor.init(max_children: 1000)
     end
-
 
 ### start_child(supervisor, child_spec)
 *(since 1.6.0)* 
@@ -360,7 +351,6 @@ returned from child process start function, or failure reason if it fails.
 If the supervisor already has N children in a way that N exceeds the amount
 of `:max_children` set on the supervisor initialization (see `init/1`), then
 this function returns `{:error, :max_children}`.
-
 
 ### start_link(options)
 *(since 1.6.0)* 
@@ -415,7 +405,6 @@ with `:normal` reason.
 
 - Any of the standard [GenServer options](\`t:GenServer.option/0\`)
 
-
 ### start_link(module, init_arg, opts \\ [])
 *(since 1.6.0)* 
 ```elixir
@@ -455,7 +444,6 @@ This function accepts any regular [`GenServer` options](\`t:GenServer.option/0\`
 Options specific to `DynamicSupervisor` must be returned from the `c:init/1`
 callback.
 
-
 ### stop(supervisor, reason \\ :normal, timeout \\ :infinity)
 *(since 1.7.0)* 
 ```elixir
@@ -471,7 +459,6 @@ This function keeps OTP semantics regarding error reporting.
 If the reason is any other than `:normal`, `:shutdown` or
 `{:shutdown, _}`, an error report is logged.
 
-
 ### terminate_child(supervisor, pid)
 *(since 1.6.0)* 
 ```elixir
@@ -482,7 +469,6 @@ Terminates the given child identified by `pid`.
 
 If successful, this function returns `:ok`. If there is no process with
 the given PID, this function returns `{:error, :not_found}`.
-
 
 ### which_children(supervisor)
 *(since 1.6.0)* 
@@ -510,7 +496,6 @@ This function returns a list of tuples containing:
   specification
 
 - `modules` - as defined in the child specification
-
 
 
 

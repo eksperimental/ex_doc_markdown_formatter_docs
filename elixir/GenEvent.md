@@ -40,7 +40,6 @@ If your use case requires exactly what GenEvent provided, or you have to
 integrate with an existing `:gen_event`-based system, you can still use the
 [`:gen_event`](\`:gen_event\`) Erlang module.
 
-
 ## Types
 
 ### handler()

@@ -8,7 +8,6 @@ similar to functions in the `Kernel` module and they are explicitly
 marked in their docs as "inlined by the compiler". For more information
 about inlined functions, check out the `Kernel` module.
 
-
 ## Types
 
 ### state()
@@ -39,7 +38,6 @@ Returns `true` if the local node is alive.
 
 That is, if the node can be part of a distributed system.
 
-
 ### connect(node)
 
 ```elixir
@@ -52,7 +50,6 @@ Returns `true` if successful, `false` if not, and the atom
 `:ignored` if the local node is not alive.
 
 For more information, see `:net_kernel.connect_node/1`.
-
 
 ### disconnect(node)
 
@@ -69,7 +66,6 @@ If the local node is not alive, the function returns `:ignored`.
 
 For more information, see `:erlang.disconnect_node/1`.
 
-
 ### get_cookie()
 
 ```elixir
@@ -79,7 +75,6 @@ For more information, see `:erlang.disconnect_node/1`.
 Returns the magic cookie of the local node.
 
 Returns the cookie if the node is alive, otherwise `:nocookie`.
-
 
 ### list()
 
@@ -93,7 +88,6 @@ the local node.
 Same as `list(:visible)`.
 
 Inlined by the compiler.
-
 
 ### list(args)
 
@@ -110,7 +104,6 @@ For more information, see `:erlang.nodes/1`.
 
 Inlined by the compiler.
 
-
 ### monitor(node, flag)
 
 ```elixir
@@ -126,7 +119,6 @@ For more information, see `:erlang.monitor_node/2`.
 
 For monitoring status changes of all nodes, see `:net_kernel.monitor_nodes/2`.
 
-
 ### monitor(node, flag, options)
 
 ```elixir
@@ -139,7 +131,6 @@ option to be given, namely `:allow_passive_connect`.
 For more information, see `:erlang.monitor_node/3`.
 
 For monitoring status changes of all nodes, see `:net_kernel.monitor_nodes/2`.
-
 
 ### ping(node)
 
@@ -156,7 +147,6 @@ Returns `:pang` if it fails, or `:pong` if it is successful.
     iex> Node.ping(:unknown_node)
     :pang
 
-
 ### self()
 
 ```elixir
@@ -166,7 +156,6 @@ Returns `:pang` if it fails, or `:pong` if it is successful.
 Returns the current node.
 
 It returns the same as the built-in `node()`.
-
 
 ### set_cookie(node \\ Node.self(), cookie)
 
@@ -181,7 +170,6 @@ the function also sets the cookie of all other unknown nodes to `cookie`.
 
 This function will raise `FunctionClauseError` if the given `node` is not alive.
 
-
 ### spawn(node, fun)
 
 ```elixir
@@ -194,7 +182,6 @@ on `node`. If `node` does not exist, a useless PID is returned.
 For the list of available options, see `:erlang.spawn/2`.
 
 Inlined by the compiler.
-
 
 ### spawn(node, fun, opts)
 
@@ -211,7 +198,6 @@ For the list of available options, see `:erlang.spawn_opt/3`.
 
 Inlined by the compiler.
 
-
 ### spawn(node, module, fun, args)
 
 ```elixir
@@ -226,7 +212,6 @@ If `node` does not exist, a useless PID is returned.
 For the list of available options, see `:erlang.spawn/4`.
 
 Inlined by the compiler.
-
 
 ### spawn(node, module, fun, args, opts)
 
@@ -244,7 +229,6 @@ For the list of available options, see `:erlang.spawn_opt/5`.
 
 Inlined by the compiler.
 
-
 ### spawn_link(node, fun)
 
 ```elixir
@@ -258,7 +242,6 @@ If `node` does not exist, a useless PID is returned (and due to the link, an exi
 signal with exit reason `:noconnection` will be received).
 
 Inlined by the compiler.
-
 
 ### spawn_link(node, module, fun, args)
 
@@ -275,7 +258,6 @@ signal with exit reason `:noconnection` will be received).
 
 Inlined by the compiler.
 
-
 ### spawn_monitor(node, fun)
 *(since 1.14.0)* 
 ```elixir
@@ -287,7 +269,6 @@ and monitoring reference.
 
 Inlined by the compiler.
 
-
 ### spawn_monitor(node, module, fun, args)
 *(since 1.14.0)* 
 ```elixir
@@ -298,7 +279,6 @@ Spawns the given module and function passing the given args on a node,
 monitors it and returns its PID and monitoring reference.
 
 Inlined by the compiler.
-
 
 ### start(name, type \\ :longnames, tick_time \\ 15000)
 
@@ -326,7 +306,6 @@ error.
 
     {:ok, pid} = Node.start(:example, :shortnames, 15000)
 
-
 ### stop()
 
 ```elixir
@@ -339,7 +318,6 @@ For other nodes in the network, this is the same as the node going down.
 Only possible when the node was started with `Node.start/3`, otherwise
 returns `{:error, :not_allowed}`. Returns `{:error, :not_found}` if the
 local node is not alive.
-
 
 
 

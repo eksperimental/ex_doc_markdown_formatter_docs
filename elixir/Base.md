@@ -88,7 +88,6 @@ This document defines the commonly used base 16, base 32, and base
 |    15 | P        |    32 | g        |    49 | x        |       |          |
 |    16 | Q        |    33 | h        |    50 | y        |       |          |
 
-
 ## Types
 
 ### decode_case()
@@ -140,7 +139,6 @@ The values for `:case` can be:
     iex> Base.decode16("666f6F626172", case: :mixed)
     {:ok, "foobar"}
 
-
 ### decode16!(string, opts \\ [])
 
 ```elixir
@@ -174,7 +172,6 @@ a non-alphabet character is present in the string.
     
     iex> Base.decode16!("666f6F626172", case: :mixed)
     "foobar"
-
 
 ### decode32(string, opts \\ [])
 
@@ -216,7 +213,6 @@ The values for `:padding` can be:
     
     iex> Base.decode32("MZXW6YTBOI", padding: false)
     {:ok, "foobar"}
-
 
 ### decode32!(string, opts \\ [])
 
@@ -261,7 +257,6 @@ The values for `:padding` can be:
     iex> Base.decode32!("MZXW6YTBOI", padding: false)
     "foobar"
 
-
 ### decode64(string, opts \\ [])
 
 ```elixir
@@ -290,7 +285,6 @@ the input string.
     
     iex> Base.decode64("Zm9vYg", padding: false)
     {:ok, "foob"}
-
 
 ### decode64!(string, opts \\ [])
 
@@ -323,7 +317,6 @@ a non-alphabet character is present in the string.
     iex> Base.decode64!("Zm9vYg", padding: false)
     "foob"
 
-
 ### encode16(data, opts \\ [])
 
 ```elixir
@@ -350,7 +343,6 @@ The values for `:case` can be:
     
     iex> Base.encode16("foobar", case: :lower)
     "666f6f626172"
-
 
 ### encode32(data, opts \\ [])
 
@@ -388,7 +380,6 @@ The values for `:padding` can be:
     iex> Base.encode32("foobar", padding: false)
     "MZXW6YTBOI"
 
-
 ### encode64(data, opts \\ [])
 
 ```elixir
@@ -410,7 +401,6 @@ the output string.
     
     iex> Base.encode64("foob", padding: false)
     "Zm9vYg"
-
 
 ### hex_decode32(string, opts \\ [])
 
@@ -453,7 +443,6 @@ The values for `:padding` can be:
     
     iex> Base.hex_decode32("CPNMUOJ1E8", padding: false)
     {:ok, "foobar"}
-
 
 ### hex_decode32!(string, opts \\ [])
 
@@ -499,7 +488,6 @@ The values for `:padding` can be:
     iex> Base.hex_decode32!("CPNMUOJ1E8", padding: false)
     "foobar"
 
-
 ### hex_encode32(data, opts \\ [])
 
 ```elixir
@@ -537,7 +525,6 @@ The values for `:padding` can be:
     iex> Base.hex_encode32("foobar", padding: false)
     "CPNMUOJ1E8"
 
-
 ### url_decode64(string, opts \\ [])
 
 ```elixir
@@ -564,7 +551,6 @@ the input string.
     
     iex> Base.url_decode64("_3_-_A", padding: false)
     {:ok, <<255, 127, 254, 252>>}
-
 
 ### url_decode64!(string, opts \\ [])
 
@@ -595,7 +581,6 @@ a non-alphabet character is present in the string.
     iex> Base.url_decode64!("_3_-_A", padding: false)
     <<255, 127, 254, 252>>
 
-
 ### url_encode64(data, opts \\ [])
 
 ```elixir
@@ -615,7 +600,6 @@ the output string.
     
     iex> Base.url_encode64(<<255, 127, 254, 252>>, padding: false)
     "_3_-_A"
-
 
 
 

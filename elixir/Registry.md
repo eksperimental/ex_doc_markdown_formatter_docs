@@ -171,7 +171,6 @@ and `send/2` which acts as a no-op for dead processes.
 
 Note that the registry uses one ETS table plus two ETS tables per partition.
 
-
 ## Types
 
 ### body()
@@ -182,7 +181,6 @@ Note that the registry uses one ETS table plus two ETS tables per partition.
 
 A pattern used to representing the output format part of a match spec
 
-
 ### guard()
 
 ```elixir
@@ -190,7 +188,6 @@ A pattern used to representing the output format part of a match spec
 ```
 
 A guard to be evaluated when matching on objects in a registry
-
 
 ### guards()
 
@@ -200,7 +197,6 @@ A guard to be evaluated when matching on objects in a registry
 
 A list of guards to be evaluated when matching on objects in a registry
 
-
 ### key()
 
 ```elixir
@@ -209,7 +205,6 @@ A list of guards to be evaluated when matching on objects in a registry
 
 The type of keys allowed on registration
 
-
 ### keys()
 
 ```elixir
@@ -217,7 +212,6 @@ The type of keys allowed on registration
 ```
 
 The type of the registry
-
 
 ### listener_message()
 *(since 1.15.0)* 
@@ -231,7 +225,6 @@ The message that the registry sends to listeners when a process registers or unr
 
 See the `:listeners` option in `start_link/1`.
 
-
 ### match_pattern()
 
 ```elixir
@@ -239,7 +232,6 @@ See the `:listeners` option in `start_link/1`.
 ```
 
 A pattern to match on objects in a registry
-
 
 ### meta_key()
 
@@ -249,7 +241,6 @@ A pattern to match on objects in a registry
 
 The type of registry metadata keys
 
-
 ### meta_value()
 
 ```elixir
@@ -257,7 +248,6 @@ The type of registry metadata keys
 ```
 
 The type of registry metadata values
-
 
 ### registry()
 
@@ -267,7 +257,6 @@ The type of registry metadata values
 
 The registry identifier
 
-
 ### spec()
 
 ```elixir
@@ -275,7 +264,6 @@ The registry identifier
 ```
 
 A full match spec used when selecting objects in the registry
-
 
 ### start_option()
 
@@ -290,7 +278,6 @@ A full match spec used when selecting objects in the registry
 
 Options used for `child_spec/1` and `start_link/1`
 
-
 ### value()
 
 ```elixir
@@ -298,7 +285,6 @@ Options used for `child_spec/1` and `start_link/1`
 ```
 
 The type of values allowed on registration
-
 
 ## Functions
 
@@ -311,7 +297,6 @@ The type of values allowed on registration
 Returns a specification to start a registry under a supervisor.
 
 See `Supervisor`.
-
 
 ### count(registry)
 *(since 1.7.0)* 
@@ -344,7 +329,6 @@ The same applies to duplicate registries:
     iex> {:ok, _} = Registry.register(Registry.DuplicateCountTest, "hello", :world)
     iex> Registry.count(Registry.DuplicateCountTest)
     2
-
 
 ### count_match(registry, key, pattern, guards \\ [])
 *(since 1.7.0)* 
@@ -393,7 +377,6 @@ key in a duplicate registry but with different values:
     iex> Registry.count_match(Registry.CountMatchTest, "hello", {:_, :"$1", :_}, [{:is_atom, :"$1"}])
     2
 
-
 ### count_select(registry, spec)
 *(since 1.14.0)* 
 ```elixir
@@ -412,7 +395,6 @@ keys in a unique registry but with the same value:
     iex> {:ok, _} = Registry.register(Registry.CountSelectTest, "world", :value)
     iex> Registry.count_select(Registry.CountSelectTest, [{{:_, :_, :value}, [], [true]}])
     2
-
 
 ### delete_meta(registry, key)
 *(since 1.11.0)* 
@@ -433,7 +415,6 @@ Deletes registry metadata for the given `key` in `registry`.
     :ok
     iex> Registry.meta(Registry.DeleteMetaTest, :custom_key)
     :error
-
 
 ### dispatch(registry, key, mfa_or_fun, opts \\ [])
 *(since 1.4.0)* 
@@ -458,7 +439,6 @@ the callback is only invoked if there are entries for that partition.
 
 See the module documentation for examples of using the `dispatch/3`
 function for building custom dispatching or a pubsub system.
-
 
 ### keys(registry, pid)
 *(since 1.4.0)* 
@@ -495,7 +475,6 @@ Such is possible for duplicate registries though:
     iex> {:ok, _} = Registry.register(Registry.DuplicateKeysTest, "hello", :world)
     iex> Registry.keys(Registry.DuplicateKeysTest, self())
     ["hello", "hello"]
-
 
 ### lock(registry, lock_key, function)
 *(since 1.18.0)* 
@@ -550,7 +529,6 @@ mechanism for managing locks on top of the registry's infrastructure.
     iex> Registry.lock(Registry.LockTest, :world, fn -> self() end)
     self()
 
-
 ### lookup(registry, key)
 *(since 1.4.0)* 
 ```elixir
@@ -589,7 +567,6 @@ The same applies to duplicate registries:
     iex> {:ok, _} = Registry.register(Registry.DuplicateLookupTest, "hello", :another)
     iex> Enum.sort(Registry.lookup(Registry.DuplicateLookupTest, "hello"))
     [{self(), :another}, {self(), :world}]
-
 
 ### match(registry, key, pattern, guards \\ [])
 *(since 1.4.0)* 
@@ -639,7 +616,6 @@ key in a duplicate registry but with different values:
     iex> Registry.match(Registry.MatchTest, "hello", {:_, :"$1", :_}, guards) |> Enum.sort()
     [{self(), {1, :atom, 1}}, {self(), {2, :atom, 2}}]
 
-
 ### meta(registry, key)
 *(since 1.4.0)* 
 ```elixir
@@ -657,7 +633,6 @@ Atoms and tuples are allowed as keys.
     {:ok, "custom_value"}
     iex> Registry.meta(Registry.MetaTest, :unknown_key)
     :error
-
 
 ### put_meta(registry, key, value)
 *(since 1.4.0)* 
@@ -680,7 +655,6 @@ Atoms and tuples are allowed as keys.
     :ok
     iex> Registry.meta(Registry.PutMetaTest, {:tuple, :key})
     {:ok, "tuple_value"}
-
 
 ### register(registry, key, value)
 *(since 1.4.0)* 
@@ -728,7 +702,6 @@ Such is possible for duplicate registries though:
     iex> {:ok, _} = Registry.register(Registry.DuplicateRegisterTest, "hello", :world)
     iex> Registry.keys(Registry.DuplicateRegisterTest, self())
     ["hello", "hello"]
-
 
 ### select(registry, spec)
 *(since 1.9.0)* 
@@ -782,7 +755,6 @@ If you want to get keys, you can pass a separate selector:
     iex> Registry.select(Registry.SelectKeysTest, [{{:"$1", :_, :_}, [], [:"$1"]}]) |> Enum.sort()
     ["hello", "world"]
 
-
 ### start_link(options)
 *(since 1.5.0)* 
 ```elixir
@@ -833,7 +805,6 @@ The following keys are optional:
   crashes. Messages sent to listeners are of type `t:listener_message/0`.
 - `:meta` - a keyword list of metadata to be attached to the registry.
 
-
 ### unregister(registry, key)
 *(since 1.4.0)* 
 ```elixir
@@ -875,7 +846,6 @@ For duplicate registries:
     :ok
     iex> Registry.keys(Registry.DuplicateUnregisterTest, self())
     []
-
 
 ### unregister_match(registry, key, pattern, guards \\ [])
 *(since 1.5.0)* 
@@ -919,7 +889,6 @@ For duplicate registries:
     iex> Registry.lookup(Registry.DuplicateUnregisterMatchTest, "hello")
     [{self(), :world_b}, {self(), :world_c}]
 
-
 ### update_value(registry, key, callback)
 *(since 1.4.0)* 
 ```elixir
@@ -944,7 +913,6 @@ If a non-unique registry is given, an error is raised.
     {2, 1}
     iex> Registry.lookup(Registry.UpdateTest, "hello")
     [{self(), 2}]
-
 
 ### values(registry, key, pid)
 *(since 1.12.0)* 
@@ -986,7 +954,6 @@ The same applies to duplicate registries:
     iex> {:ok, _} = Registry.register(Registry.DuplicateValuesTest, "hello", :another)
     iex> Enum.sort(Registry.values(Registry.DuplicateValuesTest, "hello", self()))
     [:another, :world]
-
 
 
 

@@ -50,7 +50,6 @@ use the `Stream` module, which allows you to lazily express computations,
 without traversing collections, and work with possibly infinite collections.
 See the `Stream` module for examples and documentation.
 
-
 ## Types
 
 ### acc()
@@ -85,7 +84,6 @@ See the `Stream` module for examples and documentation.
 
 Zero-based index. It can also be a negative integer.
 
-
 ### t()
 
 ```elixir
@@ -118,7 +116,6 @@ and `false` is returned. In all other cases `true` is returned.
     iex> Enum.all?([])
     true
 
-
 ### all?(enumerable, fun)
 
 ```elixir
@@ -147,7 +144,6 @@ empty, regardless of `fun`. In an empty enumerable there is no element for
 which `fun` returns a falsy value, so the result must be `true`. This is a
 well-defined logical argument for empty collections.
 
-
 ### any?(enumerable)
 
 ```elixir
@@ -169,7 +165,6 @@ immediately and `true` is returned. In all other cases `false` is returned.
     
     iex> Enum.any?([])
     false
-
 
 ### any?(enumerable, fun)
 
@@ -193,7 +188,6 @@ immediately and `true` is returned. In all other cases `false` is returned.
     
     iex> Enum.any?([], fn x -> x > 0 end)
     false
-
 
 ### at(enumerable, index, default \\ nil)
 
@@ -223,7 +217,6 @@ enumerated once and the `index` is counted from the end (for example,
     iex> Enum.at([2, 4, 6], 4, :none)
     :none
 
-
 ### chunk_by(enumerable, fun)
 
 ```elixir
@@ -240,7 +233,6 @@ Returns a list of lists.
     iex> Enum.chunk_by([1, 2, 2, 3, 4, 4, 6, 7, 7], &(rem(&1, 2) == 1))
     [[1], [2, 2], [3], [4, 4, 6], [7, 7]]
 
-
 ### chunk_every(enumerable, count)
 *(since 1.5.0)* 
 ```elixir
@@ -248,7 +240,6 @@ Returns a list of lists.
 ```
 
 Shortcut to `chunk_every(enumerable, count, count)`.
-
 
 ### chunk_every(enumerable, count, step, leftover \\ [])
 *(since 1.5.0)* 
@@ -293,7 +284,6 @@ unless it has exactly `count` elements.
     
     iex> Enum.chunk_every([1, 2, 3, 4], 3, 3, Stream.cycle([0]))
     [[1, 2, 3], [4, 0, 0]]
-
 
 ### chunk_while(enumerable, acc, chunk_fun, after_fun)
 *(since 1.5.0)* 
@@ -347,7 +337,6 @@ Returns a list of emitted chunks.
     iex> Enum.chunk_while([1, 2, 3, 5, 7], [], chunk_fun, after_fun)
     [[1, 2], [3, 5, 7]]
 
-
 ### concat(enumerables)
 
 ```elixir
@@ -364,7 +353,6 @@ a single list.
     
     iex> Enum.concat([[1, [2], 3], [4], [5, 6]])
     [1, [2], 3, 4, 5, 6]
-
 
 ### concat(left, right)
 
@@ -386,7 +374,6 @@ for lists.
     iex> Enum.concat([1, 2, 3], [4, 5, 6])
     [1, 2, 3, 4, 5, 6]
 
-
 ### count(enumerable)
 
 ```elixir
@@ -399,7 +386,6 @@ Returns the size of the `enumerable`.
 
     iex> Enum.count([1, 2, 3])
     3
-
 
 ### count(enumerable, fun)
 
@@ -414,7 +400,6 @@ a truthy value.
 
     iex> Enum.count([1, 2, 3, 4, 5], fn x -> rem(x, 2) == 0 end)
     2
-
 
 ### count_until(enumerable, limit)
 *(since 1.12.0)* 
@@ -448,7 +433,6 @@ argument.
     iex> Enum.count_until(1..10, 10 + 1) == 10 # Exactly ten
     true
 
-
 ### count_until(enumerable, fun, limit)
 *(since 1.12.0)* 
 ```elixir
@@ -466,7 +450,6 @@ See `count/2` and `count_until/2` for more information.
     7
     iex> Enum.count_until(1..20, fn x -> rem(x, 2) == 0 end, 11)
     10
-
 
 ### dedup(enumerable)
 
@@ -490,7 +473,6 @@ see `uniq/1`.
     iex> Enum.dedup([1, 1, 2, 2.0, :three, :three])
     [1, 2, 2.0, :three]
 
-
 ### dedup_by(enumerable, fun)
 
 ```elixir
@@ -510,7 +492,6 @@ determine if two elements are duplicates.
     
     iex> Enum.dedup_by([5, 1, 2, 3, 2, 1], fn x -> x > 2 end)
     [5, 1, 3, 2]
-
 
 ### drop(enumerable, amount)
 
@@ -538,7 +519,6 @@ the remaining calculation is performed from the end.
     iex> Enum.drop([1, 2, 3], -1)
     [1, 2]
 
-
 ### drop_every(enumerable, nth)
 
 ```elixir
@@ -564,7 +544,6 @@ integer.
     iex> Enum.drop_every([1, 2, 3], 1)
     []
 
-
 ### drop_while(enumerable, fun)
 
 ```elixir
@@ -578,7 +557,6 @@ truthy value.
 
     iex> Enum.drop_while([1, 2, 3, 2, 1], fn x -> x < 3 end)
     [3, 2, 1]
-
 
 ### each(enumerable, fun)
 
@@ -597,7 +575,6 @@ Returns `:ok`.
     "example"
     #=> :ok
 
-
 ### empty?(enumerable)
 
 ```elixir
@@ -615,7 +592,6 @@ Returns `true` if `enumerable` is empty, otherwise `false`.
     
     iex> Enum.empty?([1, 2, 3])
     false
-
 
 ### fetch(enumerable, index)
 
@@ -645,7 +621,6 @@ enumerated once and the `index` is counted from the end (for example,
     iex> Enum.fetch([2, 4, 6], 4)
     :error
 
-
 ### fetch!(enumerable, index)
 
 ```elixir
@@ -667,7 +642,6 @@ the `enumerable`.
     
     iex> Enum.fetch!([2, 4, 6], 4)
     ** (Enum.OutOfBoundsError) out of bounds error
-
 
 ### filter(enumerable, fun)
 
@@ -707,7 +681,6 @@ discard the invalid one in one pass:
       end
     end)
 
-
 ### find(enumerable, default \\ nil, fun)
 
 ```elixir
@@ -727,7 +700,6 @@ If no such element is found, returns `default`.
     iex> Enum.find([2, 4, 6], 0, fn x -> rem(x, 2) == 1 end)
     0
 
-
 ### find_index(enumerable, fun)
 
 ```elixir
@@ -744,7 +716,6 @@ of the element instead of the element itself.
     
     iex> Enum.find_index([2, 3, 4], fn x -> rem(x, 2) == 1 end)
     1
-
 
 ### find_value(enumerable, default \\ nil, fun)
 
@@ -775,7 +746,6 @@ The return value is considered to be found when the result is truthy
     
     iex> Enum.find_value([1, 2, 3], "no bools!", &is_boolean/1)
     "no bools!"
-
 
 ### flat_map(enumerable, fun)
 
@@ -808,7 +778,6 @@ lists to exclude results:
     ...> end)
     [0.25, 0.5]
 
-
 ### flat_map_reduce(enumerable, acc, fun)
 
 ```elixir
@@ -835,7 +804,6 @@ the accumulator as second.
     iex> Enum.flat_map_reduce(1..5, 0, fn x, acc -> {[[x]], acc + x} end)
     {[[1], [2], [3], [4], [5]], 15}
 
-
 ### frequencies(enumerable)
 *(since 1.10.0)* 
 ```elixir
@@ -849,7 +817,6 @@ as the count of every element.
 
     iex> Enum.frequencies(~w{ant buffalo ant ant buffalo dingo})
     %{"ant" => 3, "buffalo" => 2, "dingo" => 1}
-
 
 ### frequencies_by(enumerable, key_fun)
 *(since 1.10.0)* 
@@ -867,7 +834,6 @@ as the count of every element.
     
     iex> Enum.frequencies_by(~w{aaa aA bbb cc c}, &String.length/1)
     %{3 => 2, 2 => 2, 1 => 1}
-
 
 ### group_by(enumerable, key_fun, value_fun \\ fn x -&gt; x end)
 
@@ -916,7 +882,6 @@ to group by multiple keys:
       {2, 2} => [{2, "C#"}, {2, "Haskell"}]
     }
 
-
 ### intersperse(enumerable, separator)
 
 ```elixir
@@ -935,7 +900,6 @@ Intersperses `separator` between each element of the enumeration.
     
     iex> Enum.intersperse([], 0)
     []
-
 
 ### into(enumerable, collectable)
 
@@ -967,7 +931,6 @@ into a non-empty list, consider something like `Enum.to_list(enumerable) ++ coll
     iex> Enum.into([a: 2], %{a: 1, b: 3})
     %{a: 2, b: 3}
 
-
 ### into(enumerable, collectable, transform)
 
 ```elixir
@@ -984,7 +947,6 @@ transformation function.
     
     iex> Enum.into(%{a: 1, b: 2}, %{c: 3}, fn {k, v} -> {k, v * 2} end)
     %{a: 2, b: 4, c: 3}
-
 
 ### join(enumerable, joiner \\ &quot;&quot;)
 
@@ -1011,7 +973,6 @@ or be a binary, otherwise an error is raised.
     iex> Enum.join([["a", "b"], ["c", "d", "e", ["f", "g"]], "h", "i"], " ")
     "ab cdefg h i"
 
-
 ### map(enumerable, fun)
 
 ```elixir
@@ -1030,7 +991,6 @@ For maps, the function expects a key-value tuple.
     
     iex> Enum.map([a: 1, b: 2], fn {k, v} -> {k, -v} end)
     [a: -1, b: -2]
-
 
 ### map_every(enumerable, nth, fun)
 *(since 1.4.0)* 
@@ -1063,7 +1023,6 @@ without `fun` being ever applied.
     iex> Enum.map_every([1, 2, 3], 1, fn x -> x + 1000 end)
     [1001, 1002, 1003]
 
-
 ### map_intersperse(enumerable, separator, mapper)
 *(since 1.10.0)* 
 ```elixir
@@ -1076,7 +1035,6 @@ Maps and intersperses the given enumerable in one pass.
 
     iex> Enum.map_intersperse([1, 2, 3], :a, &(&1 * 2))
     [2, :a, 4, :a, 6]
-
 
 ### map_join(enumerable, joiner \\ &quot;&quot;, mapper)
 
@@ -1098,7 +1056,6 @@ a string, otherwise an error is raised.
     
     iex> Enum.map_join([1, 2, 3], " = ", &(&1 * 2))
     "2 = 4 = 6"
-
 
 ### map_reduce(enumerable, acc, fun)
 
@@ -1123,7 +1080,6 @@ For maps, the first tuple element must be a `{key, value}` tuple.
 
     iex> Enum.map_reduce([1, 2, 3], 0, fn x, acc -> {x * 2, x + acc} end)
     {[2, 4, 6], 6}
-
 
 ### max(enumerable, sorter \\ &amp;&gt;=/2, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
@@ -1172,7 +1128,6 @@ the empty fallback:
 
     iex> Enum.max([], &>=/2, fn -> 0 end)
     0
-
 
 ### max_by(enumerable, fun, sorter \\ &amp;&gt;=/2, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
@@ -1228,7 +1183,6 @@ the empty fallback:
     iex> Enum.max_by([], &String.length/1, fn -> nil end)
     nil
 
-
 ### member?(enumerable, element)
 
 ```elixir
@@ -1256,7 +1210,6 @@ Membership is tested with the match (`===/2`) operator.
 
 When called outside guards, the [`in`](\`in/2\`) and [`not in`](\`in/2\`)
 operators work by using this function.
-
 
 ### min(enumerable, sorter \\ &amp;&lt;=/2, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
@@ -1305,7 +1258,6 @@ the empty fallback:
 
     iex> Enum.min([], fn -> 0 end)
     0
-
 
 ### min_by(enumerable, fun, sorter \\ &amp;&lt;=/2, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
@@ -1361,7 +1313,6 @@ the empty fallback:
     iex> Enum.min_by([], &String.length/1, fn -> nil end)
     nil
 
-
 ### min_max(enumerable, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
 ```elixir
@@ -1385,7 +1336,6 @@ Calls the provided `empty_fallback` function and returns its value if
     
     iex> Enum.min_max([], fn -> {nil, nil} end)
     {nil, nil}
-
 
 ### min_max_by(enumerable, fun, sorter_or_empty_fallback \\ &amp;&lt;/2, empty_fallback \\ fn -&gt; raise Enum.EmptyError end)
 
@@ -1441,7 +1391,6 @@ the empty fallback:
     iex> Enum.min_max_by([], &String.length/1, fn -> nil end)
     nil
 
-
 ### product(enumerable)
 *(since 1.12.0)* 
 ```elixir
@@ -1462,7 +1411,6 @@ If you need to apply a transformation first, consider using `Enum.product_by/2` 
     24
     iex> Enum.product([2.0, 3.0, 4.0])
     24.0
-
 
 ### product_by(enumerable, mapper)
 *(since 1.18.0)* 
@@ -1489,7 +1437,6 @@ Filtering can be achieved by returning `1` to ignore elements:
 
     iex> Enum.product_by([2, -1, 3], fn x -> if x > 0, do: x, else: 1 end)
     6
-
 
 ### random(enumerable)
 
@@ -1530,7 +1477,6 @@ which allows them to sample infinite collections. In particular,
 we implement Algorithm L, as described in by Kim-Hung Li in
 "Reservoir-Sampling Algorithms of Time Complexity O(n(1+log(N/n)))".
 
-
 ### reduce(enumerable, fun)
 
 ```elixir
@@ -1560,7 +1506,6 @@ If you wish to use another value for the accumulator, use
 
     iex> Enum.reduce([1, 2, 3, 4], fn x, acc -> x * acc end)
     24
-
 
 ### reduce(enumerable, acc, fun)
 
@@ -1607,7 +1552,6 @@ exercise for understanding the power behind `Enum.reduce/3`. When an
 operation cannot be expressed by any of the functions in the `Enum`
 module, developers will most likely resort to `reduce/3`.
 
-
 ### reduce_while(enumerable, acc, fun)
 
 ```elixir
@@ -1646,7 +1590,6 @@ the accumulator of the last `{:cont, acc}`.
     ...> end)
     5050
 
-
 ### reject(enumerable, fun)
 
 ```elixir
@@ -1663,7 +1606,6 @@ See also `filter/2`.
     iex> Enum.reject([1, 2, 3], fn x -> rem(x, 2) == 0 end)
     [1, 3]
 
-
 ### reverse(enumerable)
 
 ```elixir
@@ -1676,7 +1618,6 @@ Returns a list of elements in `enumerable` in reverse order.
 
     iex> Enum.reverse([1, 2, 3])
     [3, 2, 1]
-
 
 ### reverse(enumerable, tail)
 
@@ -1695,7 +1636,6 @@ This is an optimization for
     iex> Enum.reverse([1, 2, 3], [4, 5, 6])
     [3, 2, 1, 4, 5, 6]
 
-
 ### reverse_slice(enumerable, start_index, count)
 
 ```elixir
@@ -1713,7 +1653,6 @@ then this function will reverse the rest of the enumerable.
     iex> Enum.reverse_slice([1, 2, 3, 4, 5, 6], 2, 4)
     [1, 2, 6, 5, 4, 3]
 
-
 ### scan(enumerable, fun)
 
 ```elixir
@@ -1730,7 +1669,6 @@ as the starting value.
     iex> Enum.scan(1..5, &(&1 + &2))
     [1, 3, 6, 10, 15]
 
-
 ### scan(enumerable, acc, fun)
 
 ```elixir
@@ -1745,7 +1683,6 @@ for the next computation. Uses the given `acc` as the starting value.
 
     iex> Enum.scan(1..5, 0, &(&1 + &2))
     [1, 3, 6, 10, 15]
-
 
 ### shuffle(enumerable)
 
@@ -1770,7 +1707,6 @@ the default from Erlang/OTP 22:
     [2, 1, 3]
     iex> Enum.shuffle([1, 2, 3])
     [2, 3, 1]
-
 
 ### slice(enumerable, index_range)
 *(since 1.6.0)* 
@@ -1839,7 +1775,6 @@ empty list:
     iex> Enum.slice([1, 2, 3, 4, 5], 6..5//1)
     []
 
-
 ### slice(enumerable, start_index, amount)
 
 ```elixir
@@ -1880,7 +1815,6 @@ It returns `[]` if `amount` is `0` or if `start_index` is out of bounds.
     # out of bound start index
     iex> Enum.slice(1..10, 10, 5)
     []
-
 
 ### slide(enumerable, range_or_single_index, insertion_index)
 *(since 1.13.0)* 
@@ -1932,7 +1866,6 @@ Specifically, that means:
     iex> Enum.slide([:a, :b, :c, :d, :e, :f, :g], 3, -1)
     [:a, :b, :c, :e, :f, :g, :d]
 
-
 ### sort(enumerable)
 
 ```elixir
@@ -1948,7 +1881,6 @@ function to sort structs, see `sort/2` for more information.
 
     iex> Enum.sort([3, 2, 1])
     [1, 2, 3]
-
 
 ### sort(enumerable, sorter)
 
@@ -2032,7 +1964,6 @@ a tuple with `:asc` or `:desc` as first element:
     iex> dates = [~D[2019-01-01], ~D[2020-03-02], ~D[2019-06-06]]
     iex> Enum.sort(dates, {:desc, Date})
     [~D[2020-03-02], ~D[2019-06-06], ~D[2019-01-01]]
-
 
 ### sort_by(enumerable, mapper, sorter \\ :asc)
 
@@ -2152,7 +2083,6 @@ However, you could also write it like this:
 Using `List.keysort/3` will be a better choice for performance sensitive
 code as it avoids additional traversals.
 
-
 ### split(enumerable, count)
 
 ```elixir
@@ -2186,7 +2116,6 @@ a second time to do the actual splitting.
     iex> Enum.split([1, 2, 3], -5)
     {[], [1, 2, 3]}
 
-
 ### split_while(enumerable, fun)
 
 ```elixir
@@ -2209,7 +2138,6 @@ The element that triggered the split is part of the second list.
     
     iex> Enum.split_while([1, 2, 3, 4], fn x -> x > 0 end)
     {[1, 2, 3, 4], []}
-
 
 ### split_with(enumerable, fun)
 *(since 1.4.0)* 
@@ -2243,7 +2171,6 @@ list). See the examples below.
     iex> Enum.split_with([], fn {_k, v} -> v > 50 end)
     {[], []}
 
-
 ### sum(enumerable)
 
 ```elixir
@@ -2266,7 +2193,6 @@ If you need to apply a transformation first, consider using `Enum.sum_by/2` inst
     
     iex> Enum.sum(1..10//2)
     25
-
 
 ### sum_by(enumerable, mapper)
 *(since 1.18.0)* 
@@ -2293,7 +2219,6 @@ Filtering can be achieved by returning `0` to ignore elements:
 
     iex> Enum.sum_by([1, -2, 3], fn x -> if x > 0, do: x, else: 0 end)
     4
-
 
 ### take(enumerable, amount)
 
@@ -2326,7 +2251,6 @@ If amount is `0`, it returns `[]`.
     iex> Enum.take([1, 2, 3], -1)
     [3]
 
-
 ### take_every(enumerable, nth)
 
 ```elixir
@@ -2352,7 +2276,6 @@ integer.
     iex> Enum.take_every([1, 2, 3], 1)
     [1, 2, 3]
 
-
 ### take_random(enumerable, count)
 
 ```elixir
@@ -2375,7 +2298,6 @@ See `random/1` for notes on implementation and random seed.
     iex> Enum.take_random(?a..?z, 5)
     ~c"bkzmt"
 
-
 ### take_while(enumerable, fun)
 
 ```elixir
@@ -2390,7 +2312,6 @@ a truthy value.
     iex> Enum.take_while([1, 2, 3], fn x -> x < 3 end)
     [1, 2]
 
-
 ### to_list(enumerable)
 
 ```elixir
@@ -2404,7 +2325,6 @@ Converts `enumerable` to a list.
     iex> Enum.to_list(1..3)
     [1, 2, 3]
 
-
 ### uniq(enumerable)
 
 ```elixir
@@ -2417,7 +2337,6 @@ Enumerates the `enumerable`, removing all duplicate elements.
 
     iex> Enum.uniq([1, 2, 3, 3, 2, 1])
     [1, 2, 3]
-
 
 ### uniq_by(enumerable, fun)
 
@@ -2442,7 +2361,6 @@ The first occurrence of each element is kept.
     iex> Enum.uniq_by([a: {:tea, 2}, b: {:tea, 2}, c: {:coffee, 1}], fn {_, y} -> y end)
     [a: {:tea, 2}, c: {:coffee, 1}]
 
-
 ### unzip(list)
 
 ```elixir
@@ -2463,7 +2381,6 @@ list of tuples with *exactly* two elements in each tuple.
 
     iex> Enum.unzip([{:a, 1}, {:b, 2}, {:c, 3}])
     {[:a, :b, :c], [1, 2, 3]}
-
 
 ### with_index(enumerable, fun_or_offset \\ 0)
 
@@ -2492,7 +2409,6 @@ for each element and index (zero-based) of the enumerable.
     iex> Enum.with_index([:a, :b, :c], fn element, index -> {index, element} end)
     [{0, :a}, {1, :b}, {2, :c}]
 
-
 ### zip(enumerables)
 *(since 1.4.0)* 
 ```elixir
@@ -2511,7 +2427,6 @@ The zipping finishes as soon as any enumerable in the given collection completes
     
     iex> Enum.zip([[1, 2, 3, 4, 5], [:a, :b, :c]])
     [{1, :a}, {2, :b}, {3, :c}]
-
 
 ### zip(enumerable1, enumerable2)
 
@@ -2538,7 +2453,6 @@ The zipping finishes as soon as either enumerable completes.
     
     iex> Enum.zip([1, 2, 3, 4, 5], [:a, :b, :c])
     [{1, :a}, {2, :b}, {3, :c}]
-
 
 ### zip_reduce(enums, acc, reducer)
 *(since 1.12.0)* 
@@ -2572,7 +2486,6 @@ But `zip_reduce/3` exists for convenience purposes.
     ...> end)
     [{2, {:b, 4}, 6}, {1, {:a, 3}, 5}]
 
-
 ### zip_reduce(left, right, acc, reducer)
 *(since 1.12.0)* 
 ```elixir
@@ -2596,7 +2509,6 @@ But `zip_reduce/4` exists for convenience purposes.
     
     iex> Enum.zip_reduce([1, 2], [3, 4], [], fn x, y, acc -> [x + y | acc] end)
     [6, 4]
-
 
 ### zip_with(enumerables, zip_fun)
 *(since 1.12.0)* 
@@ -2622,7 +2534,6 @@ Returns a list with all the results of calling `zip_fun`.
     
     iex> Enum.zip_with([[1, 2], [3, 4]], fn [x, y] -> x + y end)
     [4, 6]
-
 
 ### zip_with(enumerable1, enumerable2, zip_fun)
 *(since 1.12.0)* 
@@ -2667,7 +2578,6 @@ you should use `Map.merge/3`.
     
     iex> Enum.zip_with([1, 2, 5, 6], [3, 4], fn x, y -> x + y end)
     [4, 6]
-
 
 
 

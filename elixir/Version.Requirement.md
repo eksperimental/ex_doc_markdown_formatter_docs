@@ -8,7 +8,6 @@ The struct fields are private and should not be accessed.
 See the "Requirements" section in the `Version` module
 for more information.
 
-
 ## Types
 
 ### t()

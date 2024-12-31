@@ -6,7 +6,6 @@ textual code and extract available information whenever possible.
 
 This module should be considered experimental.
 
-
 ## Types
 
 ### position()
@@ -151,7 +150,6 @@ must be given with the rest of the contents:
 - `:trailing_fragment` (since v1.18.0) - the rest of the contents after
   the cursor. This is necessary to correctly complete anonymous functions
   and the left-hand side of `->`
-
 
 ### cursor_context(fragment, opts \\ [])
 *(since 1.13.0)* 
@@ -319,7 +317,6 @@ only the last line of the input. This means it will show suggestions inside
 strings, heredocs, etc, which is intentional as it helps with doctests,
 references, and more.
 
-
 ### surround_context(fragment, position, options \\ [])
 *(since 1.13.0)* 
 ```elixir
@@ -427,7 +424,6 @@ it has some differences to `cursor_context/2`:
 
 We recommend looking at the test suite of this function for a complete list
 of examples and their return values.
-
 
 
 

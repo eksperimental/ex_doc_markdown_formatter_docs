@@ -124,7 +124,6 @@ the map and convert all language names to uppercase:
 See the functions `key/1`, `key!/1`, `elem/1`, and `all/0` for
 some of the available accessors.
 
-
 ## Types
 
 ### access_fun(data, current_value)
@@ -220,7 +219,6 @@ returned.
 See the `Map.fetch/2` and `Keyword.fetch/2` implementations for examples of
 how to implement this callback.
 
-
 ### get_and_update(data, key, function)
 
 ```elixir
@@ -252,7 +250,6 @@ must be `{value, new_data}` where `value` is the value under `key`
 See the implementations of `Map.get_and_update/3` or `Keyword.get_and_update/3`
 for more examples.
 
-
 ### pop(data, key)
 
 ```elixir
@@ -269,7 +266,6 @@ When `key` is not present in the given structure, a tuple `{value, data}`
 should be returned, where `value` is implementation-defined.
 
 See the implementations for `Map.pop/3` or `Keyword.pop/3` for more examples.
-
 
 ## Functions
 
@@ -309,7 +305,6 @@ An error is raised if the accessed structure is not a list:
 
     iex> get_in(%{}, [Access.all()])
     ** (RuntimeError) Access.all/0 expected a list, got: %{}
-
 
 ### at(index)
 
@@ -366,7 +361,6 @@ An error is raised if the accessed structure is not a list:
     iex> get_in(%{}, [Access.at(1)])
     ** (RuntimeError) Access.at/1 expected a list, got: %{}
 
-
 ### at!(index)
 *(since 1.11.0)* 
 ```elixir
@@ -382,7 +376,6 @@ if the given index is out of bounds.
     :c
     iex> get_in([:a, :b, :c], [Access.at!(3)])
     ** (Enum.OutOfBoundsError) out of bounds error
-
 
 ### elem(index)
 
@@ -417,7 +410,6 @@ An error is raised if the accessed structure is not a tuple:
     iex> get_in(%{}, [Access.elem(0)])
     ** (RuntimeError) Access.elem/1 expected a tuple, got: %{}
 
-
 ### fetch(container, key)
 
 ```elixir
@@ -439,7 +431,6 @@ a key, or `:error` if `key` is not found.
     iex> Access.fetch([ordered: true, on_timeout: :exit], :timeout)
     :error
 
-
 ### fetch!(container, key)
 *(since 1.10.0)* 
 ```elixir
@@ -453,7 +444,6 @@ or raises a `KeyError` exception if `key` is not found.
 
     iex> Access.fetch!(%{name: "meg", age: 26}, :name)
     "meg"
-
 
 ### filter(func)
 *(since 1.6.0)* 
@@ -506,7 +496,6 @@ An error is raised if the accessed structure is not a list:
     iex> get_in(%{}, [Access.filter(fn a -> a == 10 end)])
     ** (RuntimeError) Access.filter/1 expected a list, got: %{}
 
-
 ### find(predicate)
 *(since 1.17.0)* 
 ```elixir
@@ -556,7 +545,6 @@ An error is raised if the accessed structure is not a list:
     iex>  get_in(%{}, [Access.find(fn a -> a == 10 end)])
     ** (RuntimeError) Access.find/1 expected a list, got: %{}
 
-
 ### get(container, key, default \\ nil)
 
 ```elixir
@@ -579,7 +567,6 @@ not found.
     
     iex> Access.get([ordered: true], :timeout)
     nil
-
 
 ### get_and_update(container, key, fun)
 
@@ -609,7 +596,6 @@ The returned value is a two-element tuple with the "get" value returned by
     ...>   {current_value, current_value + 1}
     ...> end)
     {1, [a: 2]}
-
 
 ### key(key, default \\ nil)
 
@@ -651,7 +637,6 @@ An error is raised if the accessed structure is not a map or a struct:
 
     iex> get_in([], [Access.key(:foo)])
     ** (BadMapError) expected a map, got: []
-
 
 ### key!(key)
 
@@ -700,7 +685,6 @@ An error is raised if the accessed structure is not a map/struct:
     iex> get_in([], [Access.key!(:foo)])
     ** (RuntimeError) Access.key!/1 expected a map/struct, got: []
 
-
 ### pop(container, key)
 
 ```elixir
@@ -730,7 +714,6 @@ An unknown key:
 
     iex> Access.pop(%{name: "Elixir", creator: "Valim"}, :year)
     {nil, %{creator: "Valim", name: "Elixir"}}
-
 
 ### slice(range)
 *(since 1.14)* 
@@ -783,7 +766,6 @@ An error is raised if the step of the range is negative:
 
     iex> get_in([], [Access.slice(2..10//-1)])
     ** (ArgumentError) Access.slice/1 does not accept ranges with negative steps, got: 2..10//-1
-
 
 
 

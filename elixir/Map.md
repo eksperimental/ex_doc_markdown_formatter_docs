@@ -120,7 +120,6 @@ found in `Kernel`:
 
 - `map_size/1`
 
-
 ## Types
 
 ### key()
@@ -160,7 +159,6 @@ Inlined by the compiler.
     iex> Map.delete(%{b: 2}, :a)
     %{b: 2}
 
-
 ### drop(map, keys)
 
 ```elixir
@@ -175,7 +173,6 @@ If `keys` contains keys that are not in `map`, they're simply ignored.
 
     iex> Map.drop(%{a: 1, b: 2, c: 3}, [:b, :d])
     %{a: 1, c: 3}
-
 
 ### equal?(map1, map2)
 
@@ -206,7 +203,6 @@ which means integers are not equivalent to floats:
     iex> Map.equal?(%{a: 1.0}, %{a: 1})
     false
 
-
 ### fetch(map, key)
 
 ```elixir
@@ -227,7 +223,6 @@ Inlined by the compiler.
     iex> Map.fetch(%{a: 1}, :b)
     :error
 
-
 ### fetch!(map, key)
 
 ```elixir
@@ -246,7 +241,6 @@ Inlined by the compiler.
 
     iex> Map.fetch!(%{a: 1}, :a)
     1
-
 
 ### filter(map, fun)
 *(since 1.13.0)* 
@@ -275,7 +269,6 @@ function returns a truthy value.
     iex> Map.filter(%{one: 1, two: 2, three: 3}, fn {_key, val} -> rem(val, 2) == 1 end)
     %{one: 1, three: 3}
 
-
 ### from_keys(keys, value)
 *(since 1.14.0)* 
 ```elixir
@@ -290,7 +283,6 @@ Inlined by the compiler.
 
     iex> Map.from_keys([1, 2, 3], :number)
     %{1 => :number, 2 => :number, 3 => :number}
-
 
 ### from_struct(struct)
 
@@ -311,7 +303,6 @@ from the given struct.
     
     Map.from_struct(%User{name: "john"})
     #=> %{name: "john"}
-
 
 ### get(map, key, default \\ nil)
 
@@ -338,7 +329,6 @@ If `default` is not provided, `nil` is used.
     3
     iex> Map.get(%{a: nil}, :a, 1)
     nil
-
 
 ### get_and_update(map, key, fun)
 
@@ -379,7 +369,6 @@ The returned value is a two-element tuple with the current value returned by
     iex> Map.get_and_update(%{a: 1}, :b, fn _ -> :pop end)
     {nil, %{a: 1}}
 
-
 ### get_and_update!(map, key, fun)
 
 ```elixir
@@ -411,7 +400,6 @@ Behaves exactly like `get_and_update/3`, but raises a `KeyError` exception if
     ...> end)
     {1, %{}}
 
-
 ### get_lazy(map, key, fun)
 
 ```elixir
@@ -438,7 +426,6 @@ generally difficult to setup and teardown again.
     iex> Map.get_lazy(map, :b, fun)
     13
 
-
 ### has_key?(map, key)
 
 ```elixir
@@ -456,7 +443,6 @@ Inlined by the compiler.
     iex> Map.has_key?(%{a: 1}, :b)
     false
 
-
 ### intersect(map1, map2)
 *(since 1.15.0)* 
 ```elixir
@@ -473,7 +459,6 @@ Inlined by the compiler.
 
     iex> Map.intersect(%{a: 1, b: 2}, %{b: "b", c: "c"})
     %{b: "b"}
-
 
 ### intersect(map1, map2, fun)
 *(since 1.15.0)* 
@@ -495,7 +480,6 @@ arguments are `key` (the duplicate key), `value1` (the value of `key` in
     ...> end)
     %{b: 4}
 
-
 ### keys(map)
 
 ```elixir
@@ -510,7 +494,6 @@ Inlined by the compiler.
 
     Map.keys(%{a: 1, b: 2})
     [:a, :b]
-
 
 ### merge(map1, map2)
 
@@ -535,7 +518,6 @@ Inlined by the compiler.
     iex> Map.merge(%{a: 1, b: 2}, %{a: 3, d: 4})
     %{a: 3, b: 2, d: 4}
 
-
 ### merge(map1, map2, fun)
 
 ```elixir
@@ -557,7 +539,6 @@ the resulting map.
     ...> end)
     %{a: 4, b: 2, d: 4}
 
-
 ### new()
 
 ```elixir
@@ -570,7 +551,6 @@ Returns a new empty map.
 
     iex> Map.new()
     %{}
-
 
 ### new(enumerable)
 
@@ -589,7 +569,6 @@ Duplicated keys are removed; the latest one prevails.
     iex> Map.new(a: 1, a: 2, a: 3)
     %{a: 3}
 
-
 ### new(enumerable, transform)
 
 ```elixir
@@ -607,7 +586,6 @@ Duplicated keys are removed; the latest one prevails.
     
     iex> Map.new(%{a: 2, b: 3, c: 4}, fn {key, val} -> {key, val * 2} end)
     %{a: 4, b: 6, c: 8}
-
 
 ### pop(map, key, default \\ nil)
 
@@ -631,7 +609,6 @@ is not present in `map`, `{default, map}` is returned.
     iex> Map.pop(%{a: 1}, :b, 3)
     {3, %{a: 1}}
 
-
 ### pop!(map, key)
 *(since 1.10.0)* 
 ```elixir
@@ -651,7 +628,6 @@ Behaves the same as `pop/3` but raises a `KeyError` exception if `key` is not pr
     {1, %{b: 2}}
     iex> Map.pop!(%{a: 1}, :b)
     ** (KeyError) key :b not found in: %{a: 1}
-
 
 ### pop_lazy(map, key, fun)
 
@@ -681,7 +657,6 @@ generally difficult to setup and teardown again.
     iex> Map.pop_lazy(map, :b, fun)
     {13, %{a: 1}}
 
-
 ### put(map, key, value)
 
 ```elixir
@@ -699,7 +674,6 @@ Inlined by the compiler.
     iex> Map.put(%{a: 1, b: 2}, :a, 3)
     %{a: 3, b: 2}
 
-
 ### put_new(map, key, value)
 
 ```elixir
@@ -715,7 +689,6 @@ already exists in `map`.
     %{a: 1, b: 2}
     iex> Map.put_new(%{a: 1, b: 2}, :a, 3)
     %{a: 1, b: 2}
-
 
 ### put_new_lazy(map, key, fun)
 
@@ -742,7 +715,6 @@ calculate or generally difficult to setup and teardown again.
     iex> Map.put_new_lazy(map, :b, fun)
     %{a: 1, b: 3}
 
-
 ### reject(map, fun)
 *(since 1.13.0)* 
 ```elixir
@@ -759,7 +731,6 @@ See also `filter/2`.
     iex> Map.reject(%{one: 1, two: 2, three: 3}, fn {_key, val} -> rem(val, 2) == 1 end)
     %{two: 2}
 
-
 ### replace(map, key, value)
 *(since 1.11.0)* 
 ```elixir
@@ -775,7 +746,6 @@ Puts a value under `key` only if the `key` already exists in `map`.
     
     iex> Map.replace(%{a: 1}, :b, 2)
     %{a: 1}
-
 
 ### replace!(map, key, value)
 *(since 1.5.0)* 
@@ -796,7 +766,6 @@ Inlined by the compiler.
     
     iex> Map.replace!(%{a: 1}, :b, 2)
     ** (KeyError) key :b not found in: %{a: 1}
-
 
 ### replace_lazy(map, key, fun)
 *(since 1.14.0)* 
@@ -820,7 +789,6 @@ If `key` does not exist, the original map is returned unchanged.
     iex> Map.replace_lazy(%{a: 1, b: 2}, :c, fn v -> v * 4 end)
     %{a: 1, b: 2}
 
-
 ### split(map, keys)
 
 ```elixir
@@ -838,7 +806,6 @@ Keys for which there are no entries in `map` are ignored.
 
     iex> Map.split(%{a: 1, b: 2, c: 3}, [:a, :c, :e])
     {%{a: 1, c: 3}, %{b: 2}}
-
 
 ### split_with(map, fun)
 *(since 1.15.0)* 
@@ -867,7 +834,6 @@ for which applying `fun` returned a falsy value (`false` or `nil`).
     iex> Map.split_with(%{}, fn {_k, v} -> v > 50 end)
     {%{}, %{}}
 
-
 ### take(map, keys)
 
 ```elixir
@@ -883,7 +849,6 @@ If `keys` contains keys that are not in `map`, they're simply ignored.
 
     iex> Map.take(%{a: 1, b: 2, c: 3}, [:a, :c, :e])
     %{a: 1, c: 3}
-
 
 ### to_list(map)
 
@@ -903,7 +868,6 @@ Inlined by the compiler.
     [a: 1]
     iex> Map.to_list(%{1 => 2})
     [{1, 2}]
-
 
 ### update(map, key, default, fun)
 
@@ -927,7 +891,6 @@ value will not be passed through the update function.
     iex> Map.update(%{a: 1}, :b, 11, fn existing_value -> existing_value * 2 end)
     %{a: 1, b: 11}
 
-
 ### update!(map, key, fun)
 
 ```elixir
@@ -949,7 +912,6 @@ not present in `map`, a `KeyError` exception is raised.
     iex> Map.update!(%{a: 1}, :b, &(&1 * 2))
     ** (KeyError) key :b not found in: %{a: 1}
 
-
 ### values(map)
 
 ```elixir
@@ -964,7 +926,6 @@ Inlined by the compiler.
 
     Map.values(%{a: 1, b: 2})
     [1, 2]
-
 
 
 

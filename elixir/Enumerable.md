@@ -37,7 +37,6 @@ This protocol requires four functions to be implemented, `reduce/3`,
 for data structures that can implement certain properties in better
 than linear time.
 
-
 ## Types
 
 ### acc()
@@ -61,7 +60,6 @@ type documentation for more information.
 In case a `t:reducer/0` function returns a `:suspend` accumulator,
 it must be explicitly handled by the caller and never leak.
 
-
 ### continuation()
 
 ```elixir
@@ -79,7 +77,6 @@ function is defined in a tail recursive fashion. If the function
 is tail recursive, all the state is passed as arguments, so
 the continuation is the reducing function partially applied.
 
-
 ### reducer()
 
 ```elixir
@@ -92,7 +89,6 @@ Should be called with the `enumerable` element and the
 accumulator contents.
 
 Returns the accumulator for the next enumeration step.
-
 
 ### result()
 
@@ -120,7 +116,6 @@ whether your implementation handles suspension correctly. You can also use
 `Stream.zip/2` with `Enum.take_while/2` to test the combination of
 `:suspend` with `:halt`.
 
-
 ### slicing_fun()
 
 ```elixir
@@ -141,7 +136,6 @@ in a way that `start + length * step <= count`, where
 The function should return a non empty list where
 the amount of elements is equal to `length`.
 
-
 ### t()
 
 ```elixir
@@ -149,7 +143,6 @@ the amount of elements is equal to `length`.
 ```
 
 All the types that implement this protocol.
-
 
 ### t(_element)
 *(since 1.14.0)* 
@@ -169,7 +162,6 @@ integers and returns an enumerable of strings:
       Stream.map(integers, &Integer.to_string/1)
     end
 
-
 ### to_list_fun()
 
 ```elixir
@@ -177,7 +169,6 @@ integers and returns an enumerable of strings:
 ```
 
 Receives an enumerable and returns a list.
-
 
 ## Functions
 
@@ -194,7 +185,6 @@ in `enumerable` in a faster way than fully traversing it.
 
 Otherwise it should return `{:error, __MODULE__}` and a default algorithm
 built on top of `reduce/3` that runs in linear time will be used.
-
 
 ### member?(enumerable, element)
 
@@ -213,7 +203,6 @@ built on top of `reduce/3` that runs in linear time will be used.
 
 When called outside guards, the [`in`](\`in/2\`) and [`not in`](\`in/2\`)
 operators work by using this function.
-
 
 ### reduce(enumerable, acc, fun)
 
@@ -239,7 +228,6 @@ As an example, here is the implementation of `reduce` for lists:
     def reduce(list, {:suspend, acc}, fun), do: {:suspended, acc, &reduce(list, &1, fun)}
     def reduce([], {:cont, acc}, _fun), do: {:done, acc}
     def reduce([head | tail], {:cont, acc}, fun), do: reduce(tail, fun.(head, acc), fun)
-
 
 ### slice(enumerable)
 
@@ -278,7 +266,6 @@ constant time. Otherwise the simplest of operations, such as
 On the other hand, the `count/1` function in this protocol should be
 implemented whenever you can count the number of elements in the collection
 without traversing it.
-
 
 
 

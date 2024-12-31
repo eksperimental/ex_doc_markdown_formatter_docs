@@ -90,7 +90,6 @@ The second example consistently points to the last day of the month,
 as it performs operations on the duration, rather than shifting date
 after date.
 
-
 ## Types
 
 ### duration()
@@ -100,7 +99,6 @@ after date.
 ```
 
 The duration type specifies a `%Duration{}` struct or a keyword list of valid duration unit pairs.
-
 
 ### t()
 *(since 1.17.0)* 
@@ -119,7 +117,6 @@ The duration type specifies a `%Duration{}` struct or a keyword list of valid du
 
 The duration struct type.
 
-
 ### unit_pair()
 *(since 1.17.0)* 
 ```elixir
@@ -135,7 +132,6 @@ The duration struct type.
 ```
 
 The unit pair type specifies a pair of a valid duration unit key and value.
-
 
 ## Functions
 
@@ -155,7 +151,6 @@ Respects the the highest microsecond precision of the two.
     %Duration{week: 2, day: 3}
     iex> Duration.add(Duration.new!(microsecond: {400, 3}), Duration.new!(microsecond: {600, 6}))
     %Duration{microsecond: {1000, 6}}
-
 
 ### from_iso8601(string)
 *(since 1.17.0)* 
@@ -187,7 +182,6 @@ Only seconds may be specified with a decimal fraction, using either a comma or a
     iex> Duration.from_iso8601("PT4.650S")
     {:ok, %Duration{second: 4, microsecond: {650000, 3}}}
 
-
 ### from_iso8601!(string)
 *(since 1.17.0)* 
 ```elixir
@@ -202,7 +196,6 @@ Same as `from_iso8601/1` but raises an `ArgumentError`.
     %Duration{year: 1, month: 2, day: 3, hour: 4, minute: 5, second: 6}
     iex> Duration.from_iso8601!("P10D")
     %Duration{day: 10}
-
 
 ### multiply(duration, integer)
 *(since 1.17.0)* 
@@ -219,7 +212,6 @@ Multiplies `duration` units by given `integer`.
     iex> Duration.multiply(Duration.new!(microsecond: {200, 4}), 3)
     %Duration{microsecond: {600, 4}}
 
-
 ### negate(duration)
 *(since 1.17.0)* 
 ```elixir
@@ -234,7 +226,6 @@ Negates `duration` units.
     %Duration{day: -1, minute: -15, second: 10}
     iex> Duration.negate(Duration.new!(microsecond: {500000, 4}))
     %Duration{microsecond: {-500000, 4}}
-
 
 ### new!(duration)
 *(since 1.17.0)* 
@@ -255,7 +246,6 @@ Raises an `ArgumentError` when called with invalid unit pairs.
     iex> Duration.new!(month: 2)
     %Duration{month: 2}
 
-
 ### subtract(d1, d2)
 *(since 1.17.0)* 
 ```elixir
@@ -272,7 +262,6 @@ Respects the the highest microsecond precision of the two.
     %Duration{week: 2, day: -1}
     iex> Duration.subtract(Duration.new!(microsecond: {400, 6}), Duration.new!(microsecond: {600, 3}))
     %Duration{microsecond: {-200, 6}}
-
 
 ### to_iso8601(duration)
 *(since 1.17.0)* 
@@ -301,7 +290,6 @@ appear between months and days: `P3M3W3D`, making it fully compatible with any `
     "PT1.002S"
     iex> Duration.to_iso8601(Duration.new!(second: 1, microsecond: {-1_200_000, 4}))
     "PT-0.2000S"
-
 
 
 

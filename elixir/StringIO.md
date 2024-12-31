@@ -12,7 +12,6 @@ most of the functions in the `IO` module.
     iex> IO.read(pid, 2)
     "fo"
 
-
 ## Functions
 
 ### close(pid)
@@ -31,7 +30,6 @@ buffers.
     iex> StringIO.close(pid)
     {:ok, {"in", "out"}}
 
-
 ### contents(pid)
 
 ```elixir
@@ -47,7 +45,6 @@ device.
     iex> IO.write(pid, "out")
     iex> StringIO.contents(pid)
     {"in", "out"}
-
 
 ### flush(pid)
 
@@ -65,7 +62,6 @@ Flushes the output buffer and returns its current contents.
     "out"
     iex> StringIO.contents(pid)
     {"in", ""}
-
 
 ### open(string, options_or_function \\ [])
 
@@ -115,7 +111,6 @@ result will be a tuple with `:ok` and the result of the function.
     ...> end)
     {:ok, {"", "The input was foo"}}
 
-
 ### open(string, options, function)
 *(since 1.7.0)* 
 ```elixir
@@ -155,7 +150,6 @@ result will be a tuple with `:ok` and the result of the function.
     ...>   StringIO.contents(pid)
     ...> end)
     {:ok, {"", ">The input was foo"}}
-
 
 
 

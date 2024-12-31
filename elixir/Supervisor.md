@@ -519,7 +519,6 @@ Note that the supervisor that reaches maximum restart intensity will exit with
 child specification was defined with the `:restart` option set to `:permanent`
 (the default).
 
-
 ## Types
 
 ### auto_shutdown()
@@ -529,7 +528,6 @@ child specification was defined with the `:restart` option set to `:permanent`
 ```
 
 Supported automatic shutdown options.
-
 
 ### child()
 
@@ -541,7 +539,6 @@ A child process.
 
 It can be a PID when the child process was started, or `:undefined` when
 the child was created by a [dynamic supervisor](\`DynamicSupervisor\`).
-
 
 ### child_spec()
 
@@ -561,7 +558,6 @@ The supervisor child specification.
 
 It defines how the supervisor should start, stop and restart each of its children.
 
-
 ### init_option()
 
 ```elixir
@@ -573,7 +569,6 @@ It defines how the supervisor should start, stop and restart each of its childre
 ```
 
 Options given to `start_link/2` and `init/2`.
-
 
 ### module_spec()
 *(since 1.16.0)* 
@@ -594,7 +589,6 @@ A module-based child spec can be:
 - a **two-element tuple** in the shape of `{module, arg}` — the supervisor
   calls `module.child_spec(arg)` to retrieve the child specification
 
-
 ### name()
 
 ```elixir
@@ -602,7 +596,6 @@ A module-based child spec can be:
 ```
 
 The supervisor name.
-
 
 ### on_start()
 
@@ -615,7 +608,6 @@ The supervisor name.
 
 Return values of `start_link/2` and `start_link/3`.
 
-
 ### on_start_child()
 
 ```elixir
@@ -627,7 +619,6 @@ Return values of `start_link/2` and `start_link/3`.
 
 Return values of `start_child/2`.
 
-
 ### option()
 
 ```elixir
@@ -635,7 +626,6 @@ Return values of `start_child/2`.
 ```
 
 Option values used by the `start_link/2` and `start_link/3` functions.
-
 
 ### restart()
 
@@ -645,7 +635,6 @@ Option values used by the `start_link/2` and `start_link/3` functions.
 
 Supported restart options.
 
-
 ### shutdown()
 
 ```elixir
@@ -654,7 +643,6 @@ Supported restart options.
 
 Supported shutdown options.
 
-
 ### strategy()
 
 ```elixir
@@ -662,7 +650,6 @@ Supported shutdown options.
 ```
 
 Supported strategies.
-
 
 ### sup_flags()
 
@@ -677,7 +664,6 @@ Supported strategies.
 
 The supervisor flags returned on init.
 
-
 ### supervisor()
 
 ```elixir
@@ -685,7 +671,6 @@ The supervisor flags returned on init.
 ```
 
 The supervisor reference.
-
 
 ### type()
 
@@ -696,7 +681,6 @@ The supervisor reference.
 Type of a supervised child.
 
 Whether the supervised child is a worker or a supervisor.
-
 
 ## Callbacks
 
@@ -714,7 +698,6 @@ Callback invoked to start the supervisor and during hot code upgrades.
 
 Developers typically invoke `Supervisor.init/2` at the end of their
 init callback to return the proper supervision flags.
-
 
 ## Functions
 
@@ -755,7 +738,6 @@ supervision tree:
     #=> %{id: {Agent, 1},
     #=>   start: {Agent, :start_link, [fn -> :ok end]}}
 
-
 ### count_children(supervisor)
 
 ```elixir
@@ -782,7 +764,6 @@ The map contains the following keys:
 - `:workers` - the count of all workers, whether or not these child workers
   are still alive
 
-
 ### delete_child(supervisor, child_id)
 
 ```elixir
@@ -798,7 +779,6 @@ to terminate it if it's running.
 If successful, this function returns `:ok`. This function may return an error
 with an appropriate error tuple if the `child_id` is not found, or if the
 current process is running or being restarted.
-
 
 ### init(children, options)
 *(since 1.5.0)* 
@@ -855,7 +835,6 @@ The `:strategy` option is required and by default a maximum of 3 restarts
 is allowed within 5 seconds. Check the `Supervisor` module for a detailed
 description of the available strategies.
 
-
 ### restart_child(supervisor, child_id)
 
 ```elixir
@@ -884,7 +863,6 @@ restarted.
 
 If the child process start function returns an error tuple or an erroneous value,
 or if it fails, this function returns `{:error, error}`.
-
 
 ### start_child(supervisor, child_spec)
 
@@ -918,7 +896,6 @@ If the child process start function returns an error tuple or an erroneous
 value, or if it fails, the child specification is discarded and this function
 returns `{:error, error}` where `error` is a term containing information about
 the error and child specification.
-
 
 ### start_link(children, options)
 
@@ -977,7 +954,6 @@ Note that a supervisor started with this function is linked to the parent
 process and exits not only on crashes but also if the parent process exits
 with `:normal` reason.
 
-
 ### start_link(module, init_arg, options \\ [])
 
 ```elixir
@@ -1001,7 +977,6 @@ The `:name` option can also be given in order to register a supervisor
 name, the supported values are described in the "Name registration"
 section in the `GenServer` module docs.
 
-
 ### stop(supervisor, reason \\ :normal, timeout \\ :infinity)
 
 ```elixir
@@ -1016,7 +991,6 @@ reason. If it terminates with another reason, the call exits.
 This function keeps OTP semantics regarding error reporting.
 If the reason is any other than `:normal`, `:shutdown` or
 `{:shutdown, _}`, an error report is logged.
-
 
 ### terminate_child(supervisor, child_id)
 
@@ -1036,7 +1010,6 @@ Use `delete_child/2` to remove the child specification.
 If successful, this function returns `:ok`. If there is no child
 specification for the given child ID, this function returns
 `{:error, :not_found}`.
-
 
 ### which_children(supervisor)
 
@@ -1063,7 +1036,6 @@ This function returns a list of `{id, child, type, modules}` tuples, where:
 - `type` - `:worker` or `:supervisor`, as specified by the child specification
 
 - `modules` - as specified by the child specification
-
 
 
 

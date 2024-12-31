@@ -20,7 +20,6 @@ The fields of this exception are public. See `t:t/0`.
         apps: [{:plug, "~> 1.0"}]
     end
 
-
 ## Types
 
 ### t()

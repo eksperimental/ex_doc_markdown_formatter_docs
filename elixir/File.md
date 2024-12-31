@@ -99,7 +99,6 @@ use `:file.position/2` and `:file.read/2`:
     :file.read(file, 4)
     #=> {:ok, "Eats"}
 
-
 ## Types
 
 ### encoding_mode()
@@ -241,7 +240,6 @@ of `System.cmd/3` and `Port.open/2`.
 
 Returns `:ok` if successful, `{:error, reason}` otherwise.
 
-
 ### cd!(path)
 
 ```elixir
@@ -249,7 +247,6 @@ Returns `:ok` if successful, `{:error, reason}` otherwise.
 ```
 
 The same as `cd/1`, but raises a `File.Error` exception if it fails.
-
 
 ### cd!(path, function)
 
@@ -270,7 +267,6 @@ directory without changing the global current working directory, use the
 Raises an error if retrieving or changing the current
 directory fails.
 
-
 ### chgrp(path, gid)
 
 ```elixir
@@ -281,7 +277,6 @@ Changes the group given by the group ID `gid`
 for a given `file`. Returns `:ok` on success, or
 `{:error, reason}` on failure.
 
-
 ### chgrp!(path, gid)
 
 ```elixir
@@ -290,7 +285,6 @@ for a given `file`. Returns `:ok` on success, or
 
 Same as `chgrp/2`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### chmod(path, mode)
 
@@ -329,7 +323,6 @@ write, read and execute permission to the owner
 and both read and execute permission to group
 and others.
 
-
 ### chmod!(path, mode)
 
 ```elixir
@@ -338,7 +331,6 @@ and others.
 
 Same as `chmod/2`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### chown(path, uid)
 
@@ -350,7 +342,6 @@ Changes the owner given by the user ID `uid`
 for a given `file`. Returns `:ok` on success,
 or `{:error, reason}` on failure.
 
-
 ### chown!(path, uid)
 
 ```elixir
@@ -359,7 +350,6 @@ or `{:error, reason}` on failure.
 
 Same as `chown/2`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### close(io_device)
 
@@ -373,7 +363,6 @@ for some severe errors such as out of memory.
 Note that if the option `:delayed_write` was used when opening the file,
 `close/1` might return an old write error and not even try to close the file.
 See `open/2` for more information.
-
 
 ### copy(source, destination, bytes_count \\ :infinity)
 
@@ -403,7 +392,6 @@ the file mode after copy.
 Typical error reasons are the same as in `open/2`,
 `read/1` and `write/3`.
 
-
 ### copy!(source, destination, bytes_count \\ :infinity)
 
 ```elixir
@@ -413,7 +401,6 @@ Typical error reasons are the same as in `open/2`,
 
 The same as `copy/3` but raises a `File.CopyError` exception if it fails.
 Returns the `bytes_copied` otherwise.
-
 
 ### cp(source_file, destination_file, options \\ [])
 
@@ -448,7 +435,6 @@ and an error will be returned if tried.
   The default callback returns `true`. On earlier versions, this callback could be
   given as third argument, but such behavior is now deprecated.
 
-
 ### cp!(source_file, destination_file, options \\ [])
 
 ```elixir
@@ -457,7 +443,6 @@ and an error will be returned if tried.
 
 The same as `cp/3`, but raises a `File.CopyError` exception if it fails.
 Returns `:ok` otherwise.
-
 
 ### cp_r(source, destination, options \\ [])
 
@@ -523,7 +508,6 @@ is a directory, `{:error, :eisdir}` will be returned.
       IO.gets("Overwriting #{destination} by #{source}. Type y to confirm. ") == "y\n"
     end)
 
-
 ### cp_r!(source, destination, options \\ [])
 
 ```elixir
@@ -536,7 +520,6 @@ is a directory, `{:error, :eisdir}` will be returned.
 
 The same as `cp_r/3`, but raises a `File.CopyError` exception if it fails.
 Returns the list of copied files otherwise.
-
 
 ### cwd()
 
@@ -551,7 +534,6 @@ if read permissions do not exist for the parent directories of the
 current directory. For this reason, returns `{:ok, cwd}` in case
 of success, `{:error, reason}` otherwise.
 
-
 ### cwd!()
 
 ```elixir
@@ -559,7 +541,6 @@ of success, `{:error, reason}` otherwise.
 ```
 
 The same as `cwd/0`, but raises a `File.Error` exception if it fails.
-
 
 ### dir?(path, opts \\ [])
 
@@ -596,7 +577,6 @@ The supported options are:
     "~/Downloads" |> Path.expand() |> File.dir?()
     #=> true
 
-
 ### exists?(path, opts \\ [])
 
 ```elixir
@@ -626,7 +606,6 @@ The supported options are:
     File.exists?("/dev/null")
     #=> true
 
-
 ### ln(existing, new)
 *(since 1.5.0)* 
 ```elixir
@@ -639,7 +618,6 @@ Returns `:ok` if successful, `{:error, reason}` otherwise.
 If the operating system does not support hard links, returns
 `{:error, :enotsup}`.
 
-
 ### ln!(existing, new)
 *(since 1.5.0)* 
 ```elixir
@@ -648,7 +626,6 @@ If the operating system does not support hard links, returns
 
 Same as `ln/2` but raises a `File.LinkError` exception if it fails.
 Returns `:ok` otherwise.
-
 
 ### ln_s(existing, new)
 *(since 1.5.0)* 
@@ -662,7 +639,6 @@ Returns `:ok` if successful, `{:error, reason}` otherwise.
 If the operating system does not support symlinks, returns
 `{:error, :enotsup}`.
 
-
 ### ln_s!(existing, new)
 
 ```elixir
@@ -671,7 +647,6 @@ If the operating system does not support symlinks, returns
 
 Same as `ln_s/2` but raises a `File.LinkError` exception if it fails.
 Returns `:ok` otherwise.
-
 
 ### ls(path \\ &quot;.&quot;)
 
@@ -689,7 +664,6 @@ they are also included in the returned value.
 Returns `{:ok, files}` in case of success,
 `{:error, reason}` otherwise.
 
-
 ### ls!(path \\ &quot;.&quot;)
 
 ```elixir
@@ -697,7 +671,6 @@ Returns `{:ok, files}` in case of success,
 ```
 
 The same as `ls/1` but raises a `File.Error` exception in case of an error.
-
 
 ### lstat(path, opts \\ [])
 
@@ -726,7 +699,6 @@ The values for `:time` can be:
 Note: Since file times are stored in POSIX time format on most operating systems,
 it is faster to retrieve file information with the `time: :posix` option.
 
-
 ### lstat!(path, opts \\ [])
 
 ```elixir
@@ -735,7 +707,6 @@ it is faster to retrieve file information with the `time: :posix` option.
 
 Same as `lstat/2` but returns the `File.Stat` struct directly,
 or raises a `File.Error` exception if an error is returned.
-
 
 ### mkdir(path)
 
@@ -758,7 +729,6 @@ Typical error reasons are:
 - `:enotdir` - a component of `path` is not a directory;
   on some platforms, `:enoent` is returned instead
 
-
 ### mkdir!(path)
 
 ```elixir
@@ -767,7 +737,6 @@ Typical error reasons are:
 
 Same as `mkdir/1`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### mkdir_p(path)
 
@@ -787,7 +756,6 @@ Typical error reasons are:
 - `:enospc`  - there is no space left on the device
 - `:enotdir` - a component of `path` is not a directory
 
-
 ### mkdir_p!(path)
 
 ```elixir
@@ -796,7 +764,6 @@ Typical error reasons are:
 
 Same as `mkdir_p/1`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### open(path, modes_or_function \\ [])
 
@@ -893,7 +860,6 @@ interact with it.
     IO.read(file, :line)
     File.close(file)
 
-
 ### open(path, modes, function)
 
 ```elixir
@@ -924,7 +890,6 @@ is given. For this reason, we do not recommend passing
 
 See `open/2` for the list of available `modes`.
 
-
 ### open!(path, modes_or_function \\ [])
 
 ```elixir
@@ -936,7 +901,6 @@ Similar to `open/2` but raises a `File.Error` exception if the file
 could not be opened. Returns the IO device otherwise.
 
 See `open/2` for the list of available modes.
-
 
 ### open!(path, modes, function)
 
@@ -952,7 +916,6 @@ could not be opened.
 If it succeeds opening the file, it returns the `function` result on the IO device.
 
 See `open/2` for the list of available `modes`.
-
 
 ### read(path)
 
@@ -975,7 +938,6 @@ Typical error reasons:
 
 You can use `:file.format_error/1` to get a descriptive string of the error.
 
-
 ### read!(path)
 
 ```elixir
@@ -984,7 +946,6 @@ You can use `:file.format_error/1` to get a descriptive string of the error.
 
 Returns a binary with the contents of the given filename,
 or raises a `File.Error` exception if an error occurs.
-
 
 ### read_link(path)
 *(since 1.5.0)* 
@@ -1005,7 +966,6 @@ Typical error reasons are:
 - `:enoent` - path does not exist
 - `:enotsup` - symbolic links are not supported on the current platform
 
-
 ### read_link!(path)
 *(since 1.5.0)* 
 ```elixir
@@ -1014,7 +974,6 @@ Typical error reasons are:
 
 Same as `read_link/1` but returns the target directly,
 or raises a `File.Error` exception if an error is returned.
-
 
 ### regular?(path, opts \\ [])
 
@@ -1038,7 +997,6 @@ The supported options are:
 
     File.regular?(__ENV__.file)
     #=> true
-
 
 ### rename(source, destination)
 *(since 1.1.0)* 
@@ -1065,7 +1023,6 @@ We have chosen to explicitly disallow this behavior.
     # Rename directory "samples" to "tmp"
     File.rename("samples", "tmp")
 
-
 ### rename!(source, destination)
 *(since 1.9.0)* 
 ```elixir
@@ -1074,7 +1031,6 @@ We have chosen to explicitly disallow this behavior.
 
 The same as `rename/2` but raises a `File.RenameError` exception if it fails.
 Returns `:ok` otherwise.
-
 
 ### rm(path)
 
@@ -1105,7 +1061,6 @@ Typical error reasons are:
     File.rm("tmp_dir/")
     #=> {:error, :eperm}
 
-
 ### rm!(path)
 
 ```elixir
@@ -1114,7 +1069,6 @@ Typical error reasons are:
 
 Same as `rm/1`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### rm_rf(path)
 
@@ -1138,7 +1092,6 @@ otherwise.
     File.rm_rf("unknown")
     #=> {:ok, []}
 
-
 ### rm_rf!(path)
 
 ```elixir
@@ -1147,7 +1100,6 @@ otherwise.
 
 Same as `rm_rf/1` but raises a `File.Error` exception in case of failures,
 otherwise the list of files or directories removed.
-
 
 ### rmdir(path)
 
@@ -1171,7 +1123,6 @@ It returns `{:error, :eexist}` if the directory is not empty.
     File.rmdir("file.txt")
     #=> {:error, :enotdir}
 
-
 ### rmdir!(path)
 
 ```elixir
@@ -1180,7 +1131,6 @@ It returns `{:error, :eexist}` if the directory is not empty.
 
 Same as `rmdir/1`, but raises a `File.Error` exception in case of failure.
 Otherwise `:ok`.
-
 
 ### stat(path, opts \\ [])
 
@@ -1209,7 +1159,6 @@ The values for `:time` can be:
 Note: Since file times are stored in POSIX time format on most operating systems,
 it is faster to retrieve file information with the `time: :posix` option.
 
-
 ### stat!(path, opts \\ [])
 
 ```elixir
@@ -1219,7 +1168,6 @@ it is faster to retrieve file information with the `time: :posix` option.
 Same as `stat/2` but returns the `File.Stat` directly,
 or raises a `File.Error` exception if an error is returned.
 
-
 ### stream!(path, line_or_bytes_modes \\ [])
 
 ```elixir
@@ -1227,7 +1175,6 @@ or raises a `File.Error` exception if an error is returned.
 ```
 
 Shortcut for `File.stream!/3`.
-
 
 ### stream!(path, line_or_bytes, modes)
 
@@ -1291,7 +1238,6 @@ and `:trim_bom` are given, the offset is skipped after the BOM).
 
 See `Stream.run/1` for an example of streaming into a file.
 
-
 ### touch(path, time \\ System.os_time(:second))
 
 ```elixir
@@ -1321,7 +1267,6 @@ file with fail with `{:error, :eperm}`.
     File.touch("/tmp/a.txt", 1544519753)
     #=> :ok
 
-
 ### touch!(path, time \\ System.os_time(:second))
 
 ```elixir
@@ -1343,7 +1288,6 @@ representing the POSIX timestamp (as returned by `System.os_time(:second)`).
     ** (File.Error) could not touch "/fakedir/b.txt": no such file or directory
     
     File.touch!("/tmp/a.txt", 1544519753)
-
 
 ### write(path, content, modes \\ [])
 
@@ -1378,7 +1322,6 @@ Typical error reasons are:
 
 Check `File.open/2` for other available options.
 
-
 ### write!(path, content, modes \\ [])
 
 ```elixir
@@ -1387,7 +1330,6 @@ Check `File.open/2` for other available options.
 
 Same as `write/3` but raises a `File.Error` exception if it fails.
 Returns `:ok` otherwise.
-
 
 ### write_stat(path, stat, opts \\ [])
 
@@ -1398,7 +1340,6 @@ Returns `:ok` otherwise.
 Writes the given `File.Stat` back to the file system at the given
 path. Returns `:ok` or `{:error, reason}`.
 
-
 ### write_stat!(path, stat, opts \\ [])
 
 ```elixir
@@ -1407,7 +1348,6 @@ path. Returns `:ok` or `{:error, reason}`.
 
 Same as `write_stat/3` but raises a `File.Error` exception if it fails.
 Returns `:ok` otherwise.
-
 
 
 

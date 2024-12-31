@@ -10,7 +10,6 @@ The only function that must be implemented is
 The `to_charlist/1` function automatically imported
 by `Kernel` invokes this protocol.
 
-
 ## Types
 
 ### t()
@@ -21,7 +20,6 @@ by `Kernel` invokes this protocol.
 
 All the types that implement this protocol.
 
-
 ## Functions
 
 ### to_charlist(term)
@@ -31,7 +29,6 @@ All the types that implement this protocol.
 ```
 
 Converts `term` to a charlist.
-
 
 
 

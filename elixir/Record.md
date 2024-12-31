@@ -15,8 +15,8 @@ the tuples' compact structure.
 
 In Elixir, records are used mostly in two situations:
 
-1.  to work with short, internal data
-2.  to interface with Erlang records
+1. to work with short, internal data
+2. to interface with Erlang records
 
 The macros `defrecord/3` and `defrecordp/3` can be used to create records
 while `extract/2` and `extract_all/1` can be used to extract records from
@@ -41,7 +41,6 @@ The record tag and its fields are stored as metadata in the "Docs" chunk
 of the record definition macro. You can retrieve the documentation for
 a module by calling `Code.fetch_docs/1`.
 
-
 ## Guards
 
 ### is_record(data)
@@ -60,7 +59,6 @@ This is implemented as a macro so it can be used in guard clauses.
     Record.is_record({})
     #=> false
 
-
 ### is_record(data, kind)
 *(macro)* 
 
@@ -74,7 +72,6 @@ This is implemented as a macro so it can be used in guard clauses.
     iex> record = {User, "john", 27}
     iex> Record.is_record(record, User)
     true
-
 
 ## Functions
 
@@ -174,13 +171,11 @@ like so:
       def foo(bar, baz), do: IO.inspect({bar, baz})
     end
 
-
 ### defrecordp(name, tag \\ nil, kv)
 *(macro)* 
 
 
 Same as `defrecord/3` but generates private macros.
-
 
 ### extract(name, opts)
 
@@ -246,7 +241,6 @@ compile time.
       gid: :undefined
     ]
 
-
 ### extract_all(opts)
 
 ```elixir
@@ -262,7 +256,6 @@ tuples representing the fields for that record.
 #### Options
 
 Accepts the same options as listed for `Record.extract/2`.
-
 
 
 

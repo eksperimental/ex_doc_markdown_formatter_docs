@@ -13,7 +13,6 @@ interpolation also invokes `to_string/1` in its
 arguments. For example, `"foo#{bar}"` is the same
 as `"foo" <> to_string(bar)`.
 
-
 ## Types
 
 ### t()
@@ -24,7 +23,6 @@ as `"foo" <> to_string(bar)`.
 
 All the types that implement this protocol.
 
-
 ## Functions
 
 ### to_string(term)
@@ -34,7 +32,6 @@ All the types that implement this protocol.
 ```
 
 Converts `term` to a string.
-
 
 
 

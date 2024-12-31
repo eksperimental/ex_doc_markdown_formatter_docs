@@ -110,7 +110,6 @@ like `Stream.cycle/1`, `Stream.unfold/2`, `Stream.resource/3` and more.
 > assertive code that assumes you have an enumerable, using the functions
 > in the `Enum` or `Stream` module accordingly.
 
-
 ## Types
 
 ### acc()
@@ -145,7 +144,6 @@ like `Stream.cycle/1`, `Stream.unfold/2`, `Stream.resource/3` and more.
 
 Zero-based index.
 
-
 ### timer()
 
 ```elixir
@@ -172,7 +170,6 @@ Elements are only emitted when `fun` returns a new value or the `enum` finishes.
     iex> Enum.to_list(stream)
     [[1], [2, 2], [3], [4, 4, 6], [7, 7]]
 
-
 ### chunk_every(enum, count)
 *(since 1.5.0)* 
 ```elixir
@@ -180,7 +177,6 @@ Elements are only emitted when `fun` returns a new value or the `enum` finishes.
 ```
 
 Shortcut to `chunk_every(enum, count, count)`.
-
 
 ### chunk_every(enum, count, step, leftover \\ [])
 *(since 1.5.0)* 
@@ -226,7 +222,6 @@ unless it has exactly `count` elements.
     iex> Stream.chunk_every([1, 2, 3, 4], 3, 3, Stream.cycle([0])) |> Enum.to_list()
     [[1, 2, 3], [4, 0, 0]]
 
-
 ### chunk_while(enum, acc, chunk_fun, after_fun)
 *(since 1.5.0)* 
 ```elixir
@@ -266,7 +261,6 @@ and continue with the return accumulator.
     iex> Enum.to_list(stream)
     [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]
 
-
 ### concat(enumerables)
 
 ```elixir
@@ -280,7 +274,6 @@ Creates a stream that enumerates each enumerable in an enumerable.
     iex> stream = Stream.concat([1..3, 4..6, 7..9])
     iex> Enum.to_list(stream)
     [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 
 ### concat(first, second)
 
@@ -302,7 +295,6 @@ Creates a stream that enumerates the first argument, followed by the second.
     iex> Enum.take(stream, 6)
     [1, 2, 3, 1, 2, 3]
 
-
 ### cycle(enumerable)
 
 ```elixir
@@ -317,7 +309,6 @@ infinitely.
     iex> stream = Stream.cycle([1, 2, 3])
     iex> Enum.take(stream, 5)
     [1, 2, 3, 1, 2]
-
 
 ### dedup(enum)
 
@@ -336,7 +327,6 @@ Elements are compared using `===/2`.
     iex> Stream.dedup([1, 2, 3, 3, 2, 1]) |> Enum.to_list()
     [1, 2, 3, 2, 1]
 
-
 ### dedup_by(enum, fun)
 
 ```elixir
@@ -350,7 +340,6 @@ different from the (stored) result of calling `fun` on the last emitted element.
 
     iex> Stream.dedup_by([{1, :x}, {2, :y}, {2, :z}, {1, :x}], fn {x, _} -> x end) |> Enum.to_list()
     [{1, :x}, {2, :y}, {1, :x}]
-
 
 ### drop(enum, n)
 
@@ -374,7 +363,6 @@ been emitted by the enum.
     iex> stream = Stream.drop(1..10, -5)
     iex> Enum.to_list(stream)
     [1, 2, 3, 4, 5]
-
 
 ### drop_every(enum, nth)
 
@@ -402,7 +390,6 @@ The first element is always dropped, unless `nth` is 0.
     iex> Enum.to_list(stream)
     [1, 2, 3, 4, 5]
 
-
 ### drop_while(enum, fun)
 
 ```elixir
@@ -417,7 +404,6 @@ function returns a truthy value.
     iex> stream = Stream.drop_while(1..10, &(&1 <= 5))
     iex> Enum.to_list(stream)
     [6, 7, 8, 9, 10]
-
 
 ### duplicate(value, n)
 *(since 1.14.0)* 
@@ -449,7 +435,6 @@ If `n` is `0`, an empty stream is returned.
     iex> Enum.to_list(stream)
     [[1, 2], [1, 2], [1, 2]]
 
-
 ### each(enum, fun)
 
 ```elixir
@@ -474,7 +459,6 @@ is desired.
     iex> receive do: (x when is_integer(x) -> x)
     3
 
-
 ### filter(enum, fun)
 
 ```elixir
@@ -489,7 +473,6 @@ the given function on enumeration.
     iex> stream = Stream.filter([1, 2, 3], fn x -> rem(x, 2) == 0 end)
     iex> Enum.to_list(stream)
     [2]
-
 
 ### flat_map(enum, mapper)
 
@@ -511,7 +494,6 @@ on each element of `enumerable` together.
     iex> stream = Stream.flat_map([1, 2, 3], fn x -> [[x]] end)
     iex> Enum.to_list(stream)
     [[1], [2], [3]]
-
 
 ### from_index(fun_or_offset \\ 0)
 *(since 1.17.0)* 
@@ -541,7 +523,6 @@ elements from offset.
     iex> Stream.from_index(fn x -> x * 10 end) |> Enum.take(3)
     [0, 10, 20]
 
-
 ### intersperse(enumerable, intersperse_element)
 *(since 1.6.0)* 
 ```elixir
@@ -560,7 +541,6 @@ Lazily intersperses `intersperse_element` between each element of the enumeratio
     
     iex> Stream.intersperse([], 0) |> Enum.to_list()
     []
-
 
 ### interval(n)
 
@@ -584,7 +564,6 @@ If blocking the caller process is not necessary, use
     iex> Stream.interval(10) |> Enum.take(10)
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
 ### into(enum, collectable, transform \\ fn x -&gt; x end)
 
 ```elixir
@@ -595,7 +574,6 @@ Injects the stream values into the given collectable as a side-effect.
 
 This function is often used with `run/1` since any evaluation
 is delayed until the stream is executed. See `run/1` for an example.
-
 
 ### iterate(start_value, next_fun)
 
@@ -613,7 +591,6 @@ on the previous value.
     iex> Stream.iterate(1, &(&1 * 2)) |> Enum.take(5)
     [1, 2, 4, 8, 16]
 
-
 ### map(enum, fun)
 
 ```elixir
@@ -628,7 +605,6 @@ enumeration.
     iex> stream = Stream.map([1, 2, 3], fn x -> x * 2 end)
     iex> Enum.to_list(stream)
     [2, 4, 6]
-
 
 ### map_every(enum, nth, fun)
 *(since 1.4.0)* 
@@ -658,7 +634,6 @@ The first element is always passed to the given function.
     iex> Enum.to_list(stream)
     [1, 2, 3, 4, 5]
 
-
 ### reject(enum, fun)
 
 ```elixir
@@ -674,7 +649,6 @@ the given function on enumeration.
     iex> Enum.to_list(stream)
     [1, 3]
 
-
 ### repeatedly(generator_fun)
 
 ```elixir
@@ -689,7 +663,6 @@ Returns a stream generated by calling `generator_fun` repeatedly.
     iex> :rand.seed(:exsss, {1, 2, 3})
     iex> Stream.repeatedly(&:rand.uniform/0) |> Enum.take(3)
     [0.5455598952593053, 0.6039309974353404, 0.6684893034823949]
-
 
 ### resource(start_fun, next_fun, after_fun)
 
@@ -742,7 +715,6 @@ resources.
     ...> ) |> Enum.to_list()
     ["s", "t", "r", "i", "n", "g"]
 
-
 ### run(stream)
 
 ```elixir
@@ -767,7 +739,6 @@ without loading the whole file in memory:
 No computation will be done until we call one of the `Enum` functions
 or `run/1`.
 
-
 ### scan(enum, fun)
 
 ```elixir
@@ -785,7 +756,6 @@ as the starting value.
     iex> Enum.to_list(stream)
     [1, 3, 6, 10, 15]
 
-
 ### scan(enum, acc, fun)
 
 ```elixir
@@ -801,7 +771,6 @@ for the next computation. Uses the given `acc` as the starting value.
     iex> stream = Stream.scan(1..5, 0, &(&1 + &2))
     iex> Enum.to_list(stream)
     [1, 3, 6, 10, 15]
-
 
 ### take(enum, count)
 
@@ -832,7 +801,6 @@ a negative `count` on an infinite collection will never return.
     iex> Enum.to_list(stream)
     [1, 2, 3, 1, 2]
 
-
 ### take_every(enum, nth)
 
 ```elixir
@@ -859,7 +827,6 @@ The first element is always included, unless `nth` is 0.
     iex> Enum.to_list(stream)
     []
 
-
 ### take_while(enum, fun)
 
 ```elixir
@@ -874,7 +841,6 @@ function returns a truthy value.
     iex> stream = Stream.take_while(1..100, &(&1 <= 5))
     iex> Enum.to_list(stream)
     [1, 2, 3, 4, 5]
-
 
 ### timer(n)
 
@@ -891,7 +857,6 @@ the given time until the element is streamed.
 
     iex> Stream.timer(10) |> Enum.to_list()
     [0]
-
 
 ### transform(enum, acc, reducer)
 
@@ -927,7 +892,6 @@ many of the functions defined in this module. For example, we can implement
 `Stream.transform/5` further generalizes this function to allow wrapping
 around resources.
 
-
 ### transform(enum, start_fun, reducer, after_fun)
 
 ```elixir
@@ -942,7 +906,6 @@ Similar to `Stream.transform/5`, except `last_fun` is not supplied.
 
 This function can be seen as a combination of `Stream.resource/3` with
 `Stream.transform/3`.
-
 
 ### transform(enum, start_fun, reducer, last_fun, after_fun)
 
@@ -970,7 +933,6 @@ but not emitting any new items. `last_fun` is only invoked if the given
 enumerable terminates successfully (either because it is done or it halted
 itself). `after_fun` is always invoked, therefore `after_fun` must be the
 one used for closing resources.
-
 
 ### unfold(next_acc, next_fun)
 
@@ -1006,7 +968,6 @@ If `next_fun` never returns `nil`, the returned stream is *infinite*:
     ...> end) |> Enum.take(10)
     [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 
-
 ### uniq(enum)
 
 ```elixir
@@ -1024,7 +985,6 @@ of elements stored will grow infinitely, never being garbage-collected.
 
     iex> Stream.uniq([1, 2, 3, 3, 2, 1]) |> Enum.to_list()
     [1, 2, 3]
-
 
 ### uniq_by(enum, fun)
 
@@ -1050,7 +1010,6 @@ of elements stored will grow infinitely, never being garbage-collected.
     
     iex> Stream.uniq_by([a: {:tea, 2}, b: {:tea, 2}, c: {:coffee, 1}], fn {_, y} -> y end) |> Enum.to_list()
     [a: {:tea, 2}, c: {:coffee, 1}]
-
 
 ### with_index(enum, fun_or_offset \\ 0)
 
@@ -1086,7 +1045,6 @@ element and index (zero-based) of the enumerable.
     iex> Enum.to_list(stream)
     [1, 3, 5]
 
-
 ### zip(enumerables)
 *(since 1.4.0)* 
 ```elixir
@@ -1105,7 +1063,6 @@ The zipping finishes as soon as any enumerable in the given collection completes
     iex> cycle = Stream.cycle(["foo", "bar", "baz"])
     iex> Stream.zip([concat, [:a, :b, :c], cycle]) |> Enum.to_list()
     [{1, :a, "foo"}, {2, :b, "bar"}, {3, :c, "baz"}]
-
 
 ### zip(enumerable1, enumerable2)
 
@@ -1130,7 +1087,6 @@ The zipping finishes as soon as either enumerable completes.
     [{1, :a}, {2, :b}, {3, :c}, {4, :a}, {5, :b}, {6, :c}]
     iex> Stream.zip(cycle, concat) |> Enum.to_list()
     [a: 1, b: 2, c: 3, a: 4, b: 5, c: 6]
-
 
 ### zip_with(enumerables, zip_fun)
 *(since 1.12.0)* 
@@ -1158,7 +1114,6 @@ Returns a new enumerable with the results of calling `zip_fun`.
     iex> Stream.zip_with([concat, concat, 1..3], fn [a, b, c] -> a + b + c end) |> Enum.to_list()
     [3, 6, 9]
 
-
 ### zip_with(enumerable1, enumerable2, zip_fun)
 *(since 1.12.0)* 
 ```elixir
@@ -1178,7 +1133,6 @@ either one of the enumerables completes.
     iex> concat = Stream.concat(1..3, 4..6)
     iex> Stream.zip_with(concat, concat, fn a, b -> a + b end) |> Enum.to_list()
     [2, 4, 6, 8, 10, 12]
-
 
 
 

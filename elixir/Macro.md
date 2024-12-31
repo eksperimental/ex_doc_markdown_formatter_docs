@@ -61,7 +61,6 @@ see `quote/2`.
 > evaluating code from macros is often an anti-pattern. For code
 > evaluation, see the `Code` module.
 
-
 ## Types
 
 ### captured_remote_function()
@@ -72,7 +71,6 @@ see `quote/2`.
 
 A captured remote function in the format of \&Mod.fun/arity
 
-
 ### input()
 
 ```elixir
@@ -81,7 +79,6 @@ A captured remote function in the format of \&Mod.fun/arity
 ```
 
 The inputs of a macro
-
 
 ### metadata()
 
@@ -174,7 +171,6 @@ If you introduce custom keys into the AST metadata, please make sure to prefix
 them with the name of your library or application, so that they will not conflict
 with keys that could potentially be introduced by the compiler in the future.
 
-
 ### output()
 
 ```elixir
@@ -191,7 +187,6 @@ with keys that could potentially be introduced by the compiler in the future.
 
 The output of a macro
 
-
 ### t()
 
 ```elixir
@@ -199,7 +194,6 @@ The output of a macro
 ```
 
 Abstract Syntax Tree (AST)
-
 
 ## Functions
 
@@ -231,7 +225,6 @@ as a mechanism to preserve acronyms:
     "API.V1"
     iex> Macro.camelize("API_SPEC")
     "API_SPEC"
-
 
 ### classify_atom(atom)
 *(since 1.14.0)* 
@@ -272,7 +265,6 @@ some exceptions returning `:quoted` due to ambiguity, such as
     iex> Macro.classify_atom(:"with spaces")
     :quoted
 
-
 ### compile_apply(mod, fun, args, caller)
 *(since 1.16.0)* 
 
@@ -281,7 +273,6 @@ Applies a `mod`, `function`, and `args` at compile-time in `caller`.
 
 This is used when you want to programmatically invoke a macro at
 compile-time.
-
 
 ### dbg(code, options, env)
 *(since 1.14.0)* 
@@ -304,7 +295,6 @@ You can call this function directly to build `Kernel.dbg/2` backends that fall b
 to this function.
 
 This function raises if the context of the given `env` is `:match` or `:guard`.
-
 
 ### decompose_call(ast)
 
@@ -336,7 +326,6 @@ Returns `:error` when an invalid call syntax is provided.
     
     iex> Macro.decompose_call(quote(do: {:foo, [], []}))
     :error
-
 
 ### escape(expr, opts \\ [])
 
@@ -407,7 +396,6 @@ best illustrated when the value to escape is stored in a variable.
 bound), while `quote/2` produces syntax trees for
 expressions.
 
-
 ### expand(ast, env)
 
 ```elixir
@@ -422,7 +410,6 @@ node is expanded.
 
 This function uses `expand_once/2` under the hood. Check
 it out for more information and examples.
-
 
 ### expand_literals(ast, env)
 *(since 1.14.1)* 
@@ -447,7 +434,6 @@ modules. If you remove them but you still invoke the module at
 compile-time, Elixir will be unable to properly recompile modules
 when they change.
 
-
 ### expand_literals(ast, acc, fun)
 *(since 1.14.1)* 
 ```elixir
@@ -460,7 +446,6 @@ Expands all literals in `ast` with the given `acc` and `fun`.
 must return a new node with `acc`. This is a general version of
 `expand_literals/2` which supports a custom expansion function.
 Please check `expand_literals/2` for use cases and pitfalls.
-
 
 ### expand_once(ast, env)
 
@@ -546,7 +531,6 @@ function as:
       end
     end
 
-
 ### generate_arguments(amount, context)
 *(since 1.5.0)* 
 ```elixir
@@ -567,7 +551,6 @@ generate unique arguments that can't be overridden.
 
     iex> Macro.generate_arguments(2, __MODULE__)
     [{:arg1, [], __MODULE__}, {:arg2, [], __MODULE__}]
-
 
 ### generate_unique_arguments(amount, context)
 *(since 1.11.3)* 
@@ -590,7 +573,6 @@ variables using `Macro.unique_var/2`.
     iex> {:arg2, [counter: c2], __MODULE__} = var2
     iex> is_integer(c1) and is_integer(c2)
     true
-
 
 ### inspect_atom(source_format, atom, opts \\ [])
 *(since 1.14.0)* 
@@ -660,7 +642,6 @@ Inspect an atom the function name of a remote call.
     iex> Macro.inspect_atom(:remote_call, :"with spaces")
     "\"with spaces\""
 
-
 ### operator?(name, arity)
 *(since 1.7.0)* 
 ```elixir
@@ -681,7 +662,6 @@ Returns `true` if the given name and arity is an operator.
     true
     iex> Macro.operator?(:..//, 3)
     true
-
 
 ### path(ast, fun)
 *(since 1.14.0)* 
@@ -720,7 +700,6 @@ assert something about it.
       {:%{}, [], [foo: [bar: :baz]]}
     ]
 
-
 ### pipe(expr, call_args, position)
 
 ```elixir
@@ -745,7 +724,6 @@ the AST is valid. For example, you could pipe an argument to `div/2`, effectivel
 turning it into a call to `div/3`, which is a function that doesn't exist by
 default. The code will raise unless a `div/3` function is locally defined.
 
-
 ### postwalk(ast, fun)
 
 ```elixir
@@ -755,7 +733,6 @@ default. The code will raise unless a `div/3` function is locally defined.
 This function behaves like `prewalk/2`, but performs a depth-first,
 post-order traversal of quoted expressions.
 
-
 ### postwalk(ast, acc, fun)
 
 ```elixir
@@ -764,7 +741,6 @@ post-order traversal of quoted expressions.
 
 This functions behaves like `prewalk/3`, but performs a depth-first,
 post-order traversal of quoted expressions using an accumulator.
-
 
 ### postwalker(ast)
 *(since 1.13.0)* 
@@ -780,7 +756,6 @@ post-order traversal.
     iex> ast = quote do: foo(1, "abc")
     iex> Enum.map(Macro.postwalker(ast), & &1)
     [1, "abc", {:foo, [], [1, "abc"]}]
-
 
 ### prewalk(ast, fun)
 
@@ -807,7 +782,6 @@ corresponding node of `ast`.
     {26, []}
     iex> Code.eval_quoted(new_ast)
     {50, []}
-
 
 ### prewalk(ast, acc, fun)
 
@@ -837,7 +811,6 @@ final accumulator.
     iex> Code.eval_quoted(new_ast)
     {50, []}
 
-
 ### prewalker(ast)
 *(since 1.13.0)* 
 ```elixir
@@ -852,7 +825,6 @@ pre-order traversal.
     iex> ast = quote do: foo(1, "abc")
     iex> Enum.map(Macro.prewalker(ast), & &1)
     [{:foo, [], [1, "abc"]}, 1, "abc"]
-
 
 ### quoted_literal?(term)
 *(since 1.7.0)* 
@@ -882,7 +854,6 @@ maps, and structs are only literals if all of their terms are also literals.
     iex> Macro.quoted_literal?(quote(do: {foo, var}))
     false
 
-
 ### special_form?(name, arity)
 *(since 1.7.0)* 
 ```elixir
@@ -890,7 +861,6 @@ maps, and structs are only literals if all of their terms are also literals.
 ```
 
 Returns `true` if the given name and arity is a special form.
-
 
 ### struct!(module, env)
 
@@ -918,7 +888,6 @@ given struct.
 
 It will raise `ArgumentError` if the struct is not available.
 
-
 ### to_string(tree)
 
 ```elixir
@@ -941,7 +910,6 @@ the elements won't be formatted accordingly.
 
     iex> Macro.to_string(quote(do: foo.bar(1, 2, 3)))
     "foo.bar(1, 2, 3)"
-
 
 ### to_string(tree, fun)
 
@@ -966,7 +934,6 @@ This function discards all formatting of the original code.
       _ast, string -> string
     end)
     #=> "one + two"
-
 
 ### traverse(ast, acc, pre, post)
 
@@ -1006,7 +973,6 @@ phase.
     iex> [:min, :max, :/, :-] = acc
     iex> Code.eval_quoted(new_ast)
     {5, []}
-
 
 ### underscore(atom_or_string)
 
@@ -1050,7 +1016,6 @@ In general, `underscore` can be thought of as the reverse of
     iex> Macro.camelize("foo/bar")
     "Foo.Bar"
 
-
 ### unescape_string(string)
 
 ```elixir
@@ -1080,7 +1045,6 @@ Elixir parses strings.
 
 In the example above, we pass a string with `\n` escaped
 and return a version with it unescaped.
-
 
 ### unescape_string(string, map)
 
@@ -1128,7 +1092,6 @@ Using the `unescape_map/1` function defined above is easy:
 
     Macro.unescape_string("example\\n", &unescape_map(&1))
 
-
 ### unique_var(var, context)
 *(since 1.11.3)* 
 ```elixir
@@ -1148,7 +1111,6 @@ See `var/2` for an alternative.
     iex> {:foo, [counter: c], __MODULE__} = Macro.unique_var(:foo, __MODULE__)
     iex> is_integer(c)
     true
-
 
 ### unpipe(expr)
 
@@ -1182,7 +1144,6 @@ inside the current function application: `{{:div, [], [5]}, 0}` means that the
 previous element (`100`) will be inserted as the 0th (first) argument to the
 `div/2` function, so that the AST for that function will become `{:div, [], [100, 5]}` (`div(100, 5)`).
 
-
 ### update_meta(quoted, fun)
 
 ```elixir
@@ -1201,7 +1162,6 @@ for either storage or comparison.
     {:sample, [line: 10], []}
     iex> Macro.update_meta(quoted, &Keyword.delete(&1, :line))
     {:sample, [], []}
-
 
 ### validate(expr)
 
@@ -1229,7 +1189,6 @@ the invalid part of the quoted expression.
     :ok
     iex> Macro.validate([1, 2, 3, {4}])
     {:error, {4}}
-
 
 ### var(var, context)
 
@@ -1259,7 +1218,6 @@ nil can be given:
 
     iex> Macro.var(:foo, nil)
     {:foo, [], nil}
-
 
 
 

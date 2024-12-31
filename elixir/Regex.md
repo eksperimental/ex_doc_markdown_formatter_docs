@@ -184,7 +184,6 @@ you are doing multiple matches with the regex, you can manually invoke
 `Regex.recompile/1` or `Regex.recompile!/1` to perform a runtime version
 check and recompile the regex if necessary.
 
-
 ## Types
 
 ### t()
@@ -232,7 +231,6 @@ It returns `{:ok, regex}` in case of success,
     iex> Regex.compile("foo", [:caseless])
     {:ok, Regex.compile!("foo", [:caseless])}
 
-
 ### compile!(source, options \\ &quot;&quot;)
 
 ```elixir
@@ -240,7 +238,6 @@ It returns `{:ok, regex}` in case of success,
 ```
 
 Compiles the regular expression and raises `Regex.CompileError` in case of errors.
-
 
 ### escape(string)
 
@@ -257,7 +254,6 @@ Escapes a string to be literally matched in a regex.
     
     iex> Regex.escape("\\what if")
     "\\\\what\\ if"
-
 
 ### match?(regex, string)
 
@@ -278,7 +274,6 @@ Returns a boolean indicating whether there was a match or not.
 Elixir also provides text-based match operator `=~/2` and function `String.match?/2` as
 an alternative to test strings against regular expressions and
 strings.
-
 
 ### named_captures(regex, string, options \\ [])
 
@@ -304,7 +299,6 @@ Returns the given captures as a map or `nil` if no captures are found.
     iex> Regex.named_captures(~r/a(?<foo>b)c(?<bar>d)/, "efgh")
     nil
 
-
 ### names(regex)
 
 ```elixir
@@ -317,7 +311,6 @@ Returns a list of names in the regex.
 
     iex> Regex.names(~r/(?<foo>bar)/)
     ["foo"]
-
 
 ### opts(regex)
 
@@ -337,7 +330,6 @@ See the documentation of `Regex.compile/2` for more information.
     iex> Regex.opts(Regex.compile!("foo", [:caseless]))
     [:caseless]
 
-
 ### re_pattern(regex)
 
 ```elixir
@@ -345,7 +337,6 @@ See the documentation of `Regex.compile/2` for more information.
 ```
 
 Returns the underlying `re_pattern` in the regular expression.
-
 
 ### recompile(regex)
 *(since 1.4.0)* 
@@ -358,7 +349,6 @@ Recompiles the existing regular expression if necessary.
 This checks the version stored in the regular expression
 and recompiles the regex in case of version mismatch.
 
-
 ### recompile!(regex)
 *(since 1.4.0)* 
 ```elixir
@@ -366,7 +356,6 @@ and recompiles the regex in case of version mismatch.
 ```
 
 Recompiles the existing regular expression and raises `Regex.CompileError` in case of errors.
-
 
 ### replace(regex, string, replacement, options \\ [])
 
@@ -424,7 +413,6 @@ arguments than captures found, the remaining arguments will receive `""`.
     iex> Regex.replace(~r/a/, "abcadc", "A", global: false)
     "Abcadc"
 
-
 ### run(regex, string, options \\ [])
 
 ```elixir
@@ -459,7 +447,6 @@ It returns a list with all captures or `nil` if no match occurred.
     
     iex> Regex.run(~r/c(?<foo>d)/, "abcd", capture: ["foo", "bar"])
     ["d", ""]
-
 
 ### scan(regex, string, options \\ [])
 
@@ -507,7 +494,6 @@ match and each entry in the secondary list represents the captured contents.
     iex> Regex.scan(~r/c(d|e)/, "abcd abce", capture: :first)
     [["cd"], ["ce"]]
 
-
 ### source(regex)
 
 ```elixir
@@ -520,7 +506,6 @@ Returns the regex source as a binary.
 
     iex> Regex.source(~r/foo/)
     "foo"
-
 
 ### split(regex, string, options \\ [])
 
@@ -579,7 +564,6 @@ parts.
     iex> Regex.split(~r{-}, "-a-b--c", trim: true)
     ["a", "b", "c"]
 
-
 ### version()
 *(since 1.4.0)* 
 ```elixir
@@ -587,7 +571,6 @@ parts.
 ```
 
 Returns the version of the underlying Regex engine.
-
 
 
 

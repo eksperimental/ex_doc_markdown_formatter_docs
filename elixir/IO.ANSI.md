@@ -32,7 +32,6 @@ checks if ANSI is enabled:
 
 In case ANSI is disabled, the ANSI escape sequences are simply discarded.
 
-
 ## Types
 
 ### ansicode()
@@ -73,7 +72,6 @@ In case ANSI is disabled, the ANSI escape sequences are simply discarded.
 
 Sets foreground color to black.
 
-
 ### black_background()
 
 ```elixir
@@ -81,7 +79,6 @@ Sets foreground color to black.
 ```
 
 Sets background color to black.
-
 
 ### blink_off()
 
@@ -91,7 +88,6 @@ Sets background color to black.
 
 Blink: off.
 
-
 ### blink_rapid()
 
 ```elixir
@@ -99,7 +95,6 @@ Blink: off.
 ```
 
 Blink: rapid. MS-DOS ANSI.SYS; 150 per minute or more; not widely supported.
-
 
 ### blink_slow()
 
@@ -109,7 +104,6 @@ Blink: rapid. MS-DOS ANSI.SYS; 150 per minute or more; not widely supported.
 
 Blink: slow. Less than 150 per minute.
 
-
 ### blue()
 
 ```elixir
@@ -117,7 +111,6 @@ Blink: slow. Less than 150 per minute.
 ```
 
 Sets foreground color to blue.
-
 
 ### blue_background()
 
@@ -127,7 +120,6 @@ Sets foreground color to blue.
 
 Sets background color to blue.
 
-
 ### bright()
 
 ```elixir
@@ -135,7 +127,6 @@ Sets background color to blue.
 ```
 
 Bright (increased intensity) or bold.
-
 
 ### clear()
 
@@ -145,7 +136,6 @@ Bright (increased intensity) or bold.
 
 Clears screen.
 
-
 ### clear_line()
 
 ```elixir
@@ -154,7 +144,6 @@ Clears screen.
 
 Clears line.
 
-
 ### color(code)
 
 ```elixir
@@ -162,7 +151,6 @@ Clears line.
 ```
 
 Sets foreground color.
-
 
 ### color(r, g, b)
 
@@ -174,7 +162,6 @@ Sets the foreground color from individual RGB values.
 
 Valid values for each color are in the range 0 to 5.
 
-
 ### color_background(code)
 
 ```elixir
@@ -182,7 +169,6 @@ Valid values for each color are in the range 0 to 5.
 ```
 
 Sets background color.
-
 
 ### color_background(r, g, b)
 
@@ -194,7 +180,6 @@ Sets the background color from individual RGB values.
 
 Valid values for each color are in the range 0 to 5.
 
-
 ### conceal()
 
 ```elixir
@@ -203,7 +188,6 @@ Valid values for each color are in the range 0 to 5.
 
 Conceal. Not widely supported.
 
-
 ### crossed_out()
 
 ```elixir
@@ -211,7 +195,6 @@ Conceal. Not widely supported.
 ```
 
 Crossed-out. Characters legible, but marked for deletion. Not widely supported.
-
 
 ### cursor(line, column)
 
@@ -223,7 +206,6 @@ Sends cursor to the absolute position specified by `line` and `column`.
 
 Line `0` and column `0` would mean the top left corner.
 
-
 ### cursor_down(lines \\ 1)
 
 ```elixir
@@ -231,7 +213,6 @@ Line `0` and column `0` would mean the top left corner.
 ```
 
 Sends cursor `lines` down.
-
 
 ### cursor_left(columns \\ 1)
 
@@ -241,7 +222,6 @@ Sends cursor `lines` down.
 
 Sends cursor `columns` to the left.
 
-
 ### cursor_right(columns \\ 1)
 
 ```elixir
@@ -249,7 +229,6 @@ Sends cursor `columns` to the left.
 ```
 
 Sends cursor `columns` to the right.
-
 
 ### cursor_up(lines \\ 1)
 
@@ -259,7 +238,6 @@ Sends cursor `columns` to the right.
 
 Sends cursor `lines` up.
 
-
 ### cyan()
 
 ```elixir
@@ -267,7 +245,6 @@ Sends cursor `lines` up.
 ```
 
 Sets foreground color to cyan.
-
 
 ### cyan_background()
 
@@ -277,7 +254,6 @@ Sets foreground color to cyan.
 
 Sets background color to cyan.
 
-
 ### default_background()
 
 ```elixir
@@ -286,7 +262,6 @@ Sets background color to cyan.
 
 Default background color.
 
-
 ### default_color()
 
 ```elixir
@@ -294,7 +269,6 @@ Default background color.
 ```
 
 Default text color.
-
 
 ### enabled?()
 
@@ -309,7 +283,6 @@ This function simply reads the configuration value for
 default `false` unless Elixir can detect during startup that
 both `stdout` and `stderr` are terminals.
 
-
 ### encircled()
 
 ```elixir
@@ -317,7 +290,6 @@ both `stdout` and `stderr` are terminals.
 ```
 
 Encircled.
-
 
 ### faint()
 
@@ -327,7 +299,6 @@ Encircled.
 
 Faint (decreased intensity). Not widely supported.
 
-
 ### font_1()
 
 ```elixir
@@ -335,7 +306,6 @@ Faint (decreased intensity). Not widely supported.
 ```
 
 Sets alternative font 1.
-
 
 ### font_2()
 
@@ -345,7 +315,6 @@ Sets alternative font 1.
 
 Sets alternative font 2.
 
-
 ### font_3()
 
 ```elixir
@@ -353,7 +322,6 @@ Sets alternative font 2.
 ```
 
 Sets alternative font 3.
-
 
 ### font_4()
 
@@ -363,7 +331,6 @@ Sets alternative font 3.
 
 Sets alternative font 4.
 
-
 ### font_5()
 
 ```elixir
@@ -371,7 +338,6 @@ Sets alternative font 4.
 ```
 
 Sets alternative font 5.
-
 
 ### font_6()
 
@@ -381,7 +347,6 @@ Sets alternative font 5.
 
 Sets alternative font 6.
 
-
 ### font_7()
 
 ```elixir
@@ -389,7 +354,6 @@ Sets alternative font 6.
 ```
 
 Sets alternative font 7.
-
 
 ### font_8()
 
@@ -399,7 +363,6 @@ Sets alternative font 7.
 
 Sets alternative font 8.
 
-
 ### font_9()
 
 ```elixir
@@ -407,7 +370,6 @@ Sets alternative font 8.
 ```
 
 Sets alternative font 9.
-
 
 ### format(ansidata, emit? \\ enabled?())
 
@@ -434,7 +396,6 @@ An `ArgumentError` will be raised if an invalid ANSI code is provided.
     iex> IO.ANSI.format(["Hello, ", :red, :bright, "world!"], true)
     [[[[[[], "Hello, "] | "\e[31m"] | "\e[1m"], "world!"] | "\e[0m"]
 
-
 ### format_fragment(ansidata, emit? \\ enabled?())
 
 ```elixir
@@ -455,7 +416,6 @@ By default checks if ANSI is enabled using the `enabled?/0` function.
     iex> IO.ANSI.format_fragment([:bright, ~c"Word"], true)
     [[[[[[] | "\e[1m"], 87], 111], 114], 100]
 
-
 ### framed()
 
 ```elixir
@@ -463,7 +423,6 @@ By default checks if ANSI is enabled using the `enabled?/0` function.
 ```
 
 Framed.
-
 
 ### green()
 
@@ -473,7 +432,6 @@ Framed.
 
 Sets foreground color to green.
 
-
 ### green_background()
 
 ```elixir
@@ -481,7 +439,6 @@ Sets foreground color to green.
 ```
 
 Sets background color to green.
-
 
 ### home()
 
@@ -491,7 +448,6 @@ Sets background color to green.
 
 Sends cursor home.
 
-
 ### inverse()
 
 ```elixir
@@ -499,7 +455,6 @@ Sends cursor home.
 ```
 
 Image: negative. Swap foreground and background.
-
 
 ### inverse_off()
 
@@ -509,7 +464,6 @@ Image: negative. Swap foreground and background.
 
 Image: positive. Normal foreground and background.
 
-
 ### italic()
 
 ```elixir
@@ -517,7 +471,6 @@ Image: positive. Normal foreground and background.
 ```
 
 Italic: on. Not widely supported. Sometimes treated as inverse.
-
 
 ### light_black()
 
@@ -527,7 +480,6 @@ Italic: on. Not widely supported. Sometimes treated as inverse.
 
 Sets foreground color to light black.
 
-
 ### light_black_background()
 
 ```elixir
@@ -535,7 +487,6 @@ Sets foreground color to light black.
 ```
 
 Sets background color to light black.
-
 
 ### light_blue()
 
@@ -545,7 +496,6 @@ Sets background color to light black.
 
 Sets foreground color to light blue.
 
-
 ### light_blue_background()
 
 ```elixir
@@ -553,7 +503,6 @@ Sets foreground color to light blue.
 ```
 
 Sets background color to light blue.
-
 
 ### light_cyan()
 
@@ -563,7 +512,6 @@ Sets background color to light blue.
 
 Sets foreground color to light cyan.
 
-
 ### light_cyan_background()
 
 ```elixir
@@ -571,7 +519,6 @@ Sets foreground color to light cyan.
 ```
 
 Sets background color to light cyan.
-
 
 ### light_green()
 
@@ -581,7 +528,6 @@ Sets background color to light cyan.
 
 Sets foreground color to light green.
 
-
 ### light_green_background()
 
 ```elixir
@@ -589,7 +535,6 @@ Sets foreground color to light green.
 ```
 
 Sets background color to light green.
-
 
 ### light_magenta()
 
@@ -599,7 +544,6 @@ Sets background color to light green.
 
 Sets foreground color to light magenta.
 
-
 ### light_magenta_background()
 
 ```elixir
@@ -607,7 +551,6 @@ Sets foreground color to light magenta.
 ```
 
 Sets background color to light magenta.
-
 
 ### light_red()
 
@@ -617,7 +560,6 @@ Sets background color to light magenta.
 
 Sets foreground color to light red.
 
-
 ### light_red_background()
 
 ```elixir
@@ -625,7 +567,6 @@ Sets foreground color to light red.
 ```
 
 Sets background color to light red.
-
 
 ### light_white()
 
@@ -635,7 +576,6 @@ Sets background color to light red.
 
 Sets foreground color to light white.
 
-
 ### light_white_background()
 
 ```elixir
@@ -643,7 +583,6 @@ Sets foreground color to light white.
 ```
 
 Sets background color to light white.
-
 
 ### light_yellow()
 
@@ -653,7 +592,6 @@ Sets background color to light white.
 
 Sets foreground color to light yellow.
 
-
 ### light_yellow_background()
 
 ```elixir
@@ -661,7 +599,6 @@ Sets foreground color to light yellow.
 ```
 
 Sets background color to light yellow.
-
 
 ### magenta()
 
@@ -671,7 +608,6 @@ Sets background color to light yellow.
 
 Sets foreground color to magenta.
 
-
 ### magenta_background()
 
 ```elixir
@@ -679,7 +615,6 @@ Sets foreground color to magenta.
 ```
 
 Sets background color to magenta.
-
 
 ### no_underline()
 
@@ -689,7 +624,6 @@ Sets background color to magenta.
 
 Underline: none.
 
-
 ### normal()
 
 ```elixir
@@ -697,7 +631,6 @@ Underline: none.
 ```
 
 Normal color or intensity.
-
 
 ### not_framed_encircled()
 
@@ -707,7 +640,6 @@ Normal color or intensity.
 
 Not framed or encircled.
 
-
 ### not_italic()
 
 ```elixir
@@ -715,7 +647,6 @@ Not framed or encircled.
 ```
 
 Not italic.
-
 
 ### not_overlined()
 
@@ -725,7 +656,6 @@ Not italic.
 
 Not overlined.
 
-
 ### overlined()
 
 ```elixir
@@ -733,7 +663,6 @@ Not overlined.
 ```
 
 Overlined.
-
 
 ### primary_font()
 
@@ -743,7 +672,6 @@ Overlined.
 
 Sets primary (default) font.
 
-
 ### red()
 
 ```elixir
@@ -751,7 +679,6 @@ Sets primary (default) font.
 ```
 
 Sets foreground color to red.
-
 
 ### red_background()
 
@@ -761,7 +688,6 @@ Sets foreground color to red.
 
 Sets background color to red.
 
-
 ### reset()
 
 ```elixir
@@ -769,7 +695,6 @@ Sets background color to red.
 ```
 
 Resets all attributes.
-
 
 ### reverse()
 
@@ -779,7 +704,6 @@ Resets all attributes.
 
 Image: negative. Swap foreground and background.
 
-
 ### reverse_off()
 
 ```elixir
@@ -787,7 +711,6 @@ Image: negative. Swap foreground and background.
 ```
 
 Image: positive. Normal foreground and background.
-
 
 ### syntax_colors()
 *(since 1.14.0)* 
@@ -815,7 +738,6 @@ most built-in data types are supported: `:atom`, `:binary`,
       string: :green
     ]
 
-
 ### underline()
 
 ```elixir
@@ -823,7 +745,6 @@ most built-in data types are supported: `:atom`, `:binary`,
 ```
 
 Underline: single.
-
 
 ### white()
 
@@ -833,7 +754,6 @@ Underline: single.
 
 Sets foreground color to white.
 
-
 ### white_background()
 
 ```elixir
@@ -841,7 +761,6 @@ Sets foreground color to white.
 ```
 
 Sets background color to white.
-
 
 ### yellow()
 
@@ -851,7 +770,6 @@ Sets background color to white.
 
 Sets foreground color to yellow.
 
-
 ### yellow_background()
 
 ```elixir
@@ -859,7 +777,6 @@ Sets foreground color to yellow.
 ```
 
 Sets background color to yellow.
-
 
 
 

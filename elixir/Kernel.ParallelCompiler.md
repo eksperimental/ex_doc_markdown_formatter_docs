@@ -3,7 +3,6 @@
 
 A module responsible for compiling and requiring files in parallel.
 
-
 ## Types
 
 ### error()
@@ -40,7 +39,6 @@ A module responsible for compiling and requiring files in parallel.
 
 This function is deprecated. Use `pmap/2` instead.
 Starts a task for parallel compilation.
-
 
 ### compile(files, options \\ [])
 *(since 1.6.0)* 
@@ -113,7 +111,6 @@ The map has the shape of:
   Setting this option to 1 will compile files sequentially.
   Defaults to the number of schedulers online, or at least 2.
 
-
 ### compile_to_path(files, path, options \\ [])
 *(since 1.6.0)* 
 ```elixir
@@ -126,7 +123,6 @@ Compiles the given files and writes resulting BEAM files into path.
 
 See `compile/2` for more information.
 
-
 ### pmap(collection, fun)
 *(since 1.16.0)* 
 
@@ -136,7 +132,6 @@ Perform parallel compilation of `collection` with `fun`.
 If you have a file that needs to compile other modules in parallel,
 the spawned processes need to be aware of the compiler environment.
 This function allows a developer to perform such tasks.
-
 
 ### require(files, options \\ [])
 *(since 1.6.0)* 
@@ -175,7 +170,6 @@ The map has the shape of:
 - `:max_concurrency` - the maximum number of files to compile in parallel.
   Setting this option to 1 will compile files sequentially.
   Defaults to the number of schedulers online, or at least 2.
-
 
 
 

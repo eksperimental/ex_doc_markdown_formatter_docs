@@ -42,7 +42,6 @@ quotes:
     iex> :"this is an atom with spaces"
     :"this is an atom with spaces"
 
-
 ## Functions
 
 ### to_charlist(atom)
@@ -60,7 +59,6 @@ Inlined by the compiler.
     iex> Atom.to_charlist(:"An atom")
     ~c"An atom"
 
-
 ### to_string(atom)
 
 ```elixir
@@ -75,7 +73,6 @@ Inlined by the compiler.
 
     iex> Atom.to_string(:foo)
     "foo"
-
 
 
 

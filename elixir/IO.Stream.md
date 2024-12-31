@@ -12,7 +12,6 @@ The following fields are public:
 It is worth noting that an IO stream has side effects and every time you go
 over the stream you may get different results.
 
-
 ## Types
 
 ### t()

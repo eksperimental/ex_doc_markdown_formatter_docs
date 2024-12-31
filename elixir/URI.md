@@ -10,7 +10,6 @@ according to [RFC 3986](https://tools.ietf.org/html/rfc3986).
 Additionally, the Erlang [`:uri_string` module](\`:uri_string\`) provides certain functionalities,
 such as RFC 3986 compliant URI normalization.
 
-
 ## Types
 
 ### authority()
@@ -55,7 +54,6 @@ Note the `authority` field is deprecated. `parse/1` will still
 populate it for backwards compatibility but you should generally
 avoid setting or getting it.
 
-
 ### append_path(uri, path)
 *(since 1.15.0)* 
 ```elixir
@@ -75,7 +73,6 @@ it does not contain a query string or fragment parts.
     
     iex> URI.append_path(URI.parse("http://example.com"), "my-path")
     ** (ArgumentError) path must start with "/", got: "my-path"
-
 
 ### append_query(uri, query)
 *(since 1.14.0)* 
@@ -98,7 +95,6 @@ The given `query` is not automatically encoded, use `encode/2` or `encode_www_fo
     iex> URI.append_query(URI.parse("http://example.com/?x=1"), "x=2") |> URI.to_string()
     "http://example.com/?x=1&x=2"
 
-
 ### char_reserved?(character)
 
 ```elixir
@@ -114,7 +110,6 @@ the following characters are reserved: `:`, `/`, `?`, `#`, `[`, `]`, `@`, `!`, `
 
     iex> URI.char_reserved?(?+)
     true
-
 
 ### char_unescaped?(character)
 
@@ -132,7 +127,6 @@ are kept unescaped.
 
     iex> URI.char_unescaped?(?{)
     false
-
 
 ### char_unreserved?(character)
 
@@ -153,7 +147,6 @@ the following characters are unreserved:
     iex> URI.char_unreserved?(?_)
     true
 
-
 ### decode(uri)
 
 ```elixir
@@ -166,7 +159,6 @@ Percent-unescapes a URI.
 
     iex> URI.decode("https%3A%2F%2Felixir-lang.org")
     "https://elixir-lang.org"
-
 
 ### decode_query(query, map \\ %{}, encoding \\ :www_form)
 
@@ -209,7 +201,6 @@ Use `query_decoder/1` if you want to iterate over each value manually.
     iex> URI.decode_query("percent=oh+yes%21", %{}, :rfc3986)
     %{"percent" => "oh+yes!"}
 
-
 ### decode_www_form(string)
 
 ```elixir
@@ -226,7 +217,6 @@ query strings and form data by browsers.
 
     iex> URI.decode_www_form("%3Call+in%2F")
     "<all in/"
-
 
 ### default_port(scheme)
 
@@ -248,7 +238,6 @@ via `default_port/2`.
     iex> URI.default_port("ponzi")
     nil
 
-
 ### default_port(scheme, port)
 
 ```elixir
@@ -265,7 +254,6 @@ every application.
 It is recommended for this function to be invoked in your
 application's start callback in case you want to register
 new URIs.
-
 
 ### encode(string, predicate \\ &amp;char_unescaped?/1)
 
@@ -304,7 +292,6 @@ See `encode_www_form/1` if you are interested in encoding `string` as
     
     iex> URI.encode("a string", &(&1 != ?i))
     "a str%69ng"
-
 
 ### encode_query(enumerable, encoding \\ :www_form)
 
@@ -352,7 +339,6 @@ Encoding defaults to `:www_form` for backward compatibility.
     iex> URI.encode_query(%{key: [:a, :list]})
     ** (ArgumentError) encode_query/2 values cannot be lists, got: [:a, :list]
 
-
 ### encode_www_form(string)
 
 ```elixir
@@ -369,7 +355,6 @@ query strings and form data by browsers.
 
     iex> URI.encode_www_form("put: it+й")
     "put%3A+it%2B%D0%B9"
-
 
 ### merge(uri, rel)
 
@@ -389,7 +374,6 @@ This function merges two URIs as per
     
     iex> URI.merge("http://example.com", "http://google.com") |> to_string()
     "http://google.com"
-
 
 ### new(uri)
 *(since 1.13.0)* 
@@ -497,7 +481,6 @@ Giving an existing URI simply returns it wrapped in a tuple:
       userinfo: nil
     }}
 
-
 ### new!(uri)
 *(since 1.13.0)* 
 ```elixir
@@ -535,7 +518,6 @@ Giving an existing URI simply returns it:
       scheme: "https",
       userinfo: nil
     }
-
 
 ### parse(uri)
 
@@ -640,7 +622,6 @@ by `new/1`:
       userinfo: nil
     }
 
-
 ### query_decoder(query, encoding \\ :www_form)
 
 ```elixir
@@ -675,7 +656,6 @@ Encoding defaults to `:www_form` for backward compatibility.
     iex> URI.query_decoder("food=bread%26butter&drinks=tap%20water+please", :rfc3986) |> Enum.to_list()
     [{"food", "bread&butter"}, {"drinks", "tap water+please"}]
 
-
 ### to_string(uri)
 
 ```elixir
@@ -693,7 +673,6 @@ Returns the string representation of the given [URI struct](\`t:t/0\`).
     iex> uri = URI.parse("foo://bar.baz")
     iex> URI.to_string(uri)
     "foo://bar.baz"
-
 
 
 

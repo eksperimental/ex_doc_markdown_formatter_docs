@@ -17,6 +17,5 @@ For example, this exception gets raised for a `case/2` like the following:
 
 
 
-
 ---
 Built using [ExDoc](https://github.com/elixir-lang/ex_doc "ExDoc") (v0.36.1) for the [Elixir programming language](href="https://elixir-lang.org" "Elixir").

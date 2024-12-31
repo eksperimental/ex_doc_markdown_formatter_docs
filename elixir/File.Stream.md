@@ -11,7 +11,6 @@ The following fields are public:
 - `line_or_bytes` - if reading should read lines or a given number of bytes
 - `node`          - the node the file belongs to
 
-
 ## Types
 
 ### t()

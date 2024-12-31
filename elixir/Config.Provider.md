@@ -35,12 +35,12 @@ this inside the `def project` portion of  your `mix.exs`:
 You can place this `extra_config.exs` file in your release in
 multiple ways:
 
-1.  If it is available on the host when assembling the release,
-    you can place it on "rel/overlays/extra\_config.exs" and it
-    will be automatically copied to the release root
+1. If it is available on the host when assembling the release,
+   you can place it on "rel/overlays/extra\_config.exs" and it
+   will be automatically copied to the release root
 
-2.  If it is available on the target during deployment, you can
-    simply copy it to the release root as a step in your deployment
+2. If it is available on the target during deployment, you can
+   simply copy it to the release root as a step in your deployment
 
 Now once the system boots, it will load both `config/runtime.exs`
 and `extra_config.exs` early in the boot process. You can learn
@@ -88,7 +88,6 @@ the release configuration:
       ]
     ]
 
-
 ## Types
 
 ### config()
@@ -115,7 +114,6 @@ it can be expressed either as:
 - a `{:system, system_var, path}` tuple where the config is the
   concatenation of the environment variable `system_var` with
   the given `path`
-
 
 ### state()
 
@@ -147,7 +145,6 @@ restricted only to simple data types, such as integers,
 strings, atoms, tuples, maps, and lists. Entries such as
 PIDs, references, and functions cannot be serialized.
 
-
 ### load(config, state)
 
 ```elixir
@@ -166,7 +163,6 @@ Note that `c:load/2` is typically invoked very early in the
 boot process, therefore if you need to use an application
 in the provider, it is your responsibility to start it.
 
-
 ## Functions
 
 ### resolve_config_path!(path)
@@ -177,7 +173,6 @@ in the provider, it is your responsibility to start it.
 
 Resolves a `t:config_path/0` to an actual path.
 
-
 ### validate_config_path!(path)
 *(since 1.9.0)* 
 ```elixir
@@ -185,7 +180,6 @@ Resolves a `t:config_path/0` to an actual path.
 ```
 
 Validates a `t:config_path/0`.
-
 
 
 

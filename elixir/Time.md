@@ -39,7 +39,6 @@ functions to get the minimum and maximum time of an `Enum`. For example:
     iex> Enum.min([~T[23:00:07.001], ~T[10:00:07.001]], Time)
     ~T[10:00:07.001]
 
-
 ## Types
 
 ### t()
@@ -112,7 +111,6 @@ This operation merges the precision of the time with the given unit:
 
 To shift a time by a `Duration` and according to its underlying calendar, use `Time.shift/2`.
 
-
 ### after?(time1, time2)
 *(since 1.15.0)* 
 ```elixir
@@ -130,7 +128,6 @@ Returns `true` if the first time is strictly later than the second.
     iex> Time.after?(~T[16:04:16.001], ~T[16:04:16.01])
     false
 
-
 ### before?(time1, time2)
 *(since 1.15.0)* 
 ```elixir
@@ -147,7 +144,6 @@ Returns `true` if the first time is strictly earlier than the second.
     false
     iex> Time.before?(~T[16:04:16.01], ~T[16:04:16.001])
     false
-
 
 ### compare(time1, time2)
 *(since 1.4.0)* 
@@ -180,7 +176,6 @@ complex calendar types by considering only the time fields:
     iex> Time.compare(~N[2015-01-01 16:04:16.01], ~N[2000-01-01 16:04:16.001])
     :gt
 
-
 ### convert(time, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -201,7 +196,6 @@ year:
     iex> Time.convert(~T[13:30:15], Calendar.Holocene)
     {:ok, %Time{calendar: Calendar.Holocene, hour: 13, minute: 30, second: 15, microsecond: {0, 0}}}
 
-
 ### convert!(time, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -219,7 +213,6 @@ year:
 
     iex> Time.convert!(~T[13:30:15], Calendar.Holocene)
     %Time{calendar: Calendar.Holocene, hour: 13, minute: 30, second: 15, microsecond: {0, 0}}
-
 
 ### diff(time1, time2, unit \\ :second)
 *(since 1.5.0)* 
@@ -268,7 +261,6 @@ Fractional results are not supported and are truncated.
     iex> Time.diff(~T[02:29:10], ~T[00:29:11], :hour)
     1
 
-
 ### from_erl(tuple, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -292,7 +284,6 @@ Converts an Erlang time tuple to a `Time` struct.
     iex> Time.from_erl({24, 30, 15})
     {:error, :invalid_time}
 
-
 ### from_erl!(tuple, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -311,7 +302,6 @@ Converts an Erlang time tuple to a `Time` struct.
     ~T[23:30:15.005]
     iex> Time.from_erl!({24, 30, 15})
     ** (ArgumentError) cannot convert {24, 30, 15} to time, reason: :invalid_time
-
 
 ### from_iso8601(string, calendar \\ Calendar.ISO)
 
@@ -353,7 +343,6 @@ desired as there is no ambiguity within this function.
     iex> Time.from_iso8601("23:50:61")
     {:error, :invalid_time}
 
-
 ### from_iso8601!(string, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -373,7 +362,6 @@ Raises if the format is invalid.
     ~T[23:50:07.123]
     iex> Time.from_iso8601!("2015:01:23 23-50-07")
     ** (ArgumentError) cannot parse "2015:01:23 23-50-07" as time, reason: :invalid_format
-
 
 ### from_seconds_after_midnight(seconds, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
@@ -397,7 +385,6 @@ Converts a number of seconds after midnight to a `Time` struct.
     ~T[23:59:59]
     iex> Time.from_seconds_after_midnight(100_000)
     ~T[03:46:40]
-
 
 ### new(hour, minute, second, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
@@ -441,7 +428,6 @@ The built-in calendar does not support leap seconds.
     Time.new(23, 59, 59, {999_999, 10})
     {:error, :invalid_time}
 
-
 ### new!(hour, minute, second, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
 ```elixir
@@ -472,7 +458,6 @@ The built-in calendar does not support leap seconds.
     ~T[23:59:59.999999]
     iex> Time.new!(24, 59, 59, 999_999)
     ** (ArgumentError) cannot build time, reason: :invalid_time
-
 
 ### shift(time, duration)
 *(since 1.17.0)* 
@@ -507,7 +492,6 @@ Raises an `ArgumentError` when called with date scale units.
     iex> Time.shift(~T[01:15:00], Duration.new!(second: 65))
     ~T[01:16:05]
 
-
 ### to_erl(time)
 
 ```elixir
@@ -526,7 +510,6 @@ only contain hours/minutes/seconds.
     
     iex> Time.to_erl(~N[2010-04-17 23:30:15.999])
     {23, 30, 15}
-
 
 ### to_iso8601(time, format \\ :extended)
 
@@ -555,7 +538,6 @@ passing the `:basic` option.
     iex> Time.to_iso8601(~N[2010-04-17 23:00:13])
     "23:00:13"
 
-
 ### to_seconds_after_midnight(time)
 *(since 1.11.0)* 
 ```elixir
@@ -572,7 +554,6 @@ The returned value is a two-element tuple with the number of seconds and microse
     {84615, 0}
     iex> Time.to_seconds_after_midnight(~N[2010-04-17 23:30:15.999])
     {84615, 999000}
-
 
 ### to_string(time)
 
@@ -595,7 +576,6 @@ Converts the given `time` to a string.
     "23:00:00.001"
     iex> Time.to_string(~N[2015-01-01 23:00:00.123456])
     "23:00:00.123456"
-
 
 ### truncate(time, precision)
 *(since 1.6.0)* 
@@ -620,7 +600,6 @@ the given precision.
     iex> Time.truncate(~T[01:01:01.123456], :second)
     ~T[01:01:01]
 
-
 ### utc_now(calendar \\ Calendar.ISO)
 *(since 1.4.0)* 
 ```elixir
@@ -634,7 +613,6 @@ Returns the current time in UTC.
     iex> time = Time.utc_now()
     iex> time.hour >= 0
     true
-
 
 
 

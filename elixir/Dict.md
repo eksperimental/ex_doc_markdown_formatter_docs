@@ -10,7 +10,6 @@ If you need to manipulate keyword lists, use `Keyword`.
 To convert maps into keywords and vice-versa, use the
 `new` function in the respective modules.
 
-
 ## Types
 
 ### key()

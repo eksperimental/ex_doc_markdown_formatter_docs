@@ -477,7 +477,6 @@ in Erlang can also provide extra insight.
 - [gen\_server Behaviour - OTP Design Principles](https://www.erlang.org/doc/design_principles/gen_server_concepts.html)
 - [Clients and Servers - Learn You Some Erlang for Great Good\!](http://learnyousomeerlang.com/clients-and-servers)
 
-
 ## Types
 
 ### debug()
@@ -487,7 +486,6 @@ in Erlang can also provide extra insight.
 ```
 
 Debug options supported by the `start*` functions
-
 
 ### from()
 
@@ -500,7 +498,6 @@ Tuple describing the client of a call request.
 `pid` is the PID of the caller and `tag` is a unique term used to identify the
 call.
 
-
 ### name()
 
 ```elixir
@@ -508,7 +505,6 @@ call.
 ```
 
 The GenServer name
-
 
 ### on_start()
 
@@ -518,7 +514,6 @@ The GenServer name
 ```
 
 Return values of `start*` functions
-
 
 ### option()
 
@@ -533,7 +528,6 @@ Return values of `start*` functions
 
 Option values used by the `start*` functions
 
-
 ### options()
 
 ```elixir
@@ -541,7 +535,6 @@ Option values used by the `start*` functions
 ```
 
 Options used by the `start*` functions
-
 
 ### server()
 
@@ -553,7 +546,6 @@ The server reference.
 
 This is either a plain PID or a value representing a registered name.
 See the "Name registration" section of this document for more information.
-
 
 ## Callbacks
 
@@ -584,7 +576,6 @@ If `c:code_change/3` raises the code change fails and the loop will continue
 with its previous state. Therefore this callback does not usually contain side effects.
 
 This callback is optional.
-
 
 ### format_status(status)
 *(since 1.17.0)* *(optional)* 
@@ -618,7 +609,6 @@ large irrelevant status items that would only clutter the logs.
         key_value -> key_value
       end)
     end
-
 
 ### format_status(reason, pdict_and_state)
 *(optional)* 
@@ -706,7 +696,6 @@ Returning `{:stop, reason, new_state}` is similar to
 This callback is optional. If one is not implemented, the server will fail
 if a call is performed against it.
 
-
 ### handle_cast(request, state)
 *(optional)* 
 ```elixir
@@ -745,7 +734,6 @@ reason `reason`.
 This callback is optional. If one is not implemented, the server will fail
 if a cast is performed against it.
 
-
 ### handle_continue(continue_arg, state)
 *(optional)* 
 ```elixir
@@ -765,7 +753,6 @@ Return values are the same as `c:handle_cast/2`.
 
 This callback is optional. If one is not implemented, the server will fail
 if a continue instruction is used.
-
 
 ### handle_info(msg, state)
 *(optional)* 
@@ -787,7 +774,6 @@ Return values are the same as `c:handle_cast/2`.
 
 This callback is optional. If one is not implemented, the received message
 will be logged.
-
 
 ### init(init_arg)
 
@@ -839,7 +825,6 @@ this are:
 Returning `{:stop, reason}` will cause `start_link/3` to return
 `{:error, reason}` and the process to exit with reason `reason` without
 entering the loop or calling `c:terminate/2`.
-
 
 ### terminate(reason, state)
 *(optional)* 
@@ -909,7 +894,6 @@ logged.
 
 This callback is optional.
 
-
 ## Functions
 
 ### abcast(nodes \\ [node() | Node.list()], name, request)
@@ -924,7 +908,6 @@ This function returns immediately and ignores nodes that do not exist, or where 
 server name does not exist.
 
 See `multi_call/4` for more information.
-
 
 ### call(server, request, timeout \\ 5000)
 
@@ -953,7 +936,6 @@ queue. The caller must in this case be prepared for this and discard any such
 garbage messages that are two-element tuples with a reference as the first
 element.
 
-
 ### cast(server, request)
 
 ```elixir
@@ -969,7 +951,6 @@ handled the request.
 
 `server` can be any of the values described in the "Name registration"
 section of the documentation for this module.
-
 
 ### multi_call(nodes \\ [node() | Node.list()], name, request, timeout \\ :infinity)
 
@@ -999,7 +980,6 @@ module is registered as `Stack` in the `:"foo@my-machine"` and
 
     GenServer.multi_call(Stack, :pop)
     #=> {[{:"foo@my-machine", :hello}, {:"bar@my-machine", :world}], []}
-
 
 ### reply(client, reply)
 
@@ -1035,7 +1015,6 @@ This function always returns `:ok`.
       {:noreply, state}
     end
 
-
 ### start(module, init_arg, options \\ [])
 
 ```elixir
@@ -1045,7 +1024,6 @@ This function always returns `:ok`.
 Starts a `GenServer` process without links (outside of a supervision tree).
 
 See `start_link/3` for more information.
-
 
 ### start_link(module, init_arg, options \\ [])
 
@@ -1097,7 +1075,6 @@ If the `c:init/1` callback fails with `reason`, this function returns
 or `:ignore`, the process is terminated and this function returns
 `{:error, reason}` or `:ignore`, respectively.
 
-
 ### stop(server, reason \\ :normal, timeout \\ :infinity)
 
 ```elixir
@@ -1113,7 +1090,6 @@ given reason; if it terminates with another reason, the call exits.
 This function keeps OTP semantics regarding error reporting.
 If the reason is any other than `:normal`, `:shutdown` or
 `{:shutdown, _}`, an error report is logged.
-
 
 ### whereis(server)
 
@@ -1134,7 +1110,6 @@ For example, to lookup a server process, monitor it and send a cast to it:
     process = GenServer.whereis(server)
     monitor = Process.monitor(process)
     GenServer.cast(process, :hello)
-
 
 
 

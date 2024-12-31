@@ -88,7 +88,6 @@ Requirement    | Version     | `:allow_pre`      | Matches
 `>= 2.1.0`     | `2.2.0-dev` | `false`           | `false`
 `>= 2.1.0-dev` | `2.2.6-dev` | `true` or `false` | `true`
 
-
 ## Types
 
 ### build()
@@ -176,7 +175,6 @@ You can read those fields but you should not create a new `Version`
 directly via the struct syntax. Instead use the functions in this
 module.
 
-
 ### compare(version1, version2)
 
 ```elixir
@@ -217,7 +215,6 @@ won't raise.
     iex> Version.compare("invalid", "2.0.1")
     ** (Version.InvalidVersionError) invalid version: "invalid"
 
-
 ### compile_requirement(requirement)
 
 ```elixir
@@ -227,7 +224,6 @@ won't raise.
 Compiles a requirement to an internal representation that may optimize matching.
 
 The internal representation is opaque.
-
 
 ### match?(version, requirement, opts \\ [])
 
@@ -269,7 +265,6 @@ raise.
     iex> Version.match?("2.0.0", "== == 1.0.0")
     ** (Version.InvalidRequirementError) invalid requirement: "== == 1.0.0"
 
-
 ### parse(string)
 
 ```elixir
@@ -285,7 +280,6 @@ Parses a version string into a `Version` struct.
     
     iex> Version.parse("2.0-alpha1")
     :error
-
 
 ### parse!(string)
 
@@ -305,7 +299,6 @@ If `string` is an invalid version, a `Version.InvalidVersionError` is raised.
     iex> Version.parse!("2.0-alpha1")
     ** (Version.InvalidVersionError) invalid version: "2.0-alpha1"
 
-
 ### parse_requirement(string)
 
 ```elixir
@@ -322,7 +315,6 @@ Parses a version requirement string into a `Version.Requirement` struct.
     
     iex> Version.parse_requirement("== == 2.0.1")
     :error
-
 
 ### parse_requirement!(string)
 *(since 1.8.0)* 
@@ -342,7 +334,6 @@ If `string` is an invalid requirement, a `Version.InvalidRequirementError` is ra
     iex> Version.parse_requirement!("== == 2.0.1")
     ** (Version.InvalidRequirementError) invalid requirement: "== == 2.0.1"
 
-
 ### to_string(version)
 *(since 1.14.0)* 
 ```elixir
@@ -357,7 +348,6 @@ Converts the given version to a string.
     "1.2.3"
     iex> Version.to_string(Version.parse!("1.14.0-rc.0+build0"))
     "1.14.0-rc.0+build0"
-
 
 
 

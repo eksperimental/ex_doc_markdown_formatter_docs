@@ -13,7 +13,6 @@ The majority of the functions in this module do not
 interact with the file system, except for a few functions
 that require it (like `wildcard/2` and `expand/1`).
 
-
 ## Types
 
 ### t()
@@ -23,7 +22,6 @@ that require it (like `wildcard/2` and `expand/1`).
 ```
 
 A path.
-
 
 ## Functions
 
@@ -55,7 +53,6 @@ Unlike `expand/1`, no attempt is made to resolve `..`, `.`, or `~`.
     Path.absname("../x")
     #=> "D:/usr/local/../x"
 
-
 ### absname(path, relative_to)
 
 ```elixir
@@ -81,7 +78,6 @@ Unlike `expand/2`, no attempt is made to resolve `..`, `.` or `~`.
     iex> Path.absname("foo", fn -> "lazy" end)
     "lazy/foo"
 
-
 ### basename(path)
 
 ```elixir
@@ -104,7 +100,6 @@ itself if it does not contain any directory separators.
     
     iex> Path.basename("/")
     ""
-
 
 ### basename(path, extension)
 
@@ -129,7 +124,6 @@ extension which may or may not be there.
     iex> Path.basename("~/foo/bar.old.ex", ".ex")
     "bar.old"
 
-
 ### dirname(path)
 
 ```elixir
@@ -152,7 +146,6 @@ Returns the directory component of `path`.
     iex> Path.dirname("bar.ex")
     "."
 
-
 ### expand(path)
 
 ```elixir
@@ -172,7 +165,6 @@ the current working directory.
     
     Path.expand("foo/bar/../baz")
     #=> "$PWD/foo/baz"
-
 
 ### expand(path, relative_to)
 
@@ -202,7 +194,6 @@ The second argument is first expanded to an absolute path.
     Path.expand("/foo/bar/../bar", "/baz")
     #=> "/foo/bar"
 
-
 ### extname(path)
 
 ```elixir
@@ -228,7 +219,6 @@ information from paths.
     iex> Path.extname(".gitignore")
     ""
 
-
 ### join(list)
 
 ```elixir
@@ -252,7 +242,6 @@ Raises an error if the given list of paths is empty.
     
     iex> Path.join(["/", "foo", "bar/"])
     "/foo/bar"
-
 
 ### join(left, right)
 
@@ -284,7 +273,6 @@ treat it as a single entity:
 
 Use `join/1` if you need to join a list of paths instead.
 
-
 ### relative(name)
 
 ```elixir
@@ -309,7 +297,6 @@ If an absolute path is given, it is stripped from its root component.
     Path.relative("usr/local/bin")    #=> "usr/local/bin"
     Path.relative("D:bar.ex")         #=> "bar.ex"
     Path.relative("/bar/foo.ex")      #=> "bar/foo.ex"
-
 
 ### relative_to(path, cwd, opts \\ [])
 
@@ -385,7 +372,6 @@ given path, so the path is returned with "." and ".." expanded:
     Path.relative_to("foo/..", "/usr/local")     #=> "."
     Path.relative_to("../foo", "/usr/local")     #=> "../foo"
 
-
 ### relative_to_cwd(path, opts \\ [])
 
 ```elixir
@@ -403,7 +389,6 @@ cannot be retrieved, this function returns the given `path`.
 
 Check `relative_to/3` for the supported options.
 
-
 ### rootname(path)
 
 ```elixir
@@ -419,7 +404,6 @@ Returns the `path` with the `extension` stripped.
     
     iex> Path.rootname("/foo/bar.ex")
     "/foo/bar"
-
 
 ### rootname(path, extension)
 
@@ -439,7 +423,6 @@ or may not be there.
     
     iex> Path.rootname("/foo/bar.erl", ".ex")
     "/foo/bar.erl"
-
 
 ### safe_relative(path, cwd \\ File.cwd!())
 *(since 1.14.0)* 
@@ -478,7 +461,6 @@ Paths are considered unsafe if either of these is true:
     iex> Path.safe_relative("/usr/local", File.cwd!())
     :error
 
-
 ### safe_relative_to(path, cwd)
 *(since 1.14.0)* 
 ```elixir
@@ -488,7 +470,6 @@ This function is deprecated. Use safe_relative/2 instead.
 Returns a relative path that is protected from directory-traversal attacks.
 
 See `safe_relative/2` for a non-deprecated version of this API.
-
 
 ### split(path)
 
@@ -515,7 +496,6 @@ in lowercase.
     iex> Path.split("/foo/bar")
     ["/", "foo", "bar"]
 
-
 ### type(name)
 
 ```elixir
@@ -540,7 +520,6 @@ Returns the path type.
     Path.type("usr/local/bin")    #=> :relative
     Path.type("D:bar.ex")         #=> :volumerelative
     Path.type("/bar/foo.ex")      #=> :volumerelative
-
 
 ### wildcard(glob, opts \\ [])
 
@@ -607,7 +586,6 @@ inside the `ebin` directory of each project as follows:
 If you want to search for both `.beam` and `.app` files, you could do:
 
     Path.wildcard("projects/*/ebin/**/*.{beam,app}")
-
 
 
 

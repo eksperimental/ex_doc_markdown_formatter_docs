@@ -6,7 +6,6 @@ Tuple-based HashSet implementation.
 
 This module is deprecated. Use the `MapSet` module instead.
 
-
 ## Types
 
 ### t()

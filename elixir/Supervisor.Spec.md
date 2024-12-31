@@ -106,7 +106,6 @@ The following shutdown values are supported in the `:shutdown` option:
   the child process is unconditionally terminated
   using `Process.exit(child, :kill)`
 
-
 ## Types
 
 ### child_id()
@@ -117,7 +116,6 @@ The following shutdown values are supported in the `:shutdown` option:
 
 Supported ID values
 
-
 ### modules()
 
 ```elixir
@@ -125,7 +123,6 @@ Supported ID values
 ```
 
 Supported module values
-
 
 ### restart()
 
@@ -135,7 +132,6 @@ Supported module values
 
 Supported restart values
 
-
 ### shutdown()
 
 ```elixir
@@ -143,7 +139,6 @@ Supported restart values
 ```
 
 Supported shutdown values
-
 
 ### spec()
 
@@ -155,7 +150,6 @@ Supported shutdown values
 
 The supervisor specification
 
-
 ### strategy()
 
 ```elixir
@@ -164,7 +158,6 @@ The supervisor specification
 
 Supported strategies
 
-
 ### worker()
 
 ```elixir
@@ -172,7 +165,6 @@ Supported strategies
 ```
 
 Supported worker values
-
 
 ## Functions
 
@@ -214,7 +206,6 @@ The `:strategy` option is required and by default a maximum of 3 restarts is
 allowed within 5 seconds. Check the `Supervisor` module for a detailed
 description of the available strategies.
 
-
 ### supervisor(module, args, options \\ [])
 
 ```elixir
@@ -248,7 +239,6 @@ module. Overall, the default values for the options are:
 See the "Supervisor and worker options" section in the `Supervisor.Spec` module for more
 information on the available options.
 
-
 ### worker(module, args, options \\ [])
 
 ```elixir
@@ -281,7 +271,6 @@ module. Overall, the default values for the options are:
 
 See the "Supervisor and worker options" section in the `Supervisor.Spec` module for more
 information on the available options.
-
 
 
 

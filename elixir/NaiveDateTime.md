@@ -61,7 +61,6 @@ seconds from the Unix epoch (1970-01-01 00:00:00):
 Those functions are optimized to deal with common epochs, such
 as the Unix Epoch above or the Gregorian Epoch (0000-01-01 00:00:00).
 
-
 ## Types
 
 ### t()
@@ -153,7 +152,6 @@ discarding the time zone information:
 
 To shift a naive datetime by a `Duration` and according to its underlying calendar, use `NaiveDateTime.shift/2`.
 
-
 ### after?(naive_datetime1, naive_datetime2)
 *(since 1.15.0)* 
 ```elixir
@@ -171,7 +169,6 @@ Returns `true` if the first `NaiveDateTime` is strictly later than the second.
     iex> NaiveDateTime.after?(~N[2021-01-01 11:00:00], ~N[2022-02-02 11:00:00])
     false
 
-
 ### before?(naive_datetime1, naive_datetime2)
 *(since 1.15.0)* 
 ```elixir
@@ -188,7 +185,6 @@ Returns `true` if the first `NaiveDateTime` is strictly earlier than the second.
     false
     iex> NaiveDateTime.before?(~N[2022-02-02 11:00:00], ~N[2021-01-01 11:00:00])
     false
-
 
 ### beginning_of_day(naive_datetime)
 *(since 1.15.0)* 
@@ -211,7 +207,6 @@ in a given timezone, so you must handle those cases accordingly.
 
     iex> NaiveDateTime.beginning_of_day(~N[2000-01-01 23:00:07.123456])
     ~N[2000-01-01 00:00:00.000000]
-
 
 ### compare(naive_datetime1, naive_datetime2)
 *(since 1.4.0)* 
@@ -245,7 +240,6 @@ the time zone information:
     iex> NaiveDateTime.compare(dt, ~N[2000-03-29 23:00:07])
     :lt
 
-
 ### convert(naive_datetime, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -269,7 +263,6 @@ year:
     {:ok, %NaiveDateTime{calendar: Calendar.Holocene, year: 12000, month: 1, day: 1,
                          hour: 13, minute: 30, second: 15, microsecond: {0, 0}}}
 
-
 ### convert!(naive_datetime, calendar)
 *(since 1.5.0)* 
 ```elixir
@@ -290,7 +283,6 @@ year:
     iex> NaiveDateTime.convert!(~N[2000-01-01 13:30:15], Calendar.Holocene)
     %NaiveDateTime{calendar: Calendar.Holocene, year: 12000, month: 1, day: 1,
                    hour: 13, minute: 30, second: 15, microsecond: {0, 0}}
-
 
 ### diff(naive_datetime1, naive_datetime2, unit \\ :second)
 *(since 1.4.0)* 
@@ -341,7 +333,6 @@ But it also rounds incomplete days to zero:
     iex> NaiveDateTime.diff(~N[2014-10-10 00:29:09], ~N[2014-10-02 00:29:10], :day)
     7
 
-
 ### end_of_day(naive_datetime)
 *(since 1.15.0)* 
 ```elixir
@@ -363,7 +354,6 @@ in a given timezone, so you must handle those cases accordingly.
 
     iex> NaiveDateTime.end_of_day(~N[2000-01-01 23:00:07.123456])
     ~N[2000-01-01 23:59:59.999999]
-
 
 ### from_erl(tuple, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
@@ -392,7 +382,6 @@ Attempting to convert an invalid ISO calendar date will produce an error tuple.
     iex> NaiveDateTime.from_erl({{2000, 13, 1}, {13, 30, 15}})
     {:error, :invalid_date}
 
-
 ### from_erl!(tuple, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -419,7 +408,6 @@ Attempting to convert an invalid ISO calendar date will produce an error tuple.
     iex> NaiveDateTime.from_erl!({{2000, 13, 1}, {13, 30, 15}})
     ** (ArgumentError) cannot convert {{2000, 13, 1}, {13, 30, 15}} to naive datetime, reason: :invalid_date
 
-
 ### from_gregorian_seconds(seconds, microsecond_precision \\ {0, 0}, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
 ```elixir
@@ -437,7 +425,6 @@ Converts a number of gregorian seconds to a `NaiveDateTime` struct.
     ~N[2020-05-01 00:26:31.005]
     iex> NaiveDateTime.from_gregorian_seconds(-1)
     ~N[-0001-12-31 23:59:59]
-
 
 ### from_iso8601(string, calendar \\ Calendar.ISO)
 
@@ -499,7 +486,6 @@ Note leap seconds are not supported by the built-in Calendar.ISO.
     iex> NaiveDateTime.from_iso8601("2015-01-23T23:50:07.123-24:00")
     {:error, :invalid_format}
 
-
 ### from_iso8601!(string, calendar \\ Calendar.ISO)
 
 ```elixir
@@ -519,7 +505,6 @@ Raises if the format is invalid.
     ~N[2015-01-23 23:50:07.123]
     iex> NaiveDateTime.from_iso8601!("2015-01-23P23:50:07")
     ** (ArgumentError) cannot parse "2015-01-23P23:50:07" as naive datetime, reason: :invalid_format
-
 
 ### local_now(calendar \\ Calendar.ISO)
 *(since 1.10.0)* 
@@ -548,7 +533,6 @@ Does not include fractional seconds.
     iex> naive_datetime.year >= 2019
     true
 
-
 ### new(date, time)
 
 ```elixir
@@ -561,7 +545,6 @@ Builds a naive datetime from date and time structs.
 
     iex> NaiveDateTime.new(~D[2010-01-13], ~T[23:00:07.005])
     {:ok, ~N[2010-01-13 23:00:07.005]}
-
 
 ### new(year, month, day, hour, minute, second, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 
@@ -613,7 +596,6 @@ otherwise.
     iex> NaiveDateTime.new(2000, 1, 1, 23, 59, 59, {0, 1}, Calendar.ISO)
     {:ok, ~N[2000-01-01 23:59:59.0]}
 
-
 ### new!(date, time)
 *(since 1.11.0)* 
 ```elixir
@@ -626,7 +608,6 @@ Builds a naive datetime from date and time structs.
 
     iex> NaiveDateTime.new!(~D[2010-01-13], ~T[23:00:07.005])
     ~N[2010-01-13 23:00:07.005]
-
 
 ### new!(year, month, day, hour, minute, second, microsecond \\ {0, 0}, calendar \\ Calendar.ISO)
 *(since 1.11.0)* 
@@ -663,7 +644,6 @@ time or date is invalid.
     ~N[2000-01-01 23:59:59.0]
     iex> NaiveDateTime.new!(2000, 1, 1, 24, 59, 59, 999_999)
     ** (ArgumentError) cannot build naive datetime, reason: :invalid_time
-
 
 ### shift(naive_datetime, duration)
 *(since 1.17.0)* 
@@ -706,7 +686,6 @@ When shifting by month, days are rounded down to the nearest valid date.
     iex> NaiveDateTime.shift(~N[2015-01-31 00:00:00], month: 1)
     ~N[2015-02-28 00:00:00]
 
-
 ### to_date(map)
 
 ```elixir
@@ -722,7 +701,6 @@ data will be lost during the conversion.
 
     iex> NaiveDateTime.to_date(~N[2002-01-13 23:00:07])
     ~D[2002-01-13]
-
 
 ### to_erl(naive_datetime)
 
@@ -752,7 +730,6 @@ datetime tuple without the time zone information:
     iex> NaiveDateTime.to_erl(dt)
     {{2000, 2, 29}, {23, 00, 07}}
 
-
 ### to_gregorian_seconds(map)
 *(since 1.11.0)* 
 ```elixir
@@ -768,7 +745,6 @@ Converts a `NaiveDateTime` struct to a number of gregorian seconds and microseco
     {1, 0}
     iex> NaiveDateTime.to_gregorian_seconds(~N[2020-05-01 00:26:31.005])
     {63_755_511_991, 5000}
-
 
 ### to_iso8601(naive_datetime, format \\ :extended)
 
@@ -805,7 +781,6 @@ the time zone information:
     iex> NaiveDateTime.to_iso8601(dt)
     "2000-02-29T23:00:07"
 
-
 ### to_string(naive_datetime)
 
 ```elixir
@@ -832,7 +807,6 @@ the time zone information:
     iex> NaiveDateTime.to_string(dt)
     "2000-02-29 23:00:07"
 
-
 ### to_time(map)
 
 ```elixir
@@ -848,7 +822,6 @@ data will be lost during the conversion.
 
     iex> NaiveDateTime.to_time(~N[2002-01-13 23:00:07])
     ~T[23:00:07]
-
 
 ### truncate(naive_datetime, precision)
 *(since 1.6.0)* 
@@ -872,7 +845,6 @@ than the given precision.
     
     iex> NaiveDateTime.truncate(~N[2017-11-06 00:23:51.123456], :second)
     ~N[2017-11-06 00:23:51]
-
 
 ### utc_now(calendar_or_time_unit \\ Calendar.ISO)
 *(since 1.4.0)* 
@@ -899,7 +871,6 @@ the naive datetime. This is available since v1.15.0.
     iex> naive_datetime.microsecond
     {0, 0}
 
-
 ### utc_now(time_unit, calendar)
 *(since 1.15.0)* 
 ```elixir
@@ -922,7 +893,6 @@ to `NaiveDateTime`, it will keep the time zone information.
     iex> naive_datetime = NaiveDateTime.utc_now(:second, Calendar.ISO)
     iex> naive_datetime.microsecond
     {0, 0}
-
 
 
 

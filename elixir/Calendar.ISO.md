@@ -124,7 +124,6 @@ do produce specification-compliant string representations using the `T` separato
     iex> Calendar.ISO.parse_utc_datetime("2015-01-23T23:50:07.0123456Z")
     {:ok, {2015, 1, 23, 23, 50, 7, {12345, 6}}, 0}
 
-
 ## Types
 
 ### bce()
@@ -135,7 +134,6 @@ do produce specification-compliant string representations using the `T` separato
 
 "Before the Current Era" or "Before the Common Era" (BCE), for those years less than `1`.
 
-
 ### ce()
 
 ```elixir
@@ -143,7 +141,6 @@ do produce specification-compliant string representations using the `T` separato
 ```
 
 The "Current Era" or the "Common Era" (CE) which starts in year `1`.
-
 
 ### day()
 
@@ -160,7 +157,6 @@ The "Current Era" or the "Common Era" (CE) which starts in year `1`.
 ```
 
 Integer that represents the day of the week, where 1 is Monday and 7 is Sunday.
-
 
 ### day_of_year()
 
@@ -182,7 +178,6 @@ The ISO calendar has two eras:
 
 - [CE](\`t:ce/0\`) - which starts in year `1` and is defined as era `1`.
 - [BCE](\`t:bce/0\`) - for those years less than `1` and is defined as era `0`.
-
 
 ### format()
 
@@ -211,7 +206,6 @@ Microseconds with stored precision.
 The precision represents the number of digits that must be used when
 representing the microseconds to external format. If the precision is 0,
 it means microseconds must be skipped.
-
 
 ### minute()
 
@@ -306,7 +300,6 @@ by passing the `:basic` option.
     iex> Calendar.ISO.date_to_string(-99, 1, 31, :basic)
     "-00990131"
 
-
 ### datetime_to_string(year, month, day, hour, minute, second, microsecond, time_zone, zone_abbr, utc_offset, std_offset, format \\ :extended)
 *(since 1.4.0)* 
 ```elixir
@@ -358,7 +351,6 @@ by passing the `:basic` option.
     iex> Calendar.ISO.datetime_to_string(2017, 8, 1, 1, 2, 3, {4, 5}, time_zone, "CET", 3600, 0, :basic)
     "20170801 010203.00000+0100 CET Europe/Berlin"
 
-
 ### day_of_era(year, month, day)
 *(since 1.8.0)* 
 ```elixir
@@ -379,7 +371,6 @@ Calculates the day and era from the given `year`, `month`, and `day`.
     {2, 0}
     iex> Calendar.ISO.day_of_era(-1, 12, 31)
     {367, 0}
-
 
 ### day_of_week(year, month, day, starting_on)
 *(since 1.11.0)* 
@@ -435,7 +426,6 @@ For example, if `starting_on` is set to `:monday`, then 1 is Monday and
     iex> Calendar.ISO.day_of_week(2016, 10, 31, :saturday)
     {3, 1, 7}
 
-
 ### day_of_year(year, month, day)
 *(since 1.8.0)* 
 ```elixir
@@ -455,7 +445,6 @@ It is an integer from 1 to 366.
     iex> Calendar.ISO.day_of_year(2018, 2, 28)
     59
 
-
 ### day_rollover_relative_to_midnight_utc()
 *(since 1.5.0)* 
 ```elixir
@@ -463,7 +452,6 @@ It is an integer from 1 to 366.
 ```
 
 See `c:Calendar.day_rollover_relative_to_midnight_utc/0` for documentation.
-
 
 ### days_in_month(year, month)
 *(since 1.4.0)* 
@@ -490,7 +478,6 @@ Returns how many days there are in the given year-month.
     iex> Calendar.ISO.days_in_month(-1, 5)
     31
 
-
 ### iso_days_to_beginning_of_day(arg)
 *(since 1.15.0)* 
 ```elixir
@@ -508,7 +495,6 @@ Converts the `t:Calendar.iso_days/0` to the first moment of the day.
     iex> Calendar.ISO.iso_days_to_beginning_of_day({730485, {46800000000, 86400000000}})
     {730485, {0, 86400000000}}
 
-
 ### iso_days_to_end_of_day(arg)
 *(since 1.15.0)* 
 ```elixir
@@ -525,7 +511,6 @@ Converts the `t:Calendar.iso_days/0` to the last moment of the day.
     {730485, {86399999999, 86400000000}}
     iex> Calendar.ISO.iso_days_to_end_of_day({730485, {46800000000, 86400000000}})
     {730485, {86399999999, 86400000000}}
-
 
 ### leap_year?(year)
 *(since 1.3.0)* 
@@ -548,7 +533,6 @@ Returns if the given year is a leap year.
     iex> Calendar.ISO.leap_year?(-4)
     true
 
-
 ### months_in_year(year)
 *(since 1.7.0)* 
 ```elixir
@@ -561,7 +545,6 @@ Returns how many months there are in the given year.
 
     iex> Calendar.ISO.months_in_year(2004)
     12
-
 
 ### naive_datetime_from_iso_days(arg)
 *(since 1.5.0)* 
@@ -583,7 +566,6 @@ Converts the `t:Calendar.iso_days/0` format to the datetime format specified by 
     {2000, 1, 1, 12, 0, 0, {0, 6}}
     iex> Calendar.ISO.naive_datetime_from_iso_days({-365, {0, 86400000000}})
     {-1, 1, 1, 0, 0, 0, {0, 6}}
-
 
 ### naive_datetime_to_iso_days(year, month, day, hour, minute, second, microsecond)
 *(since 1.5.0)* 
@@ -611,7 +593,6 @@ Returns the `t:Calendar.iso_days/0` format of the specified date.
     {730485, {46800000000, 86400000000}}
     iex> Calendar.ISO.naive_datetime_to_iso_days(-1, 1, 1, 0, 0, 0, {0, 6})
     {-365, {0, 86400000000}}
-
 
 ### naive_datetime_to_string(year, month, day, hour, minute, second, microsecond, format \\ :extended)
 *(since 1.4.0)* 
@@ -644,7 +625,6 @@ by passing the `:basic` option.
     iex> Calendar.ISO.naive_datetime_to_string(2015, 2, 28, 1, 2, 3, {4, 6}, :basic)
     "20150228 010203.000004"
 
-
 ### parse_date(string)
 *(since 1.10.0)* 
 ```elixir
@@ -665,7 +645,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     {:error, :invalid_format}
     iex> Calendar.ISO.parse_date("2015-01-32")
     {:error, :invalid_date}
-
 
 ### parse_date(string, format)
 *(since 1.12.0)* 
@@ -688,7 +667,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     iex> Calendar.ISO.parse_date("20150123", :extended)
     {:error, :invalid_format}
 
-
 ### parse_duration(arg1)
 *(since 1.17.0)* 
 ```elixir
@@ -698,7 +676,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
 Parses an ISO 8601 formatted duration string to a list of `Duration` compabitble unit pairs.
 
 See `Duration.from_iso8601/1`.
-
 
 ### parse_naive_datetime(string)
 *(since 1.10.0)* 
@@ -727,7 +704,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     iex> Calendar.ISO.parse_naive_datetime("2015-01-23 23:50:07,0123456")
     {:ok, {2015, 1, 23, 23, 50, 7, {12345, 6}}}
 
-
 ### parse_naive_datetime(string, format)
 *(since 1.12.0)* 
 ```elixir
@@ -749,7 +725,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     {:ok, {2015, 1, 23, 23, 50, 7, {0, 0}}}
     iex> Calendar.ISO.parse_naive_datetime("20150123 235007", :extended)
     {:error, :invalid_format}
-
 
 ### parse_time(string)
 *(since 1.10.0)* 
@@ -773,7 +748,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     iex> Calendar.ISO.parse_time("T23:50:07Z")
     {:ok, {23, 50, 7, {0, 0}}}
 
-
 ### parse_time(string, format)
 *(since 1.12.0)* 
 ```elixir
@@ -794,7 +768,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     {:ok, {23, 50, 7, {0, 0}}}
     iex> Calendar.ISO.parse_time("235007", :extended)
     {:error, :invalid_format}
-
 
 ### parse_utc_datetime(string)
 *(since 1.10.0)* 
@@ -821,7 +794,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     iex> Calendar.ISO.parse_utc_datetime("2015-01-23 23:50:07")
     {:error, :missing_offset}
 
-
 ### parse_utc_datetime(string, format)
 *(since 1.12.0)* 
 ```elixir
@@ -845,7 +817,6 @@ module implements [ISO 8601](#module-iso-8601-compliance).
     iex> Calendar.ISO.parse_utc_datetime("20150123 235007Z", :extended)
     {:error, :invalid_format}
 
-
 ### quarter_of_year(year, month, day)
 *(since 1.8.0)* 
 ```elixir
@@ -867,7 +838,6 @@ It is an integer from 1 to 4.
     iex> Calendar.ISO.quarter_of_year(2018, 12, 28)
     4
 
-
 ### shift_date(year, month, day, duration)
 
 ```elixir
@@ -886,7 +856,6 @@ Shifts Date by Duration according to its calendar.
     {2016, 2, 29}
     iex> Calendar.ISO.shift_date(2016, 1, 31, Duration.new!(year: 4, day: 1))
     {2020, 2, 1}
-
 
 ### shift_naive_datetime(year, month, day, hour, minute, second, microsecond, duration)
 
@@ -914,7 +883,6 @@ Shifts NaiveDateTime by Duration according to its calendar.
     iex> Calendar.ISO.shift_naive_datetime(2016, 1, 3, 0, 0, 0, {0, 0}, Duration.new!(microsecond: {100, 6}))
     {2016, 1, 3, 0, 0, 0, {100, 6}}
 
-
 ### shift_time(hour, minute, second, microsecond, duration)
 
 ```elixir
@@ -931,7 +899,6 @@ Shifts Time by Duration units according to its calendar.
     iex> Calendar.ISO.shift_time(13, 0, 0, {0, 0}, Duration.new!(microsecond: {100, 6}))
     {13, 0, 0, {100, 6}}
 
-
 ### time_from_day_fraction(arg)
 *(since 1.5.0)* 
 ```elixir
@@ -947,7 +914,6 @@ Converts a day fraction to this Calendar's representation of time.
     {12, 0, 0, {0, 6}}
     iex> Calendar.ISO.time_from_day_fraction({13, 24})
     {13, 0, 0, {0, 6}}
-
 
 ### time_to_day_fraction(hour, minute, second, arg)
 *(since 1.5.0)* 
@@ -968,7 +934,6 @@ Returns the normalized day fraction of the specified time.
     {0, 86400000000}
     iex> Calendar.ISO.time_to_day_fraction(12, 34, 56, {123, 6})
     {45296000123, 86400000000}
-
 
 ### time_to_string(hour, minute, second, microsecond, format \\ :extended)
 *(since 1.5.0)* 
@@ -1002,7 +967,6 @@ by passing the `:basic` option.
     iex> Calendar.ISO.time_to_string(2, 2, 2, {2, 6}, :extended)
     "02:02:02.000002"
 
-
 ### time_unit_to_precision(int)
 *(since 1.15.0)* 
 ```elixir
@@ -1024,7 +988,6 @@ Integer-based time units always get maximum precision.
     iex> Calendar.ISO.time_unit_to_precision(1)
     6
 
-
 ### valid_date?(year, month, day)
 *(since 1.5.0)* 
 ```elixir
@@ -1043,7 +1006,6 @@ Determines if the date given is valid according to the proleptic Gregorian calen
     true
     iex> Calendar.ISO.valid_date?(-1, 12, 32)
     false
-
 
 ### valid_time?(hour, minute, second, microsecond)
 *(since 1.5.0)* 
@@ -1070,7 +1032,6 @@ Leap seconds are not supported by the built-in Calendar.ISO.
     iex> Calendar.ISO.valid_time?(24, 0, 0, {0, 0})
     false
 
-
 ### year_of_era(year)
 *(since 1.8.0)* 
 ```elixir
@@ -1093,7 +1054,6 @@ era" (BCE) for those years less than `1`, defined as era `0`.
     {1, 0}
     iex> Calendar.ISO.year_of_era(-1)
     {2, 0}
-
 
 ### year_of_era(year, month, day)
 *(since 1.13.0)* 
@@ -1118,7 +1078,6 @@ have the year available, you can `year_of_era/1` instead.
     {1, 0}
     iex> Calendar.ISO.year_of_era(-1, 12, 1)
     {2, 0}
-
 
 
 

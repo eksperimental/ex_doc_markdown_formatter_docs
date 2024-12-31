@@ -228,7 +228,6 @@ regardless of the option set by the `elixirc` compiler. The debug info is
 used for consolidation and it is removed after consolidation unless
 globally set.
 
-
 ## Callbacks
 
 ### __deriving__(module, term)
@@ -243,7 +242,6 @@ It must return a quoted expression that implements the protocol for the given mo
 
 See `Protocol.derive/3` for an example.
 
-
 ### __protocol__(atom)
 
 ```elixir
@@ -254,7 +252,6 @@ See `Protocol.derive/3` for an example.
 ```
 
 A function available in all protocol definitions that returns protocol metadata.
-
 
 ### impl_for(term)
 
@@ -267,7 +264,6 @@ for the given `term` or nil.
 
 If `@fallback_to_any` is true, `nil` is never returned.
 
-
 ### impl_for!(term)
 
 ```elixir
@@ -278,7 +274,6 @@ A function available in all protocol definitions that returns the implementation
 for the given `term` or raises.
 
 If `@fallback_to_any` is true, it never raises.
-
 
 ## Functions
 
@@ -293,7 +288,6 @@ of the given protocol.
 
 Returns `:ok` if so, otherwise raises `ArgumentError`.
 
-
 ### assert_protocol!(module)
 
 ```elixir
@@ -303,7 +297,6 @@ Returns `:ok` if so, otherwise raises `ArgumentError`.
 Checks if the given module is loaded and is protocol.
 
 Returns `:ok` if so, otherwise raises `ArgumentError`.
-
 
 ### consolidate(protocol, types)
 
@@ -335,7 +328,6 @@ nor loads the new bytecode for the compiled module.
 However, each implementation must be available and
 it will be loaded.
 
-
 ### consolidated?(protocol)
 
 ```elixir
@@ -343,7 +335,6 @@ it will be loaded.
 ```
 
 Returns `true` if the protocol was consolidated.
-
 
 ### derive(protocol, module, options \\ [])
 *(macro)* 
@@ -396,7 +387,6 @@ If the struct has already been defined, you can call this macro:
     Derivable.ok(%ImplStruct{a: 1, b: 1})
     #=> {:ok, %ImplStruct{a: 1, b: 1}, :oops}
 
-
 ### extract_impls(protocol, paths)
 
 ```elixir
@@ -420,7 +410,6 @@ Does not load any of the implementations.
     iex> List in mods
     true
 
-
 ### extract_protocols(paths)
 
 ```elixir
@@ -442,7 +431,6 @@ Does not load any of the protocols.
     iex> mods = Protocol.extract_protocols([path])
     iex> Enumerable in mods
     true
-
 
 
 
