@@ -865,7 +865,8 @@ Returns `true` if the given name and arity is a special form.
 ### struct!(module, env)
 
 
-This function is deprecated. Use Macro.struct_info!/2 instead.
+**This function is deprecated. Use Macro.struct_info!/2 instead.**
+
 
 
 ### struct_info!(module, env)
@@ -916,7 +917,8 @@ the elements won't be formatted accordingly.
 ```elixir
 @spec to_string(t(), (t(), String.t() -&gt; String.t())) :: String.t()
 ```
-This function is deprecated. Use Macro.to_string/1 instead.
+**This function is deprecated. Use Macro.to_string/1 instead.**
+
 Converts the given expression AST to a string.
 
 The given `fun` is called for every node in the AST with two arguments: the

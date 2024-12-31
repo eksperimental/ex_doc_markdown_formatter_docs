@@ -177,7 +177,8 @@ Supported worker values
   max_seconds: pos_integer()
 ) :: {:ok, tuple()}
 ```
-This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.
+**This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.**
+
 Receives a list of `children` (workers or supervisors) to
 supervise and a set of `options`.
 
@@ -219,7 +220,8 @@ description of the available strategies.
   modules: modules()
 ) :: spec()
 ```
-This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.
+**This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.**
+
 Defines the given `module` as a supervisor which will be started
 with the given arguments.
 
@@ -252,7 +254,8 @@ information on the available options.
   modules: modules()
 ) :: spec()
 ```
-This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.
+**This function is deprecated. Use the new child specifications outlined in the Supervisor module instead.**
+
 Defines the given `module` as a worker which will be started
 with the given arguments.
 

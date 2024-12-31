@@ -1033,7 +1033,8 @@ If `term` is `nil`, it returns an empty list.
 ### zip(list_of_lists)
 
 
-This function is deprecated. Use Enum.zip/1 instead.
+**This function is deprecated. Use Enum.zip/1 instead.**
+
 
 
 

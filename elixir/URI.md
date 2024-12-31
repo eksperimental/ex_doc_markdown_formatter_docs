@@ -17,7 +17,8 @@ such as RFC 3986 compliant URI normalization.
 ```elixir
 @opaque authority()
 ```
-This opaque is deprecated. The authority field is deprecated.
+**This opaque is deprecated. The authority field is deprecated.**
+
 
 
 ### t()

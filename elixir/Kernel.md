@@ -4470,7 +4470,8 @@ With a timeout:
 ### unless(condition, clauses)
 *(macro)* 
 
-This macro is deprecated. Use if/2 instead.
+**This macro is deprecated. Use if/2 instead.**
+
 Provides an `unless` macro.
 
 This macro evaluates and returns the `do` block passed in as the second

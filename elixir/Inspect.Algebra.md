@@ -149,7 +149,8 @@ Colors a document with the given color (preceding the document itself).
 ### color(doc, key, opts)
 
 
-This function is deprecated. Use color_doc/3 instead.
+**This function is deprecated. Use color_doc/3 instead.**
+
 
 
 ### color_doc(doc, color_key, opts)
@@ -324,7 +325,8 @@ accumulator and uses the last element of `docs` as the initial accumulator.
 ### fold_doc(docs, folder_fun)
 
 
-This function is deprecated. Use fold/2 instead.
+**This function is deprecated. Use fold/2 instead.**
+
 
 
 ### force_unfit(doc)

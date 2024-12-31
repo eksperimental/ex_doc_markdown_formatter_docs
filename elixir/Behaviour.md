@@ -19,13 +19,15 @@ is documented in `Module`.
 ### defcallback(spec)
 *(macro)* 
 
-This macro is deprecated. Use the @callback module attribute instead.
+**This macro is deprecated. Use the @callback module attribute instead.**
+
 Defines a function callback according to the given type specification.
 
 ### defmacrocallback(spec)
 *(macro)* 
 
-This macro is deprecated. Use the @macrocallback module attribute instead.
+**This macro is deprecated. Use the @macrocallback module attribute instead.**
+
 Defines a macro callback according to the given type specification.
 
 

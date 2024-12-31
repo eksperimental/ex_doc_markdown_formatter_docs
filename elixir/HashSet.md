@@ -21,37 +21,43 @@ This module is deprecated. Use the `MapSet` module instead.
 ### delete(set, term)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### difference(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### disjoint?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### equal?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### intersection(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### member?(hash_set, term)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### new()
@@ -59,37 +65,43 @@ This function is deprecated. Use the MapSet module instead.
 ```elixir
 @spec new() :: Set.t()
 ```
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### put(hash_set, term)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### size(hash_set)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### subset?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### to_list(set)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 ### union(set1, set2)
 
 
-This function is deprecated. Use the MapSet module instead.
+**This function is deprecated. Use the MapSet module instead.**
+
 
 
 

@@ -37,7 +37,8 @@ A module responsible for compiling and requiring files in parallel.
 ### async(fun)
 
 
-This function is deprecated. Use `pmap/2` instead.
+**This function is deprecated. Use `pmap/2` instead.**
+
 Starts a task for parallel compilation.
 
 ### compile(files, options \\ [])

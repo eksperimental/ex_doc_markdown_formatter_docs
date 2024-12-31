@@ -466,7 +466,8 @@ Paths are considered unsafe if either of these is true:
 ```elixir
 @spec safe_relative_to(t(), t()) :: {:ok, binary()} | :error
 ```
-This function is deprecated. Use safe_relative/2 instead.
+**This function is deprecated. Use safe_relative/2 instead.**
+
 Returns a relative path that is protected from directory-traversal attacks.
 
 See `safe_relative/2` for a non-deprecated version of this API.

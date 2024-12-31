@@ -616,7 +616,8 @@ large irrelevant status items that would only clutter the logs.
 @callback format_status(reason, pdict_and_state :: list()) :: term()
 when reason: :normal | :terminate
 ```
-This callback is deprecated. Use format_status/1 callback instead.
+**This callback is deprecated. Use format_status/1 callback instead.**
+
 
 
 ### handle_call(request, from, state)

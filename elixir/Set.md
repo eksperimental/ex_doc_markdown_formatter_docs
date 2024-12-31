@@ -37,73 +37,85 @@ This module is deprecated, use the `MapSet` module instead.
 ### delete(set, value)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### difference(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### disjoint?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### empty(set)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### equal?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### intersection(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### member?(set, value)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### put(set, value)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### size(set)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### subset?(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### to_list(set)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 ### union(set1, set2)
 
 
-This function is deprecated. Use the MapSet module for working with sets.
+**This function is deprecated. Use the MapSet module for working with sets.**
+
 
 
 

@@ -968,7 +968,8 @@ otherwise it returns `false`.
 ### eval_quoted(module_or_env, quoted, binding \\ [], opts \\ [])
 
 
-This function is deprecated. Use Code.eval_quoted/3 instead.
+**This function is deprecated. Use Code.eval_quoted/3 instead.**
+
 
 
 ### get_attribute(module, key, default \\ nil)

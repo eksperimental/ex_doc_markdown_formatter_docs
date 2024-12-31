@@ -355,7 +355,8 @@ time unit: `System.convert_time_unit(1, :second, :native)`.
 ```elixir
 @spec cwd() :: String.t() | nil
 ```
-This function is deprecated. Use File.cwd/0 instead.
+**This function is deprecated. Use File.cwd/0 instead.**
+
 Current working directory.
 
 Returns the current working directory or `nil` if one
@@ -366,7 +367,8 @@ is not available.
 ```elixir
 @spec cwd!() :: String.t()
 ```
-This function is deprecated. Use File.cwd!/0 instead.
+**This function is deprecated. Use File.cwd!/0 instead.**
+
 Current working directory, exception on error.
 
 Returns the current working directory or raises `RuntimeError`.
@@ -482,7 +484,8 @@ is not set, returns the string specified in `default` or
 ```elixir
 @spec get_pid() :: binary()
 ```
-This function is deprecated. Use System.pid/0 instead.
+**This function is deprecated. Use System.pid/0 instead.**
+
 Erlang VM process identifier.
 
 Returns the process identifier of the current Erlang emulator
@@ -717,7 +720,8 @@ It also accepts the following exclusive options:
 ### stacktrace()
 
 
-This function is deprecated. Use __STACKTRACE__ instead.
+**This function is deprecated. Use __STACKTRACE__ instead.**
+
 Deprecated mechanism to retrieve the last exception stacktrace.
 
 It always return an empty list.
